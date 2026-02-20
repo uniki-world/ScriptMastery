@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>తెలుగు పదాలు · Telugu Glossary</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Telugu:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1a1c;
+    --surface: #162226;
+    --surface2: #1e2f34;
+    --border: #2a4048;
+    --gold: #c9a84c;
+    --gold-light: #e8c96d;
+    --teal: #4db6ac;
+    --teal-dim: #2e7d74;
+    --text: #e8e0d0;
+    --text-dim: #8fa8a0;
+    --text-muted: #5a7a72;
+    --accent: #e07b54;
+    --row-even: #19292e;
+    --row-odd: #162226;
+    --row-hover: #1f3840;
+    --sorted-col: rgba(201,168,76,0.06);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #0a1315 0%, #162226 60%, #1a2e30 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 2.4rem 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-inner { max-width: 1400px; margin: 0 auto; position: relative; }
+  .title-telugu {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-size: 1.05rem;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    font-weight: 300;
+    margin-bottom: 0.3rem;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--text);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+  h1 em { color: var(--gold); font-style: italic; }
+  .subtitle {
+    margin-top: 0.6rem;
+    color: var(--text-dim);
+    font-size: 0.875rem;
+    font-style: italic;
+    letter-spacing: 0.04em;
+  }
+  .header-meta {
+    margin-top: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold-light);
+    font-size: 0.78rem;
+    padding: 0.28rem 0.75rem;
+    border-radius: 20px;
+    letter-spacing: 0.06em;
+    font-family: 'Libre Baskerville', serif;
+  }
+  .ornament {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 5rem;
+    opacity: 0.06;
+    font-family: 'Noto Sans Telugu', sans-serif;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  /* ── CONTROLS BAR ── */
+  .controls-bar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .controls-bar-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 220px;
+    max-width: 380px;
+  }
+  .search-wrap svg {
+    position: absolute;
+    left: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px; height: 15px;
+    stroke: var(--text-muted);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+  #search {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.88rem;
+    padding: 0.6rem 0.9rem 0.6rem 2.4rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  #search:focus { border-color: var(--teal); }
+  #search::placeholder { color: var(--text-muted); }
+
+  .filter-select {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.85rem;
+    padding: 0.6rem 0.9rem;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    min-width: 120px;
+  }
+  .filter-select:focus { border-color: var(--teal); }
+
+  .count-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    font-style: italic;
+  }
+  .count-label span { color: var(--teal); font-style: normal; }
+
+  .config-btn {
+    margin-left: auto;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-dim);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.82rem;
+    padding: 0.55rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .config-btn:hover { border-color: var(--gold); color: var(--gold-light); }
+  .config-btn svg { width: 14px; height: 14px; fill: currentColor; }
+
+  /* ── TABLE CONTAINER ── */
+  .table-outer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.5rem 2.5rem 3rem;
+  }
+  .table-wrap {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: clip;
+    box-shadow: 0 4px 40px rgba(0,0,0,0.4);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  /* ── THEAD ── */
+  thead { background: #0d1e22; }
+  th.stuck { box-shadow: 0 3px 10px rgba(0,0,0,0.6); }
+  th {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: #0d1e22;
+    padding: 1rem 1.1rem;
+    text-align: left;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+    user-select: none;
+  }
+  th.sortable { cursor: pointer; padding-right: 1.8rem; }
+  th.sortable:hover { color: var(--gold-light); }
+  th.sort-asc, th.sort-desc { color: var(--gold); }
+  .sort-icon {
+    position: absolute;
+    right: 0.6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    opacity: 0.3;
+  }
+  th.sort-asc .sort-icon, th.sort-desc .sort-icon { opacity: 1; }
+  .sort-icon span {
+    display: block;
+    width: 0; height: 0;
+    border-style: solid;
+  }
+  .sort-icon .up { border-width: 0 4px 5px 4px; border-color: transparent transparent var(--gold) transparent; }
+  .sort-icon .dn { border-width: 5px 4px 0 4px; border-color: var(--gold) transparent transparent transparent; }
+  th.sort-asc .sort-icon .up { opacity: 1; }
+  th.sort-asc .sort-icon .dn { opacity: 0.25; }
+  th.sort-desc .sort-icon .up { opacity: 0.25; }
+  th.sort-desc .sort-icon .dn { opacity: 1; }
+  th.sorted-col { background: var(--sorted-col); }
+
+  /* ── TBODY ── */
+  tr.data-row:nth-child(even) { background: var(--row-even); }
+  tr.data-row:nth-child(odd) { background: var(--row-odd); }
+  tr.data-row:hover { background: var(--row-hover); }
+  tr.data-row td { border-bottom: 1px solid rgba(42,64,72,0.5); }
+  tr.data-row:last-child td { border-bottom: none; }
+
+  td {
+    padding: 0.72rem 1.1rem;
+    vertical-align: middle;
+    line-height: 1.4;
+  }
+
+  /* col specific */
+  .col-section {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-size: 1.15rem;
+    color: var(--gold);
+    font-weight: 600;
+    min-width: 80px;
+  }
+  .col-telugu {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text);
+    font-weight: 400;
+    min-width: 160px;
+  }
+  .col-pronun { min-width: 110px; }
+  .col-translit {
+    font-style: italic;
+    color: var(--teal);
+    font-size: 0.875rem;
+    min-width: 170px;
+    font-family: 'Libre Baskerville', serif;
+  }
+  .col-meaning {
+    color: var(--text-dim);
+    font-size: 0.875rem;
+    max-width: 260px;
+  }
+
+  /* sorted column bg */
+  .sorted-col { background: var(--sorted-col); }
+
+  /* ── AUDIO BUTTON ── */
+  .play-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    background: transparent;
+    border: 1.5px solid var(--teal-dim);
+    border-radius: 50%;
+    color: var(--teal);
+    cursor: pointer;
+    transition: all 0.18s;
+    padding: 0;
+    flex-shrink: 0;
+  }
+  .play-btn svg {
+    width: 15px;
+    height: 15px;
+    display: block;
+  }
+  .play-btn:hover:not(:disabled) {
+    background: var(--teal-dim);
+    border-color: var(--teal);
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 2px 12px rgba(77,182,172,0.3);
+  }
+  .play-btn.playing {
+    background: var(--teal-dim);
+    border-color: var(--teal);
+    color: #fff;
+    animation: pulse-teal 1.4s ease infinite;
+  }
+  .play-btn.loading {
+    opacity: 0.7;
+    cursor: default;
+    border-color: var(--text-muted);
+    color: var(--text-muted);
+  }
+  .play-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  @keyframes pulse-teal {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(77,182,172,0.4); }
+    50% { box-shadow: 0 0 0 6px rgba(77,182,172,0); }
+  }
+
+  .not-configured {
+    color: var(--text-muted);
+    font-size: 0.73rem;
+    font-style: italic;
+  }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 560px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    animation: slideUp 0.25s ease;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .modal-header {
+    padding: 1.4rem 1.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--text);
+  }
+  .modal-title small {
+    display: block;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 0.2rem;
+    font-weight: 400;
+  }
+  .modal-close {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.4rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 0.2rem;
+    transition: color 0.15s;
+  }
+  .modal-close:hover { color: var(--text); }
+  .modal-body { padding: 1.4rem 1.6rem; }
+
+  .field-group { margin-bottom: 1.4rem; }
+  .field-label {
+    display: block;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.45rem;
+  }
+  .field-input {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.85rem;
+    padding: 0.65rem 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .field-input:focus { border-color: var(--teal); }
+  .field-hint {
+    margin-top: 0.45rem;
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .field-hint a { color: var(--teal); text-decoration: none; }
+  .field-hint code {
+    background: var(--surface2);
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+    font-size: 0.85em;
+    color: var(--teal);
+    font-family: 'Courier New', monospace;
+    font-style: normal;
+  }
+
+  .info-box {
+    background: rgba(201,168,76,0.07);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    font-size: 0.81rem;
+    color: var(--text-dim);
+    line-height: 1.65;
+    margin-bottom: 1.4rem;
+  }
+  .info-box strong { color: var(--gold-light); }
+
+  .modal-footer {
+    padding: 1rem 1.6rem 1.4rem;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+  }
+  .btn-secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-dim);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.85rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-secondary:hover { border-color: var(--text-muted); color: var(--text); }
+  .btn-primary {
+    background: var(--teal-dim);
+    border: 1px solid var(--teal);
+    border-radius: 6px;
+    color: #fff;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.85rem;
+    padding: 0.6rem 1.4rem;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-primary:hover { background: var(--teal); }
+
+  /* ── EMPTY STATE ── */
+  .empty-row td {
+    text-align: center;
+    padding: 3.5rem 1rem;
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.9rem;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 7px; height: 7px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--teal-dim); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    header { padding: 1.5rem 1.2rem; }
+    .controls-bar { padding: 0.8rem 1.2rem; }
+    .table-outer { padding: 1rem 0.8rem 2rem; }
+    td, th { padding: 0.65rem 0.7rem; }
+    .ornament { display: none; }
+  }
+
+  /* highlight on search */
+  mark {
+    background: rgba(201,168,76,0.28);
+    color: inherit;
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="title-telugu">ఉదాహరణగా వాడిన తెలుగు పదాలు</div>
+    <h1>Telugu Words &amp; <em>Meanings</em></h1>
+    <p class="subtitle">Roman transliteration, English meanings &amp; pronunciation — from the Uniki Learning Series</p>
+    <div class="header-meta">
+      <span class="badge" id="total-badge">448 entries</span>
+      <span class="badge">Pages 51–58</span>
+      <span class="badge">Uniki</span>
+    </div>
+  </div>
+  <div class="ornament">తె</div>
+</header>
+
+<!-- CONTROLS -->
+<div class="controls-bar">
+  <div class="controls-bar-inner">
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="search" placeholder="Search words, meanings, transliterations…" autocomplete="off">
+    </div>
+    <select class="filter-select" id="section-filter">
+      <option value="">All Vargas</option>
+    </select>
+    <span class="count-label">Showing <span id="shown-count">448</span> of <span id="total-count">448</span></span>
+    <button class="config-btn" onclick="openModal()">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      Configure Audio
+    </button>
+  </div>
+</div>
+
+<!-- TABLE -->
+<div class="table-outer">
+  <div class="table-wrap">
+    <table id="glossary-table">
+      <thead>
+        <tr>
+          <th class="sortable" data-col="0" id="th-section">
+            Section
+            <span class="sort-icon"><span class="up"></span><span class="dn"></span></span>
+          </th>
+          <th class="sortable" data-col="1" id="th-telugu">
+            Telugu Word
+            <span class="sort-icon"><span class="up"></span><span class="dn"></span></span>
+          </th>
+          <th id="th-pronun">Pronunciation</th>
+          <th>English Transliteration</th>
+          <th>English Meaning</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- CONFIG MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">
+        Configure Audio Pronunciation
+        <small>Link MP3 files from your Google Drive folder</small>
+      </div>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body">
+
+      <div class="info-box">
+        <strong>How it works:</strong><br>
+        Name your MP3 files using the <strong>English Transliteration</strong> for each word
+        (e.g. <code>kukka.mp3</code>, <code>dEham.mp3</code>). Upload them to a shared Google Drive folder,
+        then paste the <strong>Google Drive Folder ID</strong> below.<br><br>
+        To get a direct streamable link for Google Drive files, each file must be
+        <strong>shared publicly</strong> ("Anyone with the link → Viewer"). The system will construct
+        links as: <code>https://drive.google.com/uc?export=download&amp;id={FILE_ID}</code>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label" for="gdrive-folder">Google Drive Folder ID</label>
+        <input class="field-input" type="text" id="gdrive-folder"
+               placeholder="e.g. 1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs"
+               value="">
+        <p class="field-hint">
+          Found in your Google Drive folder URL:<br>
+          <code>drive.google.com/drive/folders/<strong>[FOLDER-ID]</strong></code><br>
+          Note: Individual file IDs are needed for direct playback. Use the Base URL option below for simpler hosting.
+        </p>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label" for="base-url">— OR — Audio Base URL (any hosting)</label>
+        <input class="field-input" type="text" id="base-url"
+               placeholder="https://your-server.com/audio/"
+               value="">
+        <p class="field-hint">
+          Files should be named <code>{transliteration}.mp3</code> (e.g. <code>kukka.mp3</code>).<br>
+          The app will try loading <code>[base-url]{transliteration}.mp3</code> for each word.
+          This works best with web-hosted files or a static server.
+        </p>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label" for="gdrive-ids">Google Drive File ID Map (JSON)</label>
+        <textarea class="field-input" id="gdrive-ids" rows="5"
+                  placeholder='{"kukka": "1abc...XYZ", "dEham": "2def...ABC", ...}'
+                  style="resize:vertical; line-height:1.5; font-family: monospace; font-size: 0.8rem;"></textarea>
+        <p class="field-hint">
+          Paste a JSON map of <code>"transliteration": "google-drive-file-id"</code>.
+          Get each file's ID from its shareable link:
+          <code>drive.google.com/file/d/<strong>[FILE-ID]</strong>/view</code>
+        </p>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn-primary" onclick="saveConfig()">Save &amp; Apply</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────────────────────
+const RAW_DATA = [
+  {"section":"లీ","telugu":"లీటరు","transliteration":"leeTaru","meaning":"Litre"},
+  {"section":"లీ","telugu":"విలీనం","transliteration":"vileenam","meaning":"Merge"},
+  {"section":"లీ","telugu":"లీలలు","transliteration":"leelalu","meaning":"Divine plays"},
+  {"section":"లీ","telugu":"చాలీ-చాలని","transliteration":"chAlee-chAlani","meaning":"Insufficient"},
+  {"section":"లీ","telugu":"లీచి","transliteration":"leechee","meaning":"Lychee (a fruit)"},
+  {"section":"ను","telugu":"నురగ","transliteration":"nuraga","meaning":"Froth"},
+  {"section":"ను","telugu":"నుదురు","transliteration":"nuduru","meaning":"Forehead"},
+  {"section":"ను","telugu":"నుడి","transliteration":"nuDi","meaning":"Speech"},
+  {"section":"ను","telugu":"కానుక","transliteration":"kAnuka","meaning":"Gift"},
+  {"section":"ను","telugu":"ఏనుగు","transliteration":"Enugu","meaning":"Elephant"},
+  {"section":"దు","telugu":"దుమ్ము","transliteration":"dummu","meaning":"Dust"},
+  {"section":"దు","telugu":"దుకాణం","transliteration":"dukANam","meaning":"Store"},
+  {"section":"దు","telugu":"దువ్వెన","transliteration":"duvvena","meaning":"Comb"},
+  {"section":"దు","telugu":"కాడు","transliteration":"kAdu","meaning":"No"},
+  {"section":"దు","telugu":"నదులు","transliteration":"nadulu","meaning":"Rivers"},
+  {"section":"దు","telugu":"ముందు","transliteration":"mundu","meaning":"Front"},
+  {"section":"కు","telugu":"కుక్క","transliteration":"kukka","meaning":"Dog"},
+  {"section":"కు","telugu":"కుబేరుడు","transliteration":"kubEruDu","meaning":"Affluent person"},
+  {"section":"కు","telugu":"కుండేలు","transliteration":"kundElu","meaning":"Rabbit"},
+  {"section":"కు","telugu":"రేకు","transliteration":"rEku","meaning":"A thin metal sheet"},
+  {"section":"కు","telugu":"మేకు","transliteration":"mEku","meaning":"Nail"},
+  {"section":"కు","telugu":"చాకు","transliteration":"chaaku","meaning":"Knife"},
+  {"section":"లు","telugu":"మేలు","transliteration":"mElu","meaning":"Good, Superior"},
+  {"section":"లు","telugu":"నాలుక","transliteration":"nAluka","meaning":"Tongue"},
+  {"section":"ఎ","telugu":"ఎలుక","transliteration":"eluka","meaning":"Mouse"},
+  {"section":"ఎ","telugu":"అలుక","transliteration":"aluka","meaning":"Mild Displeasure"},
+  {"section":"ఎ","telugu":"నదులు","transliteration":"nadulu","meaning":"Rivers"},
+  {"section":"ఎ","telugu":"చీమలు","transliteration":"cheemalu","meaning":"Ants"},
+  {"section":"నూ","telugu":"నూకలు","transliteration":"nUkalu","meaning":"Broken Rice"},
+  {"section":"నూ","telugu":"నూతి","transliteration":"nooti","meaning":"Well"},
+  {"section":"నూ","telugu":"నూలు","transliteration":"nUlu","meaning":"Cotton yarn"},
+  {"section":"నూ","telugu":"నూరు","transliteration":"nooru","meaning":"Hundred"},
+  {"section":"నూ","telugu":"నూరడం","transliteration":"nUraDam","meaning":"Grinding"},
+  {"section":"దూ","telugu":"దూరం","transliteration":"dUram","meaning":"Distance"},
+  {"section":"దూ","telugu":"దూలం","transliteration":"doolam","meaning":"Wooden/Metal beam"},
+  {"section":"దూ","telugu":"దూత","transliteration":"dUta","meaning":"Messenger"},
+  {"section":"దూ","telugu":"దూది","transliteration":"dUdi","meaning":"Cotton"},
+  {"section":"దూ","telugu":"దూకు","transliteration":"dooku","meaning":"Jump"},
+  {"section":"కూ","telugu":"కూర","transliteration":"kUra","meaning":"Curry"},
+  {"section":"కూ","telugu":"కూజా","transliteration":"koojA","meaning":"A clay pot with long neck"},
+  {"section":"కూ","telugu":"కూటమి","transliteration":"kUTami","meaning":"Alliance"},
+  {"section":"కూ","telugu":"కూలి","transliteration":"kUli","meaning":"Wage/Labourer"},
+  {"section":"కూ","telugu":"కూడు","transliteration":"kooDu","meaning":"Food"},
+  {"section":"లూ","telugu":"లూటీ","transliteration":"lUTI","meaning":"Loot"},
+  {"section":"లూ","telugu":"భల్లూకం","transliteration":"bhallUkam","meaning":"Bear"},
+  {"section":"లూ","telugu":"పెచ్చులూడటం","transliteration":"pechchulUDaTam","meaning":"Scalding"},
+  {"section":"నో","telugu":"వనం","transliteration":"vanam","meaning":"Forest"},
+  {"section":"నో","telugu":"నంది","transliteration":"nandi","meaning":"Sacred bull"},
+  {"section":"నో","telugu":"భోజనం","transliteration":"bhOjanam","meaning":"Meal"},
+  {"section":"నో","telugu":"నందాయల","transliteration":"nandyAla","meaning":"A town's name"},
+  {"section":"నో","telugu":"జీవనం","transliteration":"jeevanam","meaning":"Living"},
+  {"section":"దం","telugu":"దండ","transliteration":"daNDa","meaning":"Garland"},
+  {"section":"దం","telugu":"దండి","transliteration":"daNDi","meaning":"Abundance"},
+  {"section":"దం","telugu":"అందం","transliteration":"andam","meaning":"Beauty"},
+  {"section":"దం","telugu":"పాదం","transliteration":"paadam","meaning":"Foot"},
+  {"section":"దం","telugu":"దంతం","transliteration":"dantam","meaning":"Tooth"},
+  {"section":"కం","telugu":"కంచు","transliteration":"kanchu","meaning":"Bronze"},
+  {"section":"కం","telugu":"కంపు","transliteration":"kampu","meaning":"Stink"},
+  {"section":"కం","telugu":"కండ","transliteration":"kaNDa","meaning":"Muscle"},
+  {"section":"కం","telugu":"కంఠం","transliteration":"kanTham","meaning":"Throat"},
+  {"section":"కం","telugu":"కీటకం","transliteration":"kITakam","meaning":"Insect"},
+  {"section":"లం","telugu":"లంగరు","transliteration":"langaru","meaning":"Anchor"},
+  {"section":"లం","telugu":"లంచం","transliteration":"lancham","meaning":"Bribe"},
+  {"section":"లం","telugu":"జలం","transliteration":"jalam","meaning":"Water"},
+  {"section":"లం","telugu":"పొలం","transliteration":"polam","meaning":"Cultivated field"},
+  {"section":"లం","telugu":"బలం","transliteration":"balam","meaning":"Strength"},
+  {"section":"నే","telugu":"నేల","transliteration":"nEla","meaning":"Floor"},
+  {"section":"నే","telugu":"నేను","transliteration":"nEnu","meaning":"I"},
+  {"section":"నే","telugu":"నేతి","transliteration":"nEti","meaning":"Indian butter, Ghee"},
+  {"section":"నే","telugu":"నేటి","transliteration":"nETi","meaning":"Today's"},
+  {"section":"నే","telugu":"నేరేడు","transliteration":"nErEDu","meaning":"Indian berry"},
+  {"section":"దే","telugu":"దేహం","transliteration":"dEham","meaning":"Body"},
+  {"section":"దే","telugu":"దేశం","transliteration":"dEsham","meaning":"Country"},
+  {"section":"దే","telugu":"దేవత","transliteration":"dEvata","meaning":"Goddess"},
+  {"section":"దే","telugu":"దేనికి","transliteration":"dEniki","meaning":"For what"},
+  {"section":"దే","telugu":"సందేశం","transliteration":"sandEsham","meaning":"Message"},
+  {"section":"కే","telugu":"కేక","transliteration":"kEka","meaning":"Shout"},
+  {"section":"కే","telugu":"కేశాలు","transliteration":"kEshAlu","meaning":"Hair"},
+  {"section":"కే","telugu":"కేవలం","transliteration":"kEvalam","meaning":"Just"},
+  {"section":"కే","telugu":"కేరింత","transliteration":"kErinta","meaning":"High-pitched scream of joy"},
+  {"section":"కే","telugu":"కేతువు","transliteration":"kEtuvu","meaning":"A Mythological entity"},
+  {"section":"లే","telugu":"లేత","transliteration":"lEta","meaning":"Tender"},
+  {"section":"లే","telugu":"లేగదూడ","transliteration":"lEgadUDa","meaning":"Calf"},
+  {"section":"లే","telugu":"జిలేబి","transliteration":"jilEbi","meaning":"A dessert"},
+  {"section":"లే","telugu":"లేపనం","transliteration":"lEpanam","meaning":"Paste (ointment/balm)"},
+  {"section":"లే","telugu":"లేపు","transliteration":"lEpu","meaning":"Lift"},
+  {"section":"నో","telugu":"నోరు","transliteration":"nOru","meaning":"Mouth"},
+  {"section":"నో","telugu":"నోము","transliteration":"nOmu","meaning":"A religious vow"},
+  {"section":"నో","telugu":"నోటిమాట","transliteration":"nOTimATa","meaning":"Word of mouth"},
+  {"section":"నో","telugu":"వినోదం","transliteration":"vinOdam","meaning":"Entertainment"},
+  {"section":"నో","telugu":"నోటు","transliteration":"nOTu","meaning":"Currency note"},
+  {"section":"దో","telugu":"దోమ","transliteration":"dOma","meaning":"Mosquito"},
+  {"section":"దో","telugu":"దోష","transliteration":"dOsha","meaning":"Pan cake"},
+  {"section":"దో","telugu":"దోపిడి","transliteration":"dOpiDi","meaning":"Loot, Looting"},
+  {"section":"దో","telugu":"దోషం","transliteration":"dOSham","meaning":"Fault"},
+  {"section":"దో","telugu":"దోసకాయ","transliteration":"dOsakAya","meaning":"Cucumber"},
+  {"section":"కో","telugu":"కోడి","transliteration":"kODi","meaning":"Hen"},
+  {"section":"కో","telugu":"పకోడీ","transliteration":"pakODI","meaning":"A snack"},
+  {"section":"కో","telugu":"కోతి","transliteration":"kOti","meaning":"Monkey"},
+  {"section":"కో","telugu":"కోకిల","transliteration":"kOkila","meaning":"Cuckoo"},
+  {"section":"కో","telugu":"కోపము","transliteration":"kOpamu","meaning":"Anger"},
+  {"section":"లో","telugu":"లోకం","transliteration":"lOkam","meaning":"World"},
+  {"section":"లో","telugu":"లోతు","transliteration":"lOtu","meaning":"Depth"},
+  {"section":"లో","telugu":"ఆలోచన","transliteration":"AlOchana","meaning":"Thought"},
+  {"section":"లో","telugu":"లోహం","transliteration":"lOham","meaning":"Metal"},
+  {"section":"లో","telugu":"లోభి","transliteration":"lObhi","meaning":"Miser"},
+  {"section":"నె","telugu":"నెల","transliteration":"nela","meaning":"Month"},
+  {"section":"నె","telugu":"నెమలి","transliteration":"nemali","meaning":"Peacock"},
+  {"section":"నె","telugu":"నూనె","transliteration":"nUne","meaning":"Oil"},
+  {"section":"నె","telugu":"నెలవంక","transliteration":"nelavanka","meaning":"Crescent Moon"},
+  {"section":"నె","telugu":"నెమ్మది","transliteration":"nemmadi","meaning":"Slow, Gentle"},
+  {"section":"గే","telugu":"గేదె","transliteration":"gEde","meaning":"Buffalo"},
+  {"section":"గే","telugu":"కందెన","transliteration":"kandena","meaning":"Lubricant"},
+  {"section":"గే","telugu":"గాడె","transliteration":"gAde","meaning":"Granary"},
+  {"section":"గే","telugu":"బిందె","transliteration":"binde","meaning":"A large metal pot for water storage"},
+  {"section":"గే","telugu":"దెబ్బ","transliteration":"debba","meaning":"Injury"},
+  {"section":"కె","telugu":"కెరటం","transliteration":"keraTam","meaning":"Wave"},
+  {"section":"కె","telugu":"కెలుకు","transliteration":"keluku","meaning":"Stir up"},
+  {"section":"కె","telugu":"కెంజాయ","transliteration":"kenjAya","meaning":"Red"},
+  {"section":"కె","telugu":"కెంపు","transliteration":"kempu","meaning":"Ruby"},
+  {"section":"కె","telugu":"చిటికెడు","transliteration":"chiTikeDu","meaning":"A pinch of something"},
+  {"section":"నొ","telugu":"నొసలు","transliteration":"nosalu","meaning":"Forehead"},
+  {"section":"నొ","telugu":"నొక్కు","transliteration":"nokku","meaning":"Press"},
+  {"section":"నొ","telugu":"నొప్పి","transliteration":"noppi","meaning":"Pain"},
+  {"section":"దొ","telugu":"దొంగ","transliteration":"donga","meaning":"Thief"},
+  {"section":"దొ","telugu":"దొర","transliteration":"dora","meaning":"Master"},
+  {"section":"దొ","telugu":"దొండ","transliteration":"doNDa","meaning":"Ivy gourd (a vegetable)"},
+  {"section":"దొ","telugu":"దొరుకు","transliteration":"doruku","meaning":"Found"},
+  {"section":"దొ","telugu":"దొడ్డ","transliteration":"doDDa","meaning":"Noble"},
+  {"section":"కొ","telugu":"కొంగ","transliteration":"konga","meaning":"Crane"},
+  {"section":"కొ","telugu":"కొత్త","transliteration":"kotta","meaning":"New"},
+  {"section":"కొ","telugu":"కొండ","transliteration":"koNDa","meaning":"Hill"},
+  {"section":"కొ","telugu":"కొడవలి","transliteration":"koDavali","meaning":"Sickle"},
+  {"section":"కొ","telugu":"కొలికి","transliteration":"koliki","meaning":"The inner corner of the eye"},
+  {"section":"మ","telugu":"లొట్టిపిట్ట","transliteration":"loTTipiTTa","meaning":"Camel"},
+  {"section":"మ","telugu":"లొట్టి (ముంత)","transliteration":"loTTi (munta)","meaning":"A pot/jug made of clay"},
+  {"section":"మ","telugu":"లొత్త","transliteration":"lotta","meaning":"Ditch"},
+  {"section":"మ","telugu":"మంచు","transliteration":"manchu","meaning":"Snow"},
+  {"section":"మ","telugu":"మామిడి","transliteration":"mAmiDi","meaning":"Mango"},
+  {"section":"మ","telugu":"మిదత","transliteration":"miData","meaning":"Locust"},
+  {"section":"మ","telugu":"మీసం","transliteration":"meesam","meaning":"Mustache"},
+  {"section":"మ","telugu":"ముక్కు","transliteration":"mukku","meaning":"Nose"},
+  {"section":"మూ","telugu":"మూతి","transliteration":"mUti","meaning":"Mouth"},
+  {"section":"మం","telugu":"మంట","transliteration":"maNTa","meaning":"Fire"},
+  {"section":"మె","telugu":"మెదడు","transliteration":"medaDu","meaning":"Brain"},
+  {"section":"మే","telugu":"మేక","transliteration":"mEka","meaning":"Goat"},
+  {"section":"మొ","telugu":"మొక్క","transliteration":"mokka","meaning":"Plant"},
+  {"section":"మో","telugu":"మోసం","transliteration":"mOsam","meaning":"Cheat"},
+  {"section":"చ","telugu":"చలి","transliteration":"chali","meaning":"Cold"},
+  {"section":"చా","telugu":"చాలు","transliteration":"chaalu","meaning":"Enough"},
+  {"section":"చి","telugu":"చినుకు","transliteration":"chinuku","meaning":"Rain drop"},
+  {"section":"చీ","telugu":"చీమ","transliteration":"chIma","meaning":"Ant"},
+  {"section":"చు","telugu":"చురక","transliteration":"churaka","meaning":"Burning sensation"},
+  {"section":"చూ","telugu":"చూడు","transliteration":"chUDu","meaning":"Look"},
+  {"section":"చం","telugu":"చందనం","transliteration":"chandanam","meaning":"Sandalwood"},
+  {"section":"చె","telugu":"చెదలు","transliteration":"chedalu","meaning":"Termite"},
+  {"section":"చే","telugu":"చేప","transliteration":"chEpa","meaning":"Fish"},
+  {"section":"చొ","telugu":"చొప్ప","transliteration":"choppa","meaning":"Corn/Maize stalk"},
+  {"section":"చో","telugu":"చోటు","transliteration":"chOTu","meaning":"Place"},
+  {"section":"గ","telugu":"గడ్డి","transliteration":"gaDDi","meaning":"Grass"},
+  {"section":"చె","telugu":"చెడ్డ","transliteration":"cheDDa","meaning":"Bad"},
+  {"section":"గ","telugu":"దగ్గు","transliteration":"daggu","meaning":"Cough"},
+  {"section":"మ","telugu":"మగ్గు","transliteration":"maggu","meaning":"Ripen"},
+  {"section":"మ","telugu":"ముగ్గు","transliteration":"muggu","meaning":"Rangoli"},
+  {"section":"గ","telugu":"గడ్డం","transliteration":"gaDDam","meaning":"Beard"},
+  {"section":"తె","telugu":"తెడ్డు","transliteration":"teDDu","meaning":"Paddle"},
+  {"section":"గు","telugu":"గుడ్డి","transliteration":"guDDi","meaning":"Blind"},
+  {"section":"క","telugu":"కడ్డి","transliteration":"kaDDi","meaning":"Rod"},
+  {"section":"మ","telugu":"మడ్డి","transliteration":"maDDi","meaning":"Sediment"},
+  {"section":"దొ","telugu":"దొడ్డ","transliteration":"doDDa","meaning":"Noble"},
+  {"section":"త","telugu":"తగ్గు","transliteration":"taggu","meaning":"Go down"},
+  {"section":"ని","telugu":"నిగ్గు","transliteration":"niggu","meaning":"Fact"},
+  {"section":"మ","telugu":"మగ్గం","transliteration":"maggam","meaning":"Loom"},
+  {"section":"ము","telugu":"ముద్ద","transliteration":"mudda","meaning":"Lump"},
+  {"section":"మొ","telugu":"మొద్దు","transliteration":"moddu","meaning":"Dumb/Log"},
+  {"section":"కొ","telugu":"కొడిగా","transliteration":"koddigA","meaning":"Little"},
+  {"section":"మ","telugu":"మచ్చ","transliteration":"machcha","meaning":"Scar"},
+  {"section":"గి","telugu":"గిచ్చు","transliteration":"gichchu","meaning":"Pinch"},
+  {"section":"కు","telugu":"కుచ్చు","transliteration":"kuchchu","meaning":"Tassle"},
+  {"section":"మ","telugu":"మద్దెల","transliteration":"maddela","meaning":"A percussion instrument"},
+  {"section":"గి","telugu":"గిత్త","transliteration":"gitta","meaning":"Young bull"},
+  {"section":"చ","telugu":"చద్ది","transliteration":"chaddi","meaning":"Stale"},
+  {"section":"దు","telugu":"దుద్దులు","transliteration":"duddulu","meaning":"Ear rings"},
+  {"section":"గ","telugu":"గమ్ము","transliteration":"gacchu","meaning":"Floor"},
+  {"section":"ని","telugu":"నిచ్చెన","transliteration":"nicchena","meaning":"Ladder"},
+  {"section":"మ","telugu":"మచ్చిక","transliteration":"macchika","meaning":"Tame"},
+  {"section":"ని","telugu":"నిజం","transliteration":"nijam","meaning":"Truth"},
+  {"section":"గా","telugu":"గాజు","transliteration":"gaaju","meaning":"Glass"},
+  {"section":"కా","telugu":"కాజా","transliteration":"kAjA","meaning":"Button Hole / a dessert"},
+  {"section":"జ","telugu":"జలం","transliteration":"jalam","meaning":"Water"},
+  {"section":"జ","telugu":"జలగ","transliteration":"jalaga","meaning":"Leech"},
+  {"section":"జె","telugu":"జెడ","transliteration":"jeDa","meaning":"Braid"},
+  {"section":"గ","telugu":"గజం","transliteration":"gajam","meaning":"Foot"},
+  {"section":"గ","telugu":"గజ్జ","transliteration":"gajja","meaning":"Groin"},
+  {"section":"గ","telugu":"గజ్జె","transliteration":"gajje","meaning":"Anklet bell"},
+  {"section":"మ","telugu":"మజ్జ","transliteration":"majja","meaning":"Bone marrow"},
+  {"section":"ల","telugu":"లజ్జ","transliteration":"lajja","meaning":"Shame"},
+  {"section":"గ","telugu":"గజ్జి","transliteration":"gajji","meaning":"Scabies"},
+  {"section":"గు","telugu":"గుజ్జు","transliteration":"gujju","meaning":"Pulp"},
+  {"section":"మ","telugu":"మజ్జిగ","transliteration":"majjiga","meaning":"Buttermilk"},
+  {"section":"నా","telugu":"నాటు","transliteration":"naaTu","meaning":"Plant"},
+  {"section":"దా","telugu":"దాటు","transliteration":"daaTu","meaning":"Cross"},
+  {"section":"కీ","telugu":"కీటకం","transliteration":"keeTakam","meaning":"Insect"},
+  {"section":"లో","telugu":"లోటా","transliteration":"lOTA","meaning":"Pitcher"},
+  {"section":"చా","telugu":"చాట","transliteration":"chaaTa","meaning":"Winnowing tray"},
+  {"section":"గం","telugu":"గంట","transliteration":"gaNTa","meaning":"Bell"},
+  {"section":"న","telugu":"నట్ట","transliteration":"naTTa","meaning":"Worm"},
+  {"section":"డ","telugu":"దట్టం","transliteration":"daTTam","meaning":"Dense"},
+  {"section":"క","telugu":"కట్టె","transliteration":"kaTTe","meaning":"Stick"},
+  {"section":"లొ","telugu":"లొట్ట","transliteration":"loTTa","meaning":"Dent"},
+  {"section":"మ","telugu":"మట్టి","transliteration":"maTTi","meaning":"Soil"},
+  {"section":"చు","telugu":"చుట్ట","transliteration":"chuTTa","meaning":"Roll"},
+  {"section":"గ","telugu":"గట్టు","transliteration":"gaTTu","meaning":"Shore"},
+  {"section":"బో","telugu":"బోనం","transliteration":"bOnam","meaning":"An Offering"},
+  {"section":"బా","telugu":"బాదాం","transliteration":"bAdAm","meaning":"Almond"},
+  {"section":"బా","telugu":"బాకు","transliteration":"bAku","meaning":"Dagger"},
+  {"section":"బ","telugu":"బలం","transliteration":"balam","meaning":"Strength"},
+  {"section":"మ","telugu":"మబ్బు","transliteration":"mabbu","meaning":"Cloud"},
+  {"section":"బూ","telugu":"బూచి","transliteration":"bUchi","meaning":"Ghost"},
+  {"section":"బా","telugu":"బాడుగ","transliteration":"bADuga","meaning":"Rent"},
+  {"section":"బొ","telugu":"బొంగరము","transliteration":"bongaramu","meaning":"A top"},
+  {"section":"దె","telugu":"దెబ్బ","transliteration":"debba","meaning":"Stroke"},
+  {"section":"డ","telugu":"దబ్బనం","transliteration":"dabbaNam","meaning":"Bodkin"},
+  {"section":"కొ","telugu":"కొబ్బరి","transliteration":"kobbari","meaning":"Coconut meat"},
+  {"section":"డ","telugu":"డబ్బు","transliteration":"Dabbu","meaning":"Money"},
+  {"section":"గ","telugu":"గబ్బు","transliteration":"gabbu","meaning":"Foul odor"},
+  {"section":"ప","telugu":"పని","transliteration":"pani","meaning":"Work"},
+  {"section":"పొ","telugu":"పొద","transliteration":"poda","meaning":"Bush"},
+  {"section":"క","telugu":"కప్ప","transliteration":"kappa","meaning":"Frog"},
+  {"section":"ప","telugu":"పల్లె","transliteration":"palle","meaning":"Hamlet"},
+  {"section":"పా","telugu":"పాము","transliteration":"paamu","meaning":"Snake"},
+  {"section":"ప","telugu":"పచ్చి","transliteration":"pacchi","meaning":"Raw"},
+  {"section":"ప","telugu":"పండు","transliteration":"paNDu","meaning":"Ripe"},
+  {"section":"పో","telugu":"పోగ","transliteration":"poga","meaning":"Smoke"},
+  {"section":"నొ","telugu":"నొప్పి","transliteration":"noppi","meaning":"Pain"},
+  {"section":"డ","telugu":"దప్పిక","transliteration":"dappika","meaning":"Thirst"},
+  {"section":"ప","telugu":"పప్పు","transliteration":"pappu","meaning":"Lentils"},
+  {"section":"చ","telugu":"చప్పగా","transliteration":"chappagA","meaning":"Bland"},
+  {"section":"డ","telugu":"డప్పు","transliteration":"Dappu","meaning":"A musical drum"},
+  {"section":"గొ","telugu":"గొప్ప","transliteration":"goppa","meaning":"Grand"},
+  {"section":"అ","telugu":"అమ్మ","transliteration":"amma","meaning":"Mother"},
+  {"section":"ది","telugu":"దిమ్మ","transliteration":"dimma","meaning":"Dizziness, Giddiness"},
+  {"section":"కొ","telugu":"కొమ్మ(లు)","transliteration":"komma(lu)","meaning":"Branch(es)"},
+  {"section":"బ","telugu":"బక్కగా","transliteration":"bakkagA","meaning":"Skinny"},
+  {"section":"చి","telugu":"చిక్కగా","transliteration":"chikkagA","meaning":"Thick"},
+  {"section":"రై","telugu":"రైతు","transliteration":"raitu","meaning":"Farmer"},
+  {"section":"పై","telugu":"పైరు","transliteration":"pairu","meaning":"Crop"},
+  {"section":"పై","telugu":"పైట","transliteration":"paiTa","meaning":"Draped fabric"},
+  {"section":"మై","telugu":"మైకం","transliteration":"maikam","meaning":"Intoxication"},
+  {"section":"నా","telugu":"నావుక","transliteration":"nauka","meaning":"Ship"},
+  {"section":"చౌ","telugu":"చౌక","transliteration":"chauka","meaning":"Cheap"},
+  {"section":"తౌ","telugu":"తౌతు","transliteration":"Rautu","meaning":"Jockey"},
+  {"section":"మౌ","telugu":"మౌనం","transliteration":"maunam","meaning":"Silent"},
+  {"section":"గౌ","telugu":"గౌరవం","transliteration":"gauravam","meaning":"Respect"},
+  {"section":"వం","telugu":"వంకాయ","transliteration":"vankAya","meaning":"Brinjal, Eggplant"},
+  {"section":"బె","telugu":"బెండకాయ","transliteration":"benDakaya","meaning":"Okra, Lady finger"},
+  {"section":"కూ","telugu":"కూరగాయలు","transliteration":"kUragAyalu","meaning":"Vegetables"},
+  {"section":"మా","telugu":"మాయం","transliteration":"mAyam","meaning":"Vanish"},
+  {"section":"యా","telugu":"యాత్ర","transliteration":"yaatra","meaning":"Tour"},
+  {"section":"వ్య","telugu":"వ్యక్తి","transliteration":"vyakti","meaning":"Person"},
+  {"section":"వై","telugu":"వైద్యం","transliteration":"vaidyam","meaning":"Medicine"},
+  {"section":"వె","telugu":"వెయ్యి","transliteration":"veyyi","meaning":"Thousand"},
+  {"section":"వ్య","telugu":"వ్యవసాయం","transliteration":"vyavasaayam","meaning":"Agriculture"},
+  {"section":"సూ","telugu":"సూర్యుడు","transliteration":"sUryuDu","meaning":"Sun"},
+  {"section":"నె","telugu":"నెయ్యి","transliteration":"neyyi","meaning":"Indian butter, Ghee"},
+  {"section":"దౌ","telugu":"దౌర్జన్యం","transliteration":"daurjanyam","meaning":"Oppression"},
+  {"section":"కా","telugu":"కార్యము","transliteration":"kAryamu","meaning":"Task"},
+  {"section":"గ","telugu":"గడుగ్గాయ","transliteration":"gaDuggAya","meaning":"Mischievous"},
+  {"section":"న్యా","telugu":"న్యాయం","transliteration":"nyAyam","meaning":"Justice"},
+  {"section":"వి","telugu":"విద్య","transliteration":"vidya","meaning":"Education"},
+  {"section":"సం","telugu":"సంబంధము","transliteration":"sambandhamu","meaning":"Relationship"},
+  {"section":"ని","telugu":"నిధి","transliteration":"nidhi","meaning":"Treasure"},
+  {"section":"ధ","telugu":"ధనం","transliteration":"dhanam","meaning":"Money"},
+  {"section":"బు","telugu":"బుద్ధి","transliteration":"buddhi","meaning":"Intelligence"},
+  {"section":"ప","telugu":"పద్ధతి","transliteration":"paddhati","meaning":"Method"},
+  {"section":"అ","telugu":"అభ్యంతరము","transliteration":"abhyantaramu","meaning":"Objection"},
+  {"section":"అ","telugu":"అభ్యుదయం","transliteration":"abhyudayam","meaning":"Prosperity"},
+  {"section":"అ","telugu":"అభ్యాసము","transliteration":"abhyAsamu","meaning":"Practice (to get better)"},
+  {"section":"భే","telugu":"భేదము","transliteration":"bhEdamu","meaning":"Difference"},
+  {"section":"భౌ","telugu":"భౌతికము","transliteration":"bhautikamu","meaning":"Physical"},
+  {"section":"చ","telugu":"చత్రి","transliteration":"Chatri","meaning":"Umbrella"},
+  {"section":"చా","telugu":"చాతి","transliteration":"ChAti","meaning":"Chest"},
+  {"section":"చా","telugu":"చాయ","transliteration":"ChAya","meaning":"Shade, Tone"},
+  {"section":"చే","telugu":"చేదించు","transliteration":"ChEdinchu","meaning":"Cut, Chop"},
+  {"section":"ధా","telugu":"ధాన్యం","transliteration":"dhAnyam","meaning":"Grain"},
+  {"section":"సం","telugu":"సందర్భం","transliteration":"sandarbham","meaning":"Context"},
+  {"section":"ని","telugu":"నిర్భయం","transliteration":"nirbhayam","meaning":"Fearless"},
+  {"section":"ఆ","telugu":"ఆవిర్భావం","transliteration":"AvirbhAvam","meaning":"Emergence"},
+  {"section":"స్వ","telugu":"స్వచ్ఛము","transliteration":"svachChamu","meaning":"Pure"},
+  {"section":"స్వే","telugu":"స్వేచ్ఛ","transliteration":"svEchCha","meaning":"Freedom"},
+  {"section":"వృ","telugu":"వృద్ధి","transliteration":"vRuddhi","meaning":"Growth"},
+  {"section":"అ","telugu":"అభివృద్ధి","transliteration":"abhivRuddhi","meaning":"Development"},
+  {"section":"వృ","telugu":"వృత్తము","transliteration":"vRuttamu","meaning":"Circle"},
+  {"section":"ప్ర","telugu":"ప్రవృత్తి","transliteration":"pravRutti","meaning":"Tendency"},
+  {"section":"ఆ","telugu":"ఆకృతి","transliteration":"AkRuti","meaning":"Shape, Song composition"},
+  {"section":"మృ","telugu":"మృగం","transliteration":"mRugam","meaning":"Animal"},
+  {"section":"బృ","telugu":"బృందం","transliteration":"bRundam","meaning":"Team"},
+  {"section":"గృ","telugu":"గృహం","transliteration":"gRuham","meaning":"Home"},
+  {"section":"హృ","telugu":"హృదయం","transliteration":"hRudayam","meaning":"Heart"},
+  {"section":"క్రూ","telugu":"క్రూరుడు","transliteration":"kRUruDu","meaning":"Cruel person"},
+  {"section":"శ","telugu":"శక్తి","transliteration":"shakti","meaning":"Power"},
+  {"section":"శం","telugu":"శంకరుడు","transliteration":"shankaruDu","meaning":"Lord Shiva"},
+  {"section":"శ","telugu":"శనివారం","transliteration":"shanivaaram","meaning":"Saturday"},
+  {"section":"శ్వా","telugu":"శ్వాస","transliteration":"shvaasa","meaning":"Breath"},
+  {"section":"శి","telugu":"శివుడు","transliteration":"shivuDu","meaning":"Lord Shiva"},
+  {"section":"శు","telugu":"శుభ్రం","transliteration":"shubhram","meaning":"Clean"},
+  {"section":"శూ","telugu":"శూన్యం","transliteration":"shUnyam","meaning":"Vacuum"},
+  {"section":"శ్రు","telugu":"శ్రుతి","transliteration":"shruti","meaning":"Tone"},
+  {"section":"వి","telugu":"విశేషం","transliteration":"vishESham","meaning":"Special"},
+  {"section":"సం","telugu":"సంతోషం","transliteration":"santOSham","meaning":"Happy"},
+  {"section":"క","telugu":"కష్టం","transliteration":"kaShTam","meaning":"Hard"},
+  {"section":"న","telugu":"నష్టం","transliteration":"naShTam","meaning":"Loss"},
+  {"section":"రా","telugu":"రాష్ట్రం","transliteration":"raaShTram","meaning":"State"},
+  {"section":"స్రు","telugu":"సృష్టికర్త","transliteration":"sRuShTikarta","meaning":"Creator"},
+  {"section":"ద","telugu":"దర్శనం","transliteration":"darshanam","meaning":"View, Visit, Vision, Dream"},
+  {"section":"సం","telugu":"సందర్శించడం","transliteration":"sandarShinchaDam","meaning":"To look at, View, Behold, Visit"},
+  {"section":"వి","telugu":"విమర్శ","transliteration":"vimarsha","meaning":"Deliberation, Inquiry, Review"},
+  {"section":"వ","telugu":"వర్షము","transliteration":"varShamu","meaning":"Rain"},
+  {"section":"స్ప","telugu":"స్పర్శ","transliteration":"sparsha","meaning":"The sense of touch"},
+  {"section":"హ","telugu":"హర్షించు","transliteration":"harShinchu","meaning":"To rejoice"},
+  {"section":"ల","telugu":"లక్ష","transliteration":"lakSha","meaning":"100 thousand"},
+  {"section":"క్షే","telugu":"క్షేమం","transliteration":"kShEmam","meaning":"Safe"},
+  {"section":"ల","telugu":"లక్ష్యం","transliteration":"lakShyam","meaning":"Goal (mission)"},
+  {"section":"క్షో","telugu":"క్షోభ","transliteration":"kShObha","meaning":"Trouble, Distress"},
+  {"section":"సం","telugu":"సంక్షోభం","transliteration":"sankShObham","meaning":"Crisis"},
+  {"section":"క్షే","telugu":"క్షేత్రం","transliteration":"kShEtram","meaning":"(Holy) place, Field"},
+  {"section":"క","telugu":"కళ(లు)","transliteration":"kaLa(lu)","meaning":"Art(s)"},
+  {"section":"తా","telugu":"తాళం","transliteration":"taaLam","meaning":"Lock, Beat (of music)"},
+  {"section":"ఆ","telugu":"ఆహారం","transliteration":"AhAram","meaning":"Food"},
+  {"section":"ఆ","telugu":"ఆవకాయ","transliteration":"AvakAya","meaning":"Pickle"},
+  {"section":"ఈ","telugu":"ఈక","transliteration":"eeka","meaning":"Feather"},
+  {"section":"ఈ","telugu":"ఈల","transliteration":"eela","meaning":"Whistle"},
+  {"section":"ఈ","telugu":"ఈ రోజు","transliteration":"ee rOju","meaning":"This day"},
+  {"section":"ఈ","telugu":"ఈ వ్యక్తి","transliteration":"ee vyakti","meaning":"This person"},
+  {"section":"ఉ","telugu":"ఉదత","transliteration":"uData","meaning":"Squirrel"},
+  {"section":"ఉ","telugu":"ఉప్పు","transliteration":"uppu","meaning":"Salt"},
+  {"section":"ఉ","telugu":"ఉయ్యాల","transliteration":"uyyAla","meaning":"Swing"},
+  {"section":"ఉ","telugu":"ఉక్కు","transliteration":"ukku","meaning":"Iron"},
+  {"section":"ఉ","telugu":"ఉసిరికాయ","transliteration":"usirikAya","meaning":"Gooseberry"},
+  {"section":"ఉ","telugu":"ఉంది","transliteration":"undi","meaning":"Being there"},
+  {"section":"ఊ","telugu":"ఊయల","transliteration":"Uyala","meaning":"Swing"},
+  {"section":"ఊ","telugu":"ఊడదము","transliteration":"UDaDamu","meaning":"To unattach"},
+  {"section":"ఊ","telugu":"ఊపిరి","transliteration":"oopiri","meaning":"Breath"},
+  {"section":"ఎ","telugu":"ఎక్కువ","transliteration":"ekkuva","meaning":"More"},
+  {"section":"ఎ","telugu":"ఎవరు","transliteration":"evaru","meaning":"Who"},
+  {"section":"ఎ","telugu":"ఎవరికి","transliteration":"evariki","meaning":"To whom"},
+  {"section":"ఎ","telugu":"ఎలుక","transliteration":"eluka","meaning":"Rat"},
+  {"section":"ఏ","telugu":"ఏడు","transliteration":"EDu","meaning":"Seven"},
+  {"section":"ఏ","telugu":"ఏడుస్తున్నాడు","transliteration":"EDustunnADu","meaning":"(he is) crying"},
+  {"section":"ఏ","telugu":"ఏనుగు","transliteration":"Enugu","meaning":"Elephant"},
+  {"section":"ఐ","telugu":"ఐదు","transliteration":"aidu","meaning":"Five"},
+  {"section":"ఐ","telugu":"ఐకమత్యం","transliteration":"aikamatyam","meaning":"Unity"},
+  {"section":"ఐ","telugu":"ఐరావతం","transliteration":"airAvatam","meaning":"Indra's elephant"},
+  {"section":"ఒ","telugu":"ఒకరు","transliteration":"okaru","meaning":"One person"},
+  {"section":"ఒ","telugu":"ఒకటి","transliteration":"okaTi","meaning":"One"},
+  {"section":"ఒ","telugu":"ఒంటె","transliteration":"onTe","meaning":"Camel"},
+  {"section":"ఒ","telugu":"ఒకే ఒక","transliteration":"okE oka","meaning":"One & only"},
+  {"section":"ఒ","telugu":"ఒక్కొక్క","transliteration":"okkokka","meaning":"Every"},
+  {"section":"ఒ","telugu":"ఒంటరిగా","transliteration":"onTarigA","meaning":"Alone"},
+  {"section":"ఓ","telugu":"ఓడ","transliteration":"ODa","meaning":"Ship"},
+  {"section":"ఓ","telugu":"ఓపిక","transliteration":"Opika","meaning":"Patience"},
+  {"section":"ఓ","telugu":"ఓటమి","transliteration":"OTami","meaning":"Loss (losing)"},
+  {"section":"ఓ","telugu":"ఓడించు","transliteration":"ODinchu","meaning":"Defeat (someone)"},
+  {"section":"ఔ","telugu":"ఔషధం","transliteration":"auShadham","meaning":"Medicine"},
+  {"section":"ఔ","telugu":"ఔదార్యం","transliteration":"audaaryam","meaning":"Generosity"},
+  {"section":"ఔ","telugu":"ఔరా","transliteration":"auraa","meaning":"Wow!"},
+  {"section":"ఔ","telugu":"ఔన్నత్యం","transliteration":"aunnatyam","meaning":"Greatness"},
+  {"section":"ఔ","telugu":"ఔటు","transliteration":"auTu","meaning":"A type of firework"},
+  {"section":"ఋ","telugu":"ఋషి","transliteration":"Rushi","meaning":"Sage, saint"},
+  {"section":"ఋ","telugu":"ఋణం","transliteration":"RuNam","meaning":"Debt"},
+  {"section":"ఋ","telugu":"ఋతువు","transliteration":"Rutuvu","meaning":"Season"},
+  {"section":"ఋ","telugu":"ఋజువు","transliteration":"Rujuvu","meaning":"Evidence"},
+  {"section":"వా","telugu":"వాఙ్మయం","transliteration":"vA~gmayam","meaning":"Literature"},
+  {"section":"న","telugu":"నగలు","transliteration":"nagalu","meaning":"Jewellery"},
+  {"section":"న","telugu":"నక్క","transliteration":"nakka","meaning":"Fox"},
+  {"section":"న","telugu":"నడక","transliteration":"naDaka","meaning":"Walk"},
+  {"section":"న","telugu":"నంది","transliteration":"nandi","meaning":"Sacred bull"},
+  {"section":"న","telugu":"మనకు","transliteration":"manaku","meaning":"For us"},
+  {"section":"నా","telugu":"నాలుక","transliteration":"nAluka","meaning":"Tongue"},
+  {"section":"నా","telugu":"నాగలి","transliteration":"nAgali","meaning":"Plough"},
+  {"section":"నా","telugu":"నారు","transliteration":"nAru","meaning":"Seedlings"},
+  {"section":"నా","telugu":"నాలుగు","transliteration":"nAlugu","meaning":"Four"},
+  {"section":"నా","telugu":"వినాయకుడు","transliteration":"vinAyakuDu","meaning":"A God"},
+  {"section":"ద","telugu":"పెదవి","transliteration":"pedavi","meaning":"Lip"},
+  {"section":"ద","telugu":"దవడ","transliteration":"davaDa","meaning":"Jaw"},
+  {"section":"ద","telugu":"గాడిద","transliteration":"gaaDida","meaning":"Donkey"},
+  {"section":"ద","telugu":"దశ","transliteration":"dasha","meaning":"State"},
+  {"section":"ద","telugu":"దండ","transliteration":"daNDa","meaning":"Garland"},
+  {"section":"దా","telugu":"దారి","transliteration":"dAri","meaning":"Way"},
+  {"section":"దా","telugu":"దారం","transliteration":"dAram","meaning":"String, Thread"},
+  {"section":"దా","telugu":"దాహం","transliteration":"dAham","meaning":"Thirst"},
+  {"section":"దా","telugu":"దానం","transliteration":"dAnam","meaning":"Charity"},
+  {"section":"దా","telugu":"పోదాం","transliteration":"pOdAm","meaning":"Let's go"},
+  {"section":"ని","telugu":"నిచ్చెన","transliteration":"nichchena","meaning":"Ladder"},
+  {"section":"ని","telugu":"నిజం","transliteration":"nijam","meaning":"Truth"},
+  {"section":"ని","telugu":"నిప్పు","transliteration":"nippu","meaning":"Fire"},
+  {"section":"ని","telugu":"నిలువు","transliteration":"niluvu","meaning":"Vertical"},
+  {"section":"ని","telugu":"నిమ్మ","transliteration":"nimma","meaning":"Lemon"},
+  {"section":"ది","telugu":"దిశ","transliteration":"disha","meaning":"Direction"},
+  {"section":"ది","telugu":"పది","transliteration":"padi","meaning":"Ten"},
+  {"section":"ది","telugu":"పండి","transliteration":"pandi","meaning":"Pig, Swine, Hog"},
+  {"section":"ది","telugu":"దినం","transliteration":"dinam","meaning":"Day"},
+  {"section":"ది","telugu":"గది","transliteration":"gadi","meaning":"Room"},
+  {"section":"నీ","telugu":"నీలం","transliteration":"neelam","meaning":"Blue"},
+  {"section":"నీ","telugu":"నీది","transliteration":"needi","meaning":"Yours"},
+  {"section":"నీ","telugu":"తూనీగ","transliteration":"tUnIga","meaning":"Dragonfly"},
+  {"section":"నీ","telugu":"నీకు","transliteration":"neeku","meaning":"For you"},
+  {"section":"నీ","telugu":"నీరుల్లి","transliteration":"NIrulli","meaning":"Onion"},
+  {"section":"దీ","telugu":"దీని","transliteration":"dIni","meaning":"This"},
+  {"section":"దీ","telugu":"దీవి","transliteration":"dIvi","meaning":"Island"},
+  {"section":"దీ","telugu":"దీవెన","transliteration":"dIvena","meaning":"Blessing"},
+  {"section":"దీ","telugu":"ఖాదీ","transliteration":"khAdI","meaning":"Hand-woven natural fibre cloth"},
+  {"section":"దీ","telugu":"పుదీన","transliteration":"pudIna","meaning":"Mint"},
+  {"section":"క","telugu":"కలం","transliteration":"kalam","meaning":"Pen"},
+  {"section":"క","telugu":"కల","transliteration":"kala","meaning":"Dream"},
+  {"section":"క","telugu":"మేక","transliteration":"mEka","meaning":"Goat"},
+  {"section":"క","telugu":"పలక","transliteration":"palaka","meaning":"Slate"},
+  {"section":"క","telugu":"కమలం","transliteration":"kamalam","meaning":"Lotus"},
+  {"section":"కా","telugu":"కాలం","transliteration":"kAlam","meaning":"Time span, Season"},
+  {"section":"కా","telugu":"కాలు","transliteration":"kAlu","meaning":"Leg"},
+  {"section":"కా","telugu":"కాకి","transliteration":"kAki","meaning":"Crow"},
+  {"section":"కా","telugu":"కాడు","transliteration":"kAdu","meaning":"No"},
+  {"section":"కా","telugu":"టెంకాయ","transliteration":"TenkAya","meaning":"Coconut"},
+  {"section":"కి","telugu":"కాకి","transliteration":"kAki","meaning":"Crow"},
+  {"section":"కి","telugu":"కంకి","transliteration":"kanki","meaning":"A fruiting spike"},
+  {"section":"కి","telugu":"దానికి","transliteration":"dAniki","meaning":"For that / to her"},
+  {"section":"కి","telugu":"మురికి","transliteration":"muriki","meaning":"Dirty"},
+  {"section":"కి","telugu":"నకిలీ","transliteration":"nakilee","meaning":"Fake"},
+  {"section":"కీ","telugu":"కీలు","transliteration":"keelu","meaning":"Joint"},
+  {"section":"కీ","telugu":"కీటకం","transliteration":"kITakam","meaning":"Insect"},
+  {"section":"కీ","telugu":"కీర","transliteration":"kIra","meaning":"Cucumber"},
+  {"section":"కీ","telugu":"పక్కీరు","transliteration":"phakIru","meaning":"Poor, Holy man"},
+  {"section":"కీ","telugu":"కీర్తన","transliteration":"keertana","meaning":"Hymn, A devotional song"},
+  {"section":"ల","telugu":"ఊయల","transliteration":"Uyala","meaning":"Swing"},
+  {"section":"ల","telugu":"లంగా","transliteration":"langA","meaning":"A traditional ankle-length girl's dress"},
+  {"section":"ల","telugu":"లంకె","transliteration":"lanke","meaning":"Link"},
+  {"section":"ల","telugu":"ఈల","transliteration":"eela","meaning":"Whistle"},
+  {"section":"ల","telugu":"నెల","transliteration":"nela","meaning":"Month"},
+  {"section":"లా","telugu":"లావు","transliteration":"lAvu","meaning":"Stout"},
+  {"section":"లా","telugu":"లాగు","transliteration":"lAgu","meaning":"Pull, Shorts"},
+  {"section":"లా","telugu":"లాభం","transliteration":"lAbham","meaning":"Profit"},
+  {"section":"లా","telugu":"లాలిపాట","transliteration":"lAlipATa","meaning":"Lullaby"},
+  {"section":"లా","telugu":"కోలాటం","transliteration":"kOlATam","meaning":"A folk dance involving rhythmic stick movement"},
+  {"section":"లి","telugu":"నెమలి","transliteration":"nemali","meaning":"Peacock"},
+  {"section":"లి","telugu":"కదిలి","transliteration":"kadili","meaning":"Displace"},
+  {"section":"లి","telugu":"వదిలి","transliteration":"vadili","meaning":"Left, let go"},
+  {"section":"లి","telugu":"ఆకలి","transliteration":"Akali","meaning":"Hunger"},
+  {"section":"లి","telugu":"గాలి","transliteration":"gAli","meaning":"Air"}
+];
+
+// ── CONFIG ────────────────────────────────────────────────────────────────────
+let cfg = {
+  baseUrl: '',
+  fileIds: {"leeTaru": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "vileenam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "leelalu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "chAlee-chAlani": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "leechee": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nuraga": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nuduru": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nuDi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kAnuka": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "Enugu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dummu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dukANam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "duvvena": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kAdu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nadulu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "mundu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kukka": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kubEruDu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kundElu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "rEku": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "mEku": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "chaaku": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "mElu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nAluka": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "eluka": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "aluka": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "cheemalu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nUkalu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nooti": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nUlu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nooru": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nUraDam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dUram": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "doolam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dUta": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dUdi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dooku": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kUra": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "koojA": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kUTami": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kUli": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kooDu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "lUTI": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "bhallUkam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "pechchulUDaTam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "vanam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nandi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "bhOjanam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nandyAla": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "jeevanam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "daNDa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "daNDi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "andam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "paadam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dantam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kanchu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kampu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kaNDa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kanTham": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kITakam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "langaru": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "lancham": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "jalam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "polam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "balam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nEla": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nEnu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nEti": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nETi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nErEDu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dEham": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dEsham": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dEvata": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dEniki": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "sandEsham": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kEka": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kEshAlu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kEvalam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kErinta": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kEtuvu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "lEta": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "lEgadUDa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "jilEbi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "lEpanam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "lEpu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nOru": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nOmu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nOTimATa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "vinOdam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nOTu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dOma": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dOsha": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dOpiDi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dOSham": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dOsakAya": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kODi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "pakODI": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kOti": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kOkila": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kOpamu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "lOkam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "lOtu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "AlOchana": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "lOham": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "lObhi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nela": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nemali": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nUne": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nelavanka": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nemmadi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gEde": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kandena": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gAde": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "binde": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "debba": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "keraTam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "keluku": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kenjAya": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kempu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "chiTikeDu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nosalu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nokku": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "noppi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "donga": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dora": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "doNDa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "doruku": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "doDDa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "konga": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kotta": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "koNDa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "koDavali": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "koliki": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "loTTipiTTa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "loTTi (munta)": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "lotta": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "manchu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "mAmiDi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "miData": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "meesam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "mukku": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "mUti": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "maNTa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "medaDu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "mEka": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "mokka": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "mOsam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "chali": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "chaalu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "chinuku": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "chIma": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "churaka": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "chUDu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "chandanam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "chedalu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "chEpa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "choppa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "chOTu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gaDDi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "cheDDa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "daggu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "maggu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "muggu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gaDDam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "teDDu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "guDDi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kaDDi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "maDDi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "taggu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "niggu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "maggam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "mudda": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "moddu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "koddigA": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "machcha": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gichchu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kuchchu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "maddela": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gitta": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "chaddi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "duddulu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gacchu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nicchena": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "macchika": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nijam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gaaju": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kAjA": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "jalaga": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "jeDa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gajam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gajja": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gajje": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "majja": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "lajja": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gajji": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gujju": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "majjiga": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "naaTu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "daaTu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "keeTakam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "lOTA": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "chaaTa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gaNTa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "naTTa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "daTTam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kaTTe": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "loTTa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "maTTi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "chuTTa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gaTTu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "bOnam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "bAdAm": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "bAku": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "mabbu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "bUchi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "bADuga": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "bongaramu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dabbaNam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kobbari": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "Dabbu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gabbu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "pani": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "poda": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kappa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "palle": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "paamu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "pacchi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "paNDu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "poga": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dappika": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "pappu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "chappagA": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "Dappu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "goppa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "amma": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dimma": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "komma(lu)": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "bakkagA": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "chikkagA": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "raitu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "pairu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "paiTa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "maikam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nauka": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "chauka": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "Rautu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "maunam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gauravam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "vankAya": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "benDakaya": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kUragAyalu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "mAyam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "yaatra": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "vyakti": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "vaidyam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "veyyi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "vyavasaayam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "sUryuDu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "neyyi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "daurjanyam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kAryamu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gaDuggAya": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nyAyam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "vidya": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "sambandhamu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nidhi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dhanam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "buddhi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "paddhati": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "abhyantaramu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "abhyudayam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "abhyAsamu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "bhEdamu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "bhautikamu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "Chatri": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "ChAti": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "ChAya": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "ChEdinchu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dhAnyam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "sandarbham": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nirbhayam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "AvirbhAvam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "svachChamu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "svEchCha": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "vRuddhi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "abhivRuddhi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "vRuttamu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "pravRutti": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "AkRuti": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "mRugam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "bRundam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gRuham": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "hRudayam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kRUruDu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "shakti": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "shankaruDu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "shanivaaram": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "shvaasa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "shivuDu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "shubhram": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "shUnyam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "shruti": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "vishESham": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "santOSham": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kaShTam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "naShTam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "raaShTram": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "sRuShTikarta": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "darshanam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "sandarShinchaDam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "vimarsha": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "varShamu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "sparsha": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "harShinchu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "lakSha": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kShEmam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "lakShyam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kShObha": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "sankShObham": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kShEtram": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kaLa(lu)": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "taaLam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "AhAram": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "AvakAya": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "eeka": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "eela": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "ee rOju": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "ee vyakti": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "uData": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "uppu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "uyyAla": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "ukku": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "usirikAya": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "undi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "Uyala": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "UDaDamu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "oopiri": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "ekkuva": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "evaru": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "evariki": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "EDu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "EDustunnADu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "aidu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "aikamatyam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "airAvatam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "okaru": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "okaTi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "onTe": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "okE oka": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "okkokka": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "onTarigA": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "ODa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "Opika": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "OTami": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "ODinchu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "auShadham": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "audaaryam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "auraa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "aunnatyam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "auTu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "Rushi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "RuNam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "Rutuvu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "Rujuvu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "vA~gmayam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nagalu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nakka": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "naDaka": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "manaku": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nAgali": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nAru": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nAlugu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "vinAyakuDu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "pedavi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "davaDa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gaaDida": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dasha": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dAri": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dAram": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dAham": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dAnam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "pOdAm": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nichchena": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nippu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "niluvu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nimma": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "disha": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "padi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "pandi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dinam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gadi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "neelam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "needi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "tUnIga": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "neeku": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "NIrulli": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dIni": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dIvi": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dIvena": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "khAdI": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "pudIna": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kalam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kala": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "palaka": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kamalam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kAlam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kAlu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kAki": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "TenkAya": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kanki": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "dAniki": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "muriki": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "nakilee": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "keelu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kIra": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "phakIru": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "keertana": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "langA": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "lanke": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "lAvu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "lAgu": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "lAbham": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "lAlipATa": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kOlATam": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "kadili": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "vadili": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "Akali": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp", "gAli": "1BQfRXrymOZ33skjBKTYVG_a6T1J1fWRp"},
+  folderUrl: ''
+};
+
+function loadConfig() {
+  try {
+    const saved = localStorage.getItem('telugu_audio_cfg');
+    if (saved) cfg = JSON.parse(saved);
+  } catch(e) {}
+}
+
+function saveConfig() {
+  cfg.baseUrl = document.getElementById('base-url').value.trim();
+  cfg.folderUrl = document.getElementById('gdrive-folder').value.trim();
+  const idsRaw = document.getElementById('gdrive-ids').value.trim();
+  if (idsRaw) {
+    try { cfg.fileIds = JSON.parse(idsRaw); } catch(e) { alert('Invalid JSON in File ID Map'); return; }
+  } else { cfg.fileIds = {}; }
+  try { localStorage.setItem('telugu_audio_cfg', JSON.stringify(cfg)); } catch(e) {}
+  closeModal();
+  renderTable(currentData);
+}
+
+function getAudioUrl(transliteration) {
+  const key = transliteration.trim();
+  if (cfg.fileIds[key]) {
+    // Direct streaming URL — browser <audio> follows the redirect automatically,
+    // no fetch() needed (and fetch() would be blocked by Google's CORS policy).
+    return `https://drive.google.com/uc?export=open&id=${cfg.fileIds[key]}`;
+  }
+  if (cfg.baseUrl) {
+    const safe = key.replace(/[^a-zA-Z0-9_\-\.]/g, '_');
+    return cfg.baseUrl.replace(/\/?$/, '/') + safe + '.mp3';
+  }
+  return null;
+}
+
+// ── AUDIO ─────────────────────────────────────────────────────────────────────
+// Browser <audio> elements handle cross-origin redirects natively — no fetch()
+// or blob conversion required. One audio plays at a time.
+let currentAudio = null;
+let currentBtn   = null;
+
+function stopCurrent() {
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.src = '';
+    currentAudio = null;
+  }
+  if (currentBtn) {
+    currentBtn.classList.remove('playing', 'loading');
+    currentBtn.title = 'Play';
+    currentBtn.innerHTML = iconSpeaker();
+    currentBtn.disabled = false;
+    currentBtn = null;
+  }
+}
+
+function togglePlay(btn, url) {
+  if (currentBtn === btn) { stopCurrent(); return; }
+  stopCurrent();
+
+  currentBtn = btn;
+  btn.classList.add('loading');
+  btn.title = 'Loading…';
+  btn.innerHTML = iconSpinner();
+
+  const audio = new Audio();
+
+  audio.addEventListener('canplay', () => {
+    if (currentBtn !== btn) return;
+    btn.classList.remove('loading');
+    btn.classList.add('playing');
+    btn.title = 'Stop';
+    btn.innerHTML = iconStop();
+    audio.play().catch(err => {
+      stopCurrent();
+      console.error('Playback error:', err);
+    });
+  }, { once: true });
+
+  audio.addEventListener('ended', stopCurrent, { once: true });
+
+  audio.addEventListener('error', () => {
+    if (currentBtn !== btn) return;
+    stopCurrent();
+    alert('Could not load audio.\nCheck that the file is shared as "Anyone with the link → Viewer" in Google Drive.');
+  }, { once: true });
+
+  currentAudio = audio;
+  audio.src = url;
+  audio.load();
+}
+
+// ── ICONS ──────────────────────────────────────────────────────────────────────
+// Speaker with sound waves — shown at rest
+function iconSpeaker() {
+  return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+  </svg>`;
+}
+
+// Square stop icon — shown while playing
+function iconStop() {
+  return `<svg viewBox="0 0 24 24" fill="currentColor">
+    <rect x="4" y="4" width="16" height="16" rx="2"/>
+  </svg>`;
+}
+
+// Animated spinner — shown while loading
+function iconSpinner() {
+  return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+         style="animation:spin 0.75s linear infinite">
+    <path d="M12 2a10 10 0 0 1 9.33 6.42"/>
+  </svg>`;
+}
+
+// Legacy aliases (used nowhere now, kept for safety)
+function playIcon()  { return iconSpeaker(); }
+function pauseIcon() { return iconStop(); }
+
+// ── STATE ─────────────────────────────────────────────────────────────────────
+let sortCol   = -1;
+let sortDir   = 'asc';
+let searchTxt = '';
+let sectionF  = '';
+let currentData = [...RAW_DATA];
+
+// ── SECTION DROPDOWN ──────────────────────────────────────────────────────────
+// ── VARGA MAPPING ─────────────────────────────────────────────────────────────
+// Maps first character of a section label → its varga group name.
+// క్ష is checked explicitly before the single-char lookup because its first
+// Unicode codepoint is 'క' which would otherwise map to క వర్గ.
+const CHAR_TO_VARGA = {
+  // అచ్చులు  (vowels)
+  'అ':'అచ్చులు','ఆ':'అచ్చులు','ఇ':'అచ్చులు','ఈ':'అచ్చులు',
+  'ఉ':'అచ్చులు','ఊ':'అచ్చులు','ఋ':'అచ్చులు','ౠ':'అచ్చులు',
+  'ఎ':'అచ్చులు','ఏ':'అచ్చులు','ఐ':'అచ్చులు',
+  'ఒ':'అచ్చులు','ఓ':'అచ్చులు','ఔ':'అచ్చులు',
+  // క వర్గ  (ka kha ga gha nga)
+  'క':'క వర్గ','ఖ':'క వర్గ','గ':'క వర్గ','ఘ':'క వర్గ','ఙ':'క వర్గ',
+  // చ వర్గ  (cha chha ja jha nya)
+  'చ':'చ వర్గ','ఛ':'చ వర్గ','జ':'చ వర్గ','ఝ':'చ వర్గ','ఞ':'చ వర్గ',
+  // ట వర్గ  (Ta Tha Da Dha Na)
+  'ట':'ట వర్గ','ఠ':'ట వర్గ','డ':'ట వర్గ','ఢ':'ట వర్గ','ణ':'ట వర్గ',
+  // త వర్గ  (ta tha da dha na)
+  'త':'త వర్గ','థ':'త వర్గ','ద':'త వర్గ','ధ':'త వర్గ','న':'త వర్గ',
+  // ప వర్గ  (pa pha ba bha ma)
+  'ప':'ప వర్గ','ఫ':'ప వర్గ','బ':'ప వర్గ','భ':'ప వర్గ','మ':'ప వర్గ',
+  // య - ఱ
+  'య':'య - ఱ','ర':'య - ఱ','ల':'య - ఱ','వ':'య - ఱ',
+  'శ':'య - ఱ','ష':'య - ఱ','స':'య - ఱ','హ':'య - ఱ','ళ':'య - ఱ','ఱ':'య - ఱ',
+};
+
+// Compound sections that start with 'క' but belong to య - ఱ
+const COMPOUND_OVERRIDE = { 'క్ష': 'య - ఱ' };
+
+function getSectionVarga(section) {
+  for (const prefix of Object.keys(COMPOUND_OVERRIDE)) {
+    if (section.startsWith(prefix)) return COMPOUND_OVERRIDE[prefix];
+  }
+  return CHAR_TO_VARGA[section[0]] || null;
+}
+
+// Fixed ordered varga list shown in the dropdown
+const VARGAS = [
+  'అచ్చులు',
+  'క వర్గ',
+  'చ వర్గ',
+  'ట వర్గ',
+  'త వర్గ',
+  'ప వర్గ',
+  'య - ఱ',
+];
+
+function populateSectionFilter() {
+  const sel = document.getElementById('section-filter');
+  VARGAS.forEach(v => {
+    const o = document.createElement('option');
+    o.value = v;
+    o.textContent = v;
+    sel.appendChild(o);
+  });
+}
+
+// ── HIGHLIGHT ─────────────────────────────────────────────────────────────────
+function hl(text, query) {
+  if (!query) return escHtml(text);
+  const re = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'), 'gi');
+  return escHtml(text).replace(re, m => `<mark>${m}</mark>`);
+}
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+function renderTable(data) {
+  const tbody = document.getElementById('table-body');
+  tbody.innerHTML = '';
+
+  // determine sorted column class
+  document.querySelectorAll('th').forEach(th => th.classList.remove('sorted-col'));
+  if (sortCol === 0) document.getElementById('th-section').classList.add('sorted-col');
+  if (sortCol === 1) document.getElementById('th-telugu').classList.add('sorted-col');
+
+  if (!data.length) {
+    const tr = document.createElement('tr');
+    tr.className = 'empty-row';
+    tr.innerHTML = '<td colspan="5">No entries found matching your search.</td>';
+    tbody.appendChild(tr);
+    return;
+  }
+
+  data.forEach(row => {
+    const tr = document.createElement('tr');
+    tr.className = 'data-row';
+    const audioUrl = getAudioUrl(row.transliteration);
+    let pronunCell;
+    if (audioUrl) {
+      const safeUrl = escHtml(audioUrl);
+      const safeTrans = escHtml(row.transliteration);
+      pronunCell = `<button class="play-btn" title="Play" onclick="togglePlay(this,'${safeUrl}')">${iconSpeaker()}</button>`;
+    } else {
+      pronunCell = `<span class="not-configured">— configure →</span>`;
+    }
+    tr.innerHTML = `
+      <td class="col-section${sortCol===0?' sorted-col':''}">${hl(row.section, searchTxt)}</td>
+      <td class="col-telugu${sortCol===1?' sorted-col':''}">${hl(row.telugu, searchTxt)}</td>
+      <td class="col-pronun">${pronunCell}</td>
+      <td class="col-translit${sortCol===2?' sorted-col':''}">${hl(row.transliteration, searchTxt)}</td>
+      <td class="col-meaning">${hl(row.meaning, searchTxt)}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById('shown-count').textContent = data.length;
+}
+
+// ── FILTER + SORT ─────────────────────────────────────────────────────────────
+function applyFilters() {
+  let data = [...RAW_DATA];
+  if (sectionF) data = data.filter(d => getSectionVarga(d.section) === sectionF);
+  if (searchTxt) {
+    const q = searchTxt.toLowerCase();
+    data = data.filter(d =>
+      d.section.toLowerCase().includes(q) ||
+      d.telugu.toLowerCase().includes(q) ||
+      d.transliteration.toLowerCase().includes(q) ||
+      d.meaning.toLowerCase().includes(q)
+    );
+  }
+  if (sortCol >= 0) {
+    const keys = ['section','telugu','transliteration','meaning'];
+    const key  = keys[sortCol];
+    data.sort((a,b) => {
+      const av = a[key].toLowerCase(), bv = b[key].toLowerCase();
+      const c  = av < bv ? -1 : av > bv ? 1 : 0;
+      return sortDir === 'asc' ? c : -c;
+    });
+  }
+  currentData = data;
+  renderTable(data);
+}
+
+// ── SORT CLICK ────────────────────────────────────────────────────────────────
+document.querySelectorAll('th.sortable').forEach(th => {
+  th.addEventListener('click', () => {
+    const col = parseInt(th.dataset.col);
+    if (sortCol === col) sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+    else { sortCol = col; sortDir = 'asc'; }
+    document.querySelectorAll('th.sortable').forEach(t => {
+      t.classList.remove('sort-asc','sort-desc');
+    });
+    th.classList.add(sortDir === 'asc' ? 'sort-asc' : 'sort-desc');
+    applyFilters();
+  });
+});
+
+// ── SEARCH ────────────────────────────────────────────────────────────────────
+document.getElementById('search').addEventListener('input', e => {
+  searchTxt = e.target.value.trim();
+  applyFilters();
+});
+
+// ── SECTION FILTER ────────────────────────────────────────────────────────────
+document.getElementById('section-filter').addEventListener('change', e => {
+  sectionF = e.target.value;
+  applyFilters();
+});
+
+// ── MODAL ─────────────────────────────────────────────────────────────────────
+function openModal() {
+  document.getElementById('base-url').value = cfg.baseUrl || '';
+  document.getElementById('gdrive-folder').value = cfg.folderUrl || '';
+  document.getElementById('gdrive-ids').value = Object.keys(cfg.fileIds).length
+    ? JSON.stringify(cfg.fileIds, null, 2) : '';
+  document.getElementById('modal-overlay').classList.add('open');
+}
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+}
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+loadConfig();
+populateSectionFilter();
+document.getElementById('total-count').textContent = RAW_DATA.length;
+document.getElementById('shown-count').textContent = RAW_DATA.length;
+document.getElementById('total-badge').textContent = RAW_DATA.length + ' entries';
+applyFilters();
+
+// ── STICKY HEADER SHADOW ──────────────────────────────────────────────────────
+function updateStuckState() {
+  const ths = document.querySelectorAll('#glossary-table thead th');
+  if (!ths.length) return;
+  const tableTop = document.querySelector('#glossary-table').getBoundingClientRect().top;
+  const isStuck = tableTop <= 0;
+  ths.forEach(th => th.classList.toggle('stuck', isStuck));
+}
+window.addEventListener('scroll', updateStuckState, { passive: true });
+</script>
+</body>
+</html>
