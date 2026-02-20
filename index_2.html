@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>లిపి నైపుణ్య దీపిక – అనుబంధం</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Telugu&family=Noto+Serif+Telugu:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:        #fdf6ec;
+      --paper:     #fffcf5;
+      --ink:       #1e140a;
+      --accent:    #8b3a0f;
+      --accent2:   #c47c35;
+      --rule:      #d4b896;
+      --muted:     #6b5240;
+      --chip-bg:   #f2e4cc;
+      --chip-border:#c9a06a;
+      --shadow:    rgba(60,30,10,.12);
+      --header-h:  260px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'EB Garamond', serif;
+      min-height: 100vh;
+    }
+
+    /* ─── HEADER ─────────────────────────────────────────── */
+    header {
+      position: relative;
+      background: var(--accent);
+      overflow: hidden;
+      padding: 3.5rem 2rem 2.8rem;
+      text-align: center;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          135deg,
+          transparent 0 18px,
+          rgba(255,255,255,.04) 18px 19px
+        );
+    }
+
+    /* decorative corner motifs */
+    header::after {
+      content: '✦';
+      position: absolute;
+      top: 1rem; left: 1.4rem;
+      font-size: 1.6rem;
+      color: rgba(255,255,255,.25);
+      pointer-events: none;
+    }
+
+    .header-deco-right {
+      position: absolute;
+      top: 1rem; right: 1.4rem;
+      font-size: 1.6rem;
+      color: rgba(255,255,255,.25);
+    }
+
+    .header-ornament {
+      display: block;
+      font-size: .95rem;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+      margin-bottom: .9rem;
+    }
+
+    header h1 {
+      font-family: 'Noto Serif Telugu', serif;
+      font-size: clamp(1.9rem, 5vw, 3.2rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+      letter-spacing: .02em;
+    }
+
+    header .subtitle {
+      font-family: 'Noto Serif Telugu', serif;
+      font-size: clamp(.95rem, 2.5vw, 1.3rem);
+      color: rgba(255,255,255,.8);
+      margin-top: .55rem;
+      font-style: italic;
+    }
+
+    .header-rule {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+      justify-content: center;
+      margin: 1.4rem auto 0;
+      max-width: 520px;
+    }
+    .header-rule span { flex:1; height:1px; background: rgba(255,255,255,.35); }
+    .header-rule .diamond { color: rgba(255,255,255,.7); font-size: .8rem; }
+
+    .header-desc {
+      font-family: 'Noto Serif Telugu', serif;
+      font-size: clamp(.8rem, 2vw, 1rem);
+      color: rgba(255,255,255,.72);
+      margin-top: 1rem;
+      line-height: 1.7;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ─── SEARCH & FILTER BAR ────────────────────────────── */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--paper);
+      border-bottom: 2px solid var(--rule);
+      padding: .75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .65rem;
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    .search-wrap {
+      position: relative;
+      flex: 1 1 220px;
+    }
+    .search-wrap svg {
+      position: absolute;
+      left: .75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+    }
+    #searchInput {
+      width: 100%;
+      padding: .5rem .75rem .5rem 2.2rem;
+      border: 1.5px solid var(--rule);
+      border-radius: 6px;
+      background: var(--bg);
+      font-family: 'EB Garamond', serif;
+      font-size: 1rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color .2s;
+    }
+    #searchInput:focus { border-color: var(--accent2); }
+    #searchInput::placeholder { color: var(--muted); opacity: .7; }
+
+    .count-badge {
+      font-size: .85rem;
+      color: var(--muted);
+      white-space: nowrap;
+      font-family: 'Libre Baskerville', serif;
+    }
+
+    /* ─── MAIN TABLE ─────────────────────────────────────── */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.8rem 1rem 3rem;
+    }
+
+    .table-wrap {
+      border-radius: 10px;
+      box-shadow: 0 4px 24px var(--shadow);
+      border: 1.5px solid var(--rule);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--paper);
+    }
+
+    thead tr {
+      background: var(--accent);
+    }
+
+    thead th {
+      position: sticky;
+      top: 0; /* set dynamically by JS to toolbar height */
+      z-index: 10;
+      padding: .85rem 1rem;
+      text-align: left;
+      font-family: 'Libre Baskerville', serif;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.9);
+      background: var(--accent);
+      border-bottom: 2px solid rgba(255,255,255,.15);
+      box-shadow: 0 2px 6px rgba(60,30,10,.18);
+    }
+
+    thead th:first-child { border-radius: 0; }
+
+    tbody tr {
+      border-bottom: 1px solid var(--rule);
+      transition: background .15s;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:nth-child(even) { background: #fef9f0; }
+    tbody tr:hover { background: #fde8c8; }
+
+    tbody td {
+      padding: .7rem 1rem;
+      vertical-align: middle;
+      line-height: 1.5;
+    }
+
+    /* Telugu word column */
+    .col-telugu {
+      font-family: 'Noto Serif Telugu', serif;
+      font-size: 1.22rem;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: .02em;
+      white-space: nowrap;
+    }
+
+    /* Transliteration */
+    .col-translit {
+      font-family: 'Libre Baskerville', serif;
+      font-style: italic;
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    /* Pronunciation */
+    .col-pronun {
+      text-align: center;
+    }
+    .pronun-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--chip-bg);
+      border: 1px solid var(--chip-border);
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      color: var(--accent);
+      cursor: pointer;
+      transition: background .15s, box-shadow .15s, color .15s;
+      padding: 0;
+    }
+    .pronun-btn:hover {
+      background: var(--accent2);
+      color: #fff;
+      border-color: var(--accent2);
+      box-shadow: 0 2px 8px rgba(139,58,15,.25);
+    }
+    .pronun-btn svg { flex-shrink: 0; }
+
+    /* Meaning */
+    .col-meaning {
+      font-family: 'EB Garamond', serif;
+      font-size: 1rem;
+      color: #3a2a1a;
+    }
+
+    /* Hidden rows */
+    tr.hidden { display: none; }
+
+    /* ─── NO RESULTS ─────────────────────────────────────── */
+    #noResults {
+      display: none;
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+      font-family: 'Noto Serif Telugu', serif;
+      font-size: 1.1rem;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem 2rem;
+      font-family: 'EB Garamond', serif;
+      font-size: .85rem;
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 640px) {
+      thead th:nth-child(2),
+      tbody td:nth-child(2) { display: none; }
+      .col-telugu { font-size: 1.05rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══════════════════════════════════════════ -->
+<header>
+  <span class="header-deco-right">✦</span>
+  <span class="header-ornament">లిపి నైపుణ్య దీపిక</span>
+  <h1>లిపి నైపుణ్య దీపిక</h1>
+  <p class="subtitle">(అనుబంధం)</p>
+  <div class="header-rule">
+    <span></span><span class="diamond">❖</span><span></span>
+  </div>
+  <p class="header-desc">పుస్తకంలో ఉదాహరణగా వాడిన తెలుగు పదాలు, ఆంగ్ల లిప్యంతరీకరణ (English Transliteration), ఉచ్చారణ, ఆంగ్లంలో అర్థం</p>
+</header>
+
+<!-- ═══ TOOLBAR ══════════════════════════════════════════ -->
+<div class="toolbar">
+  <div class="search-wrap">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input id="searchInput" type="search" placeholder="పదం లేదా అర్థం వెతకండి… (search word or meaning)" autocomplete="off" />
+  </div>
+  <span class="count-badge" id="countBadge"></span>
+</div>
+
+<!-- ═══ TABLE ════════════════════════════════════════════ -->
+<main>
+  <div class="table-wrap">
+    <table id="glossaryTable">
+      <thead>
+        <tr>
+          <th>తెలుగు పదం</th>
+          <th>Transliteration</th>
+          <th>ఉచ్చారణ</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+      </tbody>
+    </table>
+    <div id="noResults">సంబంధిత పదాలు కనుగొనబడలేదు — No results found.</div>
+  </div>
+</main>
+
+<footer>
+  లిపి నైపుణ్య దీపిక &nbsp;|&nbsp; Telugu Glossary Appendix
+</footer>
+
+<script>
+const AUDIO_PLACEHOLDER = 'assets/audio/te/నగలు.mp3';
+
+const words = [
+  // న
+  { tel: 'నగలు', translit: 'nagalu', meaning: 'Jewelry' },
+  { tel: 'నక్క', translit: 'nakka', meaning: 'Fox' },
+  { tel: 'నడక', translit: 'naDaka', meaning: 'Walk' },
+  { tel: 'నంది', translit: 'nandi', meaning: 'Sacred bull' },
+  { tel: 'మనకు', translit: 'manaku', meaning: 'For us' },
+  // నా
+  { tel: 'నాలుక', translit: 'naaluka', meaning: 'Tongue' },
+  { tel: 'నాగలి', translit: 'naagali', meaning: 'Plough' },
+  { tel: 'నారు', translit: 'naaru', meaning: 'Seedlings' },
+  { tel: 'నాలుగు', translit: 'naalugu', meaning: 'Four' },
+  { tel: 'వినాయకుడు', translit: 'vinaayakuDu', meaning: 'Deity who is the remover of obstacles' },
+  // ద
+  { tel: 'పెదవి', translit: 'pedavi', meaning: 'Lip' },
+  { tel: 'దవడ', translit: 'davaDa', meaning: 'Jaw' },
+  { tel: 'గాడిద', translit: 'gaaDida', meaning: 'Donkey' },
+  { tel: 'దశ', translit: 'dasha', meaning: 'State' },
+  { tel: 'దండ', translit: 'daNDa', meaning: 'Garland' },
+  // దా
+  { tel: 'దారి', translit: 'daari', meaning: 'Way' },
+  { tel: 'దారం', translit: 'daaram', meaning: 'String, Thread' },
+  { tel: 'దాహం', translit: 'daaham', meaning: 'Thirst' },
+  { tel: 'దానం', translit: 'daanam', meaning: 'Charity' },
+  { tel: 'పోదాం', translit: 'pOdaam', meaning: "Let's go" },
+  // ని
+  { tel: 'నిచ్చెన', translit: 'nichchena', meaning: 'Ladder' },
+  { tel: 'నిజం', translit: 'nijam', meaning: 'Truth' },
+  { tel: 'నిప్పు', translit: 'nippu', meaning: 'Fire' },
+  { tel: 'నిలువు', translit: 'niluvu', meaning: 'Vertical' },
+  { tel: 'నిమ్మ', translit: 'nimma', meaning: 'Lemon' },
+  // డి
+  { tel: 'దిశ', translit: 'disha', meaning: 'Direction' },
+  { tel: 'పది', translit: 'padi', meaning: 'Ten' },
+  { tel: 'పంది', translit: 'pandi', meaning: 'Pig, Swine, Hog' },
+  { tel: 'దినం', translit: 'dinam', meaning: 'Day' },
+  { tel: 'గది', translit: 'gadi', meaning: 'Room' },
+  // నీ
+  { tel: 'నీలం', translit: 'neelam', meaning: 'Blue' },
+  { tel: 'నీది', translit: 'needi', meaning: 'Yours' },
+  { tel: 'తూనీగ', translit: 'tooneega', meaning: 'Dragonfly' },
+  { tel: 'నీకు', translit: 'neeku', meaning: 'For you' },
+  { tel: 'నీరుల్లి', translit: 'Neerulli', meaning: 'Onion' },
+  // దీ
+  { tel: 'దీని', translit: 'deeni', meaning: 'This' },
+  { tel: 'దీవి', translit: 'deevi', meaning: 'Island' },
+  { tel: 'దీవెన', translit: 'deevena', meaning: 'Blessing' },
+  { tel: 'ఖాదీ', translit: 'khaadee', meaning: 'Hand-woven natural fibre cloth' },
+  { tel: 'పుదీన', translit: 'pudeena', meaning: 'Mint leaves' },
+  // క
+  { tel: 'కలం', translit: 'kalam', meaning: 'Pen' },
+  { tel: 'కల', translit: 'kala', meaning: 'Dream' },
+  { tel: 'మేక', translit: 'mEka', meaning: 'Goat' },
+  { tel: 'పలక', translit: 'palaka', meaning: 'Slate' },
+  { tel: 'కమలం', translit: 'kamalam', meaning: 'Lotus' },
+  // కా
+  { tel: 'కాలం', translit: 'kaalam', meaning: 'Time, span, season' },
+  { tel: 'కాలు', translit: 'kaalu', meaning: 'Leg' },
+  { tel: 'కాకి', translit: 'kaaki', meaning: 'Crow' },
+  { tel: 'కాదు', translit: 'kaadu', meaning: 'No' },
+  { tel: 'తెంకాయ', translit: 'Tenkaaya', meaning: 'Coconut' },
+  // కి
+  { tel: 'కంకి', translit: 'kanki', meaning: 'Cob of corn or millet' },
+  { tel: 'దానికి', translit: 'daaniki', meaning: 'For that' },
+  { tel: 'మురికి', translit: 'muriki', meaning: 'Dirty' },
+  { tel: 'నకిలీ', translit: 'nakilee', meaning: 'Fake' },
+  // కీ
+  { tel: 'కీలు', translit: 'keelu', meaning: 'Joint' },
+  { tel: 'కీటకం', translit: 'keeTakam', meaning: 'Insect' },
+  { tel: 'కీర', translit: 'keera', meaning: 'Cucumber' },
+  { tel: 'ఫకీరు', translit: 'phakeeru', meaning: 'Poor, holy man' },
+  { tel: 'కీర్తన', translit: 'keertana', meaning: 'Hymn, A devotional song' },
+  // ల
+  { tel: 'ఊయల', translit: 'ooyala', meaning: 'Swing' },
+  { tel: 'లంగా', translit: 'langaa', meaning: "A traditional ankle-length girl's dress" },
+  { tel: 'లంకె', translit: 'lanke', meaning: 'Link' },
+  { tel: 'ఈల', translit: 'eela', meaning: 'Whistle' },
+  { tel: 'నెల', translit: 'nela', meaning: 'Month' },
+  // లా
+  { tel: 'లావు', translit: 'laavu', meaning: 'Stout' },
+  { tel: 'లాగు', translit: 'laagu', meaning: 'Pull' },
+  { tel: 'లాభం', translit: 'laabham', meaning: 'Profit' },
+  { tel: 'లాలిపాట', translit: 'laalipaaTa', meaning: 'Lullaby' },
+  { tel: 'కోలాటం', translit: 'kOlaaTam', meaning: 'A folk dance, involves rhythmic stick movement' },
+  // లి
+  { tel: 'నెమలి', translit: 'nemali', meaning: 'Peacock' },
+  { tel: 'కదిలి', translit: 'kadili', meaning: 'Displace' },
+  { tel: 'వదిలి', translit: 'vadili', meaning: 'Left, let go' },
+  { tel: 'ఆకలి', translit: 'aakali', meaning: 'Hunger' },
+  { tel: 'గాలి', translit: 'gaali', meaning: 'Air' },
+  // లీ
+  { tel: 'లీటరు', translit: 'leeTaru', meaning: 'Litre' },
+  { tel: 'విలీనం', translit: 'vileenam', meaning: 'Merge' },
+  { tel: 'లీలలు', translit: 'leelalu', meaning: 'Divine plays' },
+  { tel: 'చాలీ-చాలని', translit: 'chaalee-chaalani', meaning: 'Insufficient' },
+  { tel: 'లీచి', translit: 'leechee', meaning: 'Lychee (a fruit)' },
+  // ను
+  { tel: 'నురగ', translit: 'nuraga', meaning: 'Froth' },
+  { tel: 'నుదురు', translit: 'nuduru', meaning: 'Forehead' },
+  { tel: 'నుడి', translit: 'nuDi', meaning: 'Speech' },
+  { tel: 'కానుక', translit: 'kaanuka', meaning: 'Gift' },
+  { tel: 'ఏనుగు', translit: 'Enugu', meaning: 'Elephant' },
+  // దు
+  { tel: 'దుమ్ము', translit: 'dummu', meaning: 'Dust' },
+  { tel: 'దుకాణం', translit: 'dukaaNam', meaning: 'Store' },
+  { tel: 'దువ్వెన', translit: 'duvvena', meaning: 'Comb' },
+  { tel: 'కాదు', translit: 'kaadu', meaning: 'No' },
+  { tel: 'నదులు', translit: 'nadulu', meaning: 'Rivers' },
+  { tel: 'ముందు', translit: 'mundu', meaning: 'Front' },
+  // కు
+  { tel: 'కుక్క', translit: 'kukka', meaning: 'Dog' },
+  { tel: 'కుబేరుడు', translit: 'kubEruDu', meaning: 'Affluent Person' },
+  { tel: 'కుందేలు', translit: 'kundElu', meaning: 'Rabbit' },
+  { tel: 'రేకు', translit: 'rEku', meaning: 'A thin metal sheet' },
+  { tel: 'మేకు', translit: 'mEku', meaning: 'Nail' },
+  { tel: 'చాకు', translit: 'chaaku', meaning: 'Knife' },
+  // ు (mElu group)
+  { tel: 'మేలు', translit: 'mElu', meaning: 'Good, Superior' },
+  { tel: 'నాలుక', translit: 'naaluka', meaning: 'Tongue' },
+  { tel: 'ఎలుక', translit: 'eluka', meaning: 'Mouse' },
+  { tel: 'అలుక', translit: 'aluka', meaning: 'Mild displeasure' },
+  { tel: 'చీమలు', translit: 'cheemalu', meaning: 'Ants' },
+  // నూ
+  { tel: 'నూకలు', translit: 'nookalu', meaning: 'Cracked grains, Broken Rice' },
+  { tel: 'నూతి', translit: 'nooti', meaning: 'Well' },
+  { tel: 'నూలు', translit: 'noolu', meaning: 'Cotton yarn' },
+  { tel: 'నూరు', translit: 'nooru', meaning: 'Hundred' },
+  { tel: 'నూరడం', translit: 'nooraDam', meaning: 'Grinding' },
+  // దూ
+  { tel: 'దూరం', translit: 'dooram', meaning: 'Distance' },
+  { tel: 'దూలం', translit: 'doolam', meaning: 'Wooden beam' },
+  { tel: 'దూత', translit: 'doota', meaning: 'Messenger' },
+  { tel: 'దూది', translit: 'doodi', meaning: 'Cotton' },
+  { tel: 'దూకు', translit: 'dooku', meaning: 'Jump' },
+  // కూ
+  { tel: 'కూర', translit: 'koora', meaning: 'Vegetable/Curry' },
+  { tel: 'కూజా', translit: 'koojaa', meaning: 'A clay pot with a long neck' },
+  { tel: 'కూటమి', translit: 'kooTami', meaning: 'Alliance, association' },
+  { tel: 'కూలి', translit: 'kooli', meaning: 'Wage labourer' },
+  { tel: 'కూడు', translit: 'kooDu', meaning: 'Food' },
+  // లూ
+  { tel: 'లూటీ', translit: 'looTee', meaning: 'Loot' },
+  { tel: 'భల్లూకం', translit: 'bhallookam', meaning: 'Bear' },
+  { tel: 'పెచ్చులూడటం', translit: 'pechchulooDaTam', meaning: 'Scalding' },
+  // నం
+  { tel: 'వనం', translit: 'vanam', meaning: 'Forest' },
+  { tel: 'నంది', translit: 'nandi', meaning: 'Sacred bull' },
+  { tel: 'భోజనం', translit: 'bhOjanam', meaning: 'Meal' },
+  { tel: 'నందయాల', translit: 'nandyaala', meaning: "A town's name in Andhra" },
+  { tel: 'జీవనం', translit: 'jeevanam', meaning: 'Living' },
+  // దం
+  { tel: 'దండ', translit: 'daNDa', meaning: 'Garland' },
+  { tel: 'దండి', translit: 'daNDi', meaning: 'Abundance' },
+  { tel: 'అందం', translit: 'andam', meaning: 'Beauty' },
+  { tel: 'పాదం', translit: 'paadam', meaning: 'Foot' },
+  { tel: 'దంతం', translit: 'dantam', meaning: 'Tooth' },
+  // కం
+  { tel: 'కంచు', translit: 'kanchu', meaning: 'Bronze' },
+  { tel: 'కంపు', translit: 'kampu', meaning: 'Stink' },
+  { tel: 'కండ', translit: 'kaNDa', meaning: 'Muscle' },
+  { tel: 'కంఠం', translit: 'kanTham', meaning: 'Throat' },
+  { tel: 'కీటకం', translit: 'keeTakam', meaning: 'Insect' },
+  // లం
+  { tel: 'లంగరు', translit: 'langaru', meaning: 'Anchor' },
+  { tel: 'లంచం', translit: 'lancham', meaning: 'Bribe' },
+  { tel: 'జలం', translit: 'jalam', meaning: 'Water' },
+  { tel: 'పొలం', translit: 'polam', meaning: 'Cultivated field' },
+  { tel: 'బలం', translit: 'balam', meaning: 'Strength' },
+  // నే
+  { tel: 'నేల', translit: 'nEla', meaning: 'Floor' },
+  { tel: 'నేను', translit: 'nEnu', meaning: 'I, Me' },
+  { tel: 'నేతి', translit: 'nEti', meaning: 'Of clarified (Indian) butter, ghee' },
+  { tel: 'నేటి', translit: 'nETi', meaning: "Today's" },
+  { tel: 'నేరేడు', translit: 'nErEDu', meaning: 'Indian berry' },
+  // దే
+  { tel: 'దేహం', translit: 'dEham', meaning: 'Body' },
+  { tel: 'దేశం', translit: 'dEsham', meaning: 'Country' },
+  { tel: 'దేవత', translit: 'dEvata', meaning: 'Goddess' },
+  { tel: 'దేనికి?', translit: 'dEniki?', meaning: 'For what?' },
+  { tel: 'సందేశం', translit: 'sandEsham', meaning: 'Message' },
+  // కే
+  { tel: 'కేక', translit: 'kEka', meaning: 'Shout' },
+  { tel: 'కేశాలు', translit: 'kEshaalu', meaning: 'Hair' },
+  { tel: 'కేవలం', translit: 'kEvalam', meaning: 'Just' },
+  { tel: 'కేరింత', translit: 'kErinta', meaning: 'High-pitched scream of joy' },
+  { tel: 'కేతువు', translit: 'kEtuvu', meaning: 'A Mythological entity' },
+  // లే
+  { tel: 'లేత', translit: 'lEta', meaning: 'Tender' },
+  { tel: 'లేగదూడ', translit: 'lEgadooDa', meaning: 'Calf' },
+  { tel: 'జిలేబి', translit: 'jilEbi', meaning: 'A dessert' },
+  { tel: 'లేపనం', translit: 'lEpanam', meaning: 'Paste (similar to ointment, balm)' },
+  { tel: 'లేపు', translit: 'lEpu', meaning: 'Lift' },
+  // నో
+  { tel: 'నోరు', translit: 'nOru', meaning: 'Mouth' },
+  { tel: 'నోము', translit: 'nOmu', meaning: 'A religious vow' },
+  { tel: 'నోటిమాట', translit: 'nOTimaaTa', meaning: 'Word of mouth' },
+  { tel: 'వినోదం', translit: 'vinOdam', meaning: 'Entertainment' },
+  { tel: 'నోటు', translit: 'nOTu', meaning: 'Currency, note' },
+  // దో
+  { tel: 'దోమ', translit: 'dOma', meaning: 'Mosquito' },
+  { tel: 'దోశ', translit: 'dOsha', meaning: 'Pancake' },
+  { tel: 'దోపిడి', translit: 'dOpiDi', meaning: 'Loot, Looting' },
+  { tel: 'దోషం', translit: 'dOSham', meaning: 'Fault' },
+  { tel: 'దోసకాయ', translit: 'dOsakaaya', meaning: 'Cucumber' },
+  // కో
+  { tel: 'కోడి', translit: 'kODi', meaning: 'Hen' },
+  { tel: 'పకోడీ', translit: 'pakODee', meaning: 'A snack' },
+  { tel: 'కోతి', translit: 'kOti', meaning: 'Monkey' },
+  { tel: 'కోకిల', translit: 'kOkila', meaning: 'Cuckoo' },
+  { tel: 'కోపము', translit: 'kOpamu', meaning: 'Anger' },
+  // లో
+  { tel: 'లోకం', translit: 'lOkam', meaning: 'World' },
+  { tel: 'లోతు', translit: 'lOtu', meaning: 'Depth' },
+  { tel: 'ఆలోచన', translit: 'aalOchana', meaning: 'Thought' },
+  { tel: 'లోహం', translit: 'lOham', meaning: 'Metal' },
+  { tel: 'లోభి', translit: 'lObhi', meaning: 'Miser' },
+  // నె
+  { tel: 'నెల', translit: 'nela', meaning: 'Month' },
+  { tel: 'నెమలి', translit: 'nemali', meaning: 'Peacock' },
+  { tel: 'నూనె', translit: 'noone', meaning: 'Oil' },
+  { tel: 'నెలవంక', translit: 'nelavanka', meaning: 'Crescent Moon' },
+  { tel: 'నెమ్మది', translit: 'nemmadi', meaning: 'Slow, Gentle' },
+  // గే
+  { tel: 'గేద', translit: 'gEde', meaning: 'Buffalo' },
+  { tel: 'కందెన', translit: 'kandena', meaning: 'Lubricant' },
+  { tel: 'గాడె', translit: 'gaade', meaning: 'Granary' },
+  { tel: 'బిందె', translit: 'binde', meaning: 'A large metal pot for water storage' },
+  { tel: 'దెబ్బ', translit: 'debba', meaning: 'Injury' },
+  // కె
+  { tel: 'కెరటం', translit: 'keraTam', meaning: 'Wave' },
+  { tel: 'కెలుకు', translit: 'keluku', meaning: 'Stir up' },
+  { tel: 'కెంజాయ', translit: 'kenjaaya', meaning: 'Red' },
+  { tel: 'కెంపు', translit: 'kempu', meaning: 'Ruby' },
+  { tel: 'చిటికెడు', translit: 'chiTikeDu', meaning: 'A pinch of something' },
+  // లె
+  { tel: 'లెక్క', translit: 'lekka', meaning: 'Calculation' },
+  { tel: 'లెస్స', translit: 'lessa', meaning: 'Great, Fine, Proper' },
+  // నొ
+  { tel: 'నొసలు', translit: 'nosalu', meaning: 'Forehead' },
+  { tel: 'నొక్కు', translit: 'nokku', meaning: 'Press' },
+  { tel: 'నొప్పి', translit: 'noppi', meaning: 'Pain' },
+  // దొ
+  { tel: 'దొంగ', translit: 'donga', meaning: 'Thief' },
+  { tel: 'దొర', translit: 'dora', meaning: 'Master' },
+  { tel: 'దొండ', translit: 'doNDa', meaning: 'Ivy gourd – A vegetable' },
+  { tel: 'దొరుకు', translit: 'doruku', meaning: 'Found' },
+  { tel: 'దొడ్డ', translit: 'doDDa', meaning: 'Noble' },
+  // కొ
+  { tel: 'కొంగ', translit: 'konga', meaning: 'Crane' },
+  { tel: 'కొత్త', translit: 'kotta', meaning: 'New' },
+  { tel: 'కొండ', translit: 'koNDa', meaning: 'Hill' },
+  { tel: 'కొడవలి', translit: 'koDavali', meaning: 'Sickle' },
+  { tel: 'కొలికి', translit: 'koliki', meaning: 'The inner corner of the eye' },
+  // లొ
+  { tel: 'లొట్టిపిట్ట', translit: 'loTTipiTTa', meaning: 'Camel' },
+  { tel: 'లొట్టి (ముంత)', translit: 'loTTi (munta)', meaning: 'A pot or jug made of clay' },
+  { tel: 'లొత్త', translit: 'lotta', meaning: 'Ditch' },
+  // మ
+  { tel: 'మంచు', translit: 'manchu', meaning: 'Snow' },
+  { tel: 'మామిడి', translit: 'maamiDi', meaning: 'Mango' },
+  { tel: 'మిడత', translit: 'miData', meaning: 'Locust' },
+  { tel: 'మీసం', translit: 'meesam', meaning: 'Mustache' },
+  { tel: 'ముక్కు', translit: 'mukku', meaning: 'Nose' },
+  { tel: 'మూతి', translit: 'mooti', meaning: 'Mouth' },
+  { tel: 'మంట', translit: 'maNTa', meaning: 'Fire' },
+  { tel: 'మెదడు', translit: 'medaDu', meaning: 'Brain' },
+  { tel: 'మేక', translit: 'mEka', meaning: 'Goat' },
+  { tel: 'మొక్క', translit: 'mokka', meaning: 'Plant' },
+  { tel: 'మోసం', translit: 'mOsam', meaning: 'Cheat' },
+  // చ
+  { tel: 'చలి', translit: 'chali', meaning: 'Cold' },
+  { tel: 'చాలు', translit: 'chaalu', meaning: 'Enough' },
+  { tel: 'చినుకు', translit: 'chinuku', meaning: 'Rain drop' },
+  { tel: 'చీమ', translit: 'cheema', meaning: 'Ant' },
+  { tel: 'చురుక', translit: 'churaka', meaning: 'Burning sensation' },
+  { tel: 'చూడు', translit: 'chooDu', meaning: 'Look' },
+  { tel: 'చందనం', translit: 'chandanam', meaning: 'Sandalwood' },
+  { tel: 'చెదలు', translit: 'chedalu', meaning: 'Termite' },
+  { tel: 'చేప', translit: 'chEpa', meaning: 'Fish' },
+  { tel: 'చొప్ప', translit: 'choppa', meaning: 'Corn' },
+  { tel: 'చోటు', translit: 'chOTu', meaning: 'Place' },
+  // గ
+  { tel: 'గడ్డి', translit: 'gaDDi', meaning: 'Grass' },
+  { tel: 'చెడ్డ', translit: 'cheDDa', meaning: 'Bad' },
+  { tel: 'దగ్గు', translit: 'daggu', meaning: 'Cough' },
+  { tel: 'మగ్గు', translit: 'maggu', meaning: 'Ripen' },
+  { tel: 'ముగ్గు', translit: 'muggu', meaning: 'Rangoli' },
+  { tel: 'గడ్డం', translit: 'gaDDam', meaning: 'Beard' },
+  { tel: 'తెడ్డు', translit: 'teDDu', meaning: 'Paddle' },
+  { tel: 'గుడ్డి', translit: 'guDDi', meaning: 'Blind' },
+  { tel: 'కడ్డి', translit: 'kaDDi', meaning: 'Rod' },
+  { tel: 'మడ్డి', translit: 'maDDi', meaning: 'Sediment' },
+  { tel: 'తగ్గు', translit: 'taggu', meaning: 'Go down' },
+  { tel: 'నిగ్గు', translit: 'niggu', meaning: 'Fact' },
+  { tel: 'మగ్గం', translit: 'maggam', meaning: 'Loom' },
+  { tel: 'ముద్ద', translit: 'mudda', meaning: 'Lump' },
+  { tel: 'మొద్దు', translit: 'moddu', meaning: 'Dumb' },
+  { tel: 'కొద్దిగా', translit: 'koddigaa', meaning: 'Little' },
+  { tel: 'మచ్చ', translit: 'machcha', meaning: 'Scar' },
+  { tel: 'గిచ్చు', translit: 'gichchu', meaning: 'Pinch' },
+  { tel: 'కుచ్చు', translit: 'kuchchu', meaning: 'Tassle' },
+  { tel: 'మద్దెల', translit: 'maddela', meaning: 'A percussion instrument' },
+  { tel: 'గిత్త', translit: 'gitta', meaning: 'Young bull' },
+  { tel: 'చద్ది', translit: 'chaddi', meaning: 'Stale' },
+  { tel: 'దుద్దులు', translit: 'duddulu', meaning: 'Ear rings' },
+  { tel: 'గచ్చు', translit: 'gacchu', meaning: 'Floor' },
+  { tel: 'నిచ్చెన', translit: 'nicchena', meaning: 'Ladder' },
+  { tel: 'మచ్చిక', translit: 'macchika', meaning: 'Tame' },
+  // జ
+  { tel: 'గాజు', translit: 'gaaju', meaning: 'Glass' },
+  { tel: 'కాజా', translit: 'kaajaa', meaning: 'Button Hole, a dessert' },
+  { tel: 'జలం', translit: 'jalam', meaning: 'Water' },
+  { tel: 'జలగ', translit: 'jalaga', meaning: 'Leech' },
+  { tel: 'జెడ', translit: 'jeDa', meaning: 'Braid' },
+  { tel: 'గజం', translit: 'gajam', meaning: 'Foot' },
+  { tel: 'గజ్జ', translit: 'gajja', meaning: 'Groin' },
+  { tel: 'గజ్జె', translit: 'gajje', meaning: 'Anklet bell' },
+  { tel: 'మజ్జ', translit: 'majja', meaning: 'Bone' },
+  { tel: 'లజ్జ', translit: 'lajja', meaning: 'Shame' },
+  { tel: 'గజ్జి', translit: 'gajji', meaning: 'Scabies' },
+  { tel: 'గుజ్జు', translit: 'gujju', meaning: 'Pulp' },
+  { tel: 'మజ్జిగ', translit: 'majjiga', meaning: 'Buttermilk' },
+  // ట
+  { tel: 'నాటు', translit: 'naaTu', meaning: 'Plant' },
+  { tel: 'దాటు', translit: 'daaTu', meaning: 'Cross' },
+  { tel: 'లోటా', translit: 'lOTaa', meaning: 'Pitcher' },
+  { tel: 'చాట', translit: 'chaaTa', meaning: 'Winnowing tray' },
+  { tel: 'గంట', translit: 'gaNTa', meaning: 'Bell' },
+  { tel: 'నట్ట', translit: 'naTTa', meaning: 'Worm' },
+  { tel: 'దట్టం', translit: 'daTTam', meaning: 'Dense' },
+  { tel: 'కట్టె', translit: 'kaTTe', meaning: 'Stick' },
+  { tel: 'లొట్ట', translit: 'loTTa', meaning: 'Dent' },
+  { tel: 'మట్టి', translit: 'maTTi', meaning: 'Soil' },
+  { tel: 'చుట్ట', translit: 'chuTTa', meaning: 'Roll' },
+  { tel: 'గట్టు', translit: 'gaTTu', meaning: 'Shore' },
+  // బ
+  { tel: 'బోనం', translit: 'bOnam', meaning: 'An Offering' },
+  { tel: 'బాదాం', translit: 'baadaam', meaning: 'Almond' },
+  { tel: 'బాకు', translit: 'baaku', meaning: 'Dagger' },
+  { tel: 'బలం', translit: 'balam', meaning: 'Strength' },
+  { tel: 'మబ్బు', translit: 'mabbu', meaning: 'Cloud' },
+  { tel: 'బూచి', translit: 'boochi', meaning: 'Ghost' },
+  { tel: 'బాడుగ', translit: 'baaDuga', meaning: 'Rent' },
+  { tel: 'బొంగరము', translit: 'bongaramu', meaning: 'A top' },
+  { tel: 'దెబ్బ', translit: 'debba', meaning: 'Stroke' },
+  { tel: 'దబ్బణం', translit: 'dabbaNam', meaning: 'Bodkin' },
+  { tel: 'కొబ్బరి', translit: 'kobbari', meaning: 'Coconut meat' },
+  { tel: 'డబ్బు', translit: 'Dabbu', meaning: 'Money' },
+  { tel: 'గబ్బు', translit: 'gabbu', meaning: 'Foul odor' },
+  // ప
+  { tel: 'పని', translit: 'pani', meaning: 'Work' },
+  { tel: 'పొద', translit: 'poda', meaning: 'Bush' },
+  { tel: 'కప్ప', translit: 'kappa', meaning: 'Frog' },
+  { tel: 'పల్లె', translit: 'palle', meaning: 'Hamlet' },
+  { tel: 'పాము', translit: 'paamu', meaning: 'Snake' },
+  { tel: 'పచ్చి', translit: 'pacchi', meaning: 'Raw' },
+  { tel: 'పండు', translit: 'paNDu', meaning: 'Ripe' },
+  { tel: 'పొగ', translit: 'poga', meaning: 'Smoke' },
+  { tel: 'నొప్పి', translit: 'noppi', meaning: 'Pain' },
+  { tel: 'దప్పిక', translit: 'dappika', meaning: 'Thirst' },
+  { tel: 'పప్పు', translit: 'pappu', meaning: 'Lentils' },
+  { tel: 'చప్పగా', translit: 'chappagaa', meaning: 'Bland' },
+  { tel: 'డప్పు', translit: 'Dappu', meaning: 'A musical drum' },
+  { tel: 'గొప్ప', translit: 'goppa', meaning: 'Grand' },
+  // అమ్మ
+  { tel: 'అమ్మ', translit: 'amma', meaning: 'Mother' },
+  { tel: 'దిమ్మ', translit: 'dimma', meaning: 'Dizziness, Giddiness' },
+  { tel: 'కొమ్మ(లు)', translit: 'komma(lu)', meaning: 'Branch(es)' },
+  { tel: 'అమ్మమ్మ', translit: 'ammamma', meaning: 'Maternal grandmother' },
+  // న్న
+  { tel: 'నాన్న', translit: 'nanna', meaning: 'Father' },
+  { tel: 'అన్నం', translit: 'annam', meaning: 'Meal' },
+  { tel: 'అన్ని', translit: 'anni', meaning: 'All' },
+  { tel: 'కన్ను(లు)', translit: 'kannu(lu)', meaning: 'Eye(s)' },
+  { tel: 'పున్నమి', translit: 'punnami', meaning: 'Full moon' },
+  { tel: 'వన్నె', translit: 'vanne', meaning: 'Color' },
+  // ల్లు
+  { tel: 'ఇల్లు', translit: 'illu', meaning: 'Home' },
+  { tel: 'పిల్ల', translit: 'pilla', meaning: 'Baby girl' },
+  { tel: 'చెల్లి', translit: 'chelli', meaning: 'Younger sister' },
+  { tel: 'కల్లు', translit: 'kallu', meaning: 'Toddy' },
+  { tel: 'పల్లకి', translit: 'pallaki', meaning: 'Palanquin' },
+  { tel: 'అల్లం', translit: 'allam', meaning: 'Ginger' },
+  // త
+  { tel: 'తల', translit: 'tala', meaning: 'Head' },
+  { tel: 'లత', translit: 'lata', meaning: 'Creeper, Vine' },
+  { tel: 'లేత', translit: 'lEta', meaning: 'Tender' },
+  { tel: 'తోలు', translit: 'tOlu', meaning: 'Skin' },
+  { tel: 'తల్లి', translit: 'talli', meaning: 'Mother' },
+  { tel: 'తోడు', translit: 'tODu', meaning: 'Help, Aid, Assistance' },
+  { tel: 'బాటు', translit: 'baatu', meaning: 'Duck' },
+  { tel: 'జత', translit: 'jata', meaning: 'Pair' },
+  { tel: 'మేత', translit: 'mEta', meaning: 'Fodder' },
+  { tel: 'తినా', translit: 'tinu', meaning: 'Eat' },
+  { tel: 'రాత', translit: 'raata', meaning: 'Writing' },
+  { tel: 'తార(లు)', translit: 'taara(lu)', meaning: 'Star(s)' },
+  { tel: 'తెర', translit: 'tera', meaning: 'Screen' },
+  { tel: 'చెర', translit: 'chera', meaning: 'Cell, Jail' },
+  { tel: 'చీర', translit: 'cheera', meaning: 'Saree' },
+  { tel: 'చీకటి', translit: 'cheekaTi', meaning: 'Dark' },
+  { tel: 'రుచి', translit: 'ruchi', meaning: 'Taste' },
+  { tel: 'రచ్చబండ', translit: 'rachchabanDa', meaning: 'A village gathering spot on a stone slab under a tree' },
+  { tel: 'రొద', translit: 'roda', meaning: 'Noise' },
+  { tel: 'రగ్గు', translit: 'raggu', meaning: 'Blanket' },
+  { tel: 'రాముడు', translit: 'ramuDu', meaning: 'Son of King Dasaratha & Queen Kausalya' },
+  { tel: 'నేరం', translit: 'nEram', meaning: 'Crime' },
+  { tel: 'నరం', translit: 'naram', meaning: 'Nerve' },
+  // ర
+  { tel: 'రాను', translit: 'raanu', meaning: "I won't come" },
+  { tel: 'మరకలు', translit: 'marakalu', meaning: 'Stains' },
+  { tel: 'అగ్ని', translit: 'agni', meaning: 'Fire' },
+  { tel: 'కల్పన', translit: 'kalpana', meaning: 'Imagination' },
+  { tel: 'పల్చగా', translit: 'palchagaa', meaning: 'Thin, Watery' },
+  { tel: 'రాత్రి', translit: 'raatri', meaning: 'Night' },
+  { tel: 'క్రియ', translit: 'kriya', meaning: 'Action, Verb' },
+  { tel: 'వర్గం', translit: 'vargam', meaning: 'Group' },
+  { tel: 'స్త్రీ', translit: 'stree', meaning: 'Woman' },
+  { tel: 'మత్స్యము', translit: 'matsyamu', meaning: 'Fish' },
+  { tel: 'వల', translit: 'vala', meaning: 'Net' },
+  { tel: 'వేలు', translit: 'vElu', meaning: 'Finger' },
+  { tel: 'కడవ', translit: 'kaDava', meaning: 'Clay pot' },
+  { tel: 'పడవ', translit: 'paDava', meaning: 'Boat' },
+  { tel: 'బావ', translit: 'baava', meaning: 'Brother-in-law' },
+  { tel: 'బావి', translit: 'baavi', meaning: 'Well' },
+  { tel: 'వద్దు', translit: 'vaddu', meaning: 'No' },
+  { tel: 'వేదం', translit: 'vEdam', meaning: 'Divine knowledge' },
+  { tel: 'కవి', translit: 'kavi', meaning: 'Poet' },
+  { tel: 'మువ్వ', translit: 'muvva', meaning: 'Small tinkling bell of Anklet' },
+  { tel: 'రవ్వ', translit: 'ravva', meaning: 'Spark' },
+  { tel: 'కవ్వం', translit: 'kavvam', meaning: 'Churning stick' },
+  { tel: 'కవ్విమ్పు', translit: 'kavvimpu', meaning: 'Provocation' },
+  { tel: 'నవ్వు', translit: 'navvu', meaning: 'Laugh' },
+  { tel: 'పర్వం', translit: 'parvam', meaning: 'Chapter' },
+  { tel: 'త్వరలో', translit: 'tvaralO', meaning: 'Soon' },
+  { tel: 'ద్వీపం', translit: 'dveepam', meaning: 'Island' },
+  { tel: 'ద్వారం', translit: 'dvaaram', meaning: 'Entrance, Door' },
+  // స
+  { tel: 'సీత', translit: 'seeta', meaning: "Lord Shree Rama's wife" },
+  { tel: 'తీసివేసి', translit: 'teesivEsi', meaning: 'Deduct, Minus' },
+  { tel: 'కాసు', translit: 'kaasu', meaning: 'Coin' },
+  { tel: 'పసిడి', translit: 'pasiDi', meaning: 'Gold' },
+  { tel: 'సీసం', translit: 'seesam', meaning: 'Lead' },
+  { tel: 'సిగ్గు', translit: 'siggu', meaning: 'Shy' },
+  { tel: 'వాసి', translit: 'vaasi', meaning: 'Prominence, fame' },
+  { tel: 'సబ్బు', translit: 'sabbu', meaning: 'Soap' },
+  { tel: 'స్వరం', translit: 'svaram', meaning: 'Tone' },
+  { tel: 'సాగడం', translit: 'saagaDam', meaning: 'Stretch' },
+  { tel: 'సొంతం', translit: 'sontam', meaning: 'Own' },
+  { tel: 'హవిస్సు', translit: 'havissu', meaning: 'Ghee used in homam (sacrificial fire)' },
+  { tel: 'తపస్సు', translit: 'tapassu', meaning: 'Deep meditation' },
+  { tel: 'శిరస్సు', translit: 'shirassu', meaning: 'Head' },
+  { tel: 'సదస్సు', translit: 'sadassu', meaning: 'Conference' },
+  // చంద్రుడు
+  { tel: 'చంద్రుడు', translit: 'chandruDu', meaning: 'Moon' },
+  { tel: 'ప్రతి', translit: 'prati', meaning: 'Every' },
+  { tel: 'ముద్ర', translit: 'mudra', meaning: 'Seal, Gesture' },
+  { tel: 'చరిత్ర', translit: 'charitra', meaning: 'History' },
+  { tel: 'క్రీడలు', translit: 'kreeDalu', meaning: 'Sports' },
+  { tel: 'కత్తి', translit: 'katti', meaning: 'Knife' },
+  { tel: 'పత్తి', translit: 'patti', meaning: 'Cotton' },
+  { tel: 'చెత్త', translit: 'chetta', meaning: 'Trash' },
+  { tel: 'విత్తనం', translit: 'vittanam', meaning: 'Seed' },
+  { tel: 'వస్తువు', translit: 'vastuvu', meaning: 'Article' },
+  { tel: 'అక్క', translit: 'akka', meaning: 'Older sister' },
+  { tel: 'చొక్కా', translit: 'chokkaa', meaning: 'Shirt' },
+  { tel: 'బక్కగా', translit: 'bakkagaa', meaning: 'Skinny' },
+  { tel: 'చిక్కగా', translit: 'chikkagaa', meaning: 'Thick' },
+  { tel: 'రైతు', translit: 'raitu', meaning: 'Farmer' },
+  { tel: 'పైరు', translit: 'pairu', meaning: 'Crop' },
+  { tel: 'పైట', translit: 'paiTa', meaning: 'Draped fabric' },
+  { tel: 'మైకం', translit: 'maikam', meaning: 'Intoxication' },
+  { tel: 'నౌక', translit: 'nauka', meaning: 'Ship' },
+  { tel: 'చౌక', translit: 'chauka', meaning: 'Cheap' },
+  { tel: 'రౌతు', translit: 'Rautu', meaning: 'Jockey' },
+  { tel: 'మౌనం', translit: 'maunam', meaning: 'Silent' },
+  { tel: 'గౌరవం', translit: 'gauravam', meaning: 'Respect' },
+  // వెజ్
+  { tel: 'వంకాయ', translit: 'vankaaya', meaning: 'Brinjal, Eggplant' },
+  { tel: 'బెండకాయ', translit: 'benDakaaya', meaning: 'Okra, Lady finger' },
+  { tel: 'కూరగాయలు', translit: 'kooragaayalu', meaning: 'Vegetables' },
+  { tel: 'మాయం', translit: 'maayam', meaning: 'Vanish' },
+  { tel: 'యాత్ర', translit: 'yaatra', meaning: 'Tour' },
+  { tel: 'వ్యక్తి', translit: 'vyakti', meaning: 'Person' },
+  { tel: 'వైద్యం', translit: 'vaidyam', meaning: 'Medicine' },
+  { tel: 'వేయి', translit: 'veyyi', meaning: 'Thousand' },
+  { tel: 'వ్యవసాయం', translit: 'vyavasaayam', meaning: 'Agriculture' },
+  { tel: 'సూర్యుడు', translit: 'sooryuDu', meaning: 'Sun' },
+  { tel: 'నెయ్యి', translit: 'neyyi', meaning: 'Indian butter, ghee' },
+  { tel: 'దౌర్జన్యం', translit: 'daurjanyam', meaning: 'Oppression' },
+  { tel: 'కార్యము', translit: 'kaaryamu', meaning: 'Task' },
+  { tel: 'గడుగ్గాయ', translit: 'gaDuggaaya', meaning: 'Mischievous' },
+  { tel: 'న్యాయం', translit: 'nyaayam', meaning: 'Justice' },
+  { tel: 'విద్య', translit: 'vidya', meaning: 'Education' },
+  { tel: '(సం)బంధము', translit: '(sam)bandhamu', meaning: 'Relationship' },
+  { tel: 'నిధి', translit: 'nidhi', meaning: 'Treasure' },
+  { tel: 'ధనం', translit: 'dhanam', meaning: 'Money' },
+  { tel: 'బుద్ధి', translit: 'buddhi', meaning: 'Intelligence' },
+  { tel: 'పద్ధతి', translit: 'paddhati', meaning: 'Method' },
+  { tel: 'అభ్యంతరము', translit: 'abhyantaramu', meaning: 'Objection' },
+  { tel: 'అభ్యుదయం', translit: 'abhyudayam', meaning: 'Prosperity' },
+  { tel: 'అభ్యాసము', translit: 'abhyaasamu', meaning: 'Practice (to get better)' },
+  { tel: 'భేదము', translit: 'bhEdamu', meaning: 'Difference' },
+  { tel: 'భౌతికము', translit: 'bhautikamu', meaning: 'Physical' },
+  { tel: 'ఛత్రి', translit: 'Chatri', meaning: 'Umbrella' },
+  { tel: 'ఛాతి', translit: 'Chaati', meaning: 'Chest' },
+  { tel: 'ఛాయ', translit: 'Chaaya', meaning: 'Shade, Tone' },
+  { tel: 'ఛేదించు', translit: 'ChEdinchu', meaning: 'Cut, Chop' },
+  { tel: 'ధాన్యం', translit: 'dhaanyam', meaning: 'Grain' },
+  { tel: 'సందర్భం', translit: 'sandarbham', meaning: 'Context' },
+  { tel: 'నిర్భయం', translit: 'nirbhayam', meaning: 'Fearless' },
+  { tel: 'ఆవిర్భావం', translit: 'aavirbhaavam', meaning: 'Emergence' },
+  { tel: 'స్వచ్ఛము', translit: 'svachChamu', meaning: 'Pure' },
+  { tel: 'స్వేచ్ఛ', translit: 'svEchCha', meaning: 'Freedom' },
+  { tel: 'వృద్ధి', translit: 'vRuddhi', meaning: 'Growth' },
+  { tel: 'అభివృద్ధి', translit: 'abhivRuddhi', meaning: 'Development' },
+  { tel: 'వృత్తము', translit: 'vRuttamu', meaning: 'Circle' },
+  { tel: 'ప్రవృత్తి', translit: 'pravRutti', meaning: 'Tendency' },
+  { tel: '(ఆ)కృతి', translit: '(aa)kRuti', meaning: 'Shape, Song composition' },
+  { tel: 'మృగం', translit: 'mRugam', meaning: 'Animal' },
+  { tel: 'బృందం', translit: 'bRundam', meaning: 'Team' },
+  { tel: 'గృహం', translit: 'gRuham', meaning: 'Home' },
+  { tel: 'హృదయం', translit: 'hRudayam', meaning: 'Heart' },
+  { tel: 'క్రూరుడు', translit: 'kRooruDu', meaning: 'Cruel person' },
+  { tel: 'శక్తి', translit: 'shakti', meaning: 'Power' },
+  { tel: 'శంకరుడు', translit: 'shankaruDu', meaning: 'Lord Shiva' },
+  { tel: 'శనివారం', translit: 'shanivaaram', meaning: 'Saturday' },
+  { tel: 'శ్వాస', translit: 'shvaasa', meaning: 'Breath' },
+  { tel: 'శివుడు', translit: 'shivuDu', meaning: 'Lord Shiva' },
+  { tel: '(పరి)శుభ్రం', translit: '(pari)shubhram', meaning: 'Clean' },
+  { tel: 'శూన్యం', translit: 'shoonyam', meaning: 'Vacuum' },
+  { tel: 'శృతి', translit: 'shruti', meaning: 'Tone' },
+  { tel: 'విశేషం', translit: 'vishESham', meaning: 'Special' },
+  { tel: 'సంతోషం', translit: 'santOSham', meaning: 'Happy' },
+  { tel: 'కష్టం', translit: 'kaShTam', meaning: 'Hard' },
+  { tel: 'నష్టం', translit: 'naShTam', meaning: 'Loss' },
+  { tel: 'రాష్ట్రం', translit: 'raaShTram', meaning: 'State' },
+  { tel: 'సృష్టికర్త', translit: 'sRuShTikarta', meaning: 'Creator' },
+  { tel: 'దర్శనం', translit: 'darshanam', meaning: 'Dream, View, Visit, Vision' },
+  { tel: 'సందర్శించడం', translit: 'sandarshinchaDam', meaning: 'To look at, View, Behold, Visit' },
+  { tel: 'విమర్శ', translit: 'vimarsha', meaning: 'Deliberation, Inquiry, Review' },
+  { tel: 'వర్షము', translit: 'varShamu', meaning: 'Rain' },
+  { tel: 'స్పర్శ', translit: 'sparsha', meaning: '(The sense of) touch' },
+  { tel: 'హర్షించు', translit: 'harShinchu', meaning: 'To rejoice' },
+  { tel: 'లక్ష', translit: 'lakSha', meaning: '100 thousand' },
+  { tel: 'క్షేమం', translit: 'kShEmam', meaning: 'Safe' },
+  { tel: 'లక్ష్యం', translit: 'lakShyam', meaning: 'Goal (mission)' },
+  { tel: 'క్షోభ', translit: 'kShObha', meaning: 'Trouble, Distress' },
+  { tel: 'సంక్షోభం', translit: 'sankShObham', meaning: 'Crisis' },
+  { tel: 'క్షేత్రం', translit: 'kShEtram', meaning: '(Holy) place, Field' },
+  { tel: 'కళ(లు)', translit: 'kaLa(lu)', meaning: 'Art(s)' },
+  { tel: 'తాళం', translit: 'taaLam', meaning: 'Lock, Beat (of music)' },
+  { tel: 'వేళ', translit: 'vELa', meaning: '(A particular) time' },
+  { tel: 'కళ్ళు', translit: 'kaLLu', meaning: 'Eyes' },
+  { tel: 'పళ్ళు', translit: 'paLLu', meaning: 'Teeth' },
+  { tel: 'రాళ్ళు', translit: 'raaLLu', meaning: 'Stones' },
+  { tel: '(మంచి) నీళ్ళు', translit: '(manchi) neeLLu', meaning: '(Drinking) Water' },
+  { tel: 'కళ్ళెం', translit: 'kaLLem', meaning: 'Bridle/Reins (of a horse)' },
+  { tel: 'పళ్ళెం', translit: 'paLLem', meaning: '(Eating) Plate' },
+  { tel: 'పెళ్ళి', translit: 'peLLi', meaning: 'Marriage' },
+  { tel: 'హలము', translit: 'halamu', meaning: 'Plough' },
+  { tel: 'హరిత', translit: 'harita', meaning: 'Green' },
+  { tel: 'హారం', translit: 'haaram', meaning: 'Necklace' },
+  { tel: 'హీనము', translit: 'heenamu', meaning: 'Lowly' },
+  { tel: 'హైనా', translit: 'hainaa', meaning: 'Hyena' },
+  { tel: 'హర్షం', translit: 'harSham', meaning: 'Joy, Elation' },
+  { tel: 'అర్హత', translit: 'arhata', meaning: 'Worthiness, Merit' },
+  { tel: 'ఢీ కొట్టడం', translit: 'Dhee koTTaDam', meaning: 'To collide' },
+  { tel: 'ఢంక', translit: 'Dhanka', meaning: 'A drum' },
+  { tel: 'దృఢం', translit: 'dRuDham', meaning: 'Firm' },
+  { tel: 'ఫలం', translit: 'phalam', meaning: 'Fruit, Result' },
+  { tel: '(అ)సఫలం', translit: '(a)saphalam', meaning: '(Un)successful' },
+  { tel: 'షడ్ఢకుడు', translit: 'ShaDDhakuDu', meaning: 'Co-Brother' },
+  { tel: 'స్ఫూర్తి', translit: 'sphoorti', meaning: 'Inspiration' },
+  { tel: 'బాణం', translit: 'baaNam', meaning: 'Arrow' },
+  { tel: 'గుణం', translit: 'guNam', meaning: "A material's Property, A person's Character" },
+  { tel: 'గణితం', translit: 'gaNitam', meaning: 'Mathematics' },
+  { tel: 'మణి', translit: 'maNi', meaning: 'Precious stone' },
+  { tel: 'మణులు', translit: 'maNulu', meaning: 'Precious stones' },
+  { tel: 'ఫణి', translit: 'phaNi', meaning: 'Serpent, Snake' },
+  { tel: 'ఫణేంద్ర', translit: 'phaNeendra', meaning: 'Serpent God in Hindu mythology' },
+  { tel: 'అరణ్యము', translit: 'araNyamu', meaning: 'Forest' },
+  { tel: 'నాణ్యత', translit: 'naaNyata', meaning: 'Quality' },
+  { tel: 'వర్ణన', translit: 'varNana', meaning: 'Description' },
+  { tel: 'వర్ణించడం', translit: 'varNinchaDam', meaning: 'To describe' },
+  { tel: 'కర్ణుడు', translit: 'karNuDu', meaning: 'An archer in Mahabharatha' },
+  { tel: 'నిర్ణయం', translit: 'nirNayam', meaning: 'Decision' },
+  { tel: 'చూర్ణం', translit: 'choorNam', meaning: 'Powder' },
+  { tel: 'ముఖము', translit: 'mukhamu', meaning: 'Face' },
+  { tel: 'ఖడ్గం', translit: 'khaDgam', meaning: 'Sword' },
+  { tel: 'ఖరము', translit: 'kharamu', meaning: 'Ass (Donkey)' },
+  { tel: 'ఖండము', translit: 'khanDamu', meaning: 'Continent' },
+  { tel: 'ఖైది', translit: 'khaidi', meaning: 'Prisoner' },
+  { tel: 'ఖరీదు', translit: 'khareedu', meaning: 'Price, expensive' },
+  { tel: 'సంఖ్య', translit: 'sankhya', meaning: 'Number' },
+  { tel: 'మూర్ఖుడు', translit: 'moorkhuDu', meaning: 'Fool' },
+  { tel: 'మేఘం', translit: 'mEgham', meaning: 'Cloud' },
+  { tel: 'నిఘంటువు', translit: 'nighanTuvu', meaning: 'Dictionary' },
+  { tel: 'ఘోరం', translit: 'ghOraM', meaning: 'Horrible' },
+  { tel: 'సంఘటన', translit: 'sanghaTana', meaning: '(good) event' },
+  { tel: 'ఘర్షణ', translit: 'gharshaNa', meaning: 'Quarrel, Friction' },
+  { tel: 'సంఘర్షణ', translit: 'sangharshaNa', meaning: 'Rivalry, Dispute' },
+  { tel: 'దీర్ఘం', translit: 'deergham', meaning: 'Lengthy, Elongated, Vowel diacritic of ఆ' },
+  { tel: 'ముఠా', translit: 'muThaa', meaning: 'Gang' },
+  { tel: 'కఠినం', translit: 'kaThinam', meaning: 'Difficult' },
+  { tel: 'కఠోరం', translit: 'kaThOram', meaning: 'Arduous' },
+  { tel: 'ప్రతిష్ఠ', translit: 'pratiShTha', meaning: 'Fame, Respect' },
+  { tel: 'షష్టి', translit: 'shaShTi', meaning: 'Sixty' },
+  { tel: 'ఱంపం', translit: 'Rampam', meaning: 'Saw (to cut wood)' },
+  { tel: 'బఱ్ఱె', translit: 'baRRe', meaning: 'Buffalo' },
+  { tel: 'గుఱ్ఱం', translit: 'guRRam', meaning: 'Horse' },
+  { tel: 'మఱ్ఱి', translit: 'maRRi', meaning: 'Banyan' },
+  { tel: 'బుఱ్ఱ', translit: 'buRRa', meaning: 'Brain' },
+  { tel: 'కొఱకు', translit: 'koRaku', meaning: 'For' },
+  { tel: 'కథ', translit: 'katha', meaning: 'Story' },
+  { tel: 'రథం', translit: 'ratham', meaning: 'Chariot' },
+  { tel: 'అర్థం', translit: 'artham', meaning: 'Meaning' },
+  { tel: 'వ్యర్థం', translit: 'vyartham', meaning: 'Waste' },
+  { tel: 'యదార్థం', translit: 'yadaartham', meaning: 'Reality' },
+  { tel: 'స్థాపన', translit: 'sthaapana', meaning: 'Establishment' },
+  { tel: 'సంస్థ', translit: 'sanstha', meaning: 'Organization' },
+  { tel: 'వ్యవస్థాపకుడు', translit: 'vyavasthaapakuDu', meaning: 'Entrepreneur, Founder' },
+  { tel: 'స్థిరము', translit: 'sthiramu', meaning: 'Stability' },
+  { tel: 'స్థైర్యము', translit: 'sthairyamu', meaning: 'Steadfastedness' },
+  { tel: 'ఝంకారము', translit: 'jhankaaramu', meaning: 'Buzzing noise of a bee' },
+  { tel: 'ఝషము', translit: 'jhaShamu', meaning: 'Fish' },
+  { tel: 'ఝర్ఝరి', translit: 'jharjhari', meaning: 'A kind of drum' },
+  { tel: 'ఆజ్ఞ', translit: 'aaj~ja', meaning: 'Command, order, permission' },
+  { tel: 'విజ్ఞప్తి', translit: 'vij~japti', meaning: 'Request' },
+  { tel: '(వి)జ్ఞానం', translit: '(vi)j~jaanam', meaning: 'Knowledge' },
+  { tel: 'దుఃఖము', translit: 'duHkhamu', meaning: 'Sadness' },
+  { tel: 'అంతఃపురము', translit: 'antaHpuramu', meaning: 'Inner chamber in a palace' },
+  { tel: 'అంతఃకలహాలు', translit: 'antaHkalahaalu', meaning: 'In-fighting' },
+  // ఆ words
+  { tel: 'ఆట(లు)', translit: 'aaTa(lu)', meaning: 'Games' },
+  { tel: 'ఆకలి', translit: 'aakali', meaning: 'Hunger' },
+  { tel: 'ఆకు(లు)', translit: 'aaku(lu)', meaning: 'Leaf (leaves)' },
+  { tel: 'ఆహారం', translit: 'aahaaram', meaning: 'Food' },
+  { tel: 'ఆవకాయ', translit: 'aavakaaya', meaning: 'Pickle' },
+  // ఈ words
+  { tel: 'ఈక', translit: 'eeka', meaning: 'Feather' },
+  { tel: 'ఈల', translit: 'eela', meaning: 'Whistle' },
+  { tel: 'ఈ రోజు', translit: 'ee rOju', meaning: 'This day' },
+  { tel: 'ఈ వ్యక్తి', translit: 'ee vyakti', meaning: 'This person' },
+  // ఉ words
+  { tel: 'ఉడత', translit: 'uData', meaning: 'Squirrel' },
+  { tel: 'ఉప్పు', translit: 'uppu', meaning: 'Salt' },
+  { tel: 'ఉయ్యాల', translit: 'uyyaala', meaning: 'Swing' },
+  { tel: 'ఉక్కు', translit: 'ukku', meaning: 'Iron' },
+  { tel: 'ఉసిరికాయ', translit: 'usirikaaya', meaning: 'Gooseberry' },
+  { tel: 'ఉంది', translit: 'undi', meaning: 'Being there' },
+  // ఊ words
+  { tel: 'ఊయల', translit: 'ooyala', meaning: 'Swing' },
+  { tel: 'ఊడడము', translit: 'ooDaDamu', meaning: 'To unattach' },
+  { tel: 'ఊడింది', translit: 'ooDindi', meaning: '' },
+  { tel: 'ఊడవడము', translit: 'ooDavaDamu', meaning: 'To sweep' },
+  { tel: 'ఊపిరి', translit: 'oopiri', meaning: 'Breath' },
+  // ఎ words
+  { tel: 'ఎక్కువ', translit: 'ekkuva', meaning: 'More' },
+  { tel: 'ఎవరు', translit: 'evaru', meaning: 'Who' },
+  { tel: 'ఎవరికి', translit: 'evariki', meaning: 'To whom' },
+  { tel: 'ఎలుక', translit: 'eluka', meaning: 'Rat' },
+  // ఏ words
+  { tel: 'ఏడు', translit: 'EDu', meaning: 'Seven' },
+  { tel: 'ఏడుస్తున్నాడు', translit: 'EDustunnaaDu', meaning: '(he is) crying' },
+  { tel: 'ఏనుగు', translit: 'Enugu', meaning: 'Elephant' },
+  // ఐ words
+  { tel: 'ఐదు', translit: 'aidu', meaning: 'Five' },
+  { tel: 'ఐకమత్యం', translit: 'aikamatyam', meaning: 'Unity' },
+  { tel: 'ఐరావతం', translit: 'airaavatam', meaning: "Indra's elephant" },
+  // ఒ words
+  { tel: 'ఒకరు', translit: 'okaru', meaning: 'One person' },
+  { tel: 'ఒకటి', translit: 'okaTi', meaning: 'One' },
+  { tel: 'ఒంటె', translit: 'onTe', meaning: 'Camel' },
+  { tel: 'ఒకే ఒక', translit: 'okE oka', meaning: 'One and only' },
+  { tel: 'ఒక్కొక్క', translit: 'okkokka', meaning: 'Every' },
+  { tel: 'ఒంటరిగా', translit: 'onTarigaa', meaning: 'Alone' },
+  // ఓ words
+  { tel: 'ఓడ', translit: 'ODa', meaning: 'Ship' },
+  { tel: 'ఓపిక', translit: 'Opika', meaning: 'Patience' },
+  { tel: 'ఓటమి', translit: 'OTami', meaning: 'Loss (losing)' },
+  { tel: 'ఓడించు', translit: 'ODinchu', meaning: 'Defeat (someone)' },
+  // ఔ words
+  { tel: 'ఔషధం', translit: 'auShadham', meaning: 'Medicine' },
+  { tel: 'ఔదార్యం', translit: 'audaaryam', meaning: 'Generosity' },
+  { tel: 'ఔరా', translit: 'auraa', meaning: 'Wow!' },
+  { tel: 'ఔన్నత్యం', translit: 'aunnatyam', meaning: 'Greatness' },
+  { tel: 'ఔటు', translit: 'auTu', meaning: 'A type of firework' },
+  // ఋ words
+  { tel: 'ఋషి', translit: 'Rushi', meaning: 'Sage, saint' },
+  { tel: 'ఋణం', translit: 'RuNam', meaning: 'Debt' },
+  { tel: 'ఋతువు', translit: 'Rutuvu', meaning: 'Season' },
+  { tel: 'ఋజువు', translit: 'Rujuvu', meaning: 'Evidence' },
+  // వాగ్మయం
+  { tel: 'వాఙ్మయం', translit: 'vaa~gmayam', meaning: 'Literature' },
+];
+
+// Set sticky offset to sit just below the toolbar
+function setStickyOffset() {
+  const toolbarH = document.querySelector('.toolbar').offsetHeight;
+  document.querySelectorAll('thead th').forEach(th => {
+    th.style.top = toolbarH + 'px';
+  });
+}
+setStickyOffset();
+window.addEventListener('resize', setStickyOffset);
+const seen = new Set();
+const uniqueWords = words.filter(w => {
+  const key = w.tel + '|' + w.meaning;
+  if (seen.has(key)) return false;
+  seen.add(key);
+  return true;
+});
+
+const tbody = document.getElementById('tableBody');
+const countBadge = document.getElementById('countBadge');
+const searchInput = document.getElementById('searchInput');
+const noResults = document.getElementById('noResults');
+
+function buildRows(data) {
+  tbody.innerHTML = '';
+  data.forEach((w, i) => {
+    const tr = document.createElement('tr');
+    tr.dataset.index = i;
+    tr.innerHTML = `
+      <td class="col-telugu">${w.tel}</td>
+      <td class="col-translit">${w.translit}</td>
+      <td class="col-pronun">
+        <button class="pronun-btn" onclick="playAudio(this)" title="Listen: ${w.translit}">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+        </button>
+      </td>
+      <td class="col-meaning">${w.meaning}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+let currentAudio = null;
+
+function playAudio(btn) {
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+  }
+  const audio = new Audio(AUDIO_PLACEHOLDER);
+  currentAudio = audio;
+  audio.play().catch(() => {});
+}
+
+function updateCount(n, total) {
+  countBadge.textContent = n === total ? `${total} పదాలు` : `${n} / ${total} పదాలు`;
+}
+
+buildRows(uniqueWords);
+updateCount(uniqueWords.length, uniqueWords.length);
+
+searchInput.addEventListener('input', () => {
+  const q = searchInput.value.trim().toLowerCase();
+  const rows = tbody.querySelectorAll('tr');
+  let visible = 0;
+  rows.forEach(row => {
+    const idx = parseInt(row.dataset.index);
+    const w = uniqueWords[idx];
+    const match = !q ||
+      w.tel.toLowerCase().includes(q) ||
+      w.translit.toLowerCase().includes(q) ||
+      w.meaning.toLowerCase().includes(q);
+    row.classList.toggle('hidden', !match);
+    if (match) visible++;
+  });
+  noResults.style.display = visible === 0 ? 'block' : 'none';
+  updateCount(visible, uniqueWords.length);
+});
+</script>
+</body>
+</html>
