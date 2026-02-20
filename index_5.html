@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>అనుబంధం – Telugu Glossary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:        #fef9ed;
+      --paper:     #fffdf5;
+      --ink:       #1a1a2e;
+      --accent:    #e8621a;
+      --accent2:   #f5a623;
+      --teal:      #18b8b8;
+      --rule:      #f0d9a8;
+      --muted:     #6b5240;
+      --chip-bg:   #fef0d0;
+      --chip-border:#f5c842;
+      --shadow:    rgba(26,26,46,.10);
+      --header-h:  260px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Baloo Tammudu 2', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* ─── HEADER ─────────────────────────────────────────── */
+    header {
+      position: relative;
+      background: linear-gradient(135deg, #1a1a2e 0%, #2d2d5e 60%, #1a3a4a 100%);
+      overflow: hidden;
+      padding: 0;
+    }
+
+    /* subtle dot pattern overlay */
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none;
+    }
+
+    .header-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 2rem 2rem 2.5rem;
+    }
+
+    /* Cover image */
+    .header-cover {
+      flex-shrink: 0;
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 12px;
+      box-shadow: 0 6px 32px rgba(0,0,0,.45), 0 0 0 3px rgba(245,200,66,.35);
+    }
+
+    /* Text block */
+    .header-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    header h1 {
+      font-family: 'Baloo Tammudu 2', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      color: #18b8b8;
+      line-height: 1.25;
+      letter-spacing: .02em;
+      text-shadow: 0 2px 12px rgba(24,184,184,.3);
+      margin: 0 0 .5rem 0;
+    }
+
+    .header-rule {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      margin-bottom: .85rem;
+    }
+    .header-rule span { flex:1; height:1px; background: rgba(255,255,255,.2); }
+    .header-rule .diamond { color: #f5c842; font-size: .75rem; }
+
+    .header-desc {
+      font-family: 'Baloo Tammudu 2', sans-serif;
+      font-size: clamp(.78rem, 1.8vw, .95rem);
+      color: rgba(255,255,255,.68);
+      line-height: 1.7;
+    }
+
+    /* Decorative corner stars */
+    .header-deco-right {
+      position: absolute;
+      top: 1rem; right: 1.4rem;
+      font-size: 1.4rem;
+      color: rgba(245,200,66,.3);
+      z-index: 2;
+    }
+
+    /* ─── SEARCH & FILTER BAR ────────────────────────────── */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--paper);
+      border-bottom: 2px solid var(--rule);
+      padding: .75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .65rem;
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    .search-wrap {
+      position: relative;
+      flex: 1 1 220px;
+    }
+    .search-wrap svg {
+      position: absolute;
+      left: .75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+    }
+    #searchInput {
+      width: 100%;
+      padding: .5rem .75rem .5rem 2.2rem;
+      border: 1.5px solid var(--rule);
+      border-radius: 6px;
+      background: var(--bg);
+      font-family: 'Baloo Tammudu 2', sans-serif;
+      font-size: 1rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color .2s;
+    }
+    #searchInput:focus { border-color: #18b8b8; }
+    #searchInput::placeholder { color: var(--muted); opacity: .7; }
+
+    .count-badge {
+      font-size: .85rem;
+      color: var(--muted);
+      white-space: nowrap;
+      font-family: 'Baloo Tammudu 2', sans-serif;
+    }
+
+    /* ─── MAIN TABLE ─────────────────────────────────────── */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.8rem 1rem 3rem;
+    }
+
+    .table-wrap {
+      border-radius: 10px;
+      box-shadow: 0 4px 24px var(--shadow);
+      border: 1.5px solid var(--rule);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--paper);
+    }
+
+    thead tr {
+      background: #1a1a2e;
+    }
+
+    thead th {
+      position: sticky;
+      top: 0; /* set dynamically by JS to toolbar height */
+      z-index: 10;
+      padding: .85rem 1rem;
+      text-align: left;
+      font-family: 'Baloo Tammudu 2', sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.93);
+      background: #1a1a2e;
+      border-bottom: 2px solid #18b8b8;
+      box-shadow: 0 2px 8px rgba(26,26,46,.25);
+    }
+
+    thead th:first-child { border-radius: 0; }
+
+    tbody tr {
+      border-bottom: 1px solid var(--rule);
+      transition: background .15s;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:nth-child(even) { background: #f5f9f8; }
+    tbody tr:hover { background: #e0f7f7; }
+
+    tbody td {
+      padding: .7rem 1rem;
+      vertical-align: middle;
+      line-height: 1.5;
+    }
+
+    /* Telugu word column */
+    .col-telugu {
+      font-family: 'Baloo Tammudu 2', sans-serif;
+      font-size: 1.22rem;
+      color: #c8430a;
+      font-weight: 700;
+      letter-spacing: .02em;
+      white-space: nowrap;
+    }
+
+    /* Transliteration */
+    .col-translit {
+      font-family: 'Baloo Tammudu 2', sans-serif;
+      font-style: italic;
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    /* Pronunciation */
+    .col-pronun {
+      text-align: center;
+    }
+    .pronun-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #e0f7f7;
+      border: 1px solid #18b8b8;
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      color: #0f9090;
+      cursor: pointer;
+      transition: background .15s, box-shadow .15s, color .15s;
+      padding: 0;
+    }
+    .pronun-btn:hover {
+      background: #18b8b8;
+      color: #fff;
+      border-color: #0f9090;
+      box-shadow: 0 2px 8px rgba(24,184,184,.35);
+    }
+    .pronun-btn svg { flex-shrink: 0; }
+
+    /* Meaning */
+    .col-meaning {
+      font-family: 'Baloo Tammudu 2', sans-serif;
+      font-size: 1rem;
+      color: #3a2a1a;
+    }
+
+    /* Hidden rows */
+    tr.hidden { display: none; }
+
+    /* ─── NO RESULTS ─────────────────────────────────────── */
+    #noResults {
+      display: none;
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+      font-family: 'Baloo Tammudu 2', sans-serif;
+      font-size: 1.1rem;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem 2rem;
+      font-family: 'Baloo Tammudu 2', sans-serif;
+      font-size: .85rem;
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 640px) {
+      thead th:nth-child(2),
+      tbody td:nth-child(2) { display: none; }
+      .col-telugu { font-size: 1.05rem; }
+      .header-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1.5rem 1rem;
+        gap: 1.2rem;
+      }
+      .header-cover { width: 120px; height: 120px; }
+      .header-rule { max-width: 280px; margin-left: auto; margin-right: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══════════════════════════════════════════ -->
+<header>
+  <span class="header-deco-right">✦</span>
+  <div class="header-inner">
+    <img class="header-cover" src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAJnAd0DASIAAhEBAxEB/8QAHQABAAICAwEBAAAAAAAAAAAAAAYHBAUBAwgCCf/EAGEQAAEDAwMCBAMEBQgDCQsICwECAwQABREGEiEHMRNBUWEUInEIMoGRFSNCUqEWM2JyscHR8CSCkiU1Q3OTorLh8Rc0NzhTVWN1g5TSJjZERmR0hLO0xCdFVFbCw2W10//EABwBAQACAwEBAQAAAAAAAAAAAAADBAECBQYHCP/EADoRAAEEAAQDBQYGAgICAwEAAAEAAgMRBBIhMQVBURMiYXGBFJGhscHhBhUyUtHwFkIj8TNiU3Kigv/aAAwDAQACEQMRAD8Al1KUr5yvsaUpSiJSlKIlKUoiUpSiJSlKIlT3pFZFSbiu8vo/UxsoZz+04RyfwB/iPSo5pPT03UE8MsJKI6CPGeI+VA/vPoKu+2QY1tgMwojexlpO1I/vPue9djhWDMjxK4aDbxK81+IOJthiOHYe87fwH3WTSlK9MvCJSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlKIlKUoi0WpouCmWgd/lX/ca0lTV9pDzK2nBlKhg1EJkdcWQplwcg8H1HrXifxBgTFL27Ro7fz+/wDK7GBmzNyHcLppSledV9KUpREpSlESlKURKUpREpSlESlK+VuNoxvWlOfU4rZjHPNNFlalwaLKqelKV2F7tKUpREpSlESlbGyWW53l8tW+Kt3H3l9kp+pPFTm09MU7Qu63E58246e3+sr/AAqzBg5p9WN0VDF8TwuE0lfr03KrWlXfB0RpqKARbg8oftPLKs/hnH8K3MS3W+Jj4WDFYx28NpKf7BXRZwSQ/qcB8f4XGl/FMA/8bCfOh/Koi22S73FQEK3SXgf2gghP+0eKmmnumrqlJevcgIR38Bk5J9irsPwz9as2lXoeDwxm3nN8lycV+JMTKMsYDR7z7/sui3w4sCKiLDYQwygfKhI/zk+9RK9dVNBWi6Lts6/tiQ0opdDTLjqUEeRUhJGfLHl51ItVMzpOmLrHthxOdhPIjHOP1pQQjny5xXj61SNP2iw3+0aj07Lcvy8Nw3Soo+GWO+4ZGMHnsc9uK9Vw3AR4hpzXpQoV79eQXj8fjJInCud6m/7a9g6fv1m1BEMuy3KNOZBwpTKwSk+ih3B9jWyrx1Etmt+nkO0a0jpchNTT8nfkZyEOp9FAZA9PQivUPTjVkPWelY95ipDbh/VyWc5LToxuT9OQR7EVrjuH+zjPG7M3a+hWcLjO2OR4py7Na6x0/o+E3Jvk0M+KSGmkpKnHMd8JHkPXtWt0R1L0lq+YYNqmuIm7SoR5DZbWoDuU+R+gOaq37TFkvJ1latQ/ox65WdphttaEAlIKVqUpKsfdCgR83+FQB29xJnViz3bTli/QTRlxvBjN8bjuAJwABhXbA4/M1cw/C4psOHAmyCb0oHpW6rTY+SOYtI0BGmtnxXsOlKVwV1kpSqo6rt9X3tSpTokFNpSwnBbcjpJc53Z8Q7vT2/jU0EPbPy5g3xJoKKaXs25qJ8la9K88/CfaN/ff/wCXhf41q3epHVPQ2oWIurwZDagHFRn22vnQTglLjY78HzI9qvt4U5+kcjXHoCqh4g1ur2OA6kL01SsX4+J+iv0oXkpieB8QXD2De3du/LmoxoTqRpfWUqTEtMl1uSxlXhSUBCloH7aeTkfxHmBXObDI5pcBoN1dMjAQ0nU7KY0rzJ1b19d9cauj6Y0e5IMNp/Yz8OspVKd/fzxhI5x5d1Hyx6K0xEmwNOW6DcpZlzWIzbb75OfEWEgE57nnzPJ86sYjBOw8bXPOruXMKGHFNme5rRoOa2NKUqmrKUpSiJSlKIlKUoiUpVYdcOp69EIj2y1MNP3eS34uXRlDDeSAogHkkg4HsSfQzQQPneI2DUqOWVsLC9+yht167ainX56JpDTjEyK2Tt8Rl151xAON+EEbR+eM1cug74/qPSUC9Sbe7b3pKCVsOAgpUFFJIzzg4yM+RFeaNB6Y6sW5g6i0nbJEVuY0CHApgeI2SFDCHDkjsRxzU70D1mu8TUCdO9QYYjOlYaMoteCtpZ7eIjttP7wxjvyOR28dgGOZWGAOXejZ8bC5WFxbw65yRfUae9XxUH1j1U0dpa6G13Ca67MRjxWozRc8LP7x7A+eM59qnFeUHo72jOpl3laz0gu+sylv+EFp+RxS17kuJOCDkZ47jPqMVz+H4WPEOdn5DQCrPvV3GTvhAy8+fRel9JamsmqrX+kbHORKYCti+ClSFeiknkGtxXmn7KEh9OvLvFRubjuW5Ti28nG5LqAnPuAtQ/E16WqPH4UYacxtNhb4OczxB53SsK7QUzWeMB1P3D/cazFqShBWtQSlIySTgAVBdG9V9JaqvzllgPSWZOT4BkthCZGO+w5PPng4OKoyYP2qJzS2281YE4he3Widl2utracLbiSlSTgg181VH2gdbyb5qNOjdNhboZdDUhbAJW+9n+bGOcJPHuc+nNl6U09fLLpS3w7usypbTOHXEq34OSdpPngEDPtXkeLfhebh+GbiM15jtWoFbn+9PTpYPirMTM6IDbnyvosylKV5ZdZKV3x4kl/+ZZWoeuMD862DFikK5ddQ2PQfMauQYDE4j/xsJ+XvKifPGz9RWopUjasUVP33HVn6gCu9Not4/wCAz9Vn/Gukz8O4t29D1/gFVzj4h1UVpUqVabef/o+Poo/410PWOKofq1uNn65FZf8AhzFtFgg+v8hYGPiO9qOUJAGScAVsLhan4jSnipC2kjKlZxge4qLTpan1FCCQ2P404d+HcXjJ+yc3KBuTt6dStcVxGGCPMDZ5BZEu4d0Mf7R/urXKUpSipRJJ7k1xSvqfDuFYbh0eSBuvM8z5n+heTxOLlxLrefTkoRSlK+Tr7qlKUoiVI9DaZd1DcDvKm4TJBecHc/0U+5/hUfYacfeQy0grccUEoSO5JOAKvzS9paslkjwGwCpKdzqh+0s/eP8AnyAro8NwYxElu/SFxOOcSODhpn6nbeHUrMgQ4sCIiLDYQyygYSlI/wA5PvXfSlesAAFBfO3OLjZ3SlKVlYSlKURU5146oXPTNxZ03psITcXGw4/IUgLLYV91KUngqPfkHgjjniAS9Y9R9E6ngva1iNzEupDvgyWWFqWjPO1xAylQ9M8cZFavrvEfc623FlbyGDJcjeG84dqEgtNpCiR2AIOT7GpW/wBLOper9RRFa2uLfwjA8NUkOoUoNjuEJSO59SPc57V6qGLDQQML8tOFm9zpyXn5JJ5ZX5LsGhW3qrq1daoestBy4CcLauETxI6iOyiNzavwO01RX2U7y7E1fcLE4ohmbG8QJPk42fT+qpWfoK9HMoi2y2obSUsxYjISCTwhCU/2ACvLf2dgqV1jakMpUWw3IdV7JKSAT+Kh+dc/A9/CTsOw1Hx/gK5i+7iInDfZXf1TsGu7pLgTtF6iTblR0LQ7HcWUoc3EHd90hR4xgjjy7nMY6f8ASa9NawRq7XN3auM9lzxWm21KcysfdUpRA+73CQPIc8YrC6r9X7zB1U5pbRsRLsplzwXXiyXVrd/cbQPTtyDk544ydNYusms9P6latuvbftjrI8XfF8F5pJ4C0gYCk9/LnHBqSHD40YemULH/APRC1kmwpmt1mj6Wu/qnqnq5pTVEm6KWWLH8SpEPay24wpvcdoWQMhRHPJB747VaHSXXkTXdgVKS2mNcIxCJccHISSOFJ/onBxntgjyyZHfLbCv9hlWyWlLsSawUKPcYI4UPccEH1ArzV9l6Y9E6luQgo+HKhuocSOQSkhQPHHGDz7+9RtbHi8I85Q1zOnMLZxfh8Q0ZiWu68l6lpQkAEk4A7mvOuo+s2r75qVy16DgAsIWoMlEbx3nkg43kHISk9+3Hma5+FwcmJJDOW5Oyuz4lkAGbmt7r22dbn9T3GRYpixbPFPwjbEhlH6vy4Vg59c/4VSmrXdQvapZRr5y6pfb2od8ZH61LOedgOAR3xjgmrk6ZdZbq7qRGm9cxURn3XAyiR4JZU24eAl1B7Z7ZAGOMjHImP2gdOw7305uEtxlPxdtb+Jju45Tt++PoU549cHyrtw4l+EmbFKwC9AR87XKlgbiI3SRvJrkVL9MS7RdNMwZFnW2/a3I6UsYGRsA27SD5jGCD2IIqm9fdDpwvSrroWa1DS8VByKt1TXhbhhWxQB+UgkFJ7DI5HA6/ss6gETTmpY098pg24JmgnkISUr8T8MIB/OtVL6wdRNTXmQ3oy1KTGaBUlpmH8Q6EeSlnkAn2A9OfOCHC4nD4mRsJ0G5O2u1qaWeCaFhlGp2rdT7p70yf0Lpm4zoJjz9WPRVpZcVw00rb8qE58t2Mk4zjyFVwz1O6l6I1OImsm3JTZIU7HfaQkqQTyppaBj8sp4xU26LdWp+pL6dM6ljMtXBQUWHm0FG9SRlSFJPZWATxjsRitl9py0Rp3TV25ONp+Itr7bjS8cgLWEKT9DuB/wBUUY57cV2WLaHZ+fyrwWHNa7D9ph3EZeXzvxTqpqXVEvp/b9T9PZGYS0l+U4hCVPJbGMYSoEcEK3eYx6Zx19C+qDmsUu2e9hpF4YR4iFoTtTIb8zjyUPMDuDkedYf2UprknQlwgPKK0RpytgV2CVoScfTIUfxqrZjA0L9oJLEAeGxGujexA8mXtpKB/qOEVszCxv7XClvebZB5+qw7EPb2eIvR2hHL0VudfOpc/RvwlosiWhcpTReW84kK8FvJAISeCSQrvxxVcjUXW+12VvV0l6Wu1LSl0reQypCkHGCWx8yUnI5wO/et19rSLZ/jbTN+MKbwWi0YwTncwFEhZP7OFFQHrk+hrZdGb1q3WFre0pqa0uK085a1sIn/AAq21EYShIDh+RR2kkcZyM+VSQNjiwbZQwH917+i0lc+TEujLiOlbeqjrvU3qXr65It+jYRhFtkKeRG2Ek8AqU45wkZ7Dj6muzTnVXW2j9Upsmv0OPxwpKXg62kPMpPZaVI4WPPzzzg1JH7jofoW9JgW/wDSl1udxShx1px1BLaE7tuVBICc7lcYJ/DFVf1l13bdeSLXPi2x+DLjNuNPhxYWFIyCjChjsSvy8/Op4YmTuyNhHZHY8/PqopZHwjM6X/kHLkvXTa0uNpcQoKQoApIPBB86xoVzts19xiHcIkl1v+cQ08lakfUA8VTnUHUF0tn2cdPvQ5Djb85iLEddScKCCyonn32AE+5ra9COnNpstptWrRKlPXKZCDhHiDwkpcSDtwBnIGO571w3YNrIXSPdzIGm9LqjEudIGNHKz6q2a8u/anVBc6hR1RpqHpCISG5LIByyQpRTk9uQoHHcY9xXp99wMsOOkZCElRHrgV5P6MWxGueripl6SJKUl24yEKGQ4oKGAfbctPHbAxVrg4Ebn4hx0aPfar8SJeGwjdxW9s87rzfre1PtSZbcIJBZCW48dJSBxtSvBUMfXNQHqRddVXG7MsayjFu6RG/DK3IwadWgnI3YACgOcEDzPJr2BedRWCyvMsXa82+3uOj9WiRIS2VDtkAnt79qgn2j9Ow7z08kXYNoM22bXmXQOSgqAWnPpg5+qRVjB8Rb27c0QaDoCBr7+ahxOCPZOqQkjcEqcaKlCbo6zSg8Hy7BZUpwKzuOwZ5+uarTWGjerUi+3RVh1g2m1z3VLQ25IU2plKv2BhJ2gDjKTz37msD7MmpkR9BX1i5SCIllX8TuPPhtLSpRA/FCjj1JqOyOr/UbU11kJ0haSiOyCoNMQ/iHEo8iskEZ+gHpzUUWEnjxEgYBQ5u26hSSYmJ8LC+7PTfxVh6A6cz9A6OuzlqeYnaolxyEOH5WkKAO1Kd3lk5JOMkDOMVWsbqj1K0VqX4TWTTkpsnLsaQ0hBKSeVNrQMf2p8qnHRPqxO1NeV6b1Iwy1cilSo7raCjxCkZUhSfJQAJ48geBjnL+1DaYszp3+k1oSJNvkoU0vHO1Z2KT9DlJ/wBUVtG5zcUYcWwOL+fyrwWrw12HEmHcRl5fO1N5ur7PH0K5rFt1T9tTG+IQUD5l54CceSt3y89j3ryk1Gv+udZyrppPTwiSEuB8NQDsQwc8K3KIAUSM+WTnAFWr0Rtq9Y9Dr3paQ94aPi1tsOEbg2cIcTx6BeT+NRaxaf6wdN5stNltTrzT5T4hjtJktO7c7SB94dz5A8/SrGCZHhXSsaRnBoWaFKLFOfiBG5wOWta3tai0WzqD0xvP8pJGmFKLaVBx19oPtpBPzErQTtJ/eyO/vXquxTlXOyQbkqM5FVKjtvFlwYU3uSDtPuM4rz5/3aeodhktt6m02wEL/YkRHYzix54JOPP90+VXtonUkDVmmot8t29LT4IU2v7zawcKSfofzGDVTiomc1skrB5g6HwVjh5iaSyNx8itutlpZytpCj7pBrhMdhJyllsH1CRXZSuCY2E3S6uY9UpSlbrCUpSiJSlaTV9zMC3eE0rD7+UpweUjzP8AdW8cZkcGjmtXvDGlxWh1heTLfMGOv/R2z85H7ah/cKjtKV6SKJsTQ1q40jy92YpSlKkWihFKyJrDcdTYbktvhbYWSj9kn9n60mJipLXwrji8tgubxjCvMD2r4pdr74Hg1XNY9KyJjcZvwvhpCntzYLmUbdqvMe9JsR2IWg6UfrWw4narPB7ZpYQPBrxUo6UWsTtSiU4nLUJHie288J/vP4VcVQ3pHb/hdMmWpOFy3SvP9FPyj+IJ/GplXsOGQ9lhx1Ov99F8547ie3xjujdPdv8AG0pSldBcdKUpREpSlEVUdfum0jV0Vm9WVKVXeG34amSQPiG8kgAn9oEnGe+T7VXml+surNHR02LUllVOMVIQgSVKjyEJHACiUnIGO5Gfc16arolw4ktITLisSAk5AdbCsfnXSgx7REIZmZmjbkR6qlLgyZO0idlJ38V5k1r1e1PrmGrT1ksxhNSxsdajqU++8nzTkJHB88Dn1xmrN+z/ANOpOkID93vKAi7TkBHhA58BrOdpI/aJAJ9MD3qzokOJESUxIrEcKOSGmwnP5V30n4g10XYwsytO/MlYiwZEnayuzFeV+oEW79Ous7upzBMmM7OcmxlrSfDdDm4qRuxwoblD1GAfStXrq+X3qxqcTLVp54fBQynwGP1qkoSVKKlKwMk54H4DJPPriQyzIaLT7TbrZ7pWkKB/A18xYsWIgoixmWEE5KW0BIJ/CrLOLhoa4x28Crv6KF3DSSWh9NJuqXmW3ddNQ2/R4sKrYwqewwI7U4uEKQANoKkY5UB55HIyQa3/ANl/Rdyj3F7V1xjuRo5YLMNLicKdKiMrA/dAGAfPPtV7uW63uSPiHIEVb2c+IplJVn64zWVUU3EmGJzIY8ubfW1JHgnB7XyPzZdl8SG/GjuNE43pKc+mRXlTpVPk9N+rC7derW848/m3qCE/OkrWnatA/aBIHbuDx6V6uqktT9atmoJbOndJqvLFs3eNNVu+UDhShhJ2Jz+0Tz6VjhrpC2SNrMwcNdarpqs44MBY9zqIOmlr7+0d07k3lpvVNhhqensJ2TGWk5W62PurAHdSe3qRj0qub31j1Fd9B/yVkRGC862GJE0qJcdQMcbewUcYJ5zk8A16J6bazt+uNPC6wWlx1ocLUhhZyWlgA4z5gggg1vRbreJPxQgxQ/nd4vgp3Z9c4zW8eO7ACLER5iw6a7LR+E7UmSF9B2/iqZ6LdPbkz0x1E3cWlQ5moI5aZQ6MKbQEKCFKHcZUsnHoBVcdPNZXbpPertBuFgLz0gIQ6w6vwlIUjdtIO05T8x9jwQa9b1jy4MKWUmXDjyCn7vithWPzrVnFMzpO2bma/ltstnYCgzs3UW8145YlaqbvbnUyJanW2RcVSC+lklgLUokpP9HkpJ98ZyakPUPqxedfWWNp2PZUxfEcSp5LC1OrkLHZKRgYGeccnIHNWB1uvmuNHavt99tIUvTrcYMlgIJjbiTuS4kdiflwePQeddeneuujGmg5L0zKtsopwsxGWlp/2spP8K63aulaydsIdW1HbwK53ZiNzojIW3vY38Qpl0G0nL0loREe4o8OfMeMp9s92sgBKD7gJBPuSKozWT6NTfaGX+jj4iXbrHYSpPI/V7G1K+nyE/SpPr/rxIukFy2aSt8iEXxsVLfI8YA8YQlJISffJ9gDzW1+zt00n22cnV2oYy4zwQRBjODCxuGC4odwcEgA88k+lV4w/CiTFYjRzhQCmeWTlmHh1a3crUfaq07dP5RRNSNR3HreqImO44hJIZWlSj83oCFDB9c1tOnfWW/X6/WLTTGnYhK1oakutrVw0B8y0p4CcAZ8+2B3FXyQCCCMg9xXTGiRIxUY0VhkrOVFtsJ3H3xXPHEGOw4ikjst2Nq6cG4TGRj6B3FLzN9oS1XGzdVhqiRAMu2yFx3WypJ8JRbSlKmlHyJ2Zx6KqParuErqpruINP6dRBeWyhjwmju7EkuLUAAAM4zjsBXr15pp5pTTzaHG1DCkrSCCPcGuuJDiRAoRIrEcK+8GmwnP5VNFxcRsbbLc0UDf0UMnDs7z3u6TZFfVRLWeiGbt0sOkIyh4kaI23DWrj9Y0kbM/XGD7KNRL7NGqXJdkk6Pue9u42hSvDQ5wotbsFOO+UKyD6ApFYPV/qB1A0XqxDiY9tRZHV4iIVtWp9KQkqKudyeSR2A+vc6jqXu0b1l07rKE0YzV2CHJTI454S8D7lKgf63NbQ4d74OyeQc9uafEbhYlmayXOzTLQPkdl6EdQlxpTaxlK0lJ+hryPFXf+jnUdb70AvIRvaR4mUolsE90qA78JPngjBHlXrquqVGjym/Dkx2n0ZztcQFD8jVHBYz2fM1zczXbhW8Vhu2ykGiNivIWt7xqTqjfZF6iWKQWYEUJLUYKdDLYJOScDJJUT27DtgVtNTdX7zqDQLeknLY028tDbMiWlwqU8lJGAEY4USkZOT58CvVUaOxGaDUZhtlschDaQkfkK6U263pk/EpgxUv5z4oaTuz65xmr35rD3QYtG/p12VT8vk1Ik1dvpuqf6Q9PrpG6SX+JOaMO4X9laW23RhTadhDe8eRJUTjyBHnVZdOdbXTpVdbvb59gLzz+xLrLq/BW2tG7BztOU/MfY8EH19b1jy4MKWUmXDjyCn7vithWPzqFnE7LxMzMH61spXYCgzs3UW+q8cwpGqol4PUyLa3UMC4qfL/hHwd61EqT/AFTkpz25xnNSDqL1VvPUC0RdPRrKmKFupU6hhanlyFj7oSMDAzzjk5A5r1YG2w14QQkN427ccY9MV0RbfAiLLkWDGYWRgqbaSk4/AVMeLxOcHui1btrsohw6RrS1smh30VW6O0hqnSvRCdBs+GdTS8ytoI3NklI2AnjdsT+Cj+NQmy9dtU2FH6M1PYUzpLHyKU4pUZ7j98bSM/gK9I10S4cSWAJUViQB2DrYVj86qsxzHF3bxh1m+h9/RWHYR4DeyfloV1XlXqZ1HunUxuDZoWnvh0tPeKhplRkPOLwQMEJHGCeAPT0q+uiOmZulen8W3XJOya64uQ83nPhlXZOfUADPvmphEhQ4gIiRGI+7v4TYTn8q76xisc2SIQxMytGu9pBhCyQyyOzOPolKUrnK6lKUoiUpSiJVbalnfH3d50HLaD4bf0H+PJ/Gp3f5Xwdnkvg4UEYSfc8D+2qyrq8Nj3efJUMa/ZqUpSusqCUpSiKNNJgx72SltybCaUScDJUnHf8AA/nivqMY717VJZtzzsNK9ymUJ3EJx549+cVsrFIl2mBJkpty34jispcKgk4GQCR3xXdZEXO02Z64IYjuNOpDoQVEKSPXt2x5V8Nc+r926+1yTEZuezRrv18itIn9HzL582YkJxfl3SMfw5/LNfDsIPXRyJbCqSnJ8M8ZI/s/Gt1p7bDt8qdPti3GnfmS4EJPHpg8gfwrI6dW5pdwTdH8qZStTYZSSCcjzPtntW7XW6rrlrt/KS4rsWveNmihzBP8q1LUw3b7O02hRcQ20D8vOePIelZbKw60lwBQChnChgisaWuRHDDcOOlaM7VD90V3yA/+r8AoHzjfu/d88e9e5jdktgGjQBQHyPNfOH285jzXbSlKtqFKUpREpSlESlKURKVBuo3VbReg3Uxb3cVLnKTuEKKjxHsepHAT7biM+Wah9o+0v04nzUR5Dd7tqFHHjSoqCgfXw1qP8KzRRXTSui3zYlxgszoElmVFfQFtPNLCkLSexBHBFd9YRKUpRErzonp51O0ZcL3C0dHjz7ZdGyyXS60FeHztyHFAhYCiMjI5r0XVKa+6uan0/wBYY2jYNgiSbc7IitKlLbcKwHdu45B28bj+VW8LinwWGgEHcHbRV58O2aiSQR0Wg0DY+tOibdIg2bStvU3Ie8VxT8hhSicAYyHRxx/E1JP0x9oL/wDlWz/8qz//ANqualTv4iZHFzo2knwP8qJmCyDK17gPMfwoz05k6xlWR1zW1viQbgJBDTcdQILW1OCdqlDOd3n+HrJqVizblboKkomz4sZShlIeeSgke2TVCR+dxdVeStsblaBdrIcQhxtTbiErQoYUlQyCPQiopcOmug57xdkaXtwWTk+EgtA/gggVLAQQCCCD2IrmjJXx/oJHkjmNf+oWtDYdG6VsToetNggRXkjAdSyC4P8AWOT/ABrfVVms+u+iNJ6mm6eujd2MyGpKXSzGSpGSkKGDuGeCKs2FJYmwmJkV1Lsd9tLrS0nhSVDII+oNHuc4242sta1opopd1KxrpOjWy2SrjMcDUaKyt55Z/ZQkEk/kKrnQ3XLRWsdUw9OWhu6ibL3+EXo6Uo+RClnJCj5JPlWtLKs+lKVhF5q6oTjYPtAN3zVVtkz7Q3sXFbAylSA2ANmcA7XMqIz3+tdWr7891h6i2S32C3ykW+ErClvJGUpUoFxxWMhIwkADPOPfFek50KHPY8CdEYlNZzsebC05+hriBBg29kswIceI2TkoZaShOfoBXXbxNjWtOTvtFA3p50uc7AuJcM3dJs6a+9ZFKV1SpMeIyX5T7TDQxlbiwlI/E1yF0V20rphy4sxrxoclmQ3nG9pYWM+mRXdREpSlESlKURKUpREpSlESlKURKUpREpSlEUc1+9stbLIPLjuT9AD/AIioPUt6iK5hI5/bJ/5tRKu/gBUAXJxRuUpSlKuKulKUoi1ki7XBmyNW2RA8LxWg2h1ZwCnGO2O+Peuy/m52u2R7aqW2808koyEYUAMfL37c961lwu0i7qjMTFtMtoVytKT591H/AKq2dm0jeLy8XElfwbeQiQ4CN6R22A8n+z3r4jFh3yOAa3XehqvtDmxwAPmposk89eVH6BbaPCvkmLGsKIrJLrWxUhKyUtoGASoY74I8+alul4qre43bm2AI7AOdyBkH97PqTW1tluEG0CPHU4Hi2AXHV7llWPM/4VwmLKVanIsiQC8tXylSs8ccZrtQ8Nfh8jhebVxrY9G69V5DE8QE4LBQbfx6pGRP/Si3luhUXnHz5GPLArIYZfE5x9UneysfIjPArXxYfhw3YL0ptDzpBSgKzj/trJYgtmAbeqTuUDuVsPI59PSrmGMlDuHm7V3+37fdrqqMmXr4bcuqzmm1IdcWXVrCyMJPZP0rsrHMZC47TPiuYaI5SrBOPWsiuxFYFVXre+6qO80pSlSrVKUpREpSlEXinpPEs2q/tCTk9QlodW8/IWliSrCHZIXhLSsnsBuwn+iB7V6F6qdHNI6h0bPj2XTNrt94bYUuA7CjtxyXQMpQopABSSNp3ds54rT9ZOgNn1rcnr9ZZos94eO58FG5iQr95QHKVHzIznzGSTVWTv8Au9dHGUTJE1642RggKUXTMigZwAd3ztp9/l796k32RXF9mTSus9GaVuFj1WyhplMkOwUpkJd2hQ+cDaTgZAOPVRNdHVPr/pjRV5eskWFIvdyjna+llxLbTSv3FLOfmHmADjseQRW10T1Whau6UXnVsRn4OdaYjy5cZR3BtxDRWCD5pOMjj1HlVMfYwsEK96tv+o7o0iZKt7bXgl4byHHlLKnOf2sNkZ/pGsVuSisTpx9o7TWp70xZ7va37DIkqCGXVvh5grPZKl4SUk8YOMepFTDrJ1Pt/TSLbZE+2Sp4nrcQgMLSnbsCSc5/rVpOtnRK3dRrnCuke5t2OayhSJDqIQeMkHG3d86eU/Nzznd7CoB9tVl6NpbRseRI+IeaU8hx7bt8RQQ2CrGTjJ5xk/WgAJRSgfaNsM3VljsFiscq4Kub0Zlx9T4aSyt4pG0DaSspKsH7vIP1re6w602rTfUxjQz9lmvyXno7QkIcSEAvbcHB543V2dAtFaVgdNdN3Viw29VxkQ2pTkxyOlbxcUN2QsjIwTxjtgVR3W//AMbC3/8A362//wBugAJRX91m6q27pl+iv0hapc/9JeNs8BaU7PD2Zzn18QflUE1f9p7TlruKItjsci9tgJLr/wASGEAkZIT8qiojt5DI4OOa0P27P/qb/wDjv/1erc6P6V0210g0/GTZICmrhaY70xK2Uq8dbjSVLKyfvZJPft2HAFKAFou/pJ1P091It77tqD0WbFx8TDfxvQD2UCOFJODyPxA4ryn9ozqLB6hahgOwrdIhC2tuR1h5aVbzv7jHlxUj6Sxl6K+1c7p23LUISpUqGUE92ChS0AnzwUoP+rW0+3H/APOfTf8A9yd/6YrIABRXL0N6oW/qNEuDMG1yoJtLcdLheWlXibwsDGPTwz+dWTWNa/8AeyL/AMSj/oismoyi8KfaGhyZ/XrUsaI0p14uJWEJ7kJjoUcepwDxXoz7Jeqv5Q9K2bc+7umWVww1gnktfeaP02kpH9Q1U11Slf21ghaQpKrk0CCMgj4dNbDpEVdMPtLXfRbyi3bbqpTMfJ+XB/WRz7nBKPqo1IdRSKf/AGvtV/oLpmLLHd2y7294GAeQyjCnD/0En2WaoL7MTD0X7QNhjSG1NPMrltuIUMFKhGeBB9wanuvf/wBqn2pYOm0HxrRZVhl8A5TtaO9/PuV/q/wFaXplx9syUB/58u3/AEJFBoKRelup3UHTvT2zIuF9ecK3lFMaKyAp19QHO0EgYGRkk4GR5kA02z9q22mfse0ZLRDz/OonJU5j+oUAf86pb9om19K1SbfeeolwnIebZUzEiRXTudGckhAGe5+8SB2FQDqB1u6ZXzppP0fbtOXhtBhlmAl2IyGmVpH6tWQ6SMEA5AzWAB0Reh9Darsus9Os32wyS/EdJSQpO1bax3QoeShx+YIyCKrPqV9obTWlL6/YrXbZN+nx1lt7wnQ2yhzsUb8KJUDwcJwO2c5FRn7DTzirBqZgrJaRKYWlPkCpCgT/AM0flVZ6aeu3Q7q69cdV6ekXBvDzLUg8eKFKH69pZGFKIHbg4UQcGgaLKK7On/2jtNahvbNmvVqlaflPuBptbjodZ3k4CVKwkpJPGSnHqRWk+191AhRrRK6eKt8hUuWzHlpkhQ8NIDucEd8/IfzrCucroh1u1TEkzrrebDe1tiOllXhx/iOflBUUrQVc4HzAngYOOJ79qxHh9Cbo2FKVsdipyo5Jw8jk00BCKr/sp9T7faI0Dp87bJTsu4XFa0SUrSG0bkjuO/7J/Oru6tdUtOdOIbJuhdlT5AKo8FjHiKT23KJ4SnPGT35wDg1EPsaf+CBz/wBaP/8ARbqgepepIMr7RF1u2pobtyttvuq464iSBvbYUUJRzxtJTkjzyfWs1bkVv2P7VFjk3FLN30tMt8VS8eOzKD5SM9ynan8cE/jVx6s1nbLH0+ka1ZBuVuajokN+AofrULKQCCf6wNeYes/WTSOvdEGyRtJyYc1hba4MhZbwxhQ3AbecFO4YHGcelSDSM2RL+xZf2n1laYjy2Gs+SPGbXj81msFqKTzftQaXb04ifFsc5+4uPLbEFTqUbUpCTvUvBwDuwMA/dPatlqT7QVu06bL+ltLXFtN2tse4tLbeQtKW3Rn2yRyPLt71D/sb6P0zeNNXe9XeywrjMbnBhpUplLobSG0q+UKBAJKjk+wrffbJ0i1M6f2/UEGOhCrG6GlpbSEhMdzCcADyCg3geQJpQukV6yJ0Vi2OXJx5IiNsl9TueNgTuKvpjmq06R9ZoHUfUMi022wT4iY0cvuvvOJKQNwSBx5kn+Bqt7n1GLv2PmD43+6L2LAr5sn5fvZ+rA/NX5yv7HGl/wBD9OH78+2Uyb1I3pJGD4LeUo/53iH6EViqCK8KUpWqJSlKIlKUoiUpSiKIdRE/PCV6hY/6NROpr1Ba3W6O9+47t/Mf9VQqvQYE3AFycUKlKUpSrarpSlKIrAt+lbFDeD6IDLjycBK1pBxjtgdgffGa3dB2pXkIoWRNysFBejlmklNvcT5rrfa8VKU+ItGFBWUnGceVYtygolONOreLYb7/AOfKs48jFYMyGy5CREU+pA3ZSpSskn+/vVfFwh7HAszX41qNgsxPIcNaWJMgsi5JkuTENpWoKAUcHj0rIjQGWLmp8ScrXkhvz5/trFnW5lx5hlMxCVpQEbVHJNZCLcybkl9MrKmwMo7ngYrkRwETFwhH6gf1c+Z9Oisuf3Kz8ui74UFqM080hxag4eeeRWRHaSyylpJUQkYBUcmumJDbjyHnkOKUXTyCe1d0ZlLDQbSpahknKjk118NFkDRkDasb3Qv67+CqyOsnW12UpSriiSlKURK6pjPxMN6P4i2/FbUjeg4UnIxke9dtKIvIGgOoGp+kPUa42bqIu83CI4kNLLj6nijCvkea3nCkkZzjH5jFTvqx1+0JctAXez2RUy4zLlCcipSqMptDXiJKSpRVjtnIxnkD61eGo9O2HUcQRL9Z4VyZScpTJZSvYfVJPKT7io7a+kvTe2yhKi6Otfig7gXWy6AfUBZIH4VvY3RVX9kLRs9PT/Usu7MvR4WoUojsJUNpW0lDgLg9j4uAfPbVfdGtVOdEupF7sGsIj7cWQEsyFtJKilSCS26B+0ghSu3OFA+WK9lJASkJSAABgAeVaTVWkNL6pbQjUNigXItjCFvNArQPRKvvAfQ1jN1RUF1F6+Xi+altVi6SF95x1RQ4t2ElRkLVjaEJWMgJAUSSB39BmuftrIkt6Y0ciY6HZKVvB5wDAWvY3uOB2yc1euk9DaQ0otTuntPQLe8obVPNt5dI9N5yrHtnFZuo9M6f1I2y3f7NBuaGCS0JTIcCCcZIz2zgUsAotL0U/wDBFpT/ANUx/wDoCvN3W/8A8bC3/wD362//ANuvXVuhxLdBYgwY7UaKwgNsstp2pQkcAADsK1Fx0bpS43tN7n6dtkm5oUhSZbsdKnQUY2ncRnjAx9KA0UVA/bs/+pv/AOO//V62/Tj7QeibR05tVsu7VyjXG129mMWEMbw/4aAlJQrsNwAPzYxnz7nUfbs/+pv/AOO//V6szR3TzROqOnGj51+03BmyxYoI8ZSSlagGEYBUkgqHsc1nTKLRUn9niLdNfdf5uu346mosZ5+Y8ocoQtxKkNtA+ZAVn6INbX7csWQLzpqd4Svh1R3mgvHG8KScfkf7a9MWGzWmw25Fustui2+GgkpZjthCcnucDuT696+dQWOz6htyrdfLbFuMRRCi1IbC0gjsRnsfcVjNraKK9HOo1h1/ZVfof4hEm3sMJmNOt7fDUtKsAHsoZQrmp3Wg0hozS2kUPJ03ZItu8fAdU0CVLxnGVEknGT5+db+sFF5IuX/jsI/9Ztf/AKOmpT9smwyYT2nuoVry3KgPpjPOJHKSFeIyr8FBY/1hV5L0hpZeof5Qq0/bVXfeHPjTHT424DAO7Gc44rYXq1W2921223eDHnQ3ceIw+2FoVggjIPoQD+FZzbIqE+xjpt79GXrXVx3OS7m+Y7Lq+VKQk7nF589yyB9W6gfTP/xzZf8A68u//Qk164s9st9ntrNttUJiFDZBDTDCAhCMkk4A7ckn8a1kPRuk4d/VqCLp22M3ZTi3TMRHSHSteQtW7GcncrPrk0zbovKn2sWnovXGPNvUd5+1uR4ymkBWN7KT+sQk+R3b/puz51NupfW3R906bzdLaGtct+ROhONFkQ/CbiMhBLhIB7pQCflyB3J4xV+6m03YNTQkw9QWiHcmEK3ITIaCth9Unuk+4rX6b0BovTjEhmy6bt8RMlstPkN7lOIPdClKySk+mcVnMEVG/YjU4qw6wZiutplb45b3chJKHQkkemR/CuNF9dZsTUl1011khssNt4bATA3BlxJOQtAyVJIIIIB7DyOav/TmlNNabcecsFit9sU+AHTFYS3vAzjOO+Mn866NVaI0lqpSV6g0/AuDqU7UuuNDxAPQLGFY/GsZgSi8c9cZmidTa8t6Ol1sOXmw24IkZTKH3ys7djZAIOMZOBnI9Mn0f9om2XKR9ni4x3cyJsWPFdkFPO4tuNlxX0AClfQVM9K6C0bpZ4yLBpy3wZGCnx0NbncHuN6sqx7ZqRuIQ42ptxKVoUCFJUMgg9wRQu2ReZvsh9RLBb7M1oSb8Q3dZdxccjEIy2tKm0nlWeDlCuPcY9ot1ahT+lv2hkazVbvibXMmKnNHb8rocBD7eewXlS/zSa9L2rppoK1XxN6t2lbbGnoXvQ6hv+bV6pT91J+gFSC9Wm2Xq3rt94t8WfEc+8zIaDiCfI4Pn71nMLtFT0z7QfShm1/FsR5ciQU5ERNvCXAfQqPyfiCfxru6h6mg6w+y3d9RW+EYLUuKkqjkfza0vpSoZwM8jvjkYqXwukXTSHL+KZ0bay4Fbh4iC4kH+qolP8KllxtNsuNpXaZ0CNIt7iAhUZxsFspBBA29sDA/KsWOSKjvsQ/+D29f+tj/APlN1dmqbPF1Dpu42OaMx50ZbCz5gKSRke47j6Vxp3T1j07Fci2G0w7Yw4vxFtxmg2lSsAZIHngD8qjvVbqXp7pxCiv3xMt12YHPhWI7YUpwo27uSQE/fTyawdToi8PNWm/u6ga6fKUpL4uxj/DnO1MhSg0VHjP7I59K/QjT9ri2OxQLNBTtjQY6I7Q/ooSAM+/FeYPsz2q4a76xXfqVdYwSxHdddQQPk+Ic4ShPrsQo+4+QnvXq2tnnkiUpStESlKURKUpREpSlEWt1NGMqxyWwMqSnen6p5qtqts8jBqsb5CMC6PxsYSFZR7pPIrrcNk0LPVUMazZywqUpXVVBKUpRFaqUIjMrLaFEZKykckn2r6Ln+j+L4a/u7tmPm7dsetYdtjKiPvByUHVr5CSefrX1a35j4d+KY8IpPyZSRmvCxTnusLcpNitwK8Rp6L0rmbm7pd74adjJcfCkIThwgnBTjnmsKWiHPbRM+JKW2TgkCvu3GU547FxKCVfdRkZx59vLtWFEejSVLtiI5aacJwoKycjnJ/KqOIxDJGtDmjv6U4EEuG11sL+amjjLSaO3TajuvoxY8uWq4Ny0hpKwVZGCCPrWTChNNzFz0SgtCskY7c+9Y8ViDh62JecLizyrbgZT5CslqHEMRVtEgqUDuVg8g1BhoQ5wk7NpOp0d/v039VvI+hlzGvLl1XdCgNxmXW0uuKDvc55H0rIjtBllLSVKUEjAKjk11mK0phtjevDJSRhXPHbNZFdvDwtjAAbVDTX3j3qm95dubSlKVZUaUpSiJSlKIlKUoiUpSiLU6wv0XS+mJ+oJseVIjQWi663GSlThSCMkBRA479xwDWi6VdSLD1Ht82bY2J8dMN1LTrcxCEryRkEBKlDB58/I1JNRWxm9afuNnkAFqdFcjrz6LSUn+2vL32LZ7ts1/qLTUoKacfib1IPk4w5tI+uHFfka2AsIr46r9UNO9Nmreu+sXCQqepwMohtoWoBG3cTuWnA+YVJ9M3mHqHTtvvtv3/Cz46JDQcACkhQzhQBIBHY8nkV5J+1pPlak6wmxW5C3zaLdtLaf3ghT7ih9EYz/AFauD7H1+/SnSVNudXl20S3I/JyfDV+sSfp86h/q0LdLRdut9f8ATS7dS4ugNQaUlXy6MS0RWHXIbLrDa3ggnBUsKAHy7vl/ZPfAq3IMWNBhMQobDceNHbS0y02nCW0JGEpA8gAAK8jdAUHWn2l7jqVYLjLDku4gnsApRQ2Pw8QY/q+1Xl1i6y6d6cvIt70d66XdxsOCGysJCEnOCtZztzjgAE+eMUI5BFZtK832b7U0Uz2mr/o2TBiu4UHmJfiqSg9jsUhO4e4P4Vfce/W6bpb+UdsfROgqiqksrbOA4kJJx7HjHPY96wQQi2tVt9ojXt46d6Kh3uyRoEiQ/cURVJmIWpAQpt1RICVJOcoHn61BI/2o7C5Y58x3TkpqawttEWJ8UD8QVb9xKtvyJTtGTgn5hxWh6+6vf119m/T+p37am3GVfwlLKXi4MIbkozkpHmk1kNN6orx6L6puGtOmlp1NdGYrMyZ43iIjJUlsbHloGAok9kjzPOamNVN9nG5QbP8AZxs11uUhEaHFaluvOrPCUiS8T/2eddfSrrSrqJql20WjSMtmIwkuSJrsobWkchOUhP3lHsnPr5AmsEbotVE6wale+0Orp2qDaBahMWx4wac8falorB3b9ucj92ryrxper9bdL/a2n3+7uLbhQ57q3VIQVK/mCAAB3JJA/Gps19quP+lAH9FPotyjw4mcC7tzjdtKAk9u278a2LeiL0rStXpS/WvU+n4d9s0gSIMtve2vsRzgpI8lAggjyINVJ1L+0VYNMXx+x2S0vX+bHWWnlpe8JlDgOCkK2qKyD3wAPQ1qASiu+lUNoL7SljvF5atOpbI9YHXXA0h/x/FaCjwN+UpKOeM4IHnjyvG4zodut79wnyWo0SO2XXXnFYShIGSSfShBCLIpXnLUH2pITdydj6b0nIuUdsk/EPyfCK0juQgIUQPPJP1FTro/1t071Cmfor4V20XjYVpivOBaXQOT4awBuI7kEA455wcMpRav7SPVbUXTaZZGbHCtUhM9t5TpmNOLIKCgDbtWn94981bllkuTbPCmOhKXH47bqgkcAqSCce3NeZft0f756U/4mV/0m6vG+avtWhulkTUN2US2zBZS0yk4W+4UDahPufXyAJ8qyRoEU0pVc9GOpsjqS3MmM6XftlujEI+KdkhYcc/cSAkZwOSc8ZHrVjVqRSJWi1Vo7S+qlR1aiskO5KjhQZL6MlAOM4+uB+Vb2lEWFZbTbLJbm7daIEaBDa+4zHbCEDPc4HmfWs2lKIlKUoiUpSiJSlKIlKUoiVHNcW0yYSZrScuMD5seaP8Aq7/nUjrggKBBAIPBBqSKQxPDgtJGB7S0qpaVuNU2hVtmb2kkxXTlB/dP7prT16SORsjQ5q4z2lhopSuluQy846y08lTjRAWAeUk9q64aVw4qGpMpcheT+sUnk8+1ZzLS1ZRhFF0TMXKaQ2te9O5WFHzxXJanovXircKWS5wSv5Sn0xXbNYj3CM1McdUw2lPOR5Zrm6RWZjLUkSQ20hP3sZGP8a+YvwuUOMQ2IeKdWbqTewC9gJLIDj4HTZYsiMmLeEyX5KEIU4VjuVfSu+aXo9zbMSIghzBUoIzuyeefKu25NQnoSJbm9xDaeCg8qGcV3OKdmW1Koa/BUsAgq4wKlGGDTIxhrZ7a1ceu+muwpadpYaT5G9l0yzDgTESCwouvKIyny9T/ABrIU1DiyfiVAIcdVszzyT/2V2AOoiDcA88lH03KxX20VOMoU62EqIBKTzg10mQAONADmBl2PPXmT71XL9PhvuuGmGm3XHEJwtwgrOe+K7KUq41rWimilESTulKUrZYSlKURKUpREpSlESlKURK8jjZoT7Y6lLX4MObPUoknCVJlNk/kHF/mmvXFeUvtvWYx9T6f1C0nb8VFXFWpPkppW5J+uHD/ALNbN3pF3fZohp1x1m1braa14sZIeKErHYyFqCR+DaVpx71H+lt6c6aX3qbpmQ6ptTVtkiMpRxueZKktH/WDmauP7IFg/RHSVu4uJIeu8pyTyOQhP6tI+nyFX+tVL/bGsJtXVNN2aTtZvENDqiOAXEfq1D8koP41tuaRT37Dtl8Kx6h1CtPMiQ3DbJHYNp3qx9fET+VQrpXAZ159qG5TL82iS2xKlTCy4ApJ8NWxtBB7hOUf7IzV/wD2brKbH0ZsDK0bXZTJmuHGM+KorT/zCkfhXn/VLd06J/aEXqRcFyRaJkh19ooGEusPE72wewWgnt/RSexpdkor9+0jp23X3pFe3JUdtUi3RlS4rpSNzSkcnB8sgEH61XX2UblKk9FtVW55xS2YTj3gAn7gWzkpHtkE/VRrW9b+vuntR6Dk6c0oxPck3NKW33X2QgNNk5UkcklRxt44wTzU06B6LnaQ6IXVd1ZWxPurL8txlYwppHhbUJUPI4G4+m7B7VjZuqKr/sZ6bsV81DfZl4tcae7BYZ+GEhsLS2VqXlW08Z+UYPlzirC+2hHYi9I7UxGYaYaTfGtqG0BKRlmQTgD3qJ/YX/3z1X/xMX/pOVMPttf+Cq2f+vGv/wAh+sn9SLzpc+olyndK7J06YaEO3wXXHJL3ik/FFTqnE7gB8qUlfbnJAPkBXszozoq0aH0NDt1rdalrfQmRJmo5EpagDuB/dxgJHpjzJJpzTfTdrqF9lbTyIqEJvcAS3YDh43H4p3c0T6KA/AgH1r6+yX1JdbcV031G4tqQwVC2KeOCME745zyCOSkfUeQFHajRFEJVqt97+2K/bbrFRKhu3VanGVjKV7WSoAjzGUjjz7V6B+0Lpu3X7pFfUyYranLdDcmxV7RuZU0nf8p8spSUn2Nea9aX2Xpf7UN21HDt656rdPW+4wnPLQaws5HbCSTnsKn3WD7Qumr70+nWPTUW4qm3NgsOqktJQlhtXC84UdyiMgY45znjBEHRFgfZv1HcLb0J6gmO4oLtbTkmKrd/NrWwrkemCgH65ru+xJpyBJfvmqJTCHpcZbcaKpYyWtwKlqHoSNoz6ZHnUj+zT09kjovfWLy0uKrVCFoQlafmSwWyhC8HsSVKUPbafOq16La0f6J60venNZ22W3HkFKXi0jcptaCra4kHG5Cgo8juMEZodbpFO/tuadt/8nrPqpthtueJoguuJThTqFNrWnd67S2cem41qeq+qLnJ+yZpHxHlFy5OsxZKyclxtoOYyfMktIJ+hrQ9e+pKOrdzs2k9F26bJZbkFad7eFyHiNqdqQThKQVZJ9T2A5tfqd0slyfs7W/SdtT8Vc7G21JaS2P591KVB0J+oWsgeZxTarRbP7Kdgt1p6QWy4RmECZcy4/Ke2/MshxSUpz6BIGB65PnVIfaMixtBfaAt17sjYiFxuPdFIZG0BYdWleAPJXh5I89x9akHQTrnY9IaLTpTV0eey5bluCM60zv3JKiotqGQQoKJHpj0xzHEPXHrv19jXGFb32bPFWyHC53YiNq3fORwFrO7AGeVeYBNACCSUUl+3R/vnpT/AImV/wBJuq81HrGf1e1bpfTkx9mxWpnwYTSFvb0IUQEqdUcDKlYAAxgcDPJJsP7dH++elP8AiZX/AEm62/2iemRv3T+1a1skcm6263M/GIbHzSGAgfN7qR3/AKufQCsg6BFfWlLDbNMaeh2K0RwxDiNhDafM+qifNROST6mtpVO/Zh6nfy10z+hbvICr/a2wHCo/NJZHCXfcjhKvfB/aq4qjIoolKUrCJSlKIlKUoiUpSiJSlKIlKUoiUpSiLpmxWZkVceQjc2sYPt7j3qtNSwZVluDDCozz7D6yEvoT8qRjPzehq0a0iprYshc1W3CtwW6W9i3wUEZO3CvUjmrOHxLoT4KtiImyDoeqrOcy58LJ/R3hNS1j7+0cn3/D1rAdvLdojxo92cU7LU3uWW05Hf8AD/Irdat0q/pOPPvdo8Wc3IcCihfPhAk8nHcc96jSplmnRIz99aaalFB+U7gQMnB45we4zXSGJDxbDR8dt/muLKHRuo6H4K+U7JbLjT0daUBW3aoYyB5ivlhMSRFXHbRllJKCkgjtWVSvO9gCQXUdKOmpHTy8F6bP0WPCUwplTTLakIaUUYUK+4yniFh5tLeFEJ2nOU+RrtpWzIy0DXbpoP6ELrtdUVhEZrw2yojJPzHPeu2lK3YxrGhrRQC1JJNlKUpWywlKUoiUpSiJSlKIlKUoiUpSiJWuvlisl9ZbYvlnt10aaVvbRMjIeShWMZAUDg1saURdMGJFgQ2ocGMzFjMoCGmWWwhDaR2CUjgD2FYV907p+/8Ag/p2xWu6+Bu8H42I294e7G7bvBxnAzjvgVs6URfEdlmPHbjx2m2WWkBDbaEhKUJAwAAOAAPKsa8Wq2XmCqDd7dEuEVXKmZLKXEE+uFAjNZlKIovZOnmhrJPE+16UtEWUlW5DyYyStB9Uk/d/DFSZ1tt1pbTqEuNrSUqSoZCge4I8xX1SiLVWLTenbCp1djsNqtangA6YcNtkrAzjdtAzjJ7+td17s1nvkRMS92mBc46FhxLUyOh5CVgEBQCgRnBIz7ms+lEWLardb7TAbt9rgxYENrPhx4zSW20ZJJwlIAGSSfqTWtc0fpJy7fpdzS1jXcfFD3xare0XvEByF79u7dnnOc1vKURatnTmnmbw7eWrDa27m8CHZiYjYfXkYOV43HI9TWoa6baAaun6Tb0dZEyt24L+ERgKznITjAOfPFSulLRBwMCtPqTS2m9SNoRf7Hb7mEAhBksJWpGf3VEZH4VuKURaPTOj9LaZK1WDT9ttq1jC3GI6UrUPQq7ke2a3lKURRnUGgNE3+YZt40taZkpRyp9cZPiK/rKHJ/GtvY7NabFBEGy2yHbooOfCjMpbTn1wB396z6URaq+6b07flNLvlhtV0UyCGjMhtvFAOM7dwOM4Hb0rZNtNNspZbbQhpKQlKEpASEgYAA9K+6URaO06P0laJ6Z9q0vY4EtIIS/GgNNOAEYOFJSDyK3lK4JAGSQB70Rc0r48Vv8A8oj86+wQRkHIospSsS5XCJbmkuS3dgUcJwCSfyrWSNRsPpDFqSuTLdO1tJQQB7nPpUrIJH6gaKN0jW6ErOuF5gQZLceQ6Q4sjgDO0HzPpWwqK6hs6Lfpx195XjznXEl14/XsPQVsrxdkhx+1W6UwLz4PiMtOg4P49s4B4z/Cs4lscLGuB6+p8FnDNkmeW19h4/VbNEmOuQ5GQ+0p5sArbCwVJB7ZHcV21Vkma/NY/lbBbEa8W1wN3JgZAcT23Y744wR7e1WXbJjNwt8eawctvthafbI7Vz8PihMSPUeI/uhXSxmAOGaHX4HwPTyO4PMLIpSlWlz0pSlESlKURYN5cujcdo2liO86XkhwPLKQG/2iMeda7ULGmb/KTp27LYkSUjxkx/FKVp47jBB7Ht6VspirmLlCTEbiqhHf8WpwkOJ4GzZjjvnOa1Pw2nZGq5c6CYr2oo8cpUPFOUjGBlOceYBPfmigk1069fotG/edV2/XzrcxjwNLx2ypTpZHhpbCMhW/vuzgYz+FR+46e0/1EvMq8WW+mItIQmQ09G88YCh8w4IT+YNbC03S8p03fP8Aukh1m3ubWWiWglalKzlKAgc9gQe3vjNbDpnZbAzaHZ2m3nJzclza8qXwpBR2TgAY+8T+IoqGXtiGO1abNHceXgp/SlKLrJSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlKIlKUoiUpSiJSuFqCUlRIAHmaj961vo+yFSbvqizQVp7tvTW0r/2Sc/woikNKglw6kaauVlkHSGtNIP3XZmO3NnJDaleQUAoKAPqAcehqpFfaU1DYr67Z9X6AbYeirCZXwVwSpWCMhSEqASpJBBB34x50qlml6WpUI6ZdUdJdRILjum526YynL8CSPDkM/1k85Hb5kkj3rL6ca9s2uI9w/RwejTbbJVFnQpG0PR3ASOQkkEEg4IPkfMEAsKWUpSiJSlKIlK4UpKUlSiEpAySTwBWpXLlTkqcjuCHCAJ8dQG9Y9QDwke5rdjC7ZaPkDN1t6VG4TunJsF+4M3tifHjgl+SLgFobA5O5QVtTjHtWXGiRno7cu03BwNODc24y/4rax64JII+lSdh4qL2jwW5rqmSGokR6U+opaZbU4sgZwkDJ/gKxbdMdXIXCmJSmShO4FP3XE/vD09xUZ1rcdToaucWPZWl23wFpMgr+bYUfMrv5c+XlVPEydg0kj4WuhgoPanhoIA8SB8+alVpuMS6wG50FzxGHM7VFJB4ODwfcVjaqRf12R5GmHrczdCU+EuehamQMjdkJ5zjOPeoRoC4aoatEONAs7D8AukF9S8HBV837Xlz5VZdR4TEdvGHEa6cvkpuIYP2WYsBBFmtQT61sVWfwfXP/wA9aF/90kf41DNbdR+p2h7sIdxf0vfZTUf4yTAt8CUVtxwcFaljKWxx3PA8xV/1Xmv+mCdS6gfvlv1Nc7DKmQP0dPEZKVJkx85KSFdlYJG4e342wRzVFSrROoYmq9J23UUJC22J7AdCF/eQeykn1wQR+Fd2o0W9cJAuTy2mfEGCnOSrB44B96aVskDTenIFhtiFJiQWUstbjlRA7kn1JyT7ms99hmQgIfZbdSDkBaQoZ/GtHC1vG7K4H5KI/D6T/wD46R/sq/8AhqUWkRk25lMNRUwE/ITnJGfeuP0bbv8AzfE/5FP+FZKEIbQEISlKQMAAYArVraU884kaACfUrS6i2m8WVJwcyDwf9WpEhlpCipDSEqPchIBNaS/W+VMXEkQ3GkPxnN6fEBwe3p9Kx3ZuordtlTRFkxUn9algHcE+vIHaugynxtaDr91zScriSF36+/8Am8v/AIxP9tR7qq2iK1bLzHSEzmJaUIUOCpOCrH5j+J9a3espLEzSvxEZxLja3EYI/wA96wNXW3ddGr7dJQNqtrfipjISSpTmfPy5OPy+pqjxNhOFDa1s+m2voulwh7WYzMTpW3XfT1WtLLaeoV/hj+YlW1Snk44Bwnk/mfzrZ9KnVuaNjpUc+G44lP03E/31FjLfjWe66imo2XC+Zjw2R94Nngn1xjGPoPUVPdH21Vp03DguDDqEbnPZSjuI/AnH4VysH3psw8T7zp8rXY4lTMLkcbNtHq1pDj6E16LbUpSusvOpSvlxxtsZcWlA9VHFcoUlaQpCgoHsQc0Rc0pSiLBlLuibtCRGYjqgKC/inFqIcQcfJtHnk961LMPTlv1TOet/wqdQy2FKU2XTuWOD93OBkgE4+tbi7quSIyDa2o7j3ipCg+ohOzPzEY88dq1F6jaWs16Rqm6KaizFYYS+tasEkY+72zgEZx2ooJBz6Hny8lEbeze9QaavTXUQPwoLCkvMveEltbZTu3bQB8wxgcg5z3NbfpfL0+ixuwdLvOOoZeK5Bl/KsqVwFcDGCE449PWse4Natu2uZNpmsKXpeS0pCilKQjwyjhQX33bsf4YrSi5aT6a3OXaGY0+5ynNi5C1lGEcZSkdvJWe3n+WFQDuyeHnYWCTv6eCtylKVldZKUpREpSlESlKURKUpREpSlESlKURKUpREpTNcZFEXNVr176i3rp5p1FwtOmDdd4VvlOyENsRiBxuTkLWT5JTjPbIOBXHVPrDp7RoftkH/AHb1GBhFtjq/myRkF5fZtPIPPOOwNeZ9a67n3yeifeZLN2vKdwQot4jwQf2GEevluJJ4GSa0c/Kpo4S/XYLVar1nrLqEnx9WTrkxEP8ANxVZhxSnkg+EF5X37q3GouzITAUW4MaAlA43JipyfxIzXbPekPSlrlqWp4n595yc1irTzntWmrtSrYa1n6VkG8TTw4mM4D+yuMgg/wAK1swwpEpEpTEWO+gbR4R8MEZzjbnHc57V2KaQ6MLKtp7gHFdX6KglJHgY9waAAFauc52i+mpr9nuEa72ma7CuUVxLjTzK9q0HPcHzHqOxBIPFSjp71Lm27r3E1mrwLUzdbmhu6th4+App4oS8s5IwkKy6AT8pHmBzBrrDXFZBCytnOEE90H0rSuNmSQ1gK3HgE4Bqw2qVd418V7rvP2numdt1H+ikPXCfGSpKV3KJH3xhnuQc7lAeqQfbNWvpbU1g1TbU3HT11i3KKrH6xhwK2k+Sh3SfY4Ir82NMTpunbq3PTb7ZLdTgpauUFuS1x5AKGUj1KSDXs37OnWqza2WbBcrdCseoggKDMdISxMSkY3NnuCBj5DyB2JAJGCoS0jdXjSgOaVhYWsvxLvwsHJCZL2HPdCQVEfjjFRvrW3aj0m1Ai8zZMC3/AAuHXoyQpwfMnalIJAO44TgkZzjIqVXeO66y27HAL8dYcQnON3BBT+IJrCucKz6s0/Ms1yZ8eHKbLUlhRKVp9j5pIPIPqKtR6s0VSXSSyqo6YWK323VouOo7RadMs6pt4t1s0420F/FIbAWt18JTs3lJ7HyVg89910rhN6X6r6z0Ta3B+g2249yixt2REW6DvQn0SeCB5DHvWovXRxprVOnY0RzUd1t5DyX7rKvSviLOlCQWRG5G3KuPuq4Hl3qx9E6Lsui405dtM6bNmqDkybNfL8qSpIwncs4zjnA4HJ9ayAbW7i2ls5g/3ct237w8Uq/q7f8AHbWZcoqZ1ukwlqKEyGVtFQ7gKBGf41iWVKpI/Sryklx9GG0pPDaP3frnv7/StnUE9ONeikw9sAcN91rNL2gWOzNW1L5fDZUd5Ttzkk9sn1rZ1p9W6lselbO5dtQXJi3w2+PEdONxwTtSO6lccAZJqjdY9fb49JW3pCyxoFuRgKuV6Ct57glDCVD2wVKGfMCq4DImhuwCtkS4h5fuTqV6JJxRSgkZJAHua8YXvqrfrkhYnaxvszJ4bglMJr8C2Erx9VGoDcLjGmvqfftvjun/AISVOkPLP4ldYEoOwKk9kcN3BfoYhaV4KSFA+YORX1X5/WDV15srqTaJ063BJ4EWe8hP+yVKSfxFWPp/7QOs7PHCJTsW+IAwE3BHhOD38VpOFD2Lefets/VanDO5G166pXmTSX2ktTvSkpv+jYEuNvJddsswqcQjy/VOYyR/WGfQVdGgepujtarMezXVKZ6BlyBJSWZKOM/cV3HunI962DgdionRvZ+oKZ0IBGCMigpWVGovdNOSS4tq3PJRDfWFOtKPCCD3FSdQCgQoAg9wa5pUskzpAA7ktGRtYSQtI7puI/qdN8kuuvLbQEssqxsaI8x/b9ST6Y20qQzGa8R5YSnOB5kn0A8z7V21rYqRLnOzF4UlpRaY8wnHClD3JyPoKjhgaCaFXqVJiMS9zRmN0KHkuwTJK+W7c7t8vEWlJP4ZNfDkqXIIjMR3orh/nHHEghA/okEgk+Xp5+lZ6U19hNWcjByVPO881r27bEQd6mUuuebjvzqP4mvly3MglyN/or3cLaGMn3HZX41sttcFNSZlHkrVYtvkreDjT6QmQycOBPY57KHsf8RWVWvkqMa5NyPCdU0plSHC2gqwQQU5A581VlxpDMlvxGHUuJzgkHsfQ+hqrIyjY2VqJ+YUd121HxZF32xtRdZRIMp9DxcCY6lpQMEhJByD2PPlUgrAuMW4Pz4D0S5GLHZWpUlnwgrx0kcDJ+7g+nrUa2e0HcX4KKahvDmp7XdbFpCY6xcoLiUOd2tyQohQQry5Ht/GtWrSenha4C9e3Fhu8lopW6ubsU4kE7ckn5iAQM/xOKmt6xZ7VcrjZbQzIuChvU2y2At5ee6scqIyT61Frxoz+XUW23u7KkWif8MG3Y4RkABSiODyDye/qPSiozREnUZnVtyq/mrCpSlF0UpSlESlKURKUpREpSlESlKURKUpREpSlEXnv7XOqdYaOuWmLrp2/T7VFkpkRniylC2lOjYpAWlaSnkb8Hvwapl7qlrS6oAvWuNROIxhTMTwoqVfVTQSr+Nezdd6VtOs9LTdO3tpTkSWjaVIOFtq7pWg+SgcEH+6vA/U/TS9DatkWS3X6FqKLG+VyW2nYppznLKhkgrTxnaTjPODxWHNJG6licAdRa7J0qOqMURVGChaiV7E73XD/SUcf31rmpaIySiGyULJ5eWQpf4cYT+HPvWpF3eKP1ltcUP3m1gj+OKyYS35XzeAGEf01AqP4D/GoRHlVwyZjoskHPNc/f8AkCufQV2oYClbPE2jzJIBrh+4223t+Ag/ELz/ADaDyT7nuayTyAWfMrqbaVgnIwPWuzKE5KiEgDJJ8q5ccKGy/JWlKjyR+yn2FaCQq43uSq2WdlTz6kqWEpGcADlSvQDt9cVkC9eSjJymgLK7J8hVxfEVr5Wgd2T3PvWQ1bo7bJRsBB7qIya1OnJKEJSXP20pRk+R/wC3FSqKtTLyClexRzj39Rjzrd+mgWjO9qV1yYjcdIivuhxJA8Nw/tAjIP1xUcdly7Nc2JMOU7Flx30rjvtHCm1g/KoVIdSvJegJUUIQW8AbRgdz/jUVllUlZCzkkAE+fbFYivdJqGi/RnofrlrqF06gahDfgyzlia128N9HCwOex7j2Iqb1Qv2K7aiJ0zeuMNTiYNydDhZdXvW1Jb3MvAK80Hw21JzyAcHOMm+qkKqJWLMt8OUsOPMjxB2cSSlY/Ec12ypDMVkuvuBCB5nz9h61qHdQjP6mGpQ9XF7f7AarzYyHDayPDVKzDvlGgtZf6IZPCpU9af3TKXg/xrg2WI380RT0Rz99pZ5+oOQfxrqiX5hxYRIaUxk4Cs7k/ifL8q29Sw4ts7c0b7Cikw3Z6ObS19mhyoQfafebeaUsrbUkbSM9xjsOeePU1Guq/US16AtcZ6THenT5zhahQ2CApxWMkkn7qB5qwcehrea21DC0ppW5ahuGfhoLCnVAEZWeyUDPdSiQAPU14s1rqS5z7zI1bfEg3y5JAai7iUQmB91CQefIE+pJ470lkO/MqXDQB2nILY6x1NMuV1N31JNXdrotRVGYJ/Uwwf2W0/sjtzjccc1CL4Lm68ldzEhHictpcSUpx7CpL06t8V0i6SX0SpZJWEg58MZIyf6ROe9Z2qLW1Mam3K4zsvsNZQy12QP2Qc88/hXObKGy07UrtugLoQW6Dp/PVV2g7Djyr7AJTXwQTya7Whziry57V0vLDDKnVdkjJr5ekJSwHVkgHH4ZpdgHEtwh3eVlR9Ejk/4Vp74ZEhYt0JBcdIIwP2UhJUtR9gkH8q2a21G9+W1tkPCLODSiRvTvbPoQeR/EVtYFyUJzMl118LaP6mUy5tfYOO7bndB/ge1ZeiNMxNV6uiWyc0t2P8I+tSkL2qQohKUKSfIhSgeeOKxNa6cuGhr3+jLopTzTgzFlON4RIRjlKhz847EZ9COCCYnPjc/s/wDZTNbI1gfXdK9P9C+rMyfMhaT1bIbfkyGybbdMhIlBI5bdBPDuPMZCuexHN6V+d+nHRMSi0GQplDriVw5G87oz6TlBz7HHP0Pevb/RnVx1v06td+dQGpi0KZmtA8tvtqKFgjyyU5APkRUjCdjuquIY0U5uxUxpSlSKutbIBny3I5URFZO1wDjxV4zgn0AI+pPtWHqO5LtMLZDaaB8B9SeOEFDRWOPwFZts4EhJ++JLm78VEj+BFR3VtsbiR3XorbpQuPJU4eSEYilCefLhI7+ddCJrdAudI4kkrWdc5WsWtIW5WlZibch6Y0m6TwpCVRIxHzOArIAAOMnOR+JIi3Q68ai1PM1tp2Pq65XexRkJZtmoHWgl5Dq0kK2Ej5sdx9AeN1bX7SWmtQal0Dam7FBcujcOc1Jm25tzYqU0lJG0Hz5PYc85HIFQh7VvUKPq2wSdNaEmaesduZKRppT6I71xHPiqQzgFWwFJ4Scdz34hO6tMotWNp62a2R1SvehdV9UtTQnIUQzocyO/luQwOSpQJJScHOOcbVDnAJ6envUrUdq13YEIuGpb7pLUMz4BiTe2UpUp3xA34jS0k8BRGUnyz59pv09s+qtZdX5vUbVGnHNPWxNsNuiQJZy88lXcrSQCBgqJyB3AGcE1ttNdDNM2PUcC5ou99mQ7W+qTbbZKlb40R1St25Ixng4PrkAkmsAFbOI5qdWS8LnvqjuspS4A6vck8YS8tsDHrhANd9wQY5VcWE4cbGXUj/hUDuD7gcg/41G7BF+LuASXFthG9zKfMonOK2/Q4xUpkeHFtqwpalIaaIKlqKlEAeZPc1Ze0A0qQcatZiVBSQpJyCMg1zXRb0KbgR21jCktJSfqAK765x3XSGy18C0wLdOn3CKwpL85SVyDuKt5SDjAJ47ntXVaJib7a2Z6WbhbwoqHhPJ8NwYOORz6cVtaVhahlbbJSlKLZKUpREpSlESlKURKUpREpSlESlKURKUpRFouod7Om9CX2/pKQuBAefb3DIK0oJSMZGcqwMZ86/PPXReakR4viqVIZR4klS+fEdWdyyo+ufOvdv2g2DI6K6qT4QdCICnlJP7qCFk/gEk/hXhC/W+5S5b9zSUmH8TIaKyrKlLbSlRGPQJWn861IJKlj2Kj7NyVEfVy5GUoZUlR+X357EVkOX1QQCmSwffaj/Crl+ylbkSr5qiatKFfD25iMNwzjxnCo/8A5GKt+VouwPkrVp6yPOD9pcNvOfrtNc7F8Sjw8mRzbXSweBdiI84dWtLxg5dZ8mM++2JDzDIBecabJQgE4G4gYGSQOe9fdq3srMt9sbyP1TZ/Y9yfX28s16R1V0iv+qZ6VTb/ABLbbWP5i3QYm5tJ/fO5SQVn1KfIYxzXZYuhVkgrLkxC7m4T3nOZQPo2gBJ+hzWw4vhgyzv0CyOFzufoRXU/wqFs9pv+rlqRZ43jtoUELkLOxhontlXYn+iMqPpV+dLumbek7M6+5tfuLqNz7+zap0g5AGeUoGOB5nk9gBG7/wBatHaPectWnbGu7uw1lrxcpjRkFPBDYAJIz6AfWsOz/aQfLviXbSBREJ5ciStykj+qpICvzFVcX7diWUxmVvmLKuYV+Dwj7zZndeSqHWFmdsGsbrZXUFCA8XIx9W1Hc2R/q4/EGslcpUiE3leySwrdnP304Oce/wDhXoTV+jLP1R0hC1FY5LTa1pLkSSW8kA53MuAcgbv9k84I4PnHUFtuFhu71pu0R2JMaPKXBwseSknspJ8iKv4XFDEMAdo4bhUMZhuweXM1Ydj9F1S58l5vwnVhQByTgZNYSFfrMn1oTwT2+tfSYlxMQz0WycuGnvJEZZa/28bf41coBc+nO1Xt/wCxGVq6PylFJS3+mpQb9CPlJI/EkfhV6VTv2NmSz0BsyltlC3n5TxyMZCn1lJ/2dtXFWTuolDtWSXVvzCHkMiO2Q2tf3UHbkqP+ewqjdExpOpX4MNGv9UMvORTJuTbi3WvjE9kuxFrSChvecHaORgYHevQ2obMqWpx1ltLodTteZV+2MY4zx24waq9PR+ytqbWynUjL7CfDivN3B4LjN8/qmznCUcnivK4qCZs8jnAnNVEAO/tfdddjmvY3KRpvrS7OlNwnzLTdoFxmrnrtN3kW5uU4QVvNo2lJWRwVYVgn1FW5Yis2iMV5J2cfTy/hioRp7T9v0vAi2tqC7EgIcyvcSSvccqUpfOSScnnNWGAEoASAABgAeVW+DYZzJJZCKs7VXrXj4KHGO/42t38VQn2o9Rrdu9l0S2SIpbN4uvoWWifCQfXc4M/6g9a8x3+W9crk6+tWHHDk/wBFNWh1svPx3UDXtwWhxsx34toZCyMpS2jerGCeFEqP0IzzVSxTvQX1cFZJ+gFdXUvJPLRGgMiA66rZWO9zLFFkx4bbRL2MOLySjGfLz7+dbzTE+0yLFNZvcx0PvSA6r5VFTgAGMED6/nUSSsOJ3JHy5496+0KCec4xWHwtddaFSsnc2r2ClGr1WBnTEZ2EzHYdWoOZGCtKADnce/pUQEhDbJkufKnGTnvXS8pFzkqjJBMdhQLq/JavJA9fU1i3NxDLviyOzfzJb8k+6v8ACt4osgyk2op5s5zVQWal3w2XZ0hIS659xJ7pQP8AOazrRZpNu0NeNaTUAquaBbrWlXml1X6xz8UJWR9PcVsulOhLhr24M3S45bsTbhylXyql7fIejeeCfPkD1Fu6u6fztY3y2WVJTbtNWdP3GvlVKdIAOOMIQlI2g9+VYAGFVWxGMjY8R35/wrGHwj3MMleX8rS/ZfsT8t2XqN9BSwsoajkjBU2gnKh7FXA/qVbfUfR1v1jp9+1zmlKQvCgUHaUKGdq0k9lDPB8+QeDW1sVqjWS2ohxG0bUJwABtHA4SB5JA4A8qpV3Q/VrW12kXq+3/APk40X1BiIzLeX4SQSBsQhSE4OM5J3HOTwa5TXdvMZS7LSvPHYxtja3Ny/lVBPtlw0xeZ1iuaSmbBcGVYwHU90uJ9iPyPHlXq/7JbyVWzVjbRV4Ll1bmJHkFPRmlLx/rBX8KoPrPpDVun2LVcL/cW72ykrhouKdwc2kb0oeCiScFKyk5V95QJGEirq+xQS9pTUT6ici4tM/7MZv/AOKu/E4SAPBtcOcZAWL0DSlKmVRYEth5mSZkVHibgA80Dgqx2UPcfxH0r6jzI0lRZB+cpyppxJSrHnkGs0kAZJwBWmfRcLlGRLjpZZCfnY3Z348iT2GR5YPerMTidCqszADY3W3Sqo9eNG2W663s+sJfxP6StDbjcYIdw2QsEHcnzIycYI7854rOhy5zkZt1cFToWMgtLSPzCiMH8TXao3KRkNtohp/ecIWo+2AcD863JaNyo25+QWx3V8lVYAmPtDbKhvpUP2mklxJ9xjn8xXCpEp/5IkVxGe7r6dqU/h3J9uPrWdN7TvHSl9Kl2+IVR0rabUFElttPOT8x4Hmc5/GusNvXB1BdaWzEQoK2rGFOkcjI8k5555NZkKMmKx4aVKWokqWtXdaj3JrvqF03IKZkHNyUpSoFYSlKURKUpREpSlESlKURKUpREpWu1Lerdp2xS71dXvBhxUb3FYyeSAAB5kkgD3NVnpbUereqc9T8BqRpvR7SiFPg4lzv6CV/sD1KeR2Cie13D4GSaN0x0Y3cna+g6nwHrSrTYpkbxHu47AfPwHirdpXSwuOjEVlxvLSQPDCslIHt3ruqmRSshajVepbDpW1quWoLpGt8YHCS6r5nFfuoSPmWr+ikE1nWyUZsBmWYsiL4qdwafSEuJHluAJwcc47jPODkVDVdMrDM6mua/u8uZd57QSmBHkuBUeBtAGW0AfeyCrJ8znvzUnkXVLkn4K2hMiSfvKz8jQ9VH+4VYdHGWgR2TuTsB4ff3eOhdW62KnW0uJbKhvVyE+ZHr9K+6x4UVMdJUpZdfX/OOq7q/wAB6Csiq7qvRbC+axLzAYulomWyUndHlsLYdHqlaSk/wNebuqXSVnRXRWzNxXlzlWSU+5cZRT8zjcn5XFkex8L6JSc+efTlY1zgxblbpNvnMpfiymVMvNq7LQoEKB+oNY30W7XFpsLxD9njUEDSk7XZuzoaZYtkaWrHdQZcWghI8yS8gAf0hXbC6ndY79ITcNO6Rjm2rO5pBhLKXU5/8qtQCuPNGPpXX1F6cyOkfUH47UNufvHTu4OCG9JS4StMZZSrw3MHclaFIQoHsrYOckgXK9Iuqb1GsGk9Pm9SxFTIIbkIYjx45O1tRWo8BWCEhIJODxXLxkTRICI87nddhS6uCkzMdmkytGvvUosciRJtMOXLhrhSXmULejrIJZWQMoJHBwcistxSVDnmtPAuNzjTmrTqeyyLLcX93wyFqS61JCRuV4bqCUlQHJScKwCcY5raCvOTRPhcWuFFdqNzJBmabVXWrpv076eNzNRPsNoSyN5lXFfi+An0QCMJ9sAqNbCB1KtExhMiJbdUPW0//Tk2SSqNj+sE9vwrJ6rW+I8iFe7zEE+zWBmRdHoSuUSpCPDbjtq/o7nSo+oSR5129Deuty1HfbfatRKs4FxkuRWGYTS23Yq0pBRuScgoV2BBOMc12sJg24uMSTvJJ8dlzMTi3YdxZEwUPBSvT79rl2lqbZ1RHIkjLiXI2NjhPcnHn5HPPHNVz9oDR8O+aNmvpjJXKisOPxFgfMh1KSraD6KxjHqatS9adg2HU9wkWp5TMe5KTJegpQPDbfOd7ifQrG3I7ZTnuTWBdWEyID7S0hQKM4Pnjn+6uZKDhMTTTdFdDDvE8NkaOC8YdFbJE1R1DtUCahLkJOZb6D2UhAyAfYq2A+xNekJGrNRXF12RYGbaxZGTsjIeaKzMSO5G1QDSCOE8E4OSMVB+nnTVzR87Ub8xxCWJQchwXW15W1EJJKj6KPy/7NSHpxp6Na7bHREbQFOW9j4woJIW+M/Mf6WDg/hXQ4hiGSuLmm6qvqpeFYAxMBlG9q1fs+XBmHM1Do1kuJjwnG7hCaWc+EzI3bm0/wBFLiF4HkFAdhVuVUHQJhEvU2r9QMELi741qacx95UcOKcx7BT236pPpVv12sMXGJpdvS8rjA0TvDNrSlKVMqy4UkKSUqAIPBBHemAE4AwBXNDRF4D60PPRdb6ziuKOV6mkuKwc/KW2ij+CqhlykBDDUVBwdg3+3HarX+2HaBaeqkp1LRQzeIrE5BA4LiSWXR9eGlH6+9Uw6ouuqcOeSaNZrZVkSd0BbcyGI8dCVrAIQPlHJNaK53GXKX8PGBST95QHCB6k+vtXKkKUrPcn1NfDkd1TPhNBbilqCUNNDBWsnAHuSSKyGgFYe9x0C2liclyCiy2SLIlvAfcjtlx1XqpWOwPmTxUxs+mNJWKWiX1LvLXxjDgWmy2//SVpI5/XbMpCs/sqUkepPIF/9IdAwtH6QgxVMpE8shUhwJHLpGSr3OScE54xUX1Hoa0DUUPROkNHw7hqG5NKlOXK5q+JaiNBeFvupXnJ3HgAYUfyrlNxoxEpiYD6bn+Aui7DdhGJHEeuw8hzUMn9W9R30rsHSzTLzTWNomLbSt1PHfj9U0B2G5RA9qvfpzAutr0baoV9mrm3RqMkSn1L3FSzyRu/axnbnzxmvNHVKdqvp7fVC0a5iuItc1UEW4LSlwuJSCt74RKA0hok4Hn28+3ovpNqo6y0LAvTjJZkqSG5TeMBLoAJI9lBQUPZVVuJYcxMGVoAv1vxUuCxAmccziT8PRS8ng1VfVnq43o+abRZ7O9ebohJcfSnd4bCAkKOdoKiQCkkAYAUkkjIq0weMntnkVAtcdNdXXLTkjUvTmam1aqcl3CO/wCIUD4qE86AEgqBCVBDTJB44B5FQcNwzJ5Dn2AUmPxDoYxl3Ko7XnWOD1A0ZboD0JFumt3EOusBZcS4kMuBKkqwAOVdjzyK9WfZs0w3pbpBZo+9Lkie3+kZK09it7C8fgkpT/q15s090Cl2nplqJF6ENWoyES4TTDocWymPuUtG8DG9xJUMAkZCcmr96Zzp2hv0Rpm63M3jTN2KUaYu20b0pLZWmK9jz2glC+ygCDggA96BsTAWx7Ari4h8jyHSbq3aUpUyrrVuy5pYky2kx/h46lgtqB3rCCQrnOB2OOD5V2MR5zEcR4slpLGMILjZK0J8h3wcf5zXc7b4brxdW0SVEKUN6glRHYlOcH8RWVUpkAHdUQjJPeXXFZRHjtsN52oTgE9z7muylKi3UoFJSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlcEhIJJAA5JNEXNay73yBbSUOrLj3/k0ckfX0rS6g1R96NbFeynv/h/xqJKUpaipSipROSSck10sNgC7vSaDoqU2LDdGKxYyoWpLItFwtrL0R47Vx5LaXELAIIyCMEZHp3FafUl8RER+i7UENJbTsUpsYCAP2U47Y/hWrRqOa3akQGENtbU7PETndj+4+9aU8nJqxDg6cS/a9AopMTbQG78yt/o2dAhSn3ZrhQ4pICFkEjHn28+1dupdRql5iwFqQx+0vsV+3sKjD7rTDK3nnENtoGVLWcAD1JrqgS25scSGUrDSj8ilJxvH7wHfHpnv9MVaOFYZO1OvyUAncGZAtvZbfLuMksRiUII/WL/AGQPf1+lWDarfHt0VMeOnjupR7qPqa+LHHhx7Y0mEQppSd28d1nzJrOrj4vFOldQ0C6OHgEYvmlKUqmrCUpSiLpmxY02I7EmR2pEd1JQ404kKStJ7gg8EV5y1Kzd9P8ASXUsLTLspN3tyBZJC2lEPIjRX1qbKSPmyqPJbPrtB9M16Tqq7lFVb+oeqWUhKEzIsK5slOdy1DxGXSSe+AlkegBTUGJkMcZeOSnwzQ+QMPNUH0U1ZKu93iaejwHWoTFp3zd0tx9Lk1k72pQC8+GtRAQQDhW48Y7XnaprVzElyIS62w+phak9itONwH0JIPuDXW6Jcpp4NPFt0tqDbihkJWRwojzwcVGtFz7rY9MQbAzZZLUqKxseK2FqS493WvxPukKVlWc+f4V5vGYo4vvVRC9NhsF7P3GG7UvuEKLdbTMtkxHixZbKmHkZ7pUMH8fMe4FQnRXSWwaT1HH1BHuFxlyYaiuOh/ZtSrGAo4SCSO49xUygOvsWluRd1xozqWguQUuYaQcDd8yscA55NRXWev1wLWzL03bk3htyY1GTJceDEZ5a1hPhNOEHxV8/sAhICiojFR4Xt3d2JYm7Jp79KTTZUh+Qp1x1xSlHkknmuxa1pguFzk7Fd/TFfaAFpS44ylp0pBWkHISfMZ86xr06lu3uZUAVjYPx/wCqqTnlzl0WgOytApRW8XJ6GiCiNapV1lTZIjMxYxQHFqKFKJG9SU8BJJyRXfpyya51XujRtPTtJQ1pw5PuqUB5AJwfCZSokrxnBXhI74PavjpiyzqLrey2Xx4eloSpSmwrlUl8FsD3CWyTx2Kxn39DCvSYLh8bo2ySCyuNxPiszJXQxHRa3S1htWmbDFslmiIiwoydqEJ7k9ypR7lRJJJPJJJNbOlK7C82lKUoiVwtSUJKlqCUgZJJwBWo1nqO2aS0zN1BeHVNwobe5e1O5SiSAlKR5qUSAB6kV4w6ndQtU9Q3BMmxnP0cFqEW3oWURGwDyXFf8MtPGSAQk8YTnl4rIBJoKxfthXWy6rTb7Lp5uLdbta4rt3flx5CVhmKkhC2/lB3Ekhe3Ix4eea8xpAUUJbyouKCW0oBUVE9gAOST6Cppo69J0jq2FqBLTTrMc+HKQy2AFsODDgA8yPvAeqRVidKrVo5fXkXfTc2LNtC7VIuEVhHCosgLQ2tBQQCnAWogHGM+2aqOxTo3lrm6VYPzBV5uGtoo63qqqkdPtdxLeq4y9H3lmIlBWpxTAJSnGclIJUB9RXz0v+Hd6j6ZS7tcbXcWSB3BVn5fr822vR951LrC0Ql3Z29xH3QU4t6of6t1alAJZQUHfuJISFfNz5YzVPdQ9KmROa1/oWFJiwn3i9Mi+AQ/b5aF/Mrw8ZwFj5gM9sjg8RQ44TCnaA6X9FanwLoCCNSNaXqlQC2QDyCOxFYXTWwWHSmq7vey7LU9c2GWd0iQt5LKGys7UbiSlJK+wOOBwKx9IXZy/aWtl3ejrivS4yHHWVIKS2sj5hg84Bzj2xXEpD/jqK0r78HyxXBinfhpLZy0XU9mZiWZH6BaPrH0S0Nr/WCdVtX1+13FaEpkpix0upkFPAXg4wvAAz24HFSu2Wm12O0Q7VaY5ZjRIzTCdwG9zw0BAWsjgqISM/SseGw6XELKFJCT3PFfUG8225SJseBMbkLhPeBI2HIQ5jJTn15APocjyqzicfLiWZSKCrw4GPDPtpsrvfajzG3YMl9TLbzaklaFbVJyMZSfI+hrRWudPhX06Vm3FF4UiB8W1NbTsUUBewodSCU7ySMKGM4PAxWbebOxdUoTIflNtg5KWXdgX7Kx3Ht2rutMK02y4PhpbaJs5KSpK3RvWhsYG1P7o3HtxlR9aqRPppaQrT2DR1+iwWHJSbi2+jeHErBx5AZ7fStZ0fhTrjoyJpV9Djg01rV+OFY3eDHYKnm8k+WFIQMc4UPIGpoWi4pKU5ySAKxPs/ONToesrxHGY0/VUtcdwJIS4htDTW5J/aBLauRx3HlXV4PmBf0XM4xI2QMNaqzqUpXbXDSlKURKUpREpSlESlKURKUpREpSlESlKURKUpREJABJOAO5qtepeuIVvgOlx/w4aDgbT88hX7qR6f8AaalmrJElwMWiEMyJZOeeyP8AD+4GsS2dOdPJfTOvUNm8zsYCpSAtpofuobPyj6kEn17AdHCNiiqWXXoFUnMkncj9SqG0bfbzqzVLk1yQuHaYKd5YbVhKichIWf2vMnPHHapra77aLpJdjW+4MyXWhlaUHsM4z7/hVka5e0BpjTin9URbTDtbi0sbVxUkLKjgBKUgknueBwAT5VVPWLoqxbrfI1DolLzPgJK5EALKvkA+ZTZPPHcpJOfL0PWixsM78p7vTp6rnyYWWFuYd7qtXrXX0Cyb4cAImz8YIB/VtH+kR3PsPxxXRZdTu2nTSbpqaeZEycfGjRG0jfsI+UADsD3yfUedUxVo9J7NZXHGp8qY3OuYQFtsjKhGSOAT5bu3ft5V1ZIGRs1/v8LnRzPkepLaLfcr+61dtRo8GOCFxbaPup9FufvK9jwP4VObXa5txcCYzRKM4U4eEp/GlkNvE9Jue/wAP2R5+Wcc4+lWNbnoj8RC4SkFgcJ2jAGPLFcPG4x0ejW/wurhsO1+5/lLbFTBgMxUKKg2nGT5nzP51kUpXAJJNldcAAUEpSlYRKUpREqv+rttuTLlr1haQ48qzh5FyiNpClyoDoSXUoGOVoU224kZGdhH7VWBQ81q5ocC07FZBLTYVUxFtSIjUqM82/FkNJeYeQcocQoZSoH0wRUC6hXnWmnH3Zsm622JpnJK5rFpclSoo8gtvxAkjy3jj1Aqybzoqdpt6Vc9FsIfgOhTkjT5UG0KcJyXIyzw0s85RjYr+ifmrVw7paropdvDnhTgj/SLZKT4cpnyIW0eSn+mncg+SjXm3YB2DfmDczV6CPGtxLMhOVyq+0600JqqWiDZrFftb3JkB0S9QPIYgMq8nCw0QFDIyElGeO/nWexbF6515Z9QT5qb0mxLV4k1B8OGh0DCY8ZpJ24SohSlZUflSkqPIG4X0z0rFlvyLdYILfxBy8yXXG2XD/SbTlB7njbjmpXZYxgxAwpuMy2gYbZjt7GmkjyH+fwFSYnigLSyIUFLDgGtaHPNu/uyylAAZPb3qtuoerFInMWSzpMm7ykKERvGUt+Rec9EJP4nGB7YvUXqa0zPOm9JtJvN4UopUlpX6tnA7uEehx8ufqQO/wA9OdHSILrsi4THbldZZCps1wc7fJCfRI5AAxXOZF2Q7SQeQ6/ZdWA5ro7bnp9/ktnodqD071Dpy9T7ghMVQkw7zcZCtoWqRhwPLPkPGaCcngBY+teibbcrfcW1LgTosxKCErUw6lYSSkKAODwcEH6EGqh1Fa406AWHIrT7Gzw1sOIC0rT6EHg15bhTpOldQXlOlbrcbdGcubrcUw5a28tpUQOUn5kjCsZzxXpOBvdjQY+Y1XmeOMZBUw2OlL9DaV4z0f106k2Jwty50XUcY/8AB3BvY4n6OtgfxSauXQn2hdL3l4Q9TQpGlZWP52U4lyIo+gfGAD/XSmuxLg5otXNXDjxMUmjSrnpWPb50O4xG5cCWxLjuJCkOsuBaFAjIII4NZFVlOqw+0TYjqHTEGNPlvRNOQpKrjfXWs7zFYaWranHJUVbcY58x2ry5fJ7E7c6lKmI5jodRDJ4YZWVfCxUjsEoQCVY7ncckqNervtKFY6FauCN2VQChW0EnaVJCu3OME15AvYQJt6Skg7ZzSQfRKYze0fTk/nUMp2CvYNo1dzUVvBekl8BRKGkhSh6ny/ID+Nc6D1JK0jq+33+Eyl1bKil9rGC8yoYWjPrjJHoQKyoKQp+aFgHKhx6jFRq9M+DJU0g4KTvRn/P4VIAHAtdstXktIeF6tS3D13p4XLSt0jvtB1D0dwjKo7yFBaQ4g4IIIwR5jOD51u27n+i7DMm6qMK2ux0lyStt1Sm1JCR82SkEHgcc+XJry30zvibBqNuQ5Jnw4cra1LdhSFNOtoKh+sHdKlJ5OFJUCMjHNXz1J6SS79cVWiHrG43p+Y5CcgOT3Bs8JTMlashtKUkEsJwsDIzz78k8KLSGh3d+K6n5zmGZ7e9Ss3SUuNLtjZjPJcbWnxmlA5C0K+YKHqDmtyrngCvN+k77rXpelNk1ppu7tWmO8W2prcdavhQpWMBYG1beTxg5APn2q89O6rtV3hpkRpkeQ0ePHZWFJz7juk+xrm4rCPhdrsrsUzcUM7DrzHRb5JI781G39D6bWY6oVvVbX47XgtSYD64zyUZztK0EFQyScKyM81vw4hxIU2tK0nsU8g1ALfrrUabYL9I07Fk2kvuNPR4Tq1TYmxZQvelQ2rKSDuSnB8xu844RJ/oapYfQ0I1WynaTEVaS7q3WziD/AMGieFJ+hV4e4fnW0sFitFmVIuMWMtEiQnMiVLeU6+tI5wtxZJwO+MgD0rbGfCdt4uTcthUFTPjiSFjwy3jO/d2245zUMaCdbA3a4PKa0gypXgQ1jYLmlI/n3ScEM5+6nsoDceMCtwZJLzGgsDI0Chqsu4a7LmlbzeNNWe53NiJDfU3c0oQ3EbcSk/PucUlTiEnkltKu3GeKtfQOnYektG2rTkBKQxBjJb3JGN6+61/VSipR9yarLRNtX1HfbmS4nwmibc9tgwwNiLqtGNrpAwPh0nO1PZZGSMAA3SK7+Ch7KParXAxsvaSb2lKUq4qaUpSiJSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlKItZZ2w9qS5yVDJaS2y2T5AjKv44rq6h6Y/lbpl60Iu0+0yN6XY8yG6pC2nE8pPBG4eqT/AgEbOIyWbk+6E/JIbScgftJyDk+4KcfQ1VPXmXJe13ovTlzvtzsOlrmt9MyVBdLJdfCf1TSnB90E447HJ9Mi043XkFE0Uoxe9K9WLZqyDrjV9qs+vmbMxsjQ4UlTSmduMvhpSAFOnG7A3c4wOE4u7QeqrPrXS8XUNkdU5EkggpWMLaWOFIWPJQP9xGQQaq+yatc6Q6km6R19eZ0jTzqDJsN4lhb6ygfejuKSCSpPlx29NyQNl9mBh06Y1HekRXIdqvGoZU62NuDb/o6toSoDyHGP9X6Vqt1QnVnTa9P9RLnb2Yq48NyUpURS07GyhWFYSo4GE7tufLFWd08tFutOnmvgXm5KnvmekI5DihwcH90cgVodWNSuqPUqXd9xRp+Gv4WO6P+FbQT9z13EqVnyCvarV0rppUllpplv4WAykISQPIeSf8AGvUz4jJA0SGjWv8Aeq87DDmlcWDTkviyWqRdJPhtDa2k/rHCOEj+8+1WJAiMwoiIzCcIQPxPua5hRWIcdMeO2ENp8h5+5967q8zisUZzXJd2CARDxSlKVUU6UrSa21HG0rp1+8y478hDa2mktM7d61uOJbQkbiAMqUkZJ4rXdN9bRdZw5ikQnbfMgvBqVFccS4UkpCkqCknBSQe/HIPpWMwuua37N2XPWmyllKUrK0SlKiXUTXVt0gxGjradnXecVJgQGRlbqh3Uo9kNjIys8D3PFZAJNBYJAFlbPV2prPpi3iXdZJQXFbGGGkFx59ffa2gcqPnx2AJOBzXn7qdqBvWMppvUsNoMwwqZGt6MZY+cIQXXAfncwVq2pO1OMYUcKrQ6tv1xN2VcrvPbuepFNloym0BLUNsnJZZT+yO2T95WMk9gIoHX3HXn1uLWXEoSpRPcgrP99egwvCwwB0up6Lg4niZkJbFoOvNbK26n1naY5i27UbjkUE+G3cWUyigeQCzhePqo1qbvdtYayu1u01ftVuQbZPuDMR9UGOiOAhZxknJUTk4wVY9q7skDA7VqL+ylaAJKyiI9tQp1KtqmHArKF58hnz8jipcVwXBOa57IwHdfFMLxfFtcGvkJb0Vs9NtBt2S3pjtQksPx3HIsh9acF0trKN49QrAVx61ZcWMzGj+E0CcnKie5NU9YOrUm0WZmFqOzXO4ym8hUy3JQ4H8kkKKCpJSo+eMjOccV9Xjq1c50BTOm7G7bnljHxV0KMt+6WkFW4/1iB7GvnMvBeIS4gsyGz7l9CPHMIIAe0GUcv7zW4626yFptS9NWeTi/3JGxOwZ+FYVwt1R7JOMhOe558qo62WthchLaQ4Y0RHgpVn76uAr64wBn1JrOfRInXCU61LflTJDgVNuTuCoqx2HluAAASOE1tIzDcdlDLQIQkYTzmvoHBODM4fDlOrjufovA8Z4u7GyWNGjYfVYybRGPLRW2fzH8axLi29EPgjDrxGQlKuwz95XoPfHNbsupjsuPu8oaSVqA7kAZ496+ITbjUcuSm0JlPfO+U+vkn6JHH/bXd7Np0C4wmcNSurp5rW+9PLuu52Fbbzb2Pi7e4opjyRxkgD7i/RY/EGvZugdX2PW2nGb7YZfjxlqKHEqSUuMuDG5taTyFDPb6EZBBrw3eooSoutp+Un5h6VK+hOtpWhNaNPOylo0/cXQ1dGOClKjhLb4z2KTgKIxlPfOBXn+I4Hd7BqF3cDi9A1x0Xsy9W+Ld7RLtc5rxYsxlbDyP3kKBBH5GvDuu9IXPSepL7Ybiy6HMMvwn1cplttpLYWkjz2BG4eSs+WDXu0HNQjrFoGDrnTLjexLd5iNrctcoqI8F0jscd0KwApJByPcAjgubmFLtxSGN1rwqT4TiXh2V8iv7j+danUbYUpl3zCiD9DW1v7jS4S5MdK0Jcb37FDBbUCQUkeRCgRWHdAFQ2FnlThPHpx/ia1ZdhWpBuFrCgtZGMEcfSvW32Lb7Hv1glQLk2y/dbAPBhyF48URHju2epCVoIz5AgV5PuWPinsEBIWck9hVnfZq1m1oW83q7GwT7jIlW9MeIW2whJXv3HcpeAE9jnPlwKnDC/YKnK5rBZNL099p9KFdIZyU7i+qXFEcJ7qdL6AgfiTVca76eQnp67jHclW+WknZcICy25/7QDhf+sK+LDrObrfWFqd1Zdoa4S8uxrOhotpg3BtQU0l0q5cVtK1IV90lPAJAzabu1Q2EZHmPWuBxSYtkDW7hdzg5LWknVpXnh28dXNMvH4du3agjJPDymFIcUP6QbOPzTitn0S1Re771I1CxeLWm2fHQW5SmEO7kqeaUltTg4GCUrQCPPaM1cEmxxHAVsksLPkOU/lUXchLt3U3TaHFIWqTCuDYUkEZwGF459kE/hVOOcSNczKASDqPeuniGx6Pa46EaH+Vj2XRk1yVNsM1bjOk41yM5lgLBMzeEOfDnzDKHPEJH7WUp7A1MdS2KFqS3qt118RcJbiVSGUK2pfQk58NWOdmQMgYyBjsSK2aU4TX3jiqzsQ91Hp/bUQiaL8VCNFTYfT/Wt6ups36I0nMEeIpbStqG30rUkyC1+w2VOJRuH7u48c1fSTkZByKpzW9ps13gMtagb+IgMvpdXGX/NvqAO1Kx5pBIVg8ZAzwK3H2aJc+b0wQ/KckOw/wBIS02px9RK1Qg8oMkk8kYyATzgCu9w3EmZhadwuNxHDdkQ8bFWZSlK6S5iUpSiJSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlKIshj+b/GuH2WnUhLzSHEpUFAKSDgg8H6iukEjsTXFbh9BYpcXE29TOyemO43ndsdSFZI88Go5ql2dfYDlptsWSiK8nY+8oeFvQe6QTggEcEjmpJSpWT5DYGq0fHmFXoorYNGxILTYkhtSWwAhhpO1tI9PepSlKUJCUpCUgYAAwBXNK0lmfKbeVmONsYpoSlKVEt0pSlEUT6v2Z2/dNr7bo6CqWYinYhHdL7fztke4WlNUR9m+6Ii66h3FVwkPov8b4ZZWv5FKDZdaJCiSCNrqcZ7r4x2r1EcedeSdcxHNK631Bb7E2lMy1zkXO3sq88qTJQP6pV4iPoCPWr2BiZKXsI71aFVMZPJE1pB7t6jkvW47UrBsF0jXqwwLxEJMadGbktE/uLSFD+BqI6l6ixEzpFg0c03qLULeA4y0v8A0aHk43SXRkIA5OzlasYA5zVAkDdXAL2WP1R6mMaYkGx2SEm86jU34hihza3FbIJDryv2U8cJ+8ry45FFTrv8G3KRGmu3C6zTuuN3cJ8R88/Kj91Cc4SkcAfia46tC5WDXca+zL4blMvkZUGe6G/DZbeRlTbbScnagoLgAJJyMk5NRCyyQplyA4kpdiYQM/ttnOxX4gYPuDXf4KyCRnatNnbyXB4wZ2Sdk4UND52u55OTzWL8SUTmIRHDqHFg+6Nv9yjWYvO4DsfLNRS73D4W9QHVqC/h5fhrP/o3QUgn6Ej8q7crgwWuVCzOSpSeaYBBQtIUCMEEZBrlsetfePlxmpbUNm1rHbOyrHwsqZCA/YYcGz8EqBA/ACvpu0MoBMmVMm5H3X3fkH+qkJSfxBrYpGBXCufOtcjei3znqutISlIQhCUISMJSkYA/CiRg19gAcmmB3H9lbLXRY80EspSBnLreR7b0k/wzXa4vd9a65j6GG1LV+zgq9hnGa+gnJ4rBPROS+PDDmUFOQe9aadDEd1TDiQttQxgjhST3qSIQEJzjmsa5MCREPGVoGU8VhzMzFvG/I6le/wBlrXqbnZjoi5OLNxtbRXEcdcKlSIu7jk9y3kIPttPnWVcPtHaEgpuMSVEvTN4gvrjuW5UMlZdSopI3glAGRnJUOK8yWe+3XTF/g6hshQq4W90uNNuH5HQRtW2r2UkkexwfKr96i9LbP1j07C6iaJksW+8T4iXFJdRhqWcY2O45S4kgp3DP3cEHAx5LGYcQyeBXqsJP2rBe4Xl6+OMyFqab2I8VanHNpylvcsrV/FRxWuuUht2QlaSUtNgBII/zyTUzvPSDqnbZK2ZGhrm+QchcQofQrnuChRx+OKkXRLp3eIfVB9OsLMiI9aYbcxiK6424rxXVKS2pYSSBgIcIB5B2nHauVipm4aF0z9gurGe1eI281ndKehzt1WzfdZ/ENBf6xm2tLU2pvJ4U6ochWMfKMEeZzwJLrTppP02y9c9OSZ95hoIU7bn/ANbJSnPKmljlQHfYrJIBwSeDejaENNpaSOEjHbv71r72xcyyp+1qZcdSP+9pHyoc57bwMpPudw9vOvDw/iPHMxPasfQ6cvL7roYjh2Gnj7N7fXmvPEi3xbpbW5MdacqSC27sB4yDtUD3GRyn2yMKAIsLQ+qbmLDFemNP3iEhZYlSIwLku3rT3RIbHLoAxhxAypOFFPOajGvkxrTeXb3GK48KZKSxdYbmN8CasDYo4/Yc/eHBUQQfmNdNlmOWHVEW6tulmBJUiPc1pXsLbeTsfHkdilchQI2qVxwK99jsnFuHjExNGYbj5j+CvL8Plk4RjfZpDbHbH5K5LZfbPc2/9zrpDlgHCg28kqSfRQzkH2IqJ9X7rCtNstl9auMVu5Wa5NS22PFHiPMnLT6NvfBacWSf6PPapHf9OImySu5WLTt+Wg7d0+GlLgH9favJ+gSKiXUWA5B0XItVu05Y7Qm7yY9sQiEBucLzqUkYS2gD5dxzk9u1eJwuKjdM1rRrfUf34L2criYyrFVlLik/ukj+Ndm5OwqUpIAGSSeBXy9hTi1JGNyicVC+qd+l2axpRALYmSXm47BcTuSlayfmI8wlKVqx2JAqaKIyyiNmpJpWHSNZGZHnQCyof1iulz1HNGm7DDkXFiMUyry1DcCXUwkqT4iR/TcBISnuQlXrXpvTkm1S7FCk2NyO5bFspMVUcjwy3j5duPLHGKprotHtyNEQJsBtIfkguTHsfrHnwoha1q7klQP0GAOAKkOin4Wh9XK0+XDHsmo31P2pByUsTcKU+wD+ylYAcQPXxB6Cr/CcewzPwhFFp9/X+9FxuI3LUw2IVqUpSvQrlJSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlfLikobUtaglKRlRJ4A9aIoL1H1YuJcrbpaxTSm9zpCFvllCVqiRE5U44rcClBITsTuHKlcA4qjutiXIerrPf0y5Up2Wy5DWp5QOS3l1scAeRe9vat/pNlbfSO5PQi5JntyJc9h1Iw7OIfW4w6rzJWlKQD5jjtXRraM3rnp41ctOONSpIdbnwUKWE7yg/M3k9lFJcRz2PBrmR8TfDjo3jRgNFdN3DWzYORlW4iwon08Y1FemZUCTcpF2s9odLDdifluRWvh1/O0UKaUkOcEp2ugjKcZA7W5pW42ufp+ZatNxEaaMZWx2G3ERHcjukZClIHCs4znlKh5mqX0hfZFr1RaURA+0u5vt255JTy2UPIWUrSexDfxAI7gmrI1XPt0XqZphUZYVN8CUJhaPIilA2hft4pSRn+ljzrPGQ+LFPbfdOo8t1twcNxGGYcveGh81qtY25nWmnLjbLu20xdoC0NyvAz+qdxvakN552nOR5j5knsao4Spnxam3CGbzbFeDJaJwlz94e6FY3JPl+degL0W3NRv3eN+oQ7CTGkKVxvCFqUkn6bld/WoNO0i91OvsOFpmKpTjKx41+QCGYrYVhSc8B/PPyA4HqDWvAeIPw0xY0Esdv4HwVzj3CmTYUSSODXt28R0UEVclz2A404tKc4UggpUkj9kj1FR+/RyuO4oKQhW0jcs4B8/7Rn64qxdRdKOoFt1Aizp09JmTHFBMWdBGY7yRnlalEBAxklKuR5Zq9ekfQ21acdZvupvAu17wlaEbP9HiKGD8iSTlWf2j+GK9xiuIwmPQ2V4KDAyB2ugXn23yRLgx5eNvjtJcx6ZANZPngV1anaXZ+pep7FIwkRrq9s8hscPioIHkMOY/CuzGB5Gurh5BLGHBcjExGKQtRXFD9a4B57UyKlUC5yPSmOMVwnv3rngEmiLT6paWqEfD53AoUnOAoHgjPlkedfem3HpVihS3yVO/My+VDCg6g4OR5EpKVfiaybwAuAvI7Y/trU2UmNeA1uUGp6PD25+UPIBUhX1KdyPxTVd4LZM3JW2d6LKpGlRIAHeu3btSVnAGOc8CtZMnKiu/CsR1zZvH+joUBsH7yyfuD68nyFYdwTGbcC77cEyn3P5mAyk+Go+QS0MqcPufyFSPmbGDfL3KNkTnuAHNaa4yGnrm6zb0/EI3crTw2D6b+x/DNXR9l3VjmltRDSt0fUuBfncwwn+bjSgFKUnk8BwD/AGk9sqqvrRpXUGokhTrSrBFJwgKRvlKA9G/uo/HJ9qluh9M6b031n0c9NbuDseQtUVK3XyQmcn5mVuZ77vmASMDcE15XGcWwkrzA05ifcvXYbgeOhi9oe3KByO9L15gYqjYqCvrf1CkrcUoIVbWUg+SRHKv7VKq8u6apfUMQ2frpc+VeDfrKzJSSMJ8aM4W1geWdjiD+Fea44xz8BIB0+q6GAIGIbamZx3rkKBB4FYcGQHmE8jcn5VVkHivmWZd9zSDRUJ6oWdb8J+e3aWLrBdjqZvMINpD78cAkLaX3LjfKgnPPlggZqSzSoL2nXmLnMjOfCKMOW6tYCXTjAUM9w4khQ9QqvRcqbCgNCROmR4jWeFvuhtJ+hJArzH1Ut50H1UtWpbDIjSbXcHVvxk7v1TTu1SVNEp7Da4ooI5AOBwjFe9/CfE3wh0JF2NPFef41gGYlrXONZTv0HNTfQPVWNC04xZl2y8Xt62qVE+MjuMFt1CVHwzuW6lRIbKAcjuK3Vh1WjW/Uq3wF2V+DHsEZy6uB99Dm55Y8FkYRkAje4rv5Cq7t5fek3C6zERWXrg8H1tsrK20AISgfMcZyEAk4HJqwfs/21tvSU/VDiP8AS9QzVPIWrv8ACNEtsj6HC1/69dnG8HweBi9rykSu5XYBKq8Ox8+MxRw7TcbedalWLyTxVOdapol6w09pz44wVPvuy23gpIVvaaKQkbgU8h1Z5Bztx55q5E9q899WIUW+dVNkxpDzEe0JVsUncnc4+5/c2muPweF0+Ka1po66r0fFMQzC4N8kjbGgI62dlu/sxXeXjUNtmSEvJizkuJKT8hDm9ClJ9ipoq44+arn1LaG79YJNr8QMyFYchStuVRJSOWXk+hSrH1GR2JqhOncuBprWLsVphxKZdr/Ux47W5Ti2neEpSPZw8nAABJIFWNe9TQ4RjSdT3V+OMH4eyWwlb81X7pUPnc54wnan1JHNc7i2FlwvGHFh10N9dNdFTwMrMXgGyNFDp66K0elGpJmpNKIXeGUR77AdXBu7KPuolN8LKf6KuFp/oqFS2qJ6R3iVcuuE+U3pq46cauWn0vy4spxGHy26ltl8JTwF7StBGTgJTnHne1exifnYHELlPblcQlKUqRapSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlKIlKxLtc7daILk66To8KK0nct19wISke5NQy39RlajL6NDacuV9S3lPxzyfg4O72dcG5Y920L/srIBKWp6SKj2q9U6btYNrudzbEuWhSG4bKFPSXRjna0gFauD5CtJE09rG5urc1xrGPCjrPyWywkxk4yPvyVfrlH3R4dSOxad09YQuRZLNHMh3h59spXId91urO5f8ArKNbhi1Ll5n0je5aLFaBDWE6gtMIMKgbi38dGaIQ60QrGHm1AjnBCgM/KujMph64S77oJ1chpb/i3GxOENOIcP31tpVjw3M8kfdVzjnBqyOrfTuHqaeq5aduSdO3rxQt9qa2thiSvGPES4BlDuOPEQVBQ+VYUKgLPQPqhOuCX7jqLTsdAPyz4qXHJgH9dtLO4fU1yZuFvc45diu/heLwsYC+8w6KJ6qvtoOtIl60+kSLjDbRcZ0NSShXjo8RpaVJPZwtHkee0euakmmNH9Wbk/Mv5tmm4ciepBQJ85xSktJT8iUlpJBHzKPlyr2re6w6QwdJTrTq2fdL7cbewQzfpMh9BdQ2cBDoGw4bSoneO4SrOflJq3uky4R6caauEqQ2kO26MltTqwnerwgPPuTg11PZsO6NjJAS5orwq9Fx/bsVFM+TDnKxxvbXbVUy50m6kXSM+3rC0W6+RXPuRrZfVQm0+hwpncs/11lPtUytj3UTTFqbitR7/FixkJS21cLTFnstoT+yFQFpcAx5ls9u1XenBFclKcdq2ZGyNuVraCjlnlmOaRxJVS6J6kakvkVclrTls1BDac8J6Xp66Ic8JXmFsvhtxKv6PJrdTuqujbU+hjUMubp5xeAn9KwHoyCT5Bak7DjzIJHvWz1Ro2xXaUZ8UOWi9hJ8K627DchH9Y9nE/0FhST6VD9O9TG5Pxej71Zp2qNSWx9UWYLPCDsZ8BIKXitRDTe4KAKFKylQUOwBrJaFpdKn/tJQrQrqFE1LaZ8aZFvkEEuR3Q4gusnHBTxylYP4Gq7F6jw0ATpDbaCdqStWFKPoB3P4VZ/UBzS+qn50dnQlo0lCskoi43hCkeN4mPnZYSx8i3O6VEqWEkgAFVZmltLJglm62q22/SFt2eJ8VNZEi7qSexU47kMA+iirHmlParI46zBRdmBZHuUJ4G/Fv7QmgVBRbL0m3i4q0zqQRCneHv0W6UlP72Andj3xWrgXG33JBct8tmSkHCi2rJB9x3FegtOXmNKccj2pd0mx0ZUq5OqUpt1X9Fw4C/8A2Y2jGOK4v+j9M6gUXrxZYUmRj/vgILT4/wDaoKVj86pR/jJzJMs0engp5fwk0suJ+viqJOEjnjFfG4d84HvU31T0lkpkB7SWpnGE/tQ7ugvoz/ReRhaR7EK+taUdK9fufKq56RSn1L0tX148IV3IvxNw+RubPXmuLJ+G8cw1lvyUZnSGlsLZQrcTjtWonRVvxFNtuLaeBCmnEnBbWk5SofQgVZEfotqV3Al6ytEUHv8AC2tbx/57iaklp6KaeZbCrxqXUNzc8wz4MRs/glBV/wA6oZvxPw8AjNanh/D2N07tLz3cNTXNIaZgWty3xysLuUlSAXCon9YUA5Cj3IJzVuaRgdNdOSxOnals6ZjyAS+7cEPSHEkeaskpBHkAPpU9a6U9O4qg4NMty1/vTZb8jP1StZT/AM2pFabJZbYALbYrTbwOcRYLbX/RSK8jxbjceMIDS6h5UvXcI4dJgQTlbZ58x6ro0zcdM3BlS9PXC3TEpHzmM+lxQHvg5qO9S7EuXFdXAHhS1Dx4qx/wcpo72lj0+YD+NTlcWEqQmT8JH8dP3XfCTvHlwcZrEvTaPgFrUASghQ9jkVwGyZJA9nJd+Fxccr9c2h9VYehtQRNU6RtmoISiWZ0dLmCMFKv2kkeoOR+FVh9q2c7puzaX1vGb3qtF4S1JG0kGK+hSHRj6hGCexA/HY/Z3UmAnU+mm1K8CFcBNjJ2/KhqUnxNoPs4l3jy49a3v2gLENRdHtSQEpbLzcMy2SscBxkh1P8UY/HnivY9yaPXYj5rxj2OglLeYKj9pmoK0OtLDjLoB3JP3knkKFfHx151FIQmwrTAs6k5NzcZ3PPn/ANA2obdn/pFgg/spI5qFaE+IetkjT8haY8GEluQytSiC7bHkFbIB/ogFtSvII9TkYirnc9eraVBlSIGkCChtto+G/cSCRncOUM8YABBVjnAIFfPcPw8xzOBF1z5V9T0XpifaC3JuVsJmo9NWy6yXdLWN3VmpGFFp25SHsobWOCFSFjAII+40MDtgVH+oth6ha40nJauEeyB5sCUwwzFcBDiOQEuKdyVYyM7QDntzVoWPTtvtMNlhiMygtDCUISAhsegHb8a20dOVpxxyPxrrRPbE9rmjUcz/AHT0WzoIjGWnW9F5QsPx+qLfbdL214MTL08mI2s92Ecl9RB5+RCV/wAPavUdugw7Zb4tqt7fhwoLCI0dH7raEhKf4ColofS1gOutTa2hxQlxUtcGHhXyJWEpEt1A7Dev5cj91XqamwHOcV1OPcQdiSxnIAe9cjgnDW4Rr3DmUdXsjOrzylBP8K88dQAtzU2sJsd51DkFhhhkoWU4KGA4Rx3+Zw9/Wr7u7wbipbJwXXAj8O5rz6xLbvELUt0a+ZFwnTHGyecoBLaf+agVZ/C0WbEOf0Crfi2bssA1o/2cPgviQbuNZ2BdlmMQpMhqSwp51rxNqClKztSeCr9XkZyOKuLROjoEAru0pTs25SkgOSpDhcdWnHAKvIf0RhI9Kpm4SfAuujpqTjdcW2yfZxpSD/0hV+6TkLVakIWFDwyUjI8vKs/ie2YyxzAUv4SaHcLzAahxH/S7tR3BnT79k1a6Q2zZpXgTF5wBCkkNuE+yXPBc9gg+9W4hSVpCkkFJGQR51W78G33eBKtF1ZDsCewuNIQTjKFjB58sd8+1Z3Q69u3PRItc19b100/Kds1wWrup1g7QvPnuRsXn+lThU2eHKeS04jEGS2OandKUrprnpSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlKIlKUoiUpUD6v3zVdkhQXNNQnnmlrX8a+xBMt1hAHBS0FAnJzkgKxjtzkDoLWQLNLs6jdT9NaIkRrfOdclXaWB8Nb2CkOOZOASpZCGx7rUAfKsdmP1B1la2n13aDo2G9hSm7cpE+bjPbxlfqkH12oc9lVTOgNURnrneJN1DGqZE1f+lzoxZL6kcANPR3tqkJSAAEpJHHCQc1KIFy6R2uYmOxKY0nNkDKWw5Is2/PmNhbSoe4yK2jfG/QHX4pLFLGe8018FacLQFhgeBJNsRfrk0nHxt6lLkPe5SpYWEZ9EBI9q3bsm9tcizsOj0am5P8AzkJH8aqu4x46FNmNqp4eKNzfiazlt7x6j5lZrsj2DVe0PJlahdaPIVC1a46ceweaCT/tVOGUqxeFace7PE7ZlnuEUH9pSEupP/JqUf4UZlWW4PllC4rj4GS0pIDiR7pI3D8RVUXC5X7TzDkmTrLVtoab5U5e7bGnxED1WuONyU+6lpA86y4+vC1EZc6mWu1otK1IcgaitjqnYatxwlxX7cfPGFglPP3/AFyWrawrQfgZbxFlPR1jkZPiIPsUqzx9MfUVxEh7GcrbYYklJStyMjaCfXB/PnP41jgTLelt1t9c2D3XvwpxCccKSoffHbIIJ88nsdkH2i0l0OJKFDKSPMVqbWaVe3U9Q7HbHok21RNf215Km3A2pEOZ4agQQpCv1bnHHBRmozdZt2v2g/8AufWLpPe4MdyGIDT98DKIsNIRsS6TvWpZQORgZJHeraut4iW63yJ8ySxEhRkFx+Q+4ENtpHcqJ4A+tQpes77qSM0vQFlVMjvHH6auqVxoTaf3kIOHXvbaAk/v1nzC1roVJ9JQv5LaMtlomXJUw2yE2w9OkHb4mxIBWoknGceZqMXDqR+lZKIOg7PL1a8pexyXHWGbdH8srkqBSoeeGgs8dq6rtoa33GIHuoN9f1KyFg/DSSIdtbV5HwEH5/8A2il/WpnGaW3BbjW9UNuKloIaYEceCEYwEgJIwMcef0rbKVjOBooq1oK5Xieqfr3Uj10YKcJstvCotuR/XSFFb591q2/0RW7kg2/Tz9nsNrZgMGK41Ddt6UllhZSQnKUAFPOOySBjvXalMeExl+PJte3kqiOqWyn3CRx9SUDHrX0iO4p1u4RUsXFt0A+MyQ08pPkdySEuD2O0fWldULydl5e08YtrscTUl/YDseM2lqwW4qJUojIQ4AfvPOHBHHy7s9yTW4kS7fbgrVPUOQw7KWQIltKvFYiHHCGmsfrXj5rxnJ4wBmrEvPRXRF3nRZmnFuWW9Wx8PpL4dleGChSQnwnV/IjnI2EDKRjIFRrVHRe/RNWWXUMBKdUyYbTpcdmSExtjyiAjYhKVBKAN54yoqIJJwMcKXh0mYkH+fIfUr0sXFYXNAcKPw8z9AsOHO1nqaOmS2GNHwHCC2qQ2H560eR8M/I1kfvbiPSplDlRGo7ccTlvFCQkuvfeWfU4AH5AV9W7pxOmRPitY3KYkKSSuFbQ6hpPrlaQHV8dySkH92uxXSWxxYzDumnrxbojqPE3Q5JOCcEEsPBaSCOTtAV7GoHcFkkbqQD0+62PGcO19U4jr9lyVtrGUuIUPUGupUqK2rauQylXoXBX1/wBzTUMhI/R2r4RY+7uetJ8ZOO4JDoSD9UD6V1y+jq2oq5UvXl6ZcbSVLeUmIlpAHmUlnAH4/j51T/IJjdkKz+c4Qfu933WWy62sAoWlX0INd3IHriqlurV+jT7SzpfVttvbFwcIbel2dxvxUDupgNL3v9x8yUBsZ5WK5Rd+o7WpkWFETTE1chBVBdF2McTCk4W23uKgpxJ+8kKOMiozwTEt6H1W44lg3f7keYVrFQJr6QsdsVBWx1TZViZ09lk//Zb5Fc/gpaTXaubrdA+bQOp8+YS9FP8AY9UR4Xix/oVMMXhCP/KFN9/rWp1FMaEUx21halfex5Y5qLuudQpXyRunl4JUe8y5RWUD6/rVH+BrouFi6xLkMBGnbS1AWrD64MxEqS2n1QlxTaCfz/uMsfCMU7/WvNYHEcDCQ4yXXRSvoN4rvUbVzgWfBattsaUnyUvdKVn6hJH+0KuZ5CHG1NuJCkKBSpJ7EHyqptB3/p9oCI5bp8i72afOf8aXJv8AEcZckukYClO7fCxhOAEkJAHFWjaLnbrvCROtc6PNjL+66w4FpP0Ir00MJija08l5bFYhuIndIOZXnp3Qr+ruk1jiQryu2XO0x3LXIU2kuJfaZc8JyO4AUkpJaSf+2oxZ7bO6YvNsXG5sTdP3J4kyUsfDogST2G3crDa+2cj5u/erT0MXbfrnX+n/AA1NsxrwmdHScfclNJcPby8RLhH1rA6wWuzyNG3RN5kw4tseZ2uuSlhLaVZynv8A0gOBzXjp8ZJDjThTq0natdefouzg3gN7UfqA0/j1W5slwE2OEqX+uQMKGe48jWVdlSEWqUYY/wBI8Bfhf1tpx/GqO6Xatk2tcO3XUS2YDpDVouclCkJkDHDKt3OccJUfvAeo5vKDLRMa3J4WPvp9D/hU2Iw7oJCDr48iuiHtmYJGigeR3CwNCWdWndE2iwOLDjkGIhp1Y/bd7uK/FZWffNbbBr6CsYHFF7QgqJwAMk+lQPeZHFx3K1jGUABQHq5eFWnTVzmA4VEgOupwcfOU4QPrux+dURaLlHsGjIFqdkpbmugMtoCSpWVfeXtAJIBKuB3NWR1abm6putt0lEdW0i5vGRNU3jciK0UlIGeBuWUAd+x9KnegOnmnNIuNT4lvbdu23558hXiyBkYwlZ+6McYTge1d7hnEY+HQlxFud8ly+O8JdxBzGZqaz5qsbL061TraNDMiO7pO1wHm3o0iY1vmPKRykpYyNg47rPmOCM1b9h0haLOkK/0m5S+CubcHi+8o+oz8qPokAe1ShKypOFYJxXW4AE5Fc/H8SlxjszlNw/Ax4GPs47XQrISPaujQDLdn6v3xlpS/C1JaY902HhKZDCiw8QPVSVMk19yXm4zfiPKwPIDufoK1uklC/wDVqzPtHH8n7VLVI2q7fFLbDKVY9Q06cH0B9K34Q4iYjqFnikVwZ+hVwUpSvSLzqUpSiJSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlKIlfLiEOJ2rQlY9FDNfVKIo5f9D6Rvy/Fu+nbbMeAwl5yOkuo/qrxuT+BFRO/wDR60SYTjNpuV0gZHyoceExrPuh8LJHslSas+lYcA79Qtbskez9JpealdHtS2d53wLZZJyFk4ctMl21PL/rNZLSvoVAfnUcuP6U05cw3Kt7NmWnn/dywNIbX/VnRCkD6lSj5163KUlW4pBOMZxXU5HaUMbcZ9KwI2g20ket/NS+0kintDvSj7xS84x9XXFm1mRGavzGEn/SbVc03qMT7tSSHSn2Rz718aX1BbbhEe+AkQoVy7Smo0RxDcjP3i/b3QFgK81teIRnlWMg2zq3pPo3UX66RaI8WbnImwMxJIPr4jRBOPQ5FQnVPR+4NWlz9GXVV3DCSpEK8xWnfGA/ZS62EFKyOAtQUQeT61JnmHR3wK1LMJJ1YfeP5W50HeJGmtRxbB4Lren7uFpgpXI8VNvlIQpxTSV5wWFoSVI7BJQpOE52jQ6w6zOXHUEjSPTW2y79dWV+G9cY8X4mKwofeCfnQlZHqpaEDnlRGDRWolagF0lQ03O7XqKVtr+FlrdfUlKSCGH2M70qTjaTgZBPzcmphbtZz02+LDl6JZkvNEg26HcTEjsNZyFIhHaCBnGFHJ757VuJ4wAXOpRHCTlxY1t0rMtcO5rdZuGrOmGrNUSWiFh24XC3uNtKHJU3FDwaQc9sAq/pGpnaOpukJ05NuuYvemZrhw01eojkVJPolastE+wVzVY2+56NucZsSYOk7U8sfzM+K9aHQo+QfCCFH3So/Wt9Fky7ZCehTXLpBgKTwLwRdbY6g/8A2kZcSk/+kWkD909qlGV2rSq7mvYaeKVsuRJx3Ft9qbFcHy4PhuAH0UPlV+SfrWBAhIYdcajyHmE4OUEBLrZ9e2Fj3IV9T2qprIj+S8yRNsE97STL2FIQpz47TkoE8lsgp8A574LXsFVOrF1Dt9wkptGurMzYpviBEZ2Q4l6DOJ4CmHyAkk8HYrCuRwa3zkbqMsa7UKVSbmjwXnWNrrbKSt14qw0jA5yoA8+wBPrVZRZs2bIauEq7KixpUosqZhP+GtpRHC9nmn37n1qwtbXePHYXZF2q4y0yY/eK3wkHIwD6jGfPyqL6KZitXSNCvNg+HnFKvgJLzRbKyjkbkdtw45+nnzXmOLTHETshY6gN997FA/TxPkvV8Hw7cNh3zvbbjttdUbIv4+Wx1Wylmdp+dHY1G6LnbHV7GLgRtejKPqocj65z78YqVtt3SC6otqE+JgYStQS8g+gJwlY7feII9T2qp7ku8SG1WiRJuci6yJBS/EdTubwDlKkHy58xxj273NAaMS2sNPuAqZaSlayeOByT+VTcJxTpXPYAcoqr1I8L8PHUbKvxjCNiax5IzG7rQGudePhod1q1RhdnkzWpiywUhtcR9rKUkE5ynIIV5fNntwKzYsZi1sOLXMd+HQgcPuApaSkc8nn8ye1QjUvU+BHfZiaZjtXh11ZaMxx4swWiO4D21XjLz+wyFq75xVfankyLy4m761ntrbgufqmJLYjQmD++phTikhXGQqQpxXHDQ7V3A29QuJmrRT+/dToXhS06UjN3EoX4QuCyfhXHf3WggFySocZDSSkdipPOK81e/Leis3DW15KozaC9IMwststr/ZQhkhTTavQESH/Ibea0krXKmPFbsrbCYecKvd1UdkknslDRCHHkjslOW2+2EEd87R2gdSaknyLxJMqE6tQCbvd2t8laPMRo2UiO36A48soUKiM7bysGY/D3qw3CPAzzHI0+8+QUOu+qpslpo25qRbhNV4an5kdx2dNTnCW2YxUtTg9C+pffIbSKmekuklzv1wjTtRsvwIqUpIDz4euStqgpI8QZRHQCAdrfp+zVuaC6d2LSaHlwWXXZcg/6ROlOeLKe9is9kjySkBI5wBmpk22htISgYFaFt6vNnpy+62MzWgthbQ6nUn+F0IiI7uDKj3xX2IzA/Y/jSbKjQoy5UyQzHYbGVuurCEpHqSeBVZ626wxbVGU9pyyS77HQpAeuKVBuEylSgneFn5nQM5PhpUMA5IxW+ZxVR2Rg1VmCOwDw2mu1KUpACRgCqj6U9RNUao1gq1zo9skxER3vi1wGVAQn21pSEKWXFAhWV4GATt3diQLdrTMXKVzMhpdbzDLyCh5ltxJBBC0ggg+XNR9/QmknHlPtWONBfVyX4GYjpPrvaKVfxqSUNZBI2WCAV59l6mt1r6163SwZDkS16eZMla3SsuLjDJG4kkkB7BJOd2c1omUpW5aZF8YY1HrS6DxIrMv+ZjHbvVsSchpltPdYG5R8yVAVE9Mym75e7o3OdbhytV2KchjeMJ+IeeU44j6p3DA74T7Vtk6v/kzqu43bVNlYt90d05/ufHE5DylpZcWp1G5PCCs7CPZH4Di4yBrcY+h3qHmRXyvddfh0jThw49a8tVPbxpu03i3uWSWmJLloYS5JTsw2onIBA/YyQopxyMefeoJab7fNEz1QtRPPyrSHNkW5BOXIqc4CJPqBx+s5HHNS1Fwn2Jq0Wlhhu5agvT3xc0le1DSSAXXT5+G2NiEjz+Udya3epITMqMZKVIDraTuB/bT5j3rmvf2Zp2oP90Xdw5Eml6/3f+6LKg3yM+w26VBaVjKXGiFoWPUEGsfUN9hxba9JkSBHhsoK33lnAwKrJGjGIU125afvlw0+VqK3WI6kriqPmotLBSD9MVFb9erNFu8eTcbpdtcy4q9yIjJbRDYWOyilI2Ff4qreDBiZ3/GSfCtf4W072YYZpQB5nT+Va3Sqzz5b8/WF7j+FLuKgIjB7xog5bQr0UdxUr3V7cT911tsZddQ367lAVQaurGoZEcpZ021DSPuiTdCf+ahB/trQz9f6zkPENmzREercdx1f5qWB/Crx4HjZnXkrzXJdxrh7N5b8gV6QN5gtq2hxTh7fKO/4mo9qnX1ns+xmRNbZkOHa1GbSXpLqvIJaRlRP4V5wusu/Xp8G76juj7fmwwsRmj9UtgZ/EmvUP2QI1uc6IWeY3bYbM4OSGJL7bCUuOluQ4lJUoDKjjHJqb/H3QgOmO/RVvz+CUkQNOnX+FqLRp/XOuAw+zGk6VtTisuy7gkGatHo1HOQ3k5+Zw8cfJ51cWktM2bS9vVEtEQNeIre+8slb0hf77izytXuew4GBxW5ApV6HDxwimBUcRi5cQbeUpSlTKslKUoiUpSiJSlfKXEKdU2FArQAVD0z2/sos0vqlKUWEpSlESlKURKUpREpSlESlKURKUpREpXCiEpKiQABkk11w3kyIyHk4+YfxrUvaHBt6/wB/lZo1a7aHkYpStlhRjV2gdI6sCDqCxQp62xhtx1oFxAzn5V/eT+BqPO9G9ACF8E1pW3Jb3+KHUIKH0r/eDwPiA+4VVkUrYOpNRsaVQXPpIltlxFqv9xjpUCFMzmm5rCh2wrOHCPq5/jUBt+jdc6OU/wDA2uVCY3FYf0vPLjKj6qhPcZ9dqF16dIBGCM10uRWVubyjnGOCQPy7VH2UW4GU+GinGKm2ccw/9tfuvK9k1peIN6ej2JFomzPEKp8FCHLXNJ8ythQLSlEEZJaR9ec1L7ffdCuMmzypH8nWrjubVabxHxDfKu6QFEtHv/wSwMkEg1bmotGad1AkC82e33EJ+4JMdLhQf6KiMg+4NQK89Hm2XCuwahnwI7g2rt0/M+Gv22rUHE/QLx7Vu0zM2cHDx0PvWHeyybsLD4aj3LcsWrU1ggJ/kvfNqUtjw7bdlLlxs+SUO8PIHocqA4wisWfq2JIet0nWVoutgn2xzxVvxWzNiHkE/O0CpKDt7uIR51ArppDXWm4pXaYtwjoa+bdpy4BxGPeG+EoP0SFHtya6IHUi7yECFJTbps5o7Vsu5gzR/Wivj+KVoHpjyxI6ORuWZtfL4LaOGaN2fDODvLf3FWlfurVmFmVL0tHcv5WQhqQnLUIOE4SlTyh8xz+w0lxzjG2ovcoeqtXIW1quW21ayxvkxikss8eSY5IKkjzVJcxn/gRUE03rKZCfvkRvSd8VcV3J6TFfltJZaYacbbKsOqWtCPnC8lBcUcjANYUKFqnqHeJGwm9xm1hK46H1M2JhXGAtagVynB3J2rxnkJxW7p4xo3vHwUceFlOr+43qf7ZW4uWo40eP8VoeGzcJLDRjG7SXCzCYYR3Sl5OFLAwPljhtsY5NaKx6e1Frybbrjb0Iukdh0hq8XFgNQoozyYkdIAcVwfm8yAC4at3R/SOA2RK1M8i+P4T4cVxkIgxcdg2ychWP3l7j6BOatGPCaZSE4SQBgDHAHoB6VGWuf/5Tp0H1KmE0UGmHbZ/cfoOSgOiul9ltNxZvkov3a8t5LdxnEFbec58JCQENjk/dGTnkmrEaaQ390c+p712dhVZ9Qepr1vRdoekIDF3m2lornure2tR8J3FCcfzroSCrw8pGMZUCpIOxcAKGgVc55XZnEuPvVh3S4QbVb37jcpkeHDjoK3n33AhDaR3JUeAKrHVXVlx5ppnRcJDxdUP90rm0tuKlH7yGwQ68T5YCUnOd/rWy7tN1RdY7CTctZ3V8pfYJbQWIqSMoVtwGowxkhSsuEdirAqZ2Po7ebpNRN1jfPh42Mqt9scVucOf+EkEBRGP2UBHpz54XMOJmnNQNodT9AodeLo/qm/Jt8n4/Wt0iOeMmChlC2oq+yVFkYaa9lOqUoA8KPNWDYOmd+vsdTvUG5pabdyldstzxIW2Rja6+QFHjghsIHlkirNsFks9ggJgWW2RLfGHPhx2ggE+px3Puea2FLUkWCaDmkOZ3j9Atdp2x2jTtpZtNit0a3QWRhthhsJSM8k+5J5JPJrY0pRXUrhXbmuainV+8OWDpjqG7Mb/HZgOJY2HCg4sbEEe+5QrIFmkK8o3VMJ20RLhEdMdtNxmTLZIPdlAkOKZXz/RI4PcHBrSPWp/VEF+dqFtcm5TAlbzjpAIOOEICfuJTnAH555rdavgC3WiDZhgohRWIaseZO1Cj/Gstj+bSK7Yw0ZeHltuAq15aTGytaWtdQJtfOi9V3Gx6un3LUwkXJMi3NQ2pDbSS/GDRJAKcgLSrdlRHOUjio/qG9X65XN+XHu1/gxPusIVcVpW56rUlJ2oz5JHAA9alDkdh1I8ZpKvQ45/OvuLao6iPAi+Is8D5So1CzhOGbL2uX05K078Q4vseyzevNV7KtN3uqQLhIus9s/syZbi0n6gqxW6tOn1NNJD21lCU4ShvHH9wqybRoLU11IMW2OIQT9535B/Gphaeit1cwq4XOOwD3ShJUf7qstOHg0FDy+yrOfjsXqbPn91TjdohlIH61X1VXYixR1LAbjOOE+QUo16QsXSTT1vwqUpyasY+/wAD8hUwt+n7LAAES2RWsdiGxn86ifxCIbAlbxcIxDtXOpeXbR01vlyIVCsa0pI+8obQfzq9egmjZ+htGyrRcCje9cn5aEoWVBKXNpx7c57VYCUpSMJSAPYVzVDEYszDLVBdfCYFuGJIcSSlKUqoryUpXw862y0p11YQhAypR8hRZAtfdKxI9wYeeS1teaWsZb8Vso3j2z3rLpay5pboUpSlFqsee7LajlcOKiS4OyFO+Hn8cGoFp28aoc1nckLtKVqUEh9hTmwMBI+UhXOeCfrnNWLXQzFaamPykDDj4QFn125x/bVaaB0j2uDiKKvYXFRwxva5gJcK1vqPFdrRcU2kuoCFkcpCsgfjX1VFdRta3n+V8V6PDk2h62b0toewVL3HkkdsEADjI96s3pjc7retLoul2fYdckOqLYaQE7ED5cHHnkE/jVgLjRY1kspjaNlKKUpWVbSlKURKUpREpSlESse5PmNb5EhJTubaUpOe2QOKyK0uqLS/c2QWZSkeGCfCP3Vn/GpIg0vAcaC0kJDTlGq18XWDPwg+JjOmQODsxtV79+KlDSittKykpKgDtPce1VlbLfPmEuQo6nPDIJOQAD+PerKiLdXFaW+34bpQCtOc4PnVvGwxxkZPVQYaR7/1L4mxGpTZQ4VjjjCiMfh2rHtEFEeOhat3iqGVfMcflWwpXHdg4XTCYt7wV4SvDMl6JSvlxaG0FbikoSO5UcAVyhSVpCkqCkkZBByDVlaUuaUpRYSlKURK4IBGK5pRF1uNJWgpPGfMAcVqNQ6atF8iKi3W2Qrkwc/qZbKXED6BQOD7it3Stg4hYLQVTzX2f9Cs3VmWI93fitOb02166vOQwRyMtqVyOPukkeWMVaUO2R4yW2m2kNtNjalttAS2keSQkcAfT0rPpTMeSybd+o2uAkDtXNKVqixrpHel22TFYmPQnXmlNokNBJWySCAtIUCMjuMgjiqis32dNIwozsSZftU3GG84XHozk8NIeUfvKWWkpWsq8yVc1c1KLIJGywLBZrTYLUza7Lbo1vhMJCW2Y7YQkfgO59+5rPpSiwlKUoiUpXQqZETPTAVIbEpbZdS0T8xQDgnHpmiE0u+q468u+PZrPY95Si4XNBex5tspU8R9CUJH41Y9YNwtNvuEqPJmRkPOxt3glQ+5uABx9QK3jcGuBKjla5zCG7ry1P0zftRvOfA2uU8VyUObg2cYDgPf6CpjY+jF9lBKrhLZhoPkBuVir/aaaZQENIShI4ASMV91efxF/wDoKXNj4REP1m1W9m6QafhhKpj8mYse4SnP0qbWyxWi2oCYUBhrA7hIzWypVOSeST9RV+LDRRfoaAgGBgcUpSolOlKUoiUpSiJSlKIlY9xjfFw3I+/YVYIVjOCDkfxFZFKLLSWmwsFTM6VJjrm/DIRHUVgNEkrVgjzAwOe3NZ1KUWXOzJSlKLVKUpRFG9Q6NtF+v8a63NK3hHZ8IMZwhXJIJxzxk8VtbHZ7bZIRh2uMI7BWXCgLUr5j3PzE+nas+lFGImNcXAapSlKKRKUpREpSlESgIIBByD2NQ/U16dTKKI76SllZSlTLv3jj5krHtkdvXyxWJp68uMOoStxCGUJQ0fFcIbabBxke+Skcn07AV5mT8VYJmO9jJ168v79l0m8MlMPaqd0oCCAQcg9jSvTLmrrYZaYRsZaQ2kknCRgZNdlKUJtEpSuqPJjyQ4Y77T3huFtexQVtWO6TjsR6URavWVlcv1lVAbkiOrxErCiMg48j/nyrt0talWWxR7ct8vqaByvGBkknA9ua2lKi7FnadpWtUrBxMhh7C+7d+qUpSpVXSlKURKwLzLehsJWygHKsFRGQKz6VDPG6SMtY7KTz6Ldjg1wJFrqhuLeituuI2KUnJFdtKVIwFrQCbK1Js6JSh4GTUQv2pHVurj29WxtJwXR3V9PQUc4NGqmgw75nU1S5Skp+8oD6miSFDKSCPaqtdccdWVurUtR7lRya+40mRGXvjvLaV6pViou28F0Dwo1+rXyU8vl6j2xOwjxX1DKWwe3ufSolLv8AdJCifiS0nyS18uPx71r5Dzr7ynnllbizlSj5111G6QuVzD4KOIaiys1q7XNtW5M+QT/SWVf21u7TqpYWlq4pCknjxUDBH1H+FRelYD3BSSYaKQUQrTbWhxtLjagpKhkEHIIr6qL6GnKWl2A4okJG9vPkPMfxH8alFWmuzC156eEwvLClRnXMhLL9lajsIXcX7i0iOvHzNoBy6c+mwEH2NSatbqCywb5C+GmpX8p3NuNrKVtqwRkEc9ifrWyqytLmEN3WxBByARx3rmqth2W66Fvtubtwv14jPBxc3wUZZUrGANmcJVnB3FXYcedWdHdD8dt4IcbC0hW1xO1Sc+RHkaLWGUvsOFELspSlFMlKViTP0h8VH+FLPgbv12/Oce1ZaLKwTSy6UpWFlKV8lxAUElaQo9gTya+qIvh95phouvOJbQnupRwBXUxOhv8A8zKZc/qrBqIdVb1HszEB+ZLZixWnS++46TsCW0lYzgE4JSBwCfTJqI6V1vpR20W1N5tlxgNzSEs3KdAdRGkLWSUhD6gDg5+UrwSPOq02J7I1lJ8lsG2rlBB7GlVDqHXvTfT0WVMGskKVGSSYsCch9xZzjalJJyr2zx54qQ9NdVStROblQr5CaKCoNXSD4KynAKVJUCUrBB8u3nW0WIZJVX6hYc0t3U9pWsuF4ajS/g2mHpUjaFFDSc7QexJ8uxrFVN1E84UM2tiOnyW88D/BOanJA3WFvaVo3Y1zWpsSr2hkLOPDaZCSo47BRJ9/KsiyLW29LguOuOlhadqnDlRBSD6DzJrAIOyLaUrUXbUEC3rW2tS3XUDK0tpJ2j1PpVeRus+nbvf0WS3XeG0+654TKlJWtDqvRDgHhqPsFc1HJPHGCXO23/6WwaTsFbJIHJIH1rkEHtVA651vqPTmp0O6ks8h/SqnEtquTD+fCKgPmW2BkJBOMH8Ce1XLo+T8RaEp8TxfDO0LyDuTgFJ/EEGoMNj4cUf+I2KsHkfuOYO1rZ8TmfqW5pWPcZka3wnZktwNsNJ3LVjOK7Iz7UmO3IYWFtOJCkKHYg9jVvMLrmtcjsuatF2UpSsrVKUpREpSlEUa1LZJEyT4rJU6XFcjhKWgB5fvE/4dsVi6cschDzUhYcYSUoeStQSSr1QpPl5Hv6dsVL6Vwn/h3BPxvtpb3/7/AHr6aK8OITCHsuS1N91JYbFKgRbxdYsF64ulmIl5e3xVjHA/MfmPWov1A6iCxaltek7BbDfdRT3UlcRtzaIzGfmccVg7eO2fqfLMC1z+mOterLpoizqh2/S9ikBufcnooedckJJBQzn7pBBGQQcZySFBJx5ektSdEHZmuLLcTqm2O7E3pmayPjA0CB4iHeSQPMdsYJBxkd8AKivQdKw7Lcol4s8O7QHPEiTGEPsqxjKFpCh9ODXxebxbLPGVIuUxqOhIycnKsbkpyAOSAVpz6ZFYDS40FgkAWVoOqF/kWSztMxkfrJ6ZDIdCylTW2M64FJx55QKqTplq16yaofk3CRNkxHo6lONJcyFPOSYzfiEE4KvmPPfvXbrLUK9RapExAfajfDuIQwtzcEqQ1cm1KA7c7M/lUQtv/f6/+Ka//TolejwuEa2LI8andcTEYkukztO2y9Z0qvOmOumJ9nVGvs1DUmIyHXJUh1KA6FKfPHb7qGVE+wz5GpZe9QQbdbXZTbzMlwNqW20h0fPjvyM1wpMPJG/IRquuyZj2ZwVs/HZ+J+G8VHjbPE8PPzbc4zj0zXZVULmyGruZHiuLW3K43LPIEv7v09qnNh1NBnx2kyHkR5XgtrcCvlSSW0KO0k9hvA5raTDOYLGq1ZOHGjot9StNcNTWiE8005J3lxQGWxuSASsZJ7YBbUD58VsocyLMQVxn23QMZ2ntkAjI8uCD+NQFjgLIUoc0mgV30pStVslKVo9U3hVvaTHjkfEODOf3E+v1rDiALKkijdK4NbuuzVk5MW1ONIdSl53CQnPOD3OPpmqV1L1C0/YLw5apYnvSmUJW8mPGUsNpIyCT6Yx+dS9xa3Flbi1LWo5KlHJNU/OXqVPW6/8A8l2ra5KNtZC/jlKCEpwjkbe5zioARIbK7bYzhYw1p1J6KzdO3u2agtTV0tMpMiK5kBQBBBHcEHkEVsapS86dVoTS2kkT5baijU7Myc+2NraCRzjt8oSn28+BW2TLtU3rPfzImsuWpemiJK0P4Rs3I3ZUk8YBPIORmsGMbjZStxDhQcNdPirVpVK9Lrfp+66xe1DEkItttZK2bbAXcFKefOCFOrC1lQ4JwB/dk4+lbfpa89RUTbPLbtlltTyUtBdxWXLg+DkFIWsnYDjt37efAxjXVYGJJANDU9fjsrW0vqWHqCXd40Vh9pdrmrhulwDClJJGU4PbjzreVQU+dcbfpTqS/bXHWnDqFaHHG87kNqdIVz5Z7Z962XTa1qiamhXG2S7NZLc9Dc8eIzeDKdfGwkObSMZScE9gMH8cuiGpWrMUSQ0i/wDulfNiuCbdcBIKPEwkpKQrB5qYW7UNumLDZWphw9kucA/Q9q8laCiW7Tur7M3cY0O5zJ0hz4a9W66LcLpVn+dbz25AzgdvPk1e9CTGaC0MDMWC5woq1aVF9HXdbiv0dJWVEDLSj34/ZqUVM1wcLXHnhdC/K5KUpWyhSlU/qbWOoWtSS0My1Rm476m0MhIxhJxzkc5q17U+5KtkWU634bjzKHFI/dJSCRVTD4xmIe5rb0XRxvDJcHGyR5FO6LJpSlW1zkr4ecQy0p1wgJQCSfavuqy656qctOk7sYKsriRVOOEdt3ZKT7ZPP0rVzg0WVkAk0FHtf9SdN2q9Bd3vYhPK/wC9mmwpa0p8lEIBxnvk8dqk3TjqM1ftPRbrJZfREklXhOuABYAUU5UkHzxke1ULprRmpLNHtmubVHY1JdZ0DfOjTH9q1rdIWFpWrjIBSk5I4Bx3qe9NNLztPaNet0+VslzHXZC0sHCIpcH3G/6vf0zk1yn44RW4Ouz/AN10r4q43D5qBFKS9f7PI1NbHITMWW9EfgqQ3IjN+KG3dwUkkDy+Xn2NYca5aZ1D03h6P11+pUIzTMpDSXUoUpojBSoAEfdScdh25FaP7OWp73M0o0ZU52XIauLkJW4bvGAIIP4BXf0T65NegZMeK+yUymWXEY5DiQR/GrUkLcQSQ4gg+4qsCWb815/6nW6xfEWC0tx5L3T1mO4JMWwfOsSQQW1LDfzlPGc/vd6nfQCHdIejYcW6Nym/hm3ERG5Yw+3HU4ospcHkoNhHHl2rdXq26JcJaVaIkh/uG4rWFn/YxUUjdS9GW2WNNxNQ2eyrbWUKS64XFJV6KVjaDnjBVkdvasxQ9gO8bA/t0sOdm2UvecELqgyFnCZ9uKGx6rQrd/YTXx1K15b9BQIVyu1uucmBIkeC7IiMhwRQRwtzkEJ+mfzwDjzrTdbncYUmJPY+OtbhU288g7XG3E98Dvzkd/Wo9fpN+ev0uxu6hW+ppoKkNNNhlG1XGOASRjPepHZXd/ktcwbutNb5KerHWdq6Q5WNJ6NcCmXG1/LOmqGdwI7pSAPXgei6t1h5hd/K4z7bpWwQ4lCgdpSRgnHbO4/lVCXTU+ktIvJsMewm8y2TuVb7cHH1NZ5ypAwlOeOO/tUl0H1UhXKZ+hbfZEWO4KSViDMiqjuLA7kcEH881uC0d69FqXghd/VSJLbn6ot0Rbgdu9jeVG57upQpOE+/zCqm6cWXUmt9A6StgYs8axWueJDstt5XxBLbiiUBG35FHJySecg+xuzW78mZCtOonEIbdt04IeKCcFtZAVz+NRC9dOZKr9Mu+idYStNvvuf6bHYaS9HW75qLeQEqIIz3/DNeO4tM3C4l4sNz09riCQCBlO3noaI8F0sKO0jBGtaV8VvesL0NnpdqQzinwlW91IycZcIIb/Hftx74redEFzIulbJDuAIkO2mOpeTzuS2kYI9Qnbn8ag9u6XvS7rHuOt9Vz9UqjK8RiK80GYyF/vFsEgmrFt82N+nIcdmUyZIdz4QWCopwQePQZz+Fc7geMjwuIiw8Ts4cTZogaihV6+JU2Kjc9heRVKdLSlaChaQpKhggjIIrkAAYAwBXA7Cua+jrkJSlKIo1Iu67HDRGkyDPnHBUknAQPTOK3MKe2/FYeeQYqn/uNuKAKvp61FIcNm2Mi7Xnc5JWSpmOo5Uo+qv88fXiuuNHlX6Sq5XJ7wIbfdecAAfsp/xrpvw8bhfvPU9AFSbK8Gvh/JU7pWgs1/RNuZgsRnCwlOEOZycDzVnyP+e9b+qEkbozTlbY8PFhRzqBI1NGs7S9Lxkvyi8A4CkKIRg9gTjvgVvoRfVDZVKQlEgtpLqUnICscge2a7aVGsBlOLr3XnnTN/vHSe6av03O0jf7m9cbm/cLTMgRC+mR4gASlR9sAnGcEq47ZxpGu9dI6ZXLQeq9HaluOr7jHdiMvphpUw4h5JworRxlAUQcA4IGT3x6PpW1rdRvphZJWm+ntisc4pMqHCbbe2nIC8ZUAfMAkjPtWzlWKyynXHZNpgvOOq3OLWwklROzJJxz/Nt/7CfQVsaVgOINgrBAO6oTX+mjp7VCUxWXxbnGHPBdcIO5xTFwcWnPsXPyIqD23/v9f/FNf/p0SvRHU2xi72FUkOuJctzUiQ22hG7xSY7re3/n5/Cqa6a6ZXqDVL0GSZEVlERS1OhvOFtyYy9hz2J249u9ejwmKDoc7ztuuJicOWyZWjfZWX000NbUaaalXu1rXNktlt5iWjhsJU+kYSRkZQ8sHPka3+oNI26Tb3v0ZCjxZfhLQgoSEBe794gZPc/nUmpXDfiZHSF9rrNgY1mWlUS21PXNTKMblzNoz6mXiptYNJQ48Vpy4tB+QphtKkKPytkNoSocHB5QDmtx+h7b8d8Z8I14oGB8owDv37sfvbuc96z62lxJcKbotY4A027VRy6aPts2Q06lbsdLZH6tvG0jc4o9+xJdVW0t9nt8FSFsR0+KlIHiK5UflSnPtkIT29Kz6VCZXkUSpRG0GwF1THVsRHnm2y6tttSkoHdRAzj8ai/T3U1x1AqYmdEabDBG1bSSBzn5TknmpbXAAHYAVWfG8yNcHUBy6q5HLG2F7HMsmqPT/tc1XepHVO3yUVH7q9o+g4qxKger4io13W7g+G/86T7+Y/P+2sTbKzwwgSkHotNWK3boDdzcubcNhM11sNuPhAC1pHYE9yOBWVVK9XLjbJ+vozU+FcLtZLMyBd2WStLcdTn3HMpIyoZGe3bGe+IWNzGl155BG2yriuMGHcoa4dwisyo7n32nUBSVfga11t0rpu3RpEaDY7ew1JQW30pYT+tQe6VHuR7GsTReqLTf5FwgWfxHI9sDKEyN25DoWjI2nOcjGDnnNRnUmptYO6o1Jb7C5ao0bT8VuQv4hpS1yNzXibcg4HmP+3jIa66Wr5I6D6vkpdA0hpaBKRKh6etjD6M7HERkhScjHBx6GviNovSMaQ3IY03a23WlBaFpjJBSoHII471ArZrnWKGNN365/ohdpvk1MX4dhpYcZ3KKQrcTz2J/7az5mqtZ3m86hRpZFpYg2FZaX8WhalyXE53JGOAPlI8vLnnjbI/qoxNCRo34eqsGParbHMvwIEZv4xZXJCWwA8o9yr1J96w7TpfTlplrl2yyQIj6wQXGmEpOD3A9B7CoLK6g3q6WjSAsLMGLM1Ct5txyQFLQwpohKsAYzkkkZ8h75rr1hre/2G52/TUm72aJN+FMmbcn2F+EcrUEIQ2MnOAM/wB1BG7ZZM8W9bfVTy26T0zbbl+krfYrfFljO11pgJKcjBxjtxkcVuqifSzU8vVWnnZk6O22+xIUwXGkKS2+AAQ4gK5AIPY+nl2EsqN1g0VPEWloLNisuzrU3dYi09w8n+2rKqA6ThqlXdteP1bB8RR9x2/jU+qeEaLj8TcDIAOQSlKVMuYtdMsdomTBMlW6M9IGPnUgEnHbPr+NbGlK1DGtJIG63dI9wAcbrZfD7rbDDj7ywhttJWtR7AAZJrV6e1Ha78Xk291alM43JWgpOD2I9q2cllqRHcjvIC2nUFC0nzSRgitTprTNs0+t9cEPFb2ApTq8kAeQ4HFRv7XtG5ay8+qmj9n7F+e8+ldPG1t3t5bOz73lVAapipl3N21a2irgh4PIbJHyP7+CoOjt8pHB47elegjWDerRbbzCVDucNqUyofdcTnHuD5H3FYxEHbNoGioo35DdLyp1A0lqmxaDcjxdVTp9hgqaKoSIyUyQwlYJHig5O3uMAdvQYrb6k6p2NdibgaOlLu16moDMJltCtyFEYCllWMY7898enNWPd9IX7SwdfsqlXizjkw3CfHZHmEH9oe1YGh7TY9QXIuWW1xIas/6e6IqW3UjPLaiBnKuR39fpXJMD+0ayVl66EUAfPRXBKMpc01/eS2X2etBsaa0rCedSpTyUlTalHOVLAK1j6ngf0Up96k+tZjrd+gwHWy7Hkx3i02HCjxHkgFKSQR3GQPepe0hLbaW0JCUpGAB2AqK9Urc7M04JkUgSrc8mW0ceae4/KuvIx3ZkMOv1VG7NlUt0qtN81voSVqmVr++2e8CS6y0xFeTHhxHEn5Era24X3BJJyQcZyCTOtL9K7InpRD0hqS2W6U+GyZT7CMn4gknxErICt/Pf2x24qt+o110merSpnUpqdI0xJs7TtmaQHFRvEUP1hUlvkubtwz5cZx8prcdKD1ZiaOCdOwLTIsch95VnN6kOokxY+9QbDiQDlOMEDOcdjjFcmbtHNz5q2P8A0fBTNABqluPs0X26O6fdtt1kKkyLLcXbM66rJJbRjws/Q7059AK29wA/7rN99TGY/vrM6X6Cc0bpCdb5FwFxus+UudLlbShKnzgjHOcApHPnk8DOK0M26No6j3GW825/pLERralOdqlnaMnyGTVnt2ywvDeRVXENIGqicjS2tdL6vvN+0aLRc498cS/JYnFSFtLG7hKgcEHcrk+3HGazbRrHUUbVVus+ttJx7aqapbcGYxIS6guhPKMclORxn3+uOy5aO1fDv8y66W1q7Hamul56DOY8dlKj32nOUj2AH1NcWnRWopeqoN+1jqVu5/o8qchwo0XwmW1kY3ZzkkDtkd/P1jzNcLcQdPG1Bod1abVrN50Vd7cE7nHt4QCcfPjj+OK0OnrJrdyM2hcGDbioJL78hzxFLUEBJUEpPBO0cE1NNDf73yP+PNa3Ut6nzETo1mbQ58MShSfHDanXMA7N2DsByPmPbPY1PNwmDiGTtW3Q/hWo8SYGWDSxoOl4lwfXGuOpZs5xvhxmOoMNkehCRn+NSWx6asVkz+jLazHUe6wCVH8TzVWaKu82Zqe5w5MJ6y3aC206ITjniNrQTjxG3P20HBB+UEE85NW5ZrizcogebBSoHatB7pV5g1cZwyDBgdkwDyCjbiTN+orOpSlSLdKUJAGScCtHO1fpiE8WZN8gpcHdKXQoj64zii1c9rP1GloIcR25uLvF6fLcRJ7njf8A0Uj0o89M1DLRBhNiPCa7IHCUj1V7+3/bQmdqWbtQAxCZ8v2W0/3nFczZyShNksKFeGo7VuD7zx8+fT3/ALq7mt+I9zR/K52leHxK5mzmYLP6IseVuLIS7IT95xXoP8/T1qSWNa4sZi3z5SFzCgqSjOSE+mfPH+e1R/MXTTGE7JF1WnnzS0D/AJ/yK4tkcwz+n7y8sLJ3Mt5+dwn+72/uqGWNr2abdebj/CkY4td/aAU2pXVFfRJjNyGzlDiQofjVX/aI1FqbSVjZvlk1MxbkEiO1BNuTIdmSFElISpR+UYBzx5HucCuVRulfBtWrSqYtdp+0JK0+J0nV1hhXBaNyYLkBCscfdUsJwD9AR71o+n1+6ramevdvuWvoFgu9jcKbhDk2VpXho5IcCwoBSMA8/Q9iCc5UXoOlUB066w3JXUKBpm73qLqS2XYluHdWbauGUvD9naoALSTxkc5Iq/zwMmsEUiViR41vtbb7jSGYqJD5eeVnaFurIBJz5k4FaPU+pkxE+BbXG3Ht2FrxuSkFDvY5xuCm+a10+/IumlHWnylEpL8dO3PLgC2FKVjHHLg4qdkDzXQqF0rRfUKWWq5RLnGD8V0KBGSkn5k8kcjy7H8qzKrHSl2NpkqcVt8BxLfjnaSQhKZKzj3+WrKjPsyWQ6w4laD5g/w9jWJ4ezd4LMUmdviuyut99lgILzzbQWsITvUBuUeABnuT6V13GZFt0B+fNeSxGjtlx1xXZKQMkmvPWtdSS711QhrJ8JuHcY0dtKFkoV4VweQlzB43EAVJhMI7EE8gFHiMSIQOZKvvU95i6esMy8zUuLYiNFxaGwCtQHkASK1midVMX/4qM6Wmp7Dz+WEZ/mUSHGkLyeOfDOff0qhNSagu97sDKLpMVJ+GtqvDUoDdldvZcUSe5JUonJrfafu8uy6wdkRHQ340xuO8dgVlpd3kpWOfUE896vHhmWHU95VBj80un6V6CpWt09e7bfraxPt0hK0PNId2EjegKSFAKTng4IOPetlXHc0tNFdMEOFhKxLpAYuMUsPg+qVDuk+orLpWCLW7XFpsbqA3HT1xiLOxoyG/JTYyfy71WOodATXNRz7vZNRSLI9cUJbuDCoiH0PADb91WMHH17n1r0ZWj1HYU3E/ER1JbkgYOey/r7+9QmMt1aunFjhIQ2YeqpXpzoVGinJiId3kSoclKCWHWkgpcAwV7h6+nl71ljSLX6d1LczNWf09GbYW2Gx+p2tlvIOecjntUwl2+bFWUvxnUY89uQfx7V0tMuvK2tNLcPolJNQlzr1XTayLKA3YKBq6esq0vp2yG6L/ANxJiJSXfBH63apR2kZ4zu75NdV66dvv3i5zrHqaXZmrt/vhHQylxLpwQSkkgpJyeee5q12dNXJyIp8oShQGUtKPzK/wrUPNOMuFt1tTax3SoYIrYueNStGtgk0brXioUnp/b2HdK/BS3WWdOqcLaFJCi94mCoqPGDkZ49TxXbq/Rf6ZvcW/2y7PWe8Rmy0mShpLqVoySApCuDgk/wCQMS2tlaLNLuLgKUFtnPzOqHH4etYDnE6LZ7ImNObQfwo7pKzXmFblMz7nLvkpbpcVIMcIAzgbUpTwAMdvc1KLfp24ylguN/Dt+anO/wCXeptBitQ4rcZkYQgY+vvXfUoiG5XLfxJwGWMfVYlrgMW6KGGAfVSj3UfU1jXm9RrcoMJSqRKV91lvv+PpX1qO5foy2qeQAXlnY0P6R8/wrE09avhGzJk/rJr3zOLVyRnyq7DECLOy4uIxDs3iV0eDqG4/NIlpt7R7NsjK/wAT/wBdc/yYiLwZEmW+rzK3P+quzUup7Lpt62NXmSqN+k5aYcZZaUUF1Q+VKlAYTn3x/A46la00sNZMaPTd2Xb48lahFaBWUbUlR3lIIQcAnCiDVgODdtFVyudqdUOlbeDuacktK8ilwf4VwbXeYfzQLutwD/g3+R/f/dUj2+1cFNZz3usBlbLQxtQvRnkx73EVFWeA6kZQf8/jW/bWhxCVtqCkKGQoHIIrHlRmZLKmX20uIV3SoVHwZGmpIUCt61uKwpJ5LJP+fx+tRPhDtW7qZk5aafspVSvltaHW0uNqCkKAKSOxBr6qoriGoBOv0OJMvE9+7wbHCiSEtqkO7EIcXjKtxJG442jvU5nOhiG68rshBJ/KvNtntMPX3WsWjUcbxrVZbebo1Dc/m5Tz60qDih5gJWlOO2UY8zmviXljLBpbNAJ1Vs6f19DvTqm7FfLFflJ5U3GkpS7jzOwnt71LrfLNwbeZfirYWkYWlRB4PuO9Uh9ofTFg0xo7+XGmrdDsl/tEhhUSRCaS1uy4lBSpKRtV8qj3B4BHbIq49FPvS7K3cZTfhvSgla0fu8AYqLCTumGbl8bWXtDdFXNuVJsN5j2t+4ojxbXMc/0dwq/XNu7SkhCR85A8T6EpI86mSrlf7itKbLZVNsnvJnktjHqEfeP8K3V0kWa3yfjZDbRlqSEApQFOKGeAPPuT+dc267LkS0sPxFxvFSVM71DKgMZyPI8jitHcPidJbjvsFntDVLWjSrs1aXb5dZEzH/ANfqmfoUjvz6mtFqPQVzk6lk3i2XKFHbebaSW34+8JLZyCORjnBqxa0OvLuLNpqVKB/WEeG2P3lHgD8c1cbBGG5ANFGRn0KrRtu8qkLaOp4CUIUUeL8ArYSDg87vWt7B0tqWUgLa1VbHEn/wAnCz//AF1Ab7r3T+kJMexT1zJE5DCVuJjR1ObQf2lehJya+EatuF4jMXjptcbZKWypRnQ5ClNuqTkYAz9w/e5UMHPfiohDETq1XpeGMaP+N1nor607bFWu2ojOvh94nc44E7QpXngeQqCa8tMzTd+Vq61NuOwXtqbpFR5jt4qR6jz/AO2unph1Oc1RaGJ3w6loU98O6g4DjLg4KT5HuO3fI9cC0HUtutFp1KFBYwUK5B/Crkb+yNtXPlgtuVwpUT1QmtQGtPdSIEkKi2uQETClWC7DfIQsY/aUFbSEnsQfOpFpPWLMybIkoiSLdKjvNsPxJDjSvGDiNyChSFqSpRTzgHIxjHao71R0gq0Rn7Yl4osdwkIeiOLTvRBlIWFJK09lNEjBB8s1hdOdBX+4XFgFVltdnt8lTwbszK0MuP7dqnNzmVOLwSAeEp7jJFdB8jXtJOxXOZG5jqG4XoGHIalxW5DCtzbgyk1Gdea5tmlmvBV/pVwWMojIVjA9Vn9kfxP8a6teakY0XplpqOQ5OcT4cVCzuJIHK1eoH8SRXnyZJfmSnJUp5bz7qipa1nJUT5muYVjH4/se4z9XyW61PrG/6iWoT5qksHtHZ+Rofh5/jmo/Slarzz3uebcbKv8AnTFTlIstkZKIoOPl4Lnuo+ldrz8bTzCosMpfuSxhx7GQ37D/AD9fSuJctizMqttpJcmLwl6QBk5/dT/nj60jRo9hYTOuSQ9PX8zLGc7f6Sv8/wDV3NKArTkObj1PgvR63vr15DyXESGzbGRdb1lyQvKmY6uVKPqr/PH14rrjx5V+kruNye8CG2PmX2AH7qa5hw3bm4u8Xp4txE8knjeP3U+1HXpeoZaIMFvwITWNqOyUj1V7+1bWbJvXmeQ8AsUKArTkOviVIrVeLb+jXHEf6PFjueEjIySMcHA555qs/tIOGG9obWK47suzWa8okTvBTuKEEpKV49tp/EgedWNaIdnfjSLUykvoZUlTrmcb1nPYj0xW7QwyiOI4bT4ITs2EZG3GMVyJu7Ka2+K6UZaYh1+CpG59frT/AC4tptSlytFpbCLtdPgnsR3nArw05IBH3RkY5ycdjWPody3dSOtWsr7aG33NMydP/od6YG1NB91ZRkp3DkhCVDJGRgccirzahQ2opitRGG45yC0lsBBz7dq+4zDEZlLMZltlpP3UNpCUj6AVpYWVUGk+j98g3zTar/q5q52fSylrtMVqCGllSuxcVk9sJ9e3lzVnXSxsXBDrbsqalt0LC0JeO07gkdjntt4Hlk+tbWlA8g2FgtBFFVvqGwSrYdyQp+OVZDgHP3ZSzkeWN4GawGIT67Y7PCR4DT7baiTzlRiEcfgatV5tDzS2nUhaFpKVJPYg9xWBerYJtnNvYKGE72in5eEhC0qxj6JxVtmLOmZVnYca0qwiMOygYrCd7ryPDQnOMqLUoAc+9T62aXjsNhb8iSXCrxFJSvakHcheMefKAM+max9EWJcNv4yc0kOrSjw0LR8zSkqdGfxC6lVYxE5LqaVmCEBtuUB1h00h3mFIMa5T25ZjKaZDr+5kKLTrYJGMj+eOcegqlJ7ZZ6kBonJReUpz64ubwr1TUL1j0/hah1JAv3xjseRFcjbm9oKFttPKdI8iFEqPOfwqzgseWW2U6KDFYPPToxqvP7/+8jn/AKtH/wDrI9SJKFOalLaBlSrnHAHqTeJNWP1B6dQl6JMfT8RwzIMFxlhtATvk5aS2N6jgkhKRj6Yrr6V6cU7d7hfpbcZ2MXpEdppxOVpdbnyHN+CMDG5OCDnOe1X3Y6N0OccuSptwj2y5DzWBpHpOt2DDm3q4S4b5hIaVGjkJW2TFZZUCvnkFrPHrUqd6b2R3d4k67qKiSSZXPLrrnp6vKH0A9yZpSuNJjZ3my5dRmEiYKAWkiaYt0ZRLbkzJSQf9IUnOQyM/Ljn9Qjnyyr1NbCDb48NxxbCn8uDBC31rA+da+AokA5WrkeW0dkjGXSq7pHO3KmDGjYJSlK0WyUpSiJXW8wy+na8y26PRaQf7a7KUWQa2WK3bbe2rciDGSrOchscVlUpSqWS4u3KUr4ddbabU464htCRkqUrAA+ta2DqXTk+eLfBv9qlTCCRHZmNrcIHf5Qc8edFqsHUg8fUVpjK+4CpePUjn+6tzJdEeI8+UlXhtqXgeeBnFanVw+GkW654O1h7a5j91X/YfzrdtkKSFJIIIyCPOrrD/AMYVCQf8hXmGya1v+t7NPm64gXC46RcgSZ0xtFsEduAppZ8ARpAwXFEgDnsc+QVW4+zbc4enZmsVy4YtVhgRI9wckzlNOy0B4FaQt1tILiSkEgYJB47nBnE7pVd7fJuCtCa1fsEC5LWuVa5MFubE3L+8UIXwgHPI5B7duKiGuejzekOh10g2NDt5nuTWJ11W2wG3JTLasltCE52pTkqCRnsfYVorAo6LHd68X2Jfro7GsVxudmurrTWmX5sUQmd5+VQU6eFIJ5BJzxzt8rs0Cxq1nTyf5ay7fJuy3VLV8C2UtNIP3UDPcjnn+3uah6u9QtIa96bN6H0KTdbxd3I7EWE3FWj4QJcQoqXlICAkJ25B4znsCanrOpbpZOqUfSFwmwpdrNg+Ocd2lLsRTWEqW4onBQvCjkgfw5Ao5uinyhWNLYbkx1sPJ3IWnChVWtdb2ZEN6/R9Eaie0my6W1XlKE7cBW1TgbzuKARyQeOcgHirQt02Jc7dGuMB9EiJKaS8y6nstChlJH1BrdpVd7aWq0g84w5Ls76ipUVeWyfNB/yD+NSGo2wNuulbP2o3z/w/wFSSoJxT76qxhySzXko91EkOx9JyhHBL721loA8lSyAP7ah2uumwvsi0XexX2Rp6/wBoY+HjzmGwsONY4bcSSNyc84z5nvVh320wb1b1Qbg0XGFEKICik5ByOR71GkaDME77LqG6QiOyFrDjf02niuXi4ZpCHRnZW2OA3Vfu9PL/AHe/wJPUrWzV7iW9XxLFpYghiO8pIOCvHCj34wTjPYEiranNzIukVtwAVSmo3yepUBWig6bv38ofirnIgy2VNpQt9AWhwhKgpKQjO0cjnA5qbYGMeVb4SN7GnPutXkE6KsnNL6Y1/piA7MTNbb3FbqWJa21FzGClagckA8gfT1qv5rF76QaytERV8n3jSd4kfDw0ynN7lvk/sjccAoVkjyGMnGU8zfUV5X061HISizXG5225uB9LUFrxHm18hZSj9ryJAxxyO1RPVb936wXvT9rtenbtbNM2+4N3Cbcrkx4CnFIyA20g8nIURn1PljnntM8Mxzm2jmf7upe65uivyBJamRG5LKgpC05BquOpF2iyNTxrc+80iPAHjuFasDxFDagfXkke6RUt0zMZMuXFaS622palIS42UFKh94YPl91Q9lpqvda6P1S3e37lHtsG+wlSky0N7/CfbWkDHc4ONoI9x2rsMfnZmbzW2FytmBedlEetd5utk0rHctTpiGXMajSJwRkxWjklft6Z8smoBqvSNqt1xsMq16zvtwut4uDUOQ81cEl1yOvO9SSkZwMDuVCrbGoLPJ32u7NmE8seG7EnM7c5/ZO4YUP7axtOaB0hYLuu7WizMx5SgUhzetQQD32hRIT9R5Vq12UUu7NCJnW0gg16eSlvSjSttsyGLdbWA3ChJ8T5jlSlk/eUfMk5J/h6V8Xa4u3PVN0WXVmNFdQwyErI5Cdyjwf6QH4VKoBRZNGSrm8dpUyp9RI5Axx/DFV7pcOGyMyJA2Oyd0hwehWSrH4AgfhV7CR2bK4UzxLKSNhssexa6/SX6Qt8xRbMa4Lt7sOV+uS4cjYoZ/ZUkg8j19KuazObrTHfcaRHy0lRQOEoGO3tiqF05AQ31e1BHRki4xYMhQ/dWC41kfgAfzq2+q1z/Q2g5nhK2OPpTFa8vvcH/mhVYxAANBVJnNiaX9FSXUC/uaj1PJn7iY6T4cZJ/ZbHb8+T+NR+lKqrxj3l7i525SlKUWi9CIbjacjh58Ifujicob7pa9z/AJ+nrXXBhB4Kvd+cUGCcpSfvOnyAHp7f3VrLJcbQ/cH37lIckvt/MGthUHFe6u34f9lbJtE3Uk1UiQvwITPc5+VtPoPf3/6hXbbI14Lmuvq76D+/FepfE+Mhr20dwD8yijO1LNCEAMQmf9ltP95xX1OnJCBY7ChSm1HatxPKnT58+nv/AHVxNmqmFFlsTJRG7EgYLnqSfSux56Np5gxYZQ/cljDrw5DfsP8AP19K2rYV5D6n+/FR3ub8z9At7pe2N2xh1supckq2l4JPCe+B/E1ua1Gk4r8a17pQWH33C6vefm57Z/L+NdOubA7qSwqtjNxdgqKwsrQMhYGflUMjI5z9QK5WIJMhJNq622xW1vots3MhuO+C3LYW5+4lwE/lXfXnfV2j42kfBNxvAkSXPmbjRm9qykftFR+6PfB58u+LQ0br+Dc5Fus8uO9GuEiPvAJ3IzyUjcecqQArt596hVaHG5nlkoynztTilKUV9KUpREpSlESlKURKUpREpSlESlKURKUpREpSlESlM1prjqvTNtliHPv9sjSD2adkoSr8ifaiLbuLS2grWoJSkZKicAD1NU9qXrBLur8y09MLSi8yWFlpy7y1eHbWFg4ICh8zxHogY5HNRzWd8k9XLk9a4y5UTQUNwpU+y4W13l1JIIBHPw459Nxxg8cSVpmPGjtRorLbDLSAhDbSQlKAPIAcAVfw2CLxmdsqk+KEfdbuq10tetUap1Bc9P8AUbVt9YvMdW5uBb5HwESRHJOFtKa2uOJ9cqyOxqQW/Ttq0z1M0LKsrUiO7Jursd9SpbrpdbVFeUQorUcjclJ+oFZettJW3VUFpqWXWJMZfixJrCtr8V0dloV/aOx/LGp6aytWzOuNh0vqdmHJcsjEq5IuLBCPimVNlhCltfsLBWQQD3zjgZNfFYN8L87T3VdwuOilhMbm07qvR9witTYbsV4fI4nB9vQ1orFNdt8j9C3M7XEcMOH7rifIZ/s/KpJUc1r4ckRLc22lcp5zKFHuhPmf8+hpA43l5FVcQ0Vm5hSNJrsSqsNstxYqUrcw22kDetXkPMk10x7xbH3C23OYUoHGN2M/TPf8KmLSoWvAUc6pX9rRVgFws1piPX67TGrbb0+GEh2S8Tt3qHO0YKjzzjHGc1A9D2xhy9640FNiXObqObCDV71MVtrTukR8pSlOQptA3EISAfu848rS1rpm1aus6LdczIb8F9EqLIjObHoz6M7HW1c4UMnGQRz2rF0No63aRTcXIs25XGZcpAfmTbg8HHnVAYSCQlIwBwABWtKXPoqnSnqfbel6+lrOgPGmKiLtqLs1NR8GWFgpLpzhQVtJ4ODnn+jVuaJsqNK6JtViW+lwW6Ghpx3GAopHzK9gTk1sLheLfCB8eUjcP2Encr8hWp2z9RqAUhcK2Zyc/fd/6v4fWtwMos7KJzi80F3aYSqbcpt5UkhDp8JjPmkdz/AfxqQ18MNNsMoZZQENoGEpHkK+6qSPzutW42ZG0lK4UcAmo3artdbymTIgfCNMsyFsBLoUVEpxzx9ajJA3W6ktK03/AMov/K27/ZXT/wCUef522H8F1jM3qs0eiw+odpfuNhW9B+W4RFB+KsdwpJ7D6jIrV2m/3O929o2i1LVILY8V+T+rZQrHzY81YOe1TG3v/FwWX1JA8RAUR9a0rd4mzL1PttsaiZgFAdLylDJUCeMA+hqvPhI5nBz+Sy15bssmwWeRCccl3CcZkxwfMoICEJ4A+VI9gBk8nArc1pw5qL/yVr/5Rf8A8Nc+JqL/AMla/wDlHP8A4anaGMGVugWtkrtvVis16ZLN1tkWWnBALjYJH0PcfhUYjdNrXBujMm2T58WIlWXIXilbSh6AKyRzWyZvd3elrioat6XUqcASVuc7FBKiDt7ZUO/r7GuiZqZ+HcGrdLuOnY817+ajuzdji/okjJ/CozioQaLhaka6Ro7tha3rZc49t0tHhOuBhmbIRHWrnARkbs/6oNUVpbUltsOo5TEpV0/0i5vNLcXIV+jokdRy0sKJLfICR5cqV6V6SlOXaQwtqZCtT7RB3IWpRB9sFNaC49L9HahjonCAu3OvN8qhr2Dn+jgp/hVrDYqNw7htYBLdwoV0KDmouo+p9ToUHLa2pqHCcxwtLQO4pPmkrWog+1bz7RE0hq0W5J4Upx5Y+mEp/tVU90XpiLpe2CDHkyJWMDxHyCraOyeAOBmqm6+vlzWbDWeGYSBj3KlH+8Ukdmda5vFH1h3eKg1vhOzXClCm20J5W66vahA9z/d3NdUpDTUhbbLwfbScBwJKQr3APlW11FGbh22zttZw9F8dfutRPP5AD8K0tVIXmXvg6dPVeemjERyEa6a+YtKUpUyrqzHXWbc0mJERvkL7J7nPqa+ow/RrDsqU+suvDDgCuD5gY86+UIYtbJfkL8SQvufMn0FfLEdb7nx1xISlPKGz2SPU1OA/O0Bozgd1v+sY6u8f6Oq+jkx9m5xcchPed/tKf2t6N/p6KS2O+rbsgahwVRpjyiFu53KUny2+n+fWt7ZLW1b5DDs5PjXB5WWmc52DzUr6f55qARpcuVObehuLjsMOBQdHdRFWVogNzIrl5XIEmQ+tSCr9wA4x/nyxVhuJBiNGx+47vPMjwH/S5+IwjmSWQAf2izkvYE9T036qR0pSqSyq7vHThy+a3kXm73FLkBSklDDYIWUgABBPkOPL+FR++WiRG66W/wCHYUll5xh1oIGAG0ICVAew2Hj0xVyVwUgqCiBkdjjtRU34GN22hu1zSlKK4lay4XIfrG7e809KjuIL8fPz+HkbsDvnByD7Vs6j+qGXnIstyYmMmEGVNI8NG+QsrG0BJOAgknGOc1FM4tbYVjCsa6QB399OayEXlhqRIcmSmkR1uBENCPnW6APmUkJyVfMSOP3a3FRLTdoes7T9qtspIlRlh1SpLQUl5C0jtggpGUkdzyCcHNSwZwM4z54rXDue5veUmMZGx1Rmx9ORrxGu59FzSlKnVNKUpREpStdqOZKg2xb8RoLcCgORnaPXFbMaXuDRzWHODRZWxpWBYJUmZa2pEtvw3VZ8sZGeDis+jmlri08kacwsJUd19Fv0u0tt2B1aHg6C4G3fDWpOD2VkefvUipUMsYkYWE1fRTwTGCQSAA112WDp9uczZYjVzc8SYlsB1Wc5P18z713z5UeDDemS3m2I7DanXXXFBKUJSMkknsABXfVd9e9M6w1joxzTelZFrjtzh4c5ya4tI2BbasAISSQUhYI44P5bsblAatHvL3F3VVDrbXV/6lvuKtlymWPSCFlMdERxTUm5pHHiLWOUNHnCRyocnyqtbhpGxXbVVt0RbLLFZXMzKuMxtoF1iMhXOFkFW5ahtzn1znNW+nof1NZjhbWvtPqUlACYhsyktDH7IWF5A/D8KjnQRt2enU19uD8CRdXLoqE4uIrc2lphISgJJ5CSSpXPfOTVrDRiSQA7LlTCYOzuOnIKx22odptaWWGkR4UNja22hPyttpHYD6VWN31FeL5MRqHT0iRDgW1kuSW5T2xpO1IdBWEKIc8RC0pCe6cHsatcgKTtI/CowzoXTkWUFtRX/hvG8cQviVmKHM53eFnbn8Me1dl7HOADdlWY9rbLt1vrfKMi0MTXm/h1OsJdWhR/m8pBIJPpX19na1pu151D1LWd7F1WmBaiUn/vRhRBWCRnDjm5X0AqO3xyZq/USOnmnlZckJCr5LQeIMInChkdnXBlKR3wSeODV+2W2QbLaYtptkZEWFEaSywyjshCRgCufjpr/wCMHzV7BxUM55rLWpKElSiAkDJJ8hUIjPXW43x+4wYm/cChpxwYQ2n1+uP7TU3WlK0lK0hSSMEEZBFcgAAADAHYVSjkyXQ1ViSPtKBOijzWnXZSw7eZzklQ58JB2oH+fbFZj+nrO82EGEhGBgFBKT/Dv+NbWvhTrSXEtqcQla/upKgCfoKw6Z51tZbCwaALQ/yVjt/97T5rHoAsYH8BT+S7bnEi5znU+m//ABzUhpWe3k6rHYR9Fp7ZZrJHdWI7bTzzJAWVL3qQe4yPI/hW4qj+ml6Np1xqGRc3y3H8J52Tkk/MlwYPuckgfWpVoTXV31Vq96MzAZZtLTalqJBLiR2TlWcZJ8sevpmoy4u1JVWDGxOAFUSapWNSlKwr6+XP5tX0qJdNMC03I/8A+Sf/AP6alxGRiq0lx37Br+PAhXCZ8JMZfkuMl0hAXlPIA486yIe2IYFpJII2lxWPqDrNY9MXS92vVlsnWeXAR40JtRDn6SZJ2oU0Rxkn9knjnJ4VjK6NQ9cSTc9U61nONOXhSHIVnCvkgMjJSCMcLIIz9OecgYmvtNxtZRY7CrmuHPhPpeYlshC32CM8JUrJTnjtjsOahF4vmu+lLke43rUcvVmmpDyWX3HkeHJhKPZe4E7h5HPnjsTzI7h7mir06qFmMa41WqvKwXGCmzRErltJUGwCCrkGtJo1aHNb6rcQtKkFccgg8fdXVY9UbXqK1pe13pe9eOzDZS67aHWErjvMjlSk45Bx82eTxwfKsvR+o03iabvaVLhRZ1siv+E0vbhZK9wOMZIOU59qg4gPZoi8qzgR7XIGN0tTvWHUuzaP1XHs+p48i2wZUZT0a6ODMdxac72jjlKgMYz3yPbOi6XXLWGudZO67flybZo3wVsWe2KwFyhkDx3APLIURk+YxgZKo/ru1xNd2VVjm3qSpDbyXVeA8lSkKGcZBzjvURm3rWvS9yJIuOpZ1/0u44mMfFUUvw/Q5H3k4GMfhxwa5ceNjeKA73RdSThr4zZPd6r0DZ2W1SJr5SC4iY+lKvQKUCR/AflXmjrrEg26/a/kTv5N3aXcTGMR5y4AXC3KSlJ2JZwVkkEYKcDHJOMgTDUmvpWmLLPlJdkzp0q5qjwIyXjl5xSU4HB7c5OO+feo+np5qe9XFGqL/qwxdQqAWlUSG2fhyOwCz8ysAAZz+J71Tw7hG8ySGmn+bW78C89xpsheg9IJn/yMs6brv/SAtzAlb/veL4ad+ffdmt5p45scM+rQrz5pXWOqLTqlOi9YXBUiS62V265oUUJmJHJSpOcBYH9nuCfQGmP94IY9GxV3hrS0vB50fmqmKh7MNN9fhSzJchuK14ru7bnHAzVJ9S7rajqR1q52tM1wtJIfbdLa08nA9+MH8avKvOvWN3xeolyAIIQGkj/k05/jmrU2GMsgc53dHIWNetgrjcRxHY4fugWTzAPXkQo9ebiu4vtKLYaaYZSyy2DnahPbJ8z6msClKnYxrGhrdl5d73SOLnHUpSlK2WisuPHIJuFyUN4GUpPZA/xrrUV3Ilx0liCjnngrrXzbiZT4U4gllJ+VvOM+5rolS35OA4rCB91CRhI/CubPxfCsBjZbm8+rz1cenhz8Avs2H4Ji3uEshDX1p0YOjB+7xO3Kzqs25XNKm/hYY2MgYJAxkeg9qlvRm5FE2Xalq+V1HjNg/vDg/mCP9mq9rc6JmfA6rtz+cJLwbV9FfKf7a5I4jNNi2yyHw8AOgC683CYIcA+CIcrvmSNbJ6q+aUpXql86SlKURKUpREr5WhCwAtCVAEKGRnBHY19Uoi4CUhZXtG4gAqxyQPL+JrmlKIlKUoiUpSiJSlKIlKUoiUpSiJSlDRFqNT3BiNC+ATc4sG5XFLke3eOrG9/w1KSAO6sYJIHkDXlKw6YmWRUS12+MnS/Uazw9hhPubot5YBUfEUR/OBRKiFA7kK78AYuvXCIui9US9d3Z2XqW/wA5QgaaszLf8zkDKGk5OFKIKlunsn2GDzrC22fVsWy6J1hKaTreVGVJZmWhgodtqkpJLoVklCM/KMnCzxjms6jUGipGFosOFgqF6G1tBvyZkWan9F3m1p/3VgPnCoxAypW7spvzCwcYweM1HNUdRpd8Qq3dOG0yfn2SL282fhY2O4bB/nV9+2U9u/OLCs/2dtPSJq7nr28z9Y3BUfwEqfAjMtpzkYQ2Rk/UkeeM1TukJqbVp+5W+8PtNDT0+TbHnj8owyvalRHqUlPuT7mrjsdIWUN1yMVCIQXMF6qd/Y8gmy6z19ZhJflp2wJa33yFOrdcS7vKz6kjIHvXpSqf+zHpOXa7FddX3RpxifqeQiSlhYwpmMhJSwlXvtJUf61XBVMmyuhEHBgzbpSlKwt0qM3/AEi3dtRxbwqe6z4G3LaU53bTkYOfl/I1JqVHLEyUZXiwpoMRJh3ZozR296UpSpFCq/1z0/tcmDdrnCEpmY/+vcSynxPE25UUJTxyo4PfuB9KrzTOuLjptr9GWaxREFS8uh9K1vuK9yCn8BjivQdKKjLgsz88ZynyWs0tPm3OwxZ1wt64El1JK2Fd08kA88jI5wfWtnSlFdaCAATaVSv2iH7nGckyLN4gnIscstlv7yR8m5Q9wnJ49Kuqqu6ozGYOtre/IdQ0k26SlJU4EZV8uAFHsSfOp8OLkAUWINR35LzxeRoGwabsN96cXF2RrBt1t3Y0+4647hJLodb7AcHIAHmORUz609TdH33pFKh2y6R5k65oZCIiclxshxKiVDHy4APJ88YzU/065oC0tsSYo0/Gn+ClL0hphltxatuFElPrz5mu6I705iXBdwit6dYmLyVSG2WkuKz3yoDPNdARmiL3XOMrcwJB0UPufU/R9t6VIiQL5Eud0/RaYrEVsKWtx7wwgApxkDd3zj8+Khcy1ai050nl2yE083dGbNHVIQkfrGkLedW4PqEqIPpg+dXFEPTSJPE+JG01Hlg5D7UdpDgPqFAZqO6ku8J/VMp+BeYraVohfrPETtW2l0l1OTn9gqH5etc3jAyQBx1ojRdTgrg+ctGlgqA/yPsStH2/VvTg/wC6dsCXgWnFH4ogAuNOAn7xGePwxyMfPUrXtj1f03TabOpb94uTjCEQPDUXW1hYUoK48sYz55+tWdCu2mYLHgQpttjNZJ2NFKE5Pc4FdTM3R7M5U5p20Nyl/efSlAcOfVWM/wAa8mMSM2Z7SSDY/g+C9ecN3S1jgARR/kKstbRnrQ/pm9SULcgWW9bbg4lJUGgUsAKIHl8p/Ej1qR6i6rWWPebS1aLgxOgKc33R9tlxwR2SQlKsjgZUoevlwOM7Ji42526PoeuEZMRU15bqVuApdQW0gJKTwQe+ee3GMk1s4buiYbDrERNjjtPDDqGm20pWPRQHf8adowgdo26+qwI3gns3VdfBQjU15t+sepmj4+mpCbiba+uVLeaBKGm8oOCo8c7TwPbzNepdMf7ww/8AixVL2mVpKApTdqXaIZeI3JjIQ3vOeMhPerr062tqyRELBCg2Mg11OGvDgQ0UBQ19SuVxSMtLS42Te3oFn15l6jP/ABGury5nOJa2/wDZO3+6vTKiEpKlEAAZJPlXk+6STMucqWe77y3P9pRP99dIryHGXdxrVjUpSsLgJSlKIpRSlK8Gv0wlfTa1NuJcQcKSQQfQivmlEXo6M6H4zTyeziAofiM12Vq9Iu+Npe1uZyfhWwTnzCQD/ZW0r3cbszQ7qvkcrMkjm9CUpSlbqNKUpREpSlESlKURKUpREpSlESlKURKUpREpSlESuFZwSBk+lc0oiguitK3FzUcnWurvnvju9iHFS6Fs26Lu4QjHBWraFLX55x2FbjS2koNiul2u/jvzrpdZBdkS5JBWED+bZTgAJbQngAe5OSakVKIhqh9FdCZI17f9Ra2uEadbpl8kXOHaY4PgqWteUuPEgFRASnCOU5GeavilFggHdcJAAwBgDyrmlKLKUpSiJSlKIlKUoiUpSiJSlKIlYs63QJxSZkRiQUfdLjaVY+mRWVSiLWiwWQf/ALpg/wDu6P8ACn6Bsv8A5qhf+7o/wrZUrNlYoLXiyWgDAtkP/kEf4Vyuy2deN9qgnAwMx0f4Vn0rFrNLWfyfsn/miB/7sj/CvpNisoPFqg/+7o/wrY0oi1yrFZlqKlWuEpR7kx0En+FfP6Asv/mqD/7uj/CtnSiLXN2O0NuJcbtsNC0nKVJYQCD+VbEDAxSlEWm1xO/RukLrMBwpEZYQf6ShtT/EivL1Xj1+uojabjWpCv1k17cof0Ec/wDSKfyqjqwV5zi0maYN6BKUpWFykpSlEXntSjuPJ7+tcblep/OivvH61xXSAFL2BJtc7lep/Om5Xqfzriu2G209LZaffEdpbiUrdKSoNpJ5VgcnA5wKGgLWNV17lep/Om5Xqfzrb6w07O0xel22aW3BtDrD7R3NyGlcpcQfNJFbCZZ7c10ut98SM3F+7PR1q3n+bS2ggbe3ck59/pUHtMeVjhqHGhXlakyOsg8lGNyvU/nTcr1P51udLabnagM1yOtqPEgR1SJcp8kNNJAOASB95R4A7k/Q1pala9jnFoOo39VqQ4AE81zuV6n86blep/OuKVvQWtlc7lep/Om5XqfzrilKCWVzuV6n86blep/OuKUoJZXO5XqfzpuV6n864pSgllc7lep/Om5XqfzrilKCWVzuV6n86blep/Ora+zPp23Tr9e9WX22tXC0aatrktyO60HEPPFJDaCkghWQFke6U18faX05bLbqa0alsFvbgWbUltamsR2mg2hlzaA4gJAG3GUEjHdRrFi6WdatVUgOrJCAtRAyQMnivncr1P51aWjn2bX0zamJvibC5InqS5KEP4hTmAcIwO3bOfY+tarTWl7RqLa6/KvbsqU64VSGIOI6DuOCpWMc9+OBnFcr80Y0yGRtNaauidvSvcSut+VPcIxG63OF1YG+3O/eAoFuV6n86blep/Op3Y9CxnE3ly5SJrybbKMbwoDQW6sj9rafLGP4+lZOk7Np12Bq5t90rhxkMeFLei/rmQd+4hPcHIwcd8VvJxWBocW2ctbDqQPrstI+FYhxaHUM17noCfpuq73K9T+dNyvU/nU3sOjbbPhy7subcX7aiR4EYRYhU++cAlW3nA/zx59//c8QjVq7W9cXEQhAM8O+D+s2AhJSU+Ssn/Pasu4rhWuLSdR4H3eeuy1bwrFOaHAaHxHofLTdQHcr1P503K9T+dbDUCLM3OCbG/Lei7BlUlASoKycjjyxipLpfSNum6W/TtxeuTiVPqaDUBkOKbA/aWPT+7HrU82LihjEjwQDptrfkoIcHLNKY2EEjXfSvNQrcr1P503K9T+dS+yaZsj9sul7uF0lJtcKV8O2WWP1jmSMKIPbuOK3StBacTcolq/Ts0y7iyX4SvhwEbcEjd6ng+lQScVw0bi03p4HkLPLkNSrEfCsTI0OFa+I5mhz5nQKttyvU/nTcr1P51LtKaatlwDzVwN5ckNySwUwIhcQjGPmUrBGM5/KstOhYsfUl4g3C6LRBtkcSVuttZWtBGQMeR/PtWz+JYdj3MJ1AvY+A067haM4biXsa9o0JrcabnXpoCoNuV6n86blep/OrG05atJS9OajcS68ITXgbJkiMlT7Jyc7QnyJwOKwbFoy3TLc/d3pdyfgGSpiImHEK3nQP2ynnaOP4fStPzSBubOCMpA2OtgH367KT8qnOXIQcwJ3GlEj3ab+ig+5XqfzpuV6n86na9AMxtSzYM65rbgRIBnl5LX6xTfIxt8iMH17e/Edci6fe1NDiQpsxNrddaQ8++hIcbBVhZAHBwOfKrEGNhxDqj10u6Na/VV58FNh23JprVWL0+i025XqfzpuV6n86vNX2eLjM1lrKzWy7Kbj2FtpUNb7G5U1bjXiJbyCACACCQD5cVoWumdii2jQEy73a7NvamakyJEeHC+IcQ2jloNIT8xKwQOc9yewNWbCqUVVW5XqfzpuV6n86vnU3RXTEC2ae1AxctTW20z7w1bZrF5gCPKZDhIDoBAG0Y9Dwc54xWpa6LtxdTdQ4F4ucliBpO3qlNSUNjLylJ3sBQPkpIOQOc9qWEoqnNyvU/nTcr1P51cn2arDpu+WvXw1NHjGNGsS3BLcih5cPhZLzY77kgZ4wTjFY2mOmmjrjF1HqyXq6ajQ9lcaYRMRC2ypbqkoylLZztwpeMnPcHAGSM2E1VSblep/Om5Xqfzqwer3T+BpKHYr9p68Lu+nr8wt2E+60W3UFGNyFjtn5hjt2VxxzXtBRTVc7lep/Om5XqfzrilZoLFlc7lep/Om5XqfzrilKCWVzuV6n86blep/OuKUoJZXO5XqfzpuV6n864pSgllc7lep/Om5XqfzrilKCWVzuV6n86blep/OuKUoJZXO5XqfzpuV6n864pSgllc7lep/Om5XqfzrilKCWVyr7x+tcVyr7x+tcUGyHdKk7Gk2p2mTeLVqC2Sn2GVPTIDjngyGQnklIXw4Mfun2xmoxSo5WPdWR1el34f9UtmkDcWro6R9O39ZxYD2qZ0py2xmVGHFDhG1oqz37gEnIA8ufarmb6T9PERPhhpiKUEfeUtZX/tbs1pOlVzhRYNud3BEV6C2lCvJPypIz+WKsQXa2qkIYTOYUtf3dqwR9MjjNfKeLcSxr8Q7K4taNgLAHu5r3knC2QNa1jLGUG6u9NdfpyC84dbdBPaQsPi6YuEhempsxPxMIr3eG+MhJKu6k8EYJ4OO/lX2ptGydN2wO3i62xm5FYT+i23/ABZCE+al7MpR5cE5Oa9JfaYfYZ6ST23CkLfkMIaB81eIFHH4JVXmTQlkiag1A1bZc0xQsFSQlsqLuOSkHsn5QTk+nnXr+AY6abAdvK6g0mzVlwAHP4E1em4Xm8ZhWvxTYYhq6q1oAkn+/RacxZIiCYY7wjFewPbDsKu+N3bPtWRZbRcrzJVHtkNyS4lO5QTgAD1JPAq6g1pVq1ptLbTP6NEz4YtOQXl5kZ243/vZ4z/GoxpnTl2sl1ui7ZdbeiIHUxMz2ClLzhAISEk54KsA559DV5vGg9j+7lcNswNHX5+CvP8Aw4Y5YwXZ2n9WUixpfPl4/ZV1drVcbTI+HuUN6K4RkBacBQ9Qex/CpE/oSc3pFOoEy2nAWEyFMBCuGz5hXYkDkjyqVP8A6TvWldTWzU7aTOtKviWnQkDAIUrCT6YSceyq3kP9Ev2lVisDVtkxlRyHYb8tbUg+uRgkd/bk+VQz8Wma1tDUHWtQRQO52sHT5qfDcCw7nOsktLe7ejg6yNhvRGvyUH1BoSzwdDnU1v1lCmrSplJt62ktyP1iG1ghIcVkJCyFehSR71A6+nW1tOracSUrQopUD5Ed6+a9GF5ApSlKyiUpSiK0dCdV39EdK52n9NNyYOoptyTIXcgEKQGQkDYAoHnIPl+0TmvnX/VR3XXTC2WTUjcmXqS3XBbyLiUoShxhQOUkDGFZ29hjCBVYUrXKEtSCRfmHdBRtOhhwPMzjJLuRtKdqhj1z81SOw66tca02iPOj3Vt62Z2phvBLL3ORvSTz/wBvrVeUqlNw2CVuVw5k78zur8XEp4nZmnkBtyGymds1RZv0zOus+JdI0p+Wp9t2BK2kIP8AwagcAj3881kjXECRfL87Ptrxt14aQ2tDKwHE7BhKs9ieT/CoHWxsdkut7ecZtUNclbadywlQGB+JFRS8PwrQXv0FAWTsAQR5agKSLiOLcQyPU2TQG5IIPnoSpPYNZwLdCnWVUe5N2l14uRlR5OyQ12yCoYBBxnH1718W7Vdpt2opk6LEuLkZ+3LiD4h/xHSskHeSfLjsPr7Vob1pm/WVhL9ztj0dpR2hZwpOfTIJxWoozAYSYOew2Hb0bB+6y/H4uEtY8UW7WKI+ykLrVhZ0GyvLb17kSyflWdzLQGMKHbkjPrz7Vn6J1FY7I007Ij3dua07vUqJJw2+M5CVpJxjyqH0qxJgmyxuje4kEk7/AA8vBV48a6KRskbQCABt8fPxUuuGrmJtgvsBUJTTtzniWgpI2oGUnB9/l7+ZNZKtaQ1al09dfg3w3a4iWHUZGVEJIJT+fnUQgQpU+czCiMLdkPKCW0Ackn+7zzXN1gyLZcX4EtKUvsLKFhKgoA/UVD7Bhb7PmQdL5EBp+AU3t+LrtOVjWuYJcPiVMrTrK2Js0i13Bq6Mtqmrkoct7wbWoKP3V889/wCz0r4n63jTLnqKWqC6hN0hCM0AoEowMAq/6qg9KDhWGzF1b+PiD8wFg8VxOUNvbw8CPkSpNo7UEC2W652m7RH5EG4JQF+AoJWgpJwRn/PFbOxazgQrZJsj8e5t2zx1OxVxZRQ+0CT8qiMBQ5z9fXjEGpUkvDoJS4uB1IO53Gl+dLSLiM8QaGkaAjYbHWvK1L2NT2uLOvSosWeWJ9tXDbL73iOBZGNyifL2FRClKnhw7IbLedfDRQTYl81B3K/jqr9vP2hlPwtHrgWp9i4W2YxLvTpUAJqm2vCKUnJOFJK+/Ykd8ZrHk9dbeOtFq1fEsLyLFbbZ+jWYRKQ622QcqQc4CskD3SMcZqiqVLlChzFXD1J6m2C+dPk6M02xqeSX7qLg7Nvs5L7wVt2hCSCeO3cjHPfOann2j9ZzLR0vtWjbk7DVrC6xY51AuMvJS21yhKyD95RI9sBXkRXmKlMoS1PujGu4Gi516jXu3SLhZr5bXLfNajrCHQlXG5JPngqGMjv34rf6Y6jaHtcDUujZWmbrK0Rd3mn2GzKT8bHcQEZXu4SSSgHHGO3IzVRUpQWLVh9X+oFv1ZDsdg07aHLTp2wsrbhMOub3VleNy1nt+yMDnzOeeK8pSsgUiUpSsolKUoiUpSiJSlKIlKUoiUpSiJSlKIlKUoi5V94/WuK5V94/WuKwNkO6UpSsori6N6ljLsS7ROktMuQyVNFxYSFNk57n0OfwIqU6V1baL+w640+iKpt4tqS+4lJx5K79iP7DXn21zFW+4NTEMR31NEkNvt70HjHI86sKTq+wJtBcYbt65/hAhtVnSEFfmM7uB75/OvJ8S4O10rnsaTmPLkefvXueD/iBzYGskcBkBGvMcq1Go2rW1uvtPavj3W7wdMW2UiREtid8hxCwpK3yMAZH7qf4qI8qqO1zpVsuDM+E6WpDKtyFAZxXXMfMmW7JU202XVlZQ2nahOTnAHkK6q7uAwMeEwrcONQBr43uvH4jEvknMoOt6fRTpnqLq95a32mo7rSNqVJTFyhKicAkjkEn3roYka3uMaRBXCkqj3Sc2lbz8YobbfUsIThwgBHzJx342ntg19dLdVWPTjs9nUFrmz4kkx3UfCPpbcQ6w6HE/eBBScEHzweKlrHW6SbvGlSIEsQmkMrXARK/VKfRdkzi4ARgEoBbzjPY9uK2ZgcPGe5GB6dFNJxTGSinyuO/PrutJepPUKTGjWOUpnEqG1LL7ZSnc0pCloC3PugkIVxxnBHNak9SdTmOW/Gi+IU7fHDA8Qfj2/hU0PWuM7DtUd7TryP0U0AyWJezx1mMtlReG3C8bwUnGU4UM4Uapqg4fhiKMY9yz+a40HMJXWdNyuVqUtRUokqUcknzNcUpVxc9KuTT/QeTcrVYlS9Z2S3XfUEMTLVbXUrUp5so3jcsDCTtI4wfxqm6vdzqXpM6q6R3ES5HgaatbMW6H4dWWlpbSg4H7QyM8Z4rDr5LIrmo7rPo25ZNJXXUFp1dab+LI+li7R4qFpXGWpezjP3sEjPbHPoayNM9F4mp7eWdO9QrDctQJhCWbU0hfbAJR4vbcCQO3fviuyHr7Tbejuq9qXIfEjUc9Mi2fqVYdT46lcn9k7SDzirZs3XPQltchXWJqedDtce2hlOk2bOAEPBIGQ/gA4xjk48+K1Jcs0FSul+ksedoKDq/UWs7ZpuJc3ls29MlhbgdKSUkqUnhAyk988DNSHTPSzTF56Jv3iRfLPabtHv7kT9Ly5axGdZSnhCR905PzA7QT6+VZvQ3XmkdM6ahxrtry8RooLhuen5VqEyLKyVYDKsHwwQUk57kHPesCy6y6dX3p3fdFX+VO01Dc1A7drcYkTxwlpX3WcDsQMjyHb3obTRaTSvRxdy0/bbxfNYWfTzd5eUzZ2pSVqXMIUE7sDG1JJGDz3GQMjPzZejF0cump2NSX616dg6adbanzJBUtOXD+rKAMZCgQRnH3kjGTxP9FdY7I704tGm39X3PRlws6DHEuPam5aZbII28FJUhWAM4I5zyc8Q+56+sUjRHU20OXu6XSbfZcFdvkzWf1slDLqSorKeE4SngHHAA9qW5NFWGpoEG2X6XAtt3ZvENlYDU1ptSEvDAOQlXI74x7Vu9J6Ru1xiMXJh2Kht1avBjOSC2uXs5WlOBx2Izx/fUSqeaK1ixE06rT1xlyre2lSlMTYqErUgK+8kggnHJORzVPiTsQ2G4BZvXy/tba9Fe4a3DumrEGhWnn/b306qQuRWp/TWew1AZtpfjfpBiO3NW+6tCCMqUF9k8DsfMefFdI0BZ42nd8xmR4ht5lLuPjhLbbmMhvZ5jnv7VrJmrrdZ9JvWKzXKZdVvNKZS8+yG0x2yOQnjcTye5wPw5xv03prUlnhRdSPzYE+E0GUyWEb0PIH3dw55H9555xXBZBjGAluZrC4nSyarQ0Tm5c78iF3nz4N5DXZXPDQNaDbvUWBl57ivMFYlvtFknaFcvTUaQJlrkNia343EhtSgOOPlOD+GD3ruvml7dPiWe7aYLrca5yBFLD6sll0+/pwfy9+NlHu+hGNPytLR5d0ajSSHHZ5aBK1BQIG3vjgeQrCn6os1qas1r08h+TCt81M1554bVvLGRgDjAwT5enpzbbJinSExh15iRd1lI53/7bDcbbKo6PCNjAkLaygGqvMDyr/13Ox33Upe1RYLXe2LE/wDEuzozPwCrulCEraJwDgYxgHzxxg9+cxuBpqzDVE/Sd7Mr9JuulUS4JcyFApCkhST5nkk888cd60N9kWGdrpya2+/+i5MkPPKLXzp3HKxjz5z/ANfnLpuo9EvaoVq1Ui5vzG8FmH4QSnclO1Jz6cZ75/sqD2Z+GaOyDrc2zQ2duPLc2NlP7SzEuPbFlNdQs7t2PnsKO6iuitIP6j6hxNGrnNQH5ElcYvrQVJQtIV5cE5KcfjW3X0n1YNMal1GhuMqDp2e7BmArUHFLbUErUhJHKRuBOSPP0qOWrUUuBreNqptI+KYuKZ+1JwCoOb8fTyr0TqDrdoJ3WMC2QRLXo64xJyb9lhSVLdlnJO3uSkpAyPJZxnFelaX5Rm35rzDg3Mcu3JVxF6F3l7VESyLvttjhWn277NkPBSURGlKKSgj9pQI9hjJ44znab0jEg6f6is6cvGmdUwollbednPwF+I1kubgySfkWNhOeQfkPlW3b6vadl9T+oN8mvyGrddbE7bLThgn7qUpQCByncQVc9t3OKhHSHV9k05orqDabq861JvdpEeCEtFQW4A4NpI+798cnjg1nVY0Ug6p9M9MWrpvpXVFsvFstMuVp+NLlQJMlxT855aEFS2knOOVHIGEj2rL1103u+rOsTlhKtL2MRLC1cJL0KOpiM3HSACso5JVlQHfGAOeK1fULU2g9Y9LtM+NeLjC1Fp60N25FvEMrbkKSEJ3eJnCRhJPr7esmuHVTRz3U/UN/RNkGDcNFLtLCjGXu+JIQQgjHA+UjPb3pqmigms+kj9r05bdR6Z1HA1VarhNTb0OxW1NLTIVnagpV5EjGc+nHNbyV0CkMmbaka3sL2qIEJU2VZ0BZU22EhRHiYxuwocEDuD2Oaw9J9QbbaejNs0/EDjuooGrGbqxGLRKHUIAI+bt94Yx3q8LBG0/P1lrDXh05rOwXZyxSE3FF1ipbhNEISFbF91E7MjBxgKOBkChJCAAry/0o0NcOoWrU2CBKYibWFyH5DwJS00nGTgck5IGPepVbukNvver4entM9QrJd1zI0h1paWltrS4yEktrbPKdwJIPohXpzGekVztlo1giddNR3jTqUsrDFwtqAtbTpxjej9psjcCkd+PLNWhrrqHCu2ttBSdEuL1Tqu2SD8TdEW74JdxKlAJaKAOxTuBPYBRx3NZN2sClXWn+mV4u+g7lqlEhphUO6s2puG6khb761oSUg9htLic59/Stn1N6V27RMGYh3Xtnm3qD4Zk2oMradO8pH6sq4cxuye2ACfarJ+1RqOxWm42fQlv8aHH/AEmb1fhDWPGQ66rdhKu2/ClqAPH82a1fUXqHo6f0muenntXztcXF5bRtK59q8B+3gKBUVPY+c4Hfuc4PBNYBJWaC1vW/pJZbRf4bOkrpamZE1MRiPYTKWuWt13Cdw3Zwkk5yTgc/StbqHobLt1svH6O1fZLxerHGMq6WqNuDjLYGVFKjwogdxgH8SBW317r7Q1x1Pp7qZaLlPc1FbxCDtldiFLZLRyv9d2AxkDAPODUg6k9XbBf7Ndpdp6lakgiXFUGLC1aWm8OqRjat8J5Rnv8AMTjOCeBS3JooZp3oTJuVqsjk3Wdktl21BEEu0251K1KfQUBY3KAwk4PkD+NYes+jK7HpS83u2avtN8dsD6Y94iRkLSuKsq2YBP3sK78Dsr0xW/c6maUVqnpHcRJk+Bpq2Mxbp+oVlpaUJQcD9ocZ4zx78Vqf5eacFu6yx/iXt+qZyH7V+pVh1IlOrO7935VpPPv51nvJoqfpSlbrVKUpREpSlESlKURKUpREpSlESlKURfSknceD39K42q9D+VeraV5b/JD/APH8fsva/wCID/5v/wA/deUtqvQ/lTar0P5V7U0/Oi2q3jw0GVPknIab5IHkCf4/jWxFsmXA/FX2QG2U/MI6FYSn+sf8/WoHfirKdYtP/t9lQk/Dojcc0lDy1PkLXhrar0P5U2q9D+Ve5V3bcRb9PREulPBc24bR7+/1/trlFsiQs3G+yxJf9XPuj2A8/wDPFY/ysjeL/wDWvyWn5Bl/W+jyFan0vReGdqvQ/lTar0P5V7kVNul6JbtqDDh9jIWMKUPb/q/MV9Ys+nUblEvzFf6ziif7B/nmn+Vnbsdemb7J/j5HdL+90Av366LwztV6H8qbVeh/KvcgiXa9ndPWYMI8hhP31D3/AOv8q+l3KDbv9z7LFEmQeNrfIz6qV5/57U/ys7CLX/7fWk/x++62S3c6Gg8za8M7Veh/Km1Xofyr3Mi0rePx+oZSV7eQ1uw2j6/5/OuFXWTNPwdgjBLaflMhScIR9B/n6U/yu9ov/wBafJPyAH9El1ua0Hra8NbVeh/Km1Xofyr3OiFbbN/p1zkmRKJyFucnP9Ef3/2VZdjlpm2mNJS5vLjSVH1GQDg+/NdDh3HRjXluSq8d/gFSxvDBh2h7XZgedUvzN2q9D+VNqvQ/lX6f0rr+0Houd2YX5gbVeh/Km1Xofyr9P6U9oPROzC/MDar0P5U2q9D+Vfp/SntB6J2YX5gbVeh/Km1Xofyr9P6U9oPROzC/MDar0P5U2q9D+Vfp/SntB6J2YX5gbVeh/Km1Xofyr9P6U9oPROzC/MDar0P5U2q9D+Vfp/SntB6J2YX5gbVeh/Km1Xofyr9P6U9oPROzC/MDar0P5U2q9D+Vfp/SntB6J2YX5gbVeh/Km1Xofyr9P6U9oPROzC/MDar0P5U2q9D+Vfp/Wg6gX0ae0rLuCVAPlPhRwfNxXb8uT+FPaD0Wrw1jS4nQL83wFA5AIIqSXjXet7xav0VddVXubBIAUw9McUhYHbcCfm/HNXG4tbjinHFFS1ElSickk+dfNY9o8FxfzUfs+P2Xnrar0P5Vk2ybPtc9m4W2VIhy2Fb2n2FlC0H1BHIq/KU9o8E/NR+z4/Zef5j8qZKclS3npEh1RW466oqWtR7kk8k11bVeh/KvQtKe0Hon5qP2fH7Lz1tV6H8qbVeh/KvQtKe0non5qP2fH7Lz1tV6H8qbVeh/KvQtKe0non5qP2fH7Lz1tV6H8qbVeh/KvQtKe0non5qP2fH7Lz1tV6H8qbVeh/KvQtKe0non5qP2fH7Lz1tV6H8qbVeh/KvQtKe0non5qP2fH7Lz1tV6H8qbVeh/KvQtKe0non5qP2fH7Lz1tV6H8qbVeh/KvQtKe0non5qP2fH7Lz1tV6H8qbVeh/KvQtKe0non5qP2fH7Lz1tV6H8qbVeh/KvQtKe0non5qP2fH7KUV2MNl19tod1qCR+JpSvnJ2X39xppKmzzlq0xHCW2lOSFjg4+ZX1PYCvlu3XC8lL92e8KMfmRGaPceWT/AJ/ClK57jlYHDcrzcjjFC2Yfqdep39OiSbsxDdFpssVK387QCNqUn8e5r7YsyQo3C+SDKdQNxSfuIH08/wCz2pSj+5QHNZn/AOAsaz/YCzz18V0/pWZd3lQ7KlLDSBhb6+CB7Dy/z2ruEW2afY+MlFb8hR/nFDcpSvb0/wA80pWxFSdmNlu9gbiRhm6N59T5ldDYueokb1OCFbyfuoOVrHv/AJ/A12y5tt08gQ4cffJUBx2z6FSv8/hSlGjM8s5BImiXEGE6NF6Dw69VyxZ5dxcEm+PlSRyiM2cJT9cf596+HryXHxarDHR4icjeobUox3wPP/PelK1Z3wSeSjgPbNe9/wDqNBy9y7WbVFgIVcru+qW+kZUtYJSn6D/P4VNtEyY8u1ty2lLBkhSg2odglZTmlK6vBDc4kOp28rIHyK5vEblwfauOuavCqJUgpSle6XlkpSlESlKURKUpREpSlESlKURKUpREpSlESlKURKUpREqk+v8Ad1P3uJZkEhuK34q/da+35AD8zSlYK5vFXEYehzKrGlKVheZSlKURKUpREpSlESlKURKUpREpSlESlKURKUpREpSlESlKURKUpRF//9k=" alt="లిపి నైపుణ్య దీపిక – Script Mastery Workbook cover" />
+    <div class="header-text">
+      <h1>అనుబంధం</h1>
+      <div class="header-rule"><span></span><span class="diamond">◆</span><span></span></div>
+      <p class="header-desc">పుస్తకంలో ఉదాహరణగా వాడిన తెలుగు పదాలు, ఆంగ్ల లిప్యంతరీకరణ (English Transliteration), ఉచ్చారణ, ఆంగ్లంలో అర్థం</p>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ TOOLBAR ══════════════════════════════════════════ -->
+<div class="toolbar">
+  <div class="search-wrap">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input id="searchInput" type="search" placeholder="పదం లేదా అర్థం వెతకండి… (search word or meaning)" autocomplete="off" />
+  </div>
+  <span class="count-badge" id="countBadge"></span>
+</div>
+
+<!-- ═══ TABLE ════════════════════════════════════════════ -->
+<main>
+  <div class="table-wrap">
+    <table id="glossaryTable">
+      <thead>
+        <tr>
+          <th>తెలుగు పదం</th>
+          <th>Transliteration</th>
+          <th>ఉచ్చారణ</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+      </tbody>
+    </table>
+    <div id="noResults">సంబంధిత పదాలు కనుగొనబడలేదు — No results found.</div>
+  </div>
+</main>
+
+<footer>
+  అనుబంధం &nbsp;|&nbsp; Telugu Glossary Appendix
+</footer>
+
+<script>
+const words = [
+  // న
+  { tel: 'నగలు', translit: 'nagalu', meaning: 'Jewelry' },
+  { tel: 'నక్క', translit: 'nakka', meaning: 'Fox' },
+  { tel: 'నడక', translit: 'naDaka', meaning: 'Walk' },
+  { tel: 'నంది', translit: 'nandi', meaning: 'Sacred bull' },
+  { tel: 'మనకు', translit: 'manaku', meaning: 'For us' },
+  // నా
+  { tel: 'నాలుక', translit: 'naaluka', meaning: 'Tongue' },
+  { tel: 'నాగలి', translit: 'naagali', meaning: 'Plough' },
+  { tel: 'నారు', translit: 'naaru', meaning: 'Seedlings' },
+  { tel: 'నాలుగు', translit: 'naalugu', meaning: 'Four' },
+  { tel: 'వినాయకుడు', translit: 'vinaayakuDu', meaning: 'Deity who is the remover of obstacles' },
+  // ద
+  { tel: 'పెదవి', translit: 'pedavi', meaning: 'Lip' },
+  { tel: 'దవడ', translit: 'davaDa', meaning: 'Jaw' },
+  { tel: 'గాడిద', translit: 'gaaDida', meaning: 'Donkey' },
+  { tel: 'దశ', translit: 'dasha', meaning: 'State' },
+  { tel: 'దండ', translit: 'daNDa', meaning: 'Garland' },
+  // దా
+  { tel: 'దారి', translit: 'daari', meaning: 'Way' },
+  { tel: 'దారం', translit: 'daaram', meaning: 'String, Thread' },
+  { tel: 'దాహం', translit: 'daaham', meaning: 'Thirst' },
+  { tel: 'దానం', translit: 'daanam', meaning: 'Charity' },
+  { tel: 'పోదాం', translit: 'pOdaam', meaning: "Let's go" },
+  // ని
+  { tel: 'నిచ్చెన', translit: 'nichchena', meaning: 'Ladder' },
+  { tel: 'నిజం', translit: 'nijam', meaning: 'Truth' },
+  { tel: 'నిప్పు', translit: 'nippu', meaning: 'Fire' },
+  { tel: 'నిలువు', translit: 'niluvu', meaning: 'Vertical' },
+  { tel: 'నిమ్మ', translit: 'nimma', meaning: 'Lemon' },
+  // డి
+  { tel: 'దిశ', translit: 'disha', meaning: 'Direction' },
+  { tel: 'పది', translit: 'padi', meaning: 'Ten' },
+  { tel: 'పంది', translit: 'pandi', meaning: 'Pig, Swine, Hog' },
+  { tel: 'దినం', translit: 'dinam', meaning: 'Day' },
+  { tel: 'గది', translit: 'gadi', meaning: 'Room' },
+  // నీ
+  { tel: 'నీలం', translit: 'neelam', meaning: 'Blue' },
+  { tel: 'నీది', translit: 'needi', meaning: 'Yours' },
+  { tel: 'తూనీగ', translit: 'tooneega', meaning: 'Dragonfly' },
+  { tel: 'నీకు', translit: 'neeku', meaning: 'For you' },
+  { tel: 'నీరుల్లి', translit: 'Neerulli', meaning: 'Onion' },
+  // దీ
+  { tel: 'దీని', translit: 'deeni', meaning: 'This' },
+  { tel: 'దీవి', translit: 'deevi', meaning: 'Island' },
+  { tel: 'దీవెన', translit: 'deevena', meaning: 'Blessing' },
+  { tel: 'ఖాదీ', translit: 'khaadee', meaning: 'Hand-woven natural fibre cloth' },
+  { tel: 'పుదీన', translit: 'pudeena', meaning: 'Mint leaves' },
+  // క
+  { tel: 'కలం', translit: 'kalam', meaning: 'Pen' },
+  { tel: 'కల', translit: 'kala', meaning: 'Dream' },
+  { tel: 'మేక', translit: 'mEka', meaning: 'Goat' },
+  { tel: 'పలక', translit: 'palaka', meaning: 'Slate' },
+  { tel: 'కమలం', translit: 'kamalam', meaning: 'Lotus' },
+  // కా
+  { tel: 'కాలం', translit: 'kaalam', meaning: 'Time, span, season' },
+  { tel: 'కాలు', translit: 'kaalu', meaning: 'Leg' },
+  { tel: 'కాకి', translit: 'kaaki', meaning: 'Crow' },
+  { tel: 'కాదు', translit: 'kaadu', meaning: 'No' },
+  { tel: 'తెంకాయ', translit: 'Tenkaaya', meaning: 'Coconut' },
+  // కి
+  { tel: 'కంకి', translit: 'kanki', meaning: 'Cob of corn or millet' },
+  { tel: 'దానికి', translit: 'daaniki', meaning: 'For that' },
+  { tel: 'మురికి', translit: 'muriki', meaning: 'Dirty' },
+  { tel: 'నకిలీ', translit: 'nakilee', meaning: 'Fake' },
+  // కీ
+  { tel: 'కీలు', translit: 'keelu', meaning: 'Joint' },
+  { tel: 'కీటకం', translit: 'keeTakam', meaning: 'Insect' },
+  { tel: 'కీర', translit: 'keera', meaning: 'Cucumber' },
+  { tel: 'ఫకీరు', translit: 'phakeeru', meaning: 'Poor, holy man' },
+  { tel: 'కీర్తన', translit: 'keertana', meaning: 'Hymn, A devotional song' },
+  // ల
+  { tel: 'ఊయల', translit: 'ooyala', meaning: 'Swing' },
+  { tel: 'లంగా', translit: 'langaa', meaning: "A traditional ankle-length girl's dress" },
+  { tel: 'లంకె', translit: 'lanke', meaning: 'Link' },
+  { tel: 'ఈల', translit: 'eela', meaning: 'Whistle' },
+  { tel: 'నెల', translit: 'nela', meaning: 'Month' },
+  // లా
+  { tel: 'లావు', translit: 'laavu', meaning: 'Stout' },
+  { tel: 'లాగు', translit: 'laagu', meaning: 'Pull' },
+  { tel: 'లాభం', translit: 'laabham', meaning: 'Profit' },
+  { tel: 'లాలిపాట', translit: 'laalipaaTa', meaning: 'Lullaby' },
+  { tel: 'కోలాటం', translit: 'kOlaaTam', meaning: 'A folk dance, involves rhythmic stick movement' },
+  // లి
+  { tel: 'నెమలి', translit: 'nemali', meaning: 'Peacock' },
+  { tel: 'కదిలి', translit: 'kadili', meaning: 'Displace' },
+  { tel: 'వదిలి', translit: 'vadili', meaning: 'Left, let go' },
+  { tel: 'ఆకలి', translit: 'aakali', meaning: 'Hunger' },
+  { tel: 'గాలి', translit: 'gaali', meaning: 'Air' },
+  // లీ
+  { tel: 'లీటరు', translit: 'leeTaru', meaning: 'Litre' },
+  { tel: 'విలీనం', translit: 'vileenam', meaning: 'Merge' },
+  { tel: 'లీలలు', translit: 'leelalu', meaning: 'Divine plays' },
+  { tel: 'చాలీ-చాలని', translit: 'chaalee-chaalani', meaning: 'Insufficient' },
+  { tel: 'లీచి', translit: 'leechee', meaning: 'Lychee (a fruit)' },
+  // ను
+  { tel: 'నురగ', translit: 'nuraga', meaning: 'Froth' },
+  { tel: 'నుదురు', translit: 'nuduru', meaning: 'Forehead' },
+  { tel: 'నుడి', translit: 'nuDi', meaning: 'Speech' },
+  { tel: 'కానుక', translit: 'kaanuka', meaning: 'Gift' },
+  { tel: 'ఏనుగు', translit: 'Enugu', meaning: 'Elephant' },
+  // దు
+  { tel: 'దుమ్ము', translit: 'dummu', meaning: 'Dust' },
+  { tel: 'దుకాణం', translit: 'dukaaNam', meaning: 'Store' },
+  { tel: 'దువ్వెన', translit: 'duvvena', meaning: 'Comb' },
+  { tel: 'కాదు', translit: 'kaadu', meaning: 'No' },
+  { tel: 'నదులు', translit: 'nadulu', meaning: 'Rivers' },
+  { tel: 'ముందు', translit: 'mundu', meaning: 'Front' },
+  // కు
+  { tel: 'కుక్క', translit: 'kukka', meaning: 'Dog' },
+  { tel: 'కుబేరుడు', translit: 'kubEruDu', meaning: 'Affluent Person' },
+  { tel: 'కుందేలు', translit: 'kundElu', meaning: 'Rabbit' },
+  { tel: 'రేకు', translit: 'rEku', meaning: 'A thin metal sheet' },
+  { tel: 'మేకు', translit: 'mEku', meaning: 'Nail' },
+  { tel: 'చాకు', translit: 'chaaku', meaning: 'Knife' },
+  // ు (mElu group)
+  { tel: 'మేలు', translit: 'mElu', meaning: 'Good, Superior' },
+  { tel: 'నాలుక', translit: 'naaluka', meaning: 'Tongue' },
+  { tel: 'ఎలుక', translit: 'eluka', meaning: 'Mouse' },
+  { tel: 'అలుక', translit: 'aluka', meaning: 'Mild displeasure' },
+  { tel: 'చీమలు', translit: 'cheemalu', meaning: 'Ants' },
+  // నూ
+  { tel: 'నూకలు', translit: 'nookalu', meaning: 'Cracked grains, Broken Rice' },
+  { tel: 'నూతి', translit: 'nooti', meaning: 'Well' },
+  { tel: 'నూలు', translit: 'noolu', meaning: 'Cotton yarn' },
+  { tel: 'నూరు', translit: 'nooru', meaning: 'Hundred' },
+  { tel: 'నూరడం', translit: 'nooraDam', meaning: 'Grinding' },
+  // దూ
+  { tel: 'దూరం', translit: 'dooram', meaning: 'Distance' },
+  { tel: 'దూలం', translit: 'doolam', meaning: 'Wooden beam' },
+  { tel: 'దూత', translit: 'doota', meaning: 'Messenger' },
+  { tel: 'దూది', translit: 'doodi', meaning: 'Cotton' },
+  { tel: 'దూకు', translit: 'dooku', meaning: 'Jump' },
+  // కూ
+  { tel: 'కూర', translit: 'koora', meaning: 'Vegetable/Curry' },
+  { tel: 'కూజా', translit: 'koojaa', meaning: 'A clay pot with a long neck' },
+  { tel: 'కూటమి', translit: 'kooTami', meaning: 'Alliance, association' },
+  { tel: 'కూలి', translit: 'kooli', meaning: 'Wage labourer' },
+  { tel: 'కూడు', translit: 'kooDu', meaning: 'Food' },
+  // లూ
+  { tel: 'లూటీ', translit: 'looTee', meaning: 'Loot' },
+  { tel: 'భల్లూకం', translit: 'bhallookam', meaning: 'Bear' },
+  { tel: 'పెచ్చులూడటం', translit: 'pechchulooDaTam', meaning: 'Scalding' },
+  // నం
+  { tel: 'వనం', translit: 'vanam', meaning: 'Forest' },
+  { tel: 'నంది', translit: 'nandi', meaning: 'Sacred bull' },
+  { tel: 'భోజనం', translit: 'bhOjanam', meaning: 'Meal' },
+  { tel: 'నందయాల', translit: 'nandyaala', meaning: "A town's name in Andhra" },
+  { tel: 'జీవనం', translit: 'jeevanam', meaning: 'Living' },
+  // దం
+  { tel: 'దండ', translit: 'daNDa', meaning: 'Garland' },
+  { tel: 'దండి', translit: 'daNDi', meaning: 'Abundance' },
+  { tel: 'అందం', translit: 'andam', meaning: 'Beauty' },
+  { tel: 'పాదం', translit: 'paadam', meaning: 'Foot' },
+  { tel: 'దంతం', translit: 'dantam', meaning: 'Tooth' },
+  // కం
+  { tel: 'కంచు', translit: 'kanchu', meaning: 'Bronze' },
+  { tel: 'కంపు', translit: 'kampu', meaning: 'Stink' },
+  { tel: 'కండ', translit: 'kaNDa', meaning: 'Muscle' },
+  { tel: 'కంఠం', translit: 'kanTham', meaning: 'Throat' },
+  { tel: 'కీటకం', translit: 'keeTakam', meaning: 'Insect' },
+  // లం
+  { tel: 'లంగరు', translit: 'langaru', meaning: 'Anchor' },
+  { tel: 'లంచం', translit: 'lancham', meaning: 'Bribe' },
+  { tel: 'జలం', translit: 'jalam', meaning: 'Water' },
+  { tel: 'పొలం', translit: 'polam', meaning: 'Cultivated field' },
+  { tel: 'బలం', translit: 'balam', meaning: 'Strength' },
+  // నే
+  { tel: 'నేల', translit: 'nEla', meaning: 'Floor' },
+  { tel: 'నేను', translit: 'nEnu', meaning: 'I, Me' },
+  { tel: 'నేతి', translit: 'nEti', meaning: 'Of clarified (Indian) butter, ghee' },
+  { tel: 'నేటి', translit: 'nETi', meaning: "Today's" },
+  { tel: 'నేరేడు', translit: 'nErEDu', meaning: 'Indian berry' },
+  // దే
+  { tel: 'దేహం', translit: 'dEham', meaning: 'Body' },
+  { tel: 'దేశం', translit: 'dEsham', meaning: 'Country' },
+  { tel: 'దేవత', translit: 'dEvata', meaning: 'Goddess' },
+  { tel: 'దేనికి?', translit: 'dEniki?', meaning: 'For what?' },
+  { tel: 'సందేశం', translit: 'sandEsham', meaning: 'Message' },
+  // కే
+  { tel: 'కేక', translit: 'kEka', meaning: 'Shout' },
+  { tel: 'కేశాలు', translit: 'kEshaalu', meaning: 'Hair' },
+  { tel: 'కేవలం', translit: 'kEvalam', meaning: 'Just' },
+  { tel: 'కేరింత', translit: 'kErinta', meaning: 'High-pitched scream of joy' },
+  { tel: 'కేతువు', translit: 'kEtuvu', meaning: 'A Mythological entity' },
+  // లే
+  { tel: 'లేత', translit: 'lEta', meaning: 'Tender' },
+  { tel: 'లేగదూడ', translit: 'lEgadooDa', meaning: 'Calf' },
+  { tel: 'జిలేబి', translit: 'jilEbi', meaning: 'A dessert' },
+  { tel: 'లేపనం', translit: 'lEpanam', meaning: 'Paste (similar to ointment, balm)' },
+  { tel: 'లేపు', translit: 'lEpu', meaning: 'Lift' },
+  // నో
+  { tel: 'నోరు', translit: 'nOru', meaning: 'Mouth' },
+  { tel: 'నోము', translit: 'nOmu', meaning: 'A religious vow' },
+  { tel: 'నోటిమాట', translit: 'nOTimaaTa', meaning: 'Word of mouth' },
+  { tel: 'వినోదం', translit: 'vinOdam', meaning: 'Entertainment' },
+  { tel: 'నోటు', translit: 'nOTu', meaning: 'Currency, note' },
+  // దో
+  { tel: 'దోమ', translit: 'dOma', meaning: 'Mosquito' },
+  { tel: 'దోశ', translit: 'dOsha', meaning: 'Pancake' },
+  { tel: 'దోపిడి', translit: 'dOpiDi', meaning: 'Loot, Looting' },
+  { tel: 'దోషం', translit: 'dOSham', meaning: 'Fault' },
+  { tel: 'దోసకాయ', translit: 'dOsakaaya', meaning: 'Cucumber' },
+  // కో
+  { tel: 'కోడి', translit: 'kODi', meaning: 'Hen' },
+  { tel: 'పకోడీ', translit: 'pakODee', meaning: 'A snack' },
+  { tel: 'కోతి', translit: 'kOti', meaning: 'Monkey' },
+  { tel: 'కోకిల', translit: 'kOkila', meaning: 'Cuckoo' },
+  { tel: 'కోపము', translit: 'kOpamu', meaning: 'Anger' },
+  // లో
+  { tel: 'లోకం', translit: 'lOkam', meaning: 'World' },
+  { tel: 'లోతు', translit: 'lOtu', meaning: 'Depth' },
+  { tel: 'ఆలోచన', translit: 'aalOchana', meaning: 'Thought' },
+  { tel: 'లోహం', translit: 'lOham', meaning: 'Metal' },
+  { tel: 'లోభి', translit: 'lObhi', meaning: 'Miser' },
+  // నె
+  { tel: 'నెల', translit: 'nela', meaning: 'Month' },
+  { tel: 'నెమలి', translit: 'nemali', meaning: 'Peacock' },
+  { tel: 'నూనె', translit: 'noone', meaning: 'Oil' },
+  { tel: 'నెలవంక', translit: 'nelavanka', meaning: 'Crescent Moon' },
+  { tel: 'నెమ్మది', translit: 'nemmadi', meaning: 'Slow, Gentle' },
+  // గే
+  { tel: 'గేద', translit: 'gEde', meaning: 'Buffalo' },
+  { tel: 'కందెన', translit: 'kandena', meaning: 'Lubricant' },
+  { tel: 'గాడె', translit: 'gaade', meaning: 'Granary' },
+  { tel: 'బిందె', translit: 'binde', meaning: 'A large metal pot for water storage' },
+  { tel: 'దెబ్బ', translit: 'debba', meaning: 'Injury' },
+  // కె
+  { tel: 'కెరటం', translit: 'keraTam', meaning: 'Wave' },
+  { tel: 'కెలుకు', translit: 'keluku', meaning: 'Stir up' },
+  { tel: 'కెంజాయ', translit: 'kenjaaya', meaning: 'Red' },
+  { tel: 'కెంపు', translit: 'kempu', meaning: 'Ruby' },
+  { tel: 'చిటికెడు', translit: 'chiTikeDu', meaning: 'A pinch of something' },
+  // లె
+  { tel: 'లెక్క', translit: 'lekka', meaning: 'Calculation' },
+  { tel: 'లెస్స', translit: 'lessa', meaning: 'Great, Fine, Proper' },
+  // నొ
+  { tel: 'నొసలు', translit: 'nosalu', meaning: 'Forehead' },
+  { tel: 'నొక్కు', translit: 'nokku', meaning: 'Press' },
+  { tel: 'నొప్పి', translit: 'noppi', meaning: 'Pain' },
+  // దొ
+  { tel: 'దొంగ', translit: 'donga', meaning: 'Thief' },
+  { tel: 'దొర', translit: 'dora', meaning: 'Master' },
+  { tel: 'దొండ', translit: 'doNDa', meaning: 'Ivy gourd – A vegetable' },
+  { tel: 'దొరుకు', translit: 'doruku', meaning: 'Found' },
+  { tel: 'దొడ్డ', translit: 'doDDa', meaning: 'Noble' },
+  // కొ
+  { tel: 'కొంగ', translit: 'konga', meaning: 'Crane' },
+  { tel: 'కొత్త', translit: 'kotta', meaning: 'New' },
+  { tel: 'కొండ', translit: 'koNDa', meaning: 'Hill' },
+  { tel: 'కొడవలి', translit: 'koDavali', meaning: 'Sickle' },
+  { tel: 'కొలికి', translit: 'koliki', meaning: 'The inner corner of the eye' },
+  // లొ
+  { tel: 'లొట్టిపిట్ట', translit: 'loTTipiTTa', meaning: 'Camel' },
+  { tel: 'లొట్టి (ముంత)', translit: 'loTTi (munta)', meaning: 'A pot or jug made of clay' },
+  { tel: 'లొత్త', translit: 'lotta', meaning: 'Ditch' },
+  // మ
+  { tel: 'మంచు', translit: 'manchu', meaning: 'Snow' },
+  { tel: 'మామిడి', translit: 'maamiDi', meaning: 'Mango' },
+  { tel: 'మిడత', translit: 'miData', meaning: 'Locust' },
+  { tel: 'మీసం', translit: 'meesam', meaning: 'Mustache' },
+  { tel: 'ముక్కు', translit: 'mukku', meaning: 'Nose' },
+  { tel: 'మూతి', translit: 'mooti', meaning: 'Mouth' },
+  { tel: 'మంట', translit: 'maNTa', meaning: 'Fire' },
+  { tel: 'మెదడు', translit: 'medaDu', meaning: 'Brain' },
+  { tel: 'మేక', translit: 'mEka', meaning: 'Goat' },
+  { tel: 'మొక్క', translit: 'mokka', meaning: 'Plant' },
+  { tel: 'మోసం', translit: 'mOsam', meaning: 'Cheat' },
+  // చ
+  { tel: 'చలి', translit: 'chali', meaning: 'Cold' },
+  { tel: 'చాలు', translit: 'chaalu', meaning: 'Enough' },
+  { tel: 'చినుకు', translit: 'chinuku', meaning: 'Rain drop' },
+  { tel: 'చీమ', translit: 'cheema', meaning: 'Ant' },
+  { tel: 'చురుక', translit: 'churaka', meaning: 'Burning sensation' },
+  { tel: 'చూడు', translit: 'chooDu', meaning: 'Look' },
+  { tel: 'చందనం', translit: 'chandanam', meaning: 'Sandalwood' },
+  { tel: 'చెదలు', translit: 'chedalu', meaning: 'Termite' },
+  { tel: 'చేప', translit: 'chEpa', meaning: 'Fish' },
+  { tel: 'చొప్ప', translit: 'choppa', meaning: 'Corn' },
+  { tel: 'చోటు', translit: 'chOTu', meaning: 'Place' },
+  // గ
+  { tel: 'గడ్డి', translit: 'gaDDi', meaning: 'Grass' },
+  { tel: 'చెడ్డ', translit: 'cheDDa', meaning: 'Bad' },
+  { tel: 'దగ్గు', translit: 'daggu', meaning: 'Cough' },
+  { tel: 'మగ్గు', translit: 'maggu', meaning: 'Ripen' },
+  { tel: 'ముగ్గు', translit: 'muggu', meaning: 'Rangoli' },
+  { tel: 'గడ్డం', translit: 'gaDDam', meaning: 'Beard' },
+  { tel: 'తెడ్డు', translit: 'teDDu', meaning: 'Paddle' },
+  { tel: 'గుడ్డి', translit: 'guDDi', meaning: 'Blind' },
+  { tel: 'కడ్డి', translit: 'kaDDi', meaning: 'Rod' },
+  { tel: 'మడ్డి', translit: 'maDDi', meaning: 'Sediment' },
+  { tel: 'తగ్గు', translit: 'taggu', meaning: 'Go down' },
+  { tel: 'నిగ్గు', translit: 'niggu', meaning: 'Fact' },
+  { tel: 'మగ్గం', translit: 'maggam', meaning: 'Loom' },
+  { tel: 'ముద్ద', translit: 'mudda', meaning: 'Lump' },
+  { tel: 'మొద్దు', translit: 'moddu', meaning: 'Dumb' },
+  { tel: 'కొద్దిగా', translit: 'koddigaa', meaning: 'Little' },
+  { tel: 'మచ్చ', translit: 'machcha', meaning: 'Scar' },
+  { tel: 'గిచ్చు', translit: 'gichchu', meaning: 'Pinch' },
+  { tel: 'కుచ్చు', translit: 'kuchchu', meaning: 'Tassle' },
+  { tel: 'మద్దెల', translit: 'maddela', meaning: 'A percussion instrument' },
+  { tel: 'గిత్త', translit: 'gitta', meaning: 'Young bull' },
+  { tel: 'చద్ది', translit: 'chaddi', meaning: 'Stale' },
+  { tel: 'దుద్దులు', translit: 'duddulu', meaning: 'Ear rings' },
+  { tel: 'గచ్చు', translit: 'gacchu', meaning: 'Floor' },
+  { tel: 'నిచ్చెన', translit: 'nicchena', meaning: 'Ladder' },
+  { tel: 'మచ్చిక', translit: 'macchika', meaning: 'Tame' },
+  // జ
+  { tel: 'గాజు', translit: 'gaaju', meaning: 'Glass' },
+  { tel: 'కాజా', translit: 'kaajaa', meaning: 'Button Hole, a dessert' },
+  { tel: 'జలం', translit: 'jalam', meaning: 'Water' },
+  { tel: 'జలగ', translit: 'jalaga', meaning: 'Leech' },
+  { tel: 'జెడ', translit: 'jeDa', meaning: 'Braid' },
+  { tel: 'గజం', translit: 'gajam', meaning: 'Foot' },
+  { tel: 'గజ్జ', translit: 'gajja', meaning: 'Groin' },
+  { tel: 'గజ్జె', translit: 'gajje', meaning: 'Anklet bell' },
+  { tel: 'మజ్జ', translit: 'majja', meaning: 'Bone' },
+  { tel: 'లజ్జ', translit: 'lajja', meaning: 'Shame' },
+  { tel: 'గజ్జి', translit: 'gajji', meaning: 'Scabies' },
+  { tel: 'గుజ్జు', translit: 'gujju', meaning: 'Pulp' },
+  { tel: 'మజ్జిగ', translit: 'majjiga', meaning: 'Buttermilk' },
+  // ట
+  { tel: 'నాటు', translit: 'naaTu', meaning: 'Plant' },
+  { tel: 'దాటు', translit: 'daaTu', meaning: 'Cross' },
+  { tel: 'లోటా', translit: 'lOTaa', meaning: 'Pitcher' },
+  { tel: 'చాట', translit: 'chaaTa', meaning: 'Winnowing tray' },
+  { tel: 'గంట', translit: 'gaNTa', meaning: 'Bell' },
+  { tel: 'నట్ట', translit: 'naTTa', meaning: 'Worm' },
+  { tel: 'దట్టం', translit: 'daTTam', meaning: 'Dense' },
+  { tel: 'కట్టె', translit: 'kaTTe', meaning: 'Stick' },
+  { tel: 'లొట్ట', translit: 'loTTa', meaning: 'Dent' },
+  { tel: 'మట్టి', translit: 'maTTi', meaning: 'Soil' },
+  { tel: 'చుట్ట', translit: 'chuTTa', meaning: 'Roll' },
+  { tel: 'గట్టు', translit: 'gaTTu', meaning: 'Shore' },
+  // బ
+  { tel: 'బోనం', translit: 'bOnam', meaning: 'An Offering' },
+  { tel: 'బాదాం', translit: 'baadaam', meaning: 'Almond' },
+  { tel: 'బాకు', translit: 'baaku', meaning: 'Dagger' },
+  { tel: 'బలం', translit: 'balam', meaning: 'Strength' },
+  { tel: 'మబ్బు', translit: 'mabbu', meaning: 'Cloud' },
+  { tel: 'బూచి', translit: 'boochi', meaning: 'Ghost' },
+  { tel: 'బాడుగ', translit: 'baaDuga', meaning: 'Rent' },
+  { tel: 'బొంగరము', translit: 'bongaramu', meaning: 'A top' },
+  { tel: 'దెబ్బ', translit: 'debba', meaning: 'Stroke' },
+  { tel: 'దబ్బణం', translit: 'dabbaNam', meaning: 'Bodkin' },
+  { tel: 'కొబ్బరి', translit: 'kobbari', meaning: 'Coconut meat' },
+  { tel: 'డబ్బు', translit: 'Dabbu', meaning: 'Money' },
+  { tel: 'గబ్బు', translit: 'gabbu', meaning: 'Foul odor' },
+  // ప
+  { tel: 'పని', translit: 'pani', meaning: 'Work' },
+  { tel: 'పొద', translit: 'poda', meaning: 'Bush' },
+  { tel: 'కప్ప', translit: 'kappa', meaning: 'Frog' },
+  { tel: 'పల్లె', translit: 'palle', meaning: 'Hamlet' },
+  { tel: 'పాము', translit: 'paamu', meaning: 'Snake' },
+  { tel: 'పచ్చి', translit: 'pacchi', meaning: 'Raw' },
+  { tel: 'పండు', translit: 'paNDu', meaning: 'Ripe' },
+  { tel: 'పొగ', translit: 'poga', meaning: 'Smoke' },
+  { tel: 'నొప్పి', translit: 'noppi', meaning: 'Pain' },
+  { tel: 'దప్పిక', translit: 'dappika', meaning: 'Thirst' },
+  { tel: 'పప్పు', translit: 'pappu', meaning: 'Lentils' },
+  { tel: 'చప్పగా', translit: 'chappagaa', meaning: 'Bland' },
+  { tel: 'డప్పు', translit: 'Dappu', meaning: 'A musical drum' },
+  { tel: 'గొప్ప', translit: 'goppa', meaning: 'Grand' },
+  // అమ్మ
+  { tel: 'అమ్మ', translit: 'amma', meaning: 'Mother' },
+  { tel: 'దిమ్మ', translit: 'dimma', meaning: 'Dizziness, Giddiness' },
+  { tel: 'కొమ్మ(లు)', translit: 'komma(lu)', meaning: 'Branch(es)' },
+  { tel: 'అమ్మమ్మ', translit: 'ammamma', meaning: 'Maternal grandmother' },
+  // న్న
+  { tel: 'నాన్న', translit: 'nanna', meaning: 'Father' },
+  { tel: 'అన్నం', translit: 'annam', meaning: 'Meal' },
+  { tel: 'అన్ని', translit: 'anni', meaning: 'All' },
+  { tel: 'కన్ను(లు)', translit: 'kannu(lu)', meaning: 'Eye(s)' },
+  { tel: 'పున్నమి', translit: 'punnami', meaning: 'Full moon' },
+  { tel: 'వన్నె', translit: 'vanne', meaning: 'Color' },
+  // ల్లు
+  { tel: 'ఇల్లు', translit: 'illu', meaning: 'Home' },
+  { tel: 'పిల్ల', translit: 'pilla', meaning: 'Baby girl' },
+  { tel: 'చెల్లి', translit: 'chelli', meaning: 'Younger sister' },
+  { tel: 'కల్లు', translit: 'kallu', meaning: 'Toddy' },
+  { tel: 'పల్లకి', translit: 'pallaki', meaning: 'Palanquin' },
+  { tel: 'అల్లం', translit: 'allam', meaning: 'Ginger' },
+  // త
+  { tel: 'తల', translit: 'tala', meaning: 'Head' },
+  { tel: 'లత', translit: 'lata', meaning: 'Creeper, Vine' },
+  { tel: 'లేత', translit: 'lEta', meaning: 'Tender' },
+  { tel: 'తోలు', translit: 'tOlu', meaning: 'Skin' },
+  { tel: 'తల్లి', translit: 'talli', meaning: 'Mother' },
+  { tel: 'తోడు', translit: 'tODu', meaning: 'Help, Aid, Assistance' },
+  { tel: 'బాటు', translit: 'baatu', meaning: 'Duck' },
+  { tel: 'జత', translit: 'jata', meaning: 'Pair' },
+  { tel: 'మేత', translit: 'mEta', meaning: 'Fodder' },
+  { tel: 'తినా', translit: 'tinu', meaning: 'Eat' },
+  { tel: 'రాత', translit: 'raata', meaning: 'Writing' },
+  { tel: 'తార(లు)', translit: 'taara(lu)', meaning: 'Star(s)' },
+  { tel: 'తెర', translit: 'tera', meaning: 'Screen' },
+  { tel: 'చెర', translit: 'chera', meaning: 'Cell, Jail' },
+  { tel: 'చీర', translit: 'cheera', meaning: 'Saree' },
+  { tel: 'చీకటి', translit: 'cheekaTi', meaning: 'Dark' },
+  { tel: 'రుచి', translit: 'ruchi', meaning: 'Taste' },
+  { tel: 'రచ్చబండ', translit: 'rachchabanDa', meaning: 'A village gathering spot on a stone slab under a tree' },
+  { tel: 'రొద', translit: 'roda', meaning: 'Noise' },
+  { tel: 'రగ్గు', translit: 'raggu', meaning: 'Blanket' },
+  { tel: 'రాముడు', translit: 'ramuDu', meaning: 'Son of King Dasaratha & Queen Kausalya' },
+  { tel: 'నేరం', translit: 'nEram', meaning: 'Crime' },
+  { tel: 'నరం', translit: 'naram', meaning: 'Nerve' },
+  // ర
+  { tel: 'రాను', translit: 'raanu', meaning: "I won't come" },
+  { tel: 'మరకలు', translit: 'marakalu', meaning: 'Stains' },
+  { tel: 'అగ్ని', translit: 'agni', meaning: 'Fire' },
+  { tel: 'కల్పన', translit: 'kalpana', meaning: 'Imagination' },
+  { tel: 'పల్చగా', translit: 'palchagaa', meaning: 'Thin, Watery' },
+  { tel: 'రాత్రి', translit: 'raatri', meaning: 'Night' },
+  { tel: 'క్రియ', translit: 'kriya', meaning: 'Action, Verb' },
+  { tel: 'వర్గం', translit: 'vargam', meaning: 'Group' },
+  { tel: 'స్త్రీ', translit: 'stree', meaning: 'Woman' },
+  { tel: 'మత్స్యము', translit: 'matsyamu', meaning: 'Fish' },
+  { tel: 'వల', translit: 'vala', meaning: 'Net' },
+  { tel: 'వేలు', translit: 'vElu', meaning: 'Finger' },
+  { tel: 'కడవ', translit: 'kaDava', meaning: 'Clay pot' },
+  { tel: 'పడవ', translit: 'paDava', meaning: 'Boat' },
+  { tel: 'బావ', translit: 'baava', meaning: 'Brother-in-law' },
+  { tel: 'బావి', translit: 'baavi', meaning: 'Well' },
+  { tel: 'వద్దు', translit: 'vaddu', meaning: 'No' },
+  { tel: 'వేదం', translit: 'vEdam', meaning: 'Divine knowledge' },
+  { tel: 'కవి', translit: 'kavi', meaning: 'Poet' },
+  { tel: 'మువ్వ', translit: 'muvva', meaning: 'Small tinkling bell of Anklet' },
+  { tel: 'రవ్వ', translit: 'ravva', meaning: 'Spark' },
+  { tel: 'కవ్వం', translit: 'kavvam', meaning: 'Churning stick' },
+  { tel: 'కవ్విమ్పు', translit: 'kavvimpu', meaning: 'Provocation' },
+  { tel: 'నవ్వు', translit: 'navvu', meaning: 'Laugh' },
+  { tel: 'పర్వం', translit: 'parvam', meaning: 'Chapter' },
+  { tel: 'త్వరలో', translit: 'tvaralO', meaning: 'Soon' },
+  { tel: 'ద్వీపం', translit: 'dveepam', meaning: 'Island' },
+  { tel: 'ద్వారం', translit: 'dvaaram', meaning: 'Entrance, Door' },
+  // స
+  { tel: 'సీత', translit: 'seeta', meaning: "Lord Shree Rama's wife" },
+  { tel: 'తీసివేసి', translit: 'teesivEsi', meaning: 'Deduct, Minus' },
+  { tel: 'కాసు', translit: 'kaasu', meaning: 'Coin' },
+  { tel: 'పసిడి', translit: 'pasiDi', meaning: 'Gold' },
+  { tel: 'సీసం', translit: 'seesam', meaning: 'Lead' },
+  { tel: 'సిగ్గు', translit: 'siggu', meaning: 'Shy' },
+  { tel: 'వాసి', translit: 'vaasi', meaning: 'Prominence, fame' },
+  { tel: 'సబ్బు', translit: 'sabbu', meaning: 'Soap' },
+  { tel: 'స్వరం', translit: 'svaram', meaning: 'Tone' },
+  { tel: 'సాగడం', translit: 'saagaDam', meaning: 'Stretch' },
+  { tel: 'సొంతం', translit: 'sontam', meaning: 'Own' },
+  { tel: 'హవిస్సు', translit: 'havissu', meaning: 'Ghee used in homam (sacrificial fire)' },
+  { tel: 'తపస్సు', translit: 'tapassu', meaning: 'Deep meditation' },
+  { tel: 'శిరస్సు', translit: 'shirassu', meaning: 'Head' },
+  { tel: 'సదస్సు', translit: 'sadassu', meaning: 'Conference' },
+  // చంద్రుడు
+  { tel: 'చంద్రుడు', translit: 'chandruDu', meaning: 'Moon' },
+  { tel: 'ప్రతి', translit: 'prati', meaning: 'Every' },
+  { tel: 'ముద్ర', translit: 'mudra', meaning: 'Seal, Gesture' },
+  { tel: 'చరిత్ర', translit: 'charitra', meaning: 'History' },
+  { tel: 'క్రీడలు', translit: 'kreeDalu', meaning: 'Sports' },
+  { tel: 'కత్తి', translit: 'katti', meaning: 'Knife' },
+  { tel: 'పత్తి', translit: 'patti', meaning: 'Cotton' },
+  { tel: 'చెత్త', translit: 'chetta', meaning: 'Trash' },
+  { tel: 'విత్తనం', translit: 'vittanam', meaning: 'Seed' },
+  { tel: 'వస్తువు', translit: 'vastuvu', meaning: 'Article' },
+  { tel: 'అక్క', translit: 'akka', meaning: 'Older sister' },
+  { tel: 'చొక్కా', translit: 'chokkaa', meaning: 'Shirt' },
+  { tel: 'బక్కగా', translit: 'bakkagaa', meaning: 'Skinny' },
+  { tel: 'చిక్కగా', translit: 'chikkagaa', meaning: 'Thick' },
+  { tel: 'రైతు', translit: 'raitu', meaning: 'Farmer' },
+  { tel: 'పైరు', translit: 'pairu', meaning: 'Crop' },
+  { tel: 'పైట', translit: 'paiTa', meaning: 'Draped fabric' },
+  { tel: 'మైకం', translit: 'maikam', meaning: 'Intoxication' },
+  { tel: 'నౌక', translit: 'nauka', meaning: 'Ship' },
+  { tel: 'చౌక', translit: 'chauka', meaning: 'Cheap' },
+  { tel: 'రౌతు', translit: 'Rautu', meaning: 'Jockey' },
+  { tel: 'మౌనం', translit: 'maunam', meaning: 'Silent' },
+  { tel: 'గౌరవం', translit: 'gauravam', meaning: 'Respect' },
+  // వెజ్
+  { tel: 'వంకాయ', translit: 'vankaaya', meaning: 'Brinjal, Eggplant' },
+  { tel: 'బెండకాయ', translit: 'benDakaaya', meaning: 'Okra, Lady finger' },
+  { tel: 'కూరగాయలు', translit: 'kooragaayalu', meaning: 'Vegetables' },
+  { tel: 'మాయం', translit: 'maayam', meaning: 'Vanish' },
+  { tel: 'యాత్ర', translit: 'yaatra', meaning: 'Tour' },
+  { tel: 'వ్యక్తి', translit: 'vyakti', meaning: 'Person' },
+  { tel: 'వైద్యం', translit: 'vaidyam', meaning: 'Medicine' },
+  { tel: 'వేయి', translit: 'veyyi', meaning: 'Thousand' },
+  { tel: 'వ్యవసాయం', translit: 'vyavasaayam', meaning: 'Agriculture' },
+  { tel: 'సూర్యుడు', translit: 'sooryuDu', meaning: 'Sun' },
+  { tel: 'నెయ్యి', translit: 'neyyi', meaning: 'Indian butter, ghee' },
+  { tel: 'దౌర్జన్యం', translit: 'daurjanyam', meaning: 'Oppression' },
+  { tel: 'కార్యము', translit: 'kaaryamu', meaning: 'Task' },
+  { tel: 'గడుగ్గాయ', translit: 'gaDuggaaya', meaning: 'Mischievous' },
+  { tel: 'న్యాయం', translit: 'nyaayam', meaning: 'Justice' },
+  { tel: 'విద్య', translit: 'vidya', meaning: 'Education' },
+  { tel: '(సం)బంధము', translit: '(sam)bandhamu', meaning: 'Relationship' },
+  { tel: 'నిధి', translit: 'nidhi', meaning: 'Treasure' },
+  { tel: 'ధనం', translit: 'dhanam', meaning: 'Money' },
+  { tel: 'బుద్ధి', translit: 'buddhi', meaning: 'Intelligence' },
+  { tel: 'పద్ధతి', translit: 'paddhati', meaning: 'Method' },
+  { tel: 'అభ్యంతరము', translit: 'abhyantaramu', meaning: 'Objection' },
+  { tel: 'అభ్యుదయం', translit: 'abhyudayam', meaning: 'Prosperity' },
+  { tel: 'అభ్యాసము', translit: 'abhyaasamu', meaning: 'Practice (to get better)' },
+  { tel: 'భేదము', translit: 'bhEdamu', meaning: 'Difference' },
+  { tel: 'భౌతికము', translit: 'bhautikamu', meaning: 'Physical' },
+  { tel: 'ఛత్రి', translit: 'Chatri', meaning: 'Umbrella' },
+  { tel: 'ఛాతి', translit: 'Chaati', meaning: 'Chest' },
+  { tel: 'ఛాయ', translit: 'Chaaya', meaning: 'Shade, Tone' },
+  { tel: 'ఛేదించు', translit: 'ChEdinchu', meaning: 'Cut, Chop' },
+  { tel: 'ధాన్యం', translit: 'dhaanyam', meaning: 'Grain' },
+  { tel: 'సందర్భం', translit: 'sandarbham', meaning: 'Context' },
+  { tel: 'నిర్భయం', translit: 'nirbhayam', meaning: 'Fearless' },
+  { tel: 'ఆవిర్భావం', translit: 'aavirbhaavam', meaning: 'Emergence' },
+  { tel: 'స్వచ్ఛము', translit: 'svachChamu', meaning: 'Pure' },
+  { tel: 'స్వేచ్ఛ', translit: 'svEchCha', meaning: 'Freedom' },
+  { tel: 'వృద్ధి', translit: 'vRuddhi', meaning: 'Growth' },
+  { tel: 'అభివృద్ధి', translit: 'abhivRuddhi', meaning: 'Development' },
+  { tel: 'వృత్తము', translit: 'vRuttamu', meaning: 'Circle' },
+  { tel: 'ప్రవృత్తి', translit: 'pravRutti', meaning: 'Tendency' },
+  { tel: '(ఆ)కృతి', translit: '(aa)kRuti', meaning: 'Shape, Song composition' },
+  { tel: 'మృగం', translit: 'mRugam', meaning: 'Animal' },
+  { tel: 'బృందం', translit: 'bRundam', meaning: 'Team' },
+  { tel: 'గృహం', translit: 'gRuham', meaning: 'Home' },
+  { tel: 'హృదయం', translit: 'hRudayam', meaning: 'Heart' },
+  { tel: 'క్రూరుడు', translit: 'kRooruDu', meaning: 'Cruel person' },
+  { tel: 'శక్తి', translit: 'shakti', meaning: 'Power' },
+  { tel: 'శంకరుడు', translit: 'shankaruDu', meaning: 'Lord Shiva' },
+  { tel: 'శనివారం', translit: 'shanivaaram', meaning: 'Saturday' },
+  { tel: 'శ్వాస', translit: 'shvaasa', meaning: 'Breath' },
+  { tel: 'శివుడు', translit: 'shivuDu', meaning: 'Lord Shiva' },
+  { tel: '(పరి)శుభ్రం', translit: '(pari)shubhram', meaning: 'Clean' },
+  { tel: 'శూన్యం', translit: 'shoonyam', meaning: 'Vacuum' },
+  { tel: 'శృతి', translit: 'shruti', meaning: 'Tone' },
+  { tel: 'విశేషం', translit: 'vishESham', meaning: 'Special' },
+  { tel: 'సంతోషం', translit: 'santOSham', meaning: 'Happy' },
+  { tel: 'కష్టం', translit: 'kaShTam', meaning: 'Hard' },
+  { tel: 'నష్టం', translit: 'naShTam', meaning: 'Loss' },
+  { tel: 'రాష్ట్రం', translit: 'raaShTram', meaning: 'State' },
+  { tel: 'సృష్టికర్త', translit: 'sRuShTikarta', meaning: 'Creator' },
+  { tel: 'దర్శనం', translit: 'darshanam', meaning: 'Dream, View, Visit, Vision' },
+  { tel: 'సందర్శించడం', translit: 'sandarshinchaDam', meaning: 'To look at, View, Behold, Visit' },
+  { tel: 'విమర్శ', translit: 'vimarsha', meaning: 'Deliberation, Inquiry, Review' },
+  { tel: 'వర్షము', translit: 'varShamu', meaning: 'Rain' },
+  { tel: 'స్పర్శ', translit: 'sparsha', meaning: '(The sense of) touch' },
+  { tel: 'హర్షించు', translit: 'harShinchu', meaning: 'To rejoice' },
+  { tel: 'లక్ష', translit: 'lakSha', meaning: '100 thousand' },
+  { tel: 'క్షేమం', translit: 'kShEmam', meaning: 'Safe' },
+  { tel: 'లక్ష్యం', translit: 'lakShyam', meaning: 'Goal (mission)' },
+  { tel: 'క్షోభ', translit: 'kShObha', meaning: 'Trouble, Distress' },
+  { tel: 'సంక్షోభం', translit: 'sankShObham', meaning: 'Crisis' },
+  { tel: 'క్షేత్రం', translit: 'kShEtram', meaning: '(Holy) place, Field' },
+  { tel: 'కళ(లు)', translit: 'kaLa(lu)', meaning: 'Art(s)' },
+  { tel: 'తాళం', translit: 'taaLam', meaning: 'Lock, Beat (of music)' },
+  { tel: 'వేళ', translit: 'vELa', meaning: '(A particular) time' },
+  { tel: 'కళ్ళు', translit: 'kaLLu', meaning: 'Eyes' },
+  { tel: 'పళ్ళు', translit: 'paLLu', meaning: 'Teeth' },
+  { tel: 'రాళ్ళు', translit: 'raaLLu', meaning: 'Stones' },
+  { tel: '(మంచి) నీళ్ళు', translit: '(manchi) neeLLu', meaning: '(Drinking) Water' },
+  { tel: 'కళ్ళెం', translit: 'kaLLem', meaning: 'Bridle/Reins (of a horse)' },
+  { tel: 'పళ్ళెం', translit: 'paLLem', meaning: '(Eating) Plate' },
+  { tel: 'పెళ్ళి', translit: 'peLLi', meaning: 'Marriage' },
+  { tel: 'హలము', translit: 'halamu', meaning: 'Plough' },
+  { tel: 'హరిత', translit: 'harita', meaning: 'Green' },
+  { tel: 'హారం', translit: 'haaram', meaning: 'Necklace' },
+  { tel: 'హీనము', translit: 'heenamu', meaning: 'Lowly' },
+  { tel: 'హైనా', translit: 'hainaa', meaning: 'Hyena' },
+  { tel: 'హర్షం', translit: 'harSham', meaning: 'Joy, Elation' },
+  { tel: 'అర్హత', translit: 'arhata', meaning: 'Worthiness, Merit' },
+  { tel: 'ఢీ కొట్టడం', translit: 'Dhee koTTaDam', meaning: 'To collide' },
+  { tel: 'ఢంక', translit: 'Dhanka', meaning: 'A drum' },
+  { tel: 'దృఢం', translit: 'dRuDham', meaning: 'Firm' },
+  { tel: 'ఫలం', translit: 'phalam', meaning: 'Fruit, Result' },
+  { tel: '(అ)సఫలం', translit: '(a)saphalam', meaning: '(Un)successful' },
+  { tel: 'షడ్ఢకుడు', translit: 'ShaDDhakuDu', meaning: 'Co-Brother' },
+  { tel: 'స్ఫూర్తి', translit: 'sphoorti', meaning: 'Inspiration' },
+  { tel: 'బాణం', translit: 'baaNam', meaning: 'Arrow' },
+  { tel: 'గుణం', translit: 'guNam', meaning: "A material's Property, A person's Character" },
+  { tel: 'గణితం', translit: 'gaNitam', meaning: 'Mathematics' },
+  { tel: 'మణి', translit: 'maNi', meaning: 'Precious stone' },
+  { tel: 'మణులు', translit: 'maNulu', meaning: 'Precious stones' },
+  { tel: 'ఫణి', translit: 'phaNi', meaning: 'Serpent, Snake' },
+  { tel: 'ఫణేంద్ర', translit: 'phaNeendra', meaning: 'Serpent God in Hindu mythology' },
+  { tel: 'అరణ్యము', translit: 'araNyamu', meaning: 'Forest' },
+  { tel: 'నాణ్యత', translit: 'naaNyata', meaning: 'Quality' },
+  { tel: 'వర్ణన', translit: 'varNana', meaning: 'Description' },
+  { tel: 'వర్ణించడం', translit: 'varNinchaDam', meaning: 'To describe' },
+  { tel: 'కర్ణుడు', translit: 'karNuDu', meaning: 'An archer in Mahabharatha' },
+  { tel: 'నిర్ణయం', translit: 'nirNayam', meaning: 'Decision' },
+  { tel: 'చూర్ణం', translit: 'choorNam', meaning: 'Powder' },
+  { tel: 'ముఖము', translit: 'mukhamu', meaning: 'Face' },
+  { tel: 'ఖడ్గం', translit: 'khaDgam', meaning: 'Sword' },
+  { tel: 'ఖరము', translit: 'kharamu', meaning: 'Ass (Donkey)' },
+  { tel: 'ఖండము', translit: 'khanDamu', meaning: 'Continent' },
+  { tel: 'ఖైది', translit: 'khaidi', meaning: 'Prisoner' },
+  { tel: 'ఖరీదు', translit: 'khareedu', meaning: 'Price, expensive' },
+  { tel: 'సంఖ్య', translit: 'sankhya', meaning: 'Number' },
+  { tel: 'మూర్ఖుడు', translit: 'moorkhuDu', meaning: 'Fool' },
+  { tel: 'మేఘం', translit: 'mEgham', meaning: 'Cloud' },
+  { tel: 'నిఘంటువు', translit: 'nighanTuvu', meaning: 'Dictionary' },
+  { tel: 'ఘోరం', translit: 'ghOraM', meaning: 'Horrible' },
+  { tel: 'సంఘటన', translit: 'sanghaTana', meaning: '(good) event' },
+  { tel: 'ఘర్షణ', translit: 'gharshaNa', meaning: 'Quarrel, Friction' },
+  { tel: 'సంఘర్షణ', translit: 'sangharshaNa', meaning: 'Rivalry, Dispute' },
+  { tel: 'దీర్ఘం', translit: 'deergham', meaning: 'Lengthy, Elongated, Vowel diacritic of ఆ' },
+  { tel: 'ముఠా', translit: 'muThaa', meaning: 'Gang' },
+  { tel: 'కఠినం', translit: 'kaThinam', meaning: 'Difficult' },
+  { tel: 'కఠోరం', translit: 'kaThOram', meaning: 'Arduous' },
+  { tel: 'ప్రతిష్ఠ', translit: 'pratiShTha', meaning: 'Fame, Respect' },
+  { tel: 'షష్టి', translit: 'shaShTi', meaning: 'Sixty' },
+  { tel: 'ఱంపం', translit: 'Rampam', meaning: 'Saw (to cut wood)' },
+  { tel: 'బఱ్ఱె', translit: 'baRRe', meaning: 'Buffalo' },
+  { tel: 'గుఱ్ఱం', translit: 'guRRam', meaning: 'Horse' },
+  { tel: 'మఱ్ఱి', translit: 'maRRi', meaning: 'Banyan' },
+  { tel: 'బుఱ్ఱ', translit: 'buRRa', meaning: 'Brain' },
+  { tel: 'కొఱకు', translit: 'koRaku', meaning: 'For' },
+  { tel: 'కథ', translit: 'katha', meaning: 'Story' },
+  { tel: 'రథం', translit: 'ratham', meaning: 'Chariot' },
+  { tel: 'అర్థం', translit: 'artham', meaning: 'Meaning' },
+  { tel: 'వ్యర్థం', translit: 'vyartham', meaning: 'Waste' },
+  { tel: 'యదార్థం', translit: 'yadaartham', meaning: 'Reality' },
+  { tel: 'స్థాపన', translit: 'sthaapana', meaning: 'Establishment' },
+  { tel: 'సంస్థ', translit: 'sanstha', meaning: 'Organization' },
+  { tel: 'వ్యవస్థాపకుడు', translit: 'vyavasthaapakuDu', meaning: 'Entrepreneur, Founder' },
+  { tel: 'స్థిరము', translit: 'sthiramu', meaning: 'Stability' },
+  { tel: 'స్థైర్యము', translit: 'sthairyamu', meaning: 'Steadfastedness' },
+  { tel: 'ఝంకారము', translit: 'jhankaaramu', meaning: 'Buzzing noise of a bee' },
+  { tel: 'ఝషము', translit: 'jhaShamu', meaning: 'Fish' },
+  { tel: 'ఝర్ఝరి', translit: 'jharjhari', meaning: 'A kind of drum' },
+  { tel: 'ఆజ్ఞ', translit: 'aaj~ja', meaning: 'Command, order, permission' },
+  { tel: 'విజ్ఞప్తి', translit: 'vij~japti', meaning: 'Request' },
+  { tel: '(వి)జ్ఞానం', translit: '(vi)j~jaanam', meaning: 'Knowledge' },
+  { tel: 'దుఃఖము', translit: 'duHkhamu', meaning: 'Sadness' },
+  { tel: 'అంతఃపురము', translit: 'antaHpuramu', meaning: 'Inner chamber in a palace' },
+  { tel: 'అంతఃకలహాలు', translit: 'antaHkalahaalu', meaning: 'In-fighting' },
+  // ఆ words
+  { tel: 'ఆట(లు)', translit: 'aaTa(lu)', meaning: 'Games' },
+  { tel: 'ఆకలి', translit: 'aakali', meaning: 'Hunger' },
+  { tel: 'ఆకు(లు)', translit: 'aaku(lu)', meaning: 'Leaf (leaves)' },
+  { tel: 'ఆహారం', translit: 'aahaaram', meaning: 'Food' },
+  { tel: 'ఆవకాయ', translit: 'aavakaaya', meaning: 'Pickle' },
+  // ఈ words
+  { tel: 'ఈక', translit: 'eeka', meaning: 'Feather' },
+  { tel: 'ఈల', translit: 'eela', meaning: 'Whistle' },
+  { tel: 'ఈ రోజు', translit: 'ee rOju', meaning: 'This day' },
+  { tel: 'ఈ వ్యక్తి', translit: 'ee vyakti', meaning: 'This person' },
+  // ఉ words
+  { tel: 'ఉడత', translit: 'uData', meaning: 'Squirrel' },
+  { tel: 'ఉప్పు', translit: 'uppu', meaning: 'Salt' },
+  { tel: 'ఉయ్యాల', translit: 'uyyaala', meaning: 'Swing' },
+  { tel: 'ఉక్కు', translit: 'ukku', meaning: 'Iron' },
+  { tel: 'ఉసిరికాయ', translit: 'usirikaaya', meaning: 'Gooseberry' },
+  { tel: 'ఉంది', translit: 'undi', meaning: 'Being there' },
+  // ఊ words
+  { tel: 'ఊయల', translit: 'ooyala', meaning: 'Swing' },
+  { tel: 'ఊడడము', translit: 'ooDaDamu', meaning: 'To unattach' },
+  { tel: 'ఊడింది', translit: 'ooDindi', meaning: '' },
+  { tel: 'ఊడవడము', translit: 'ooDavaDamu', meaning: 'To sweep' },
+  { tel: 'ఊపిరి', translit: 'oopiri', meaning: 'Breath' },
+  // ఎ words
+  { tel: 'ఎక్కువ', translit: 'ekkuva', meaning: 'More' },
+  { tel: 'ఎవరు', translit: 'evaru', meaning: 'Who' },
+  { tel: 'ఎవరికి', translit: 'evariki', meaning: 'To whom' },
+  { tel: 'ఎలుక', translit: 'eluka', meaning: 'Rat' },
+  // ఏ words
+  { tel: 'ఏడు', translit: 'EDu', meaning: 'Seven' },
+  { tel: 'ఏడుస్తున్నాడు', translit: 'EDustunnaaDu', meaning: '(he is) crying' },
+  { tel: 'ఏనుగు', translit: 'Enugu', meaning: 'Elephant' },
+  // ఐ words
+  { tel: 'ఐదు', translit: 'aidu', meaning: 'Five' },
+  { tel: 'ఐకమత్యం', translit: 'aikamatyam', meaning: 'Unity' },
+  { tel: 'ఐరావతం', translit: 'airaavatam', meaning: "Indra's elephant" },
+  // ఒ words
+  { tel: 'ఒకరు', translit: 'okaru', meaning: 'One person' },
+  { tel: 'ఒకటి', translit: 'okaTi', meaning: 'One' },
+  { tel: 'ఒంటె', translit: 'onTe', meaning: 'Camel' },
+  { tel: 'ఒకే ఒక', translit: 'okE oka', meaning: 'One and only' },
+  { tel: 'ఒక్కొక్క', translit: 'okkokka', meaning: 'Every' },
+  { tel: 'ఒంటరిగా', translit: 'onTarigaa', meaning: 'Alone' },
+  // ఓ words
+  { tel: 'ఓడ', translit: 'ODa', meaning: 'Ship' },
+  { tel: 'ఓపిక', translit: 'Opika', meaning: 'Patience' },
+  { tel: 'ఓటమి', translit: 'OTami', meaning: 'Loss (losing)' },
+  { tel: 'ఓడించు', translit: 'ODinchu', meaning: 'Defeat (someone)' },
+  // ఔ words
+  { tel: 'ఔషధం', translit: 'auShadham', meaning: 'Medicine' },
+  { tel: 'ఔదార్యం', translit: 'audaaryam', meaning: 'Generosity' },
+  { tel: 'ఔరా', translit: 'auraa', meaning: 'Wow!' },
+  { tel: 'ఔన్నత్యం', translit: 'aunnatyam', meaning: 'Greatness' },
+  { tel: 'ఔటు', translit: 'auTu', meaning: 'A type of firework' },
+  // ఋ words
+  { tel: 'ఋషి', translit: 'Rushi', meaning: 'Sage, saint' },
+  { tel: 'ఋణం', translit: 'RuNam', meaning: 'Debt' },
+  { tel: 'ఋతువు', translit: 'Rutuvu', meaning: 'Season' },
+  { tel: 'ఋజువు', translit: 'Rujuvu', meaning: 'Evidence' },
+  // వాగ్మయం
+  { tel: 'వాఙ్మయం', translit: 'vaa~gmayam', meaning: 'Literature' },
+];
+
+// Set sticky offset to sit just below the toolbar
+function setStickyOffset() {
+  const toolbarH = document.querySelector('.toolbar').offsetHeight;
+  document.querySelectorAll('thead th').forEach(th => {
+    th.style.top = toolbarH + 'px';
+  });
+}
+setStickyOffset();
+window.addEventListener('resize', setStickyOffset);
+const seen = new Set();
+const uniqueWords = words.filter(w => {
+  const key = w.tel + '|' + w.meaning;
+  if (seen.has(key)) return false;
+  seen.add(key);
+  return true;
+});
+
+const tbody = document.getElementById('tableBody');
+const countBadge = document.getElementById('countBadge');
+const searchInput = document.getElementById('searchInput');
+const noResults = document.getElementById('noResults');
+
+function buildRows(data) {
+  tbody.innerHTML = '';
+  data.forEach((w, i) => {
+    const tr = document.createElement('tr');
+    tr.dataset.index = i;
+    // Store the Telugu word directly on the button via DOM (avoids HTML attribute encoding issues)
+    const td_tel    = document.createElement('td');
+    td_tel.className = 'col-telugu';
+    td_tel.textContent = w.tel;
+
+    const td_trans  = document.createElement('td');
+    td_trans.className = 'col-translit';
+    td_trans.textContent = w.translit;
+
+    const td_pronun = document.createElement('td');
+    td_pronun.className = 'col-pronun';
+    const btn = document.createElement('button');
+    btn.className = 'pronun-btn';
+    btn.title = 'Listen: ' + w.translit;
+    // Store the Telugu filename on the button as a JS property (100% safe, no HTML encoding)
+    btn._audioTel = w.tel;
+    btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" pointer-events="none"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>`;
+    td_pronun.appendChild(btn);
+
+    const td_meaning = document.createElement('td');
+    td_meaning.className = 'col-meaning';
+    td_meaning.textContent = w.meaning;
+
+    tr.appendChild(td_tel);
+    tr.appendChild(td_trans);
+    tr.appendChild(td_pronun);
+    tr.appendChild(td_meaning);
+    tbody.appendChild(tr);
+  });
+}
+
+let currentAudio = null;
+
+// Event delegation on tbody — always find the button regardless of which child was clicked
+tbody.addEventListener('click', e => {
+  const btn = e.target.closest('button.pronun-btn');
+  if (!btn) return;
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+  }
+  const tel = btn._audioTel;
+  const audio = new Audio('assets/audio/te/' + encodeURIComponent(tel) + '.mp3');
+  currentAudio = audio;
+  audio.play().catch(() => {});
+});
+
+function updateCount(n, total) {
+  countBadge.textContent = n === total ? `${total} పదాలు` : `${n} / ${total} పదాలు`;
+}
+
+buildRows(uniqueWords);
+updateCount(uniqueWords.length, uniqueWords.length);
+
+searchInput.addEventListener('input', () => {
+  const q = searchInput.value.trim().toLowerCase();
+  const rows = tbody.querySelectorAll('tr');
+  let visible = 0;
+  rows.forEach(row => {
+    const idx = parseInt(row.dataset.index);
+    const w = uniqueWords[idx];
+    const match = !q ||
+      w.tel.toLowerCase().includes(q) ||
+      w.translit.toLowerCase().includes(q) ||
+      w.meaning.toLowerCase().includes(q);
+    row.classList.toggle('hidden', !match);
+    if (match) visible++;
+  });
+  noResults.style.display = visible === 0 ? 'block' : 'none';
+  updateCount(visible, uniqueWords.length);
+});
+</script>
+</body>
+</html>
